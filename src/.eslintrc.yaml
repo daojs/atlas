@@ -1,0 +1,7 @@
+---
+  # Refer to docs/javascript/README.md for detail
+  extends: airbnb
+
+  env:
+    browser: true
+    node: false
