@@ -1,0 +1,8 @@
+{
+  "name": "@daojs/atlas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/daojs/atlas.git",
+  "author": "Wei Wei <shazhouke@gmail.com>",
+  "license": "MIT"
+}
