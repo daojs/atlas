@@ -78,6 +78,7 @@ export default class CalculationNetwork {
                   isAbandoned: true,
                 });
               }
+              return value;
             }, (error) => {
               this.didRecalculate({ key, taskId, error });
             });
@@ -90,7 +91,7 @@ export default class CalculationNetwork {
   }
 
   set(key, value) {
-    if (_.has(this.parameters, key) && !_.isEqual(value, this.results[key])) {
+    if (_.has(this.parameters, key) && value !== this.results[key]) {
       this.results[key] = value;
       if (!this.dirtyFlags) {
         this.dirtyFlags = {};

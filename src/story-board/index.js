@@ -1,6 +1,8 @@
+import _ from 'lodash';
+import Immutable from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
-import CalculateNetwork from './calculation-network';
+import CalculationNetwork from './calculation-network';
 
 export default class StoryBoard extends React.Component {
   constructor(props) {
@@ -13,17 +15,54 @@ export default class StoryBoard extends React.Component {
       renderContent,
     } = props;
 
-    this.calculateNetwork = new CalculateNetwork({
+    this.state = {
+      results: Immutable.Map(),
+      updating: Immutable.Map(),
+    };
+
+    this.calculationNetwork = new CalculationNetwork({
       parameters,
       cells,
-      willRecalculate: ({ key }) => console.log(`Will recalc ${key}`),
-      didRecalculate: ({ key }) => console.log(`Did recalc ${key}`),
+      willRecalculate: ({ key }) => {
+        this.setState(({ updating }) => ({
+          updating: updating.set(key, true),
+        }));
+      },
+      didRecalculate: ({ key, value, isAbandoned }) => {
+        if (!isAbandoned) {
+          this.setState(({
+            results,
+            updating,
+          }) => ({
+            results: results.set(key, value),
+            updating: updating.set(key, false),
+          }));
+        }
+      },
     });
     this.renderContent = renderContent;
   }
 
   render() {
-    return this.renderContent();
+    const {
+      state: {
+        results,
+        updating,
+      },
+      calculationNetwork,
+    } = this;
+
+    return this.renderContent({
+      read(key) {
+        return results.get(key);
+      },
+      write(key, value) {
+        calculationNetwork.set(key, value);
+      },
+      isUpdating(key) {
+        return updating.get(key);
+      },
+    });
   }
 }
 
