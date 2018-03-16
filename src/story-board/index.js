@@ -16,8 +16,8 @@ export default class StoryBoard extends React.Component {
     this.calculateNetwork = new CalculateNetwork({
       parameters,
       cells,
-      willRecalculate: key => console.log(`Will recalc ${key}`),
-      didRecalculate: key => console.log(`Did recalc ${key}`),
+      willRecalculate: ({ key }) => console.log(`Will recalc ${key}`),
+      didRecalculate: ({ key }) => console.log(`Did recalc ${key}`),
     });
     this.renderContent = renderContent;
   }

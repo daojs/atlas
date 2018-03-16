@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Promise from 'bluebird';
+import uuid from 'uuid/v4';
 
 export default class CalculationNetwork {
   constructor({
@@ -12,7 +13,7 @@ export default class CalculationNetwork {
     this.cells = cells;
     this.willRecalculate = willRecalculate;
     this.didRecalculate = didRecalculate;
-    this.results = _.assign(_.mapValues(cells, _.constant(null)), parameters);
+    this.results = _.mapValues(cells, _.constant(null));
     this.dependents = {};
     _.forEach(cells, ({ dependencies }, key) => {
       _.forEach(dependencies, (dep) => {
@@ -20,10 +21,12 @@ export default class CalculationNetwork {
         this.dependents[dep].push(key);
       });
     });
-    this.recalculate(_.keys(cells));
+    _.forEach(parameters, (param, key) => {
+      this.set(key, param.default || null);
+    });
   }
 
-  recalculateKeys(originalKeys) {
+  recalculateKeys() {
     const set = {};
     const inSet = _.propertyOf(set);
     const addKeys = (keys) => {
@@ -36,14 +39,18 @@ export default class CalculationNetwork {
         .value();
     };
 
-    addKeys(originalKeys);
+    addKeys(_.keys(this.dirtyFlags));
     return _.filter(_.keys(set), _.propertyOf(this.cells));
   }
 
-  recalculate(keys) {
-    const expandedKeys = this.recalculateKeys(keys);
+  recalculate() {
+    const taskId = uuid();
+    const expandedKeys = this.recalculateKeys();
     const results = _.mapValues(_.omit(this.results, expandedKeys), Promise.resolve);
     let remainingKeys = expandedKeys;
+
+    this.currentTaskId = taskId;
+    delete this.dirtyFlags;
 
     while (remainingKeys.length > 0) {
       const remainingKeysNew = [];
@@ -55,15 +62,45 @@ export default class CalculationNetwork {
         const depResults = _.map(dependencies, _.propertyOf(results));
 
         if (_.every(depResults, Boolean)) {
-          this.willRecalculate(key);
-          results[key] = Promise.all(depResults).spread(factory).finally(() => {
-            this.didRecalculate(key);
-          });
+          this.willRecalculate({ key, taskId });
+          results[key] = Promise
+            .all(depResults)
+            .spread(factory)
+            .then((value) => {
+              if (this.currentTaskId === taskId) {
+                this.results[key] = value;
+                this.didRecalculate({ key, taskId, value });
+              } else {
+                this.didRecalculate({
+                  key,
+                  taskId,
+                  value,
+                  isAbandoned: true,
+                });
+              }
+            }, (error) => {
+              this.didRecalculate({ key, taskId, error });
+            });
         } else {
           remainingKeysNew.push(key);
         }
       });
       remainingKeys = remainingKeysNew;
     }
+  }
+
+  set(key, value) {
+    if (_.has(this.parameters, key) && !_.isEqual(value, this.results[key])) {
+      this.results[key] = value;
+      if (!this.dirtyFlags) {
+        this.dirtyFlags = {};
+        setTimeout(() => this.recalculate(), 0);
+      }
+      this.dirtyFlags[key] = value;
+    }
+  }
+
+  get(key) {
+    return this.results[key];
   }
 }
