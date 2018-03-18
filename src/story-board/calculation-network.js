@@ -26,6 +26,9 @@ export default class CalculationNetwork {
     });
   }
 
+  /**
+   * TODO: cache it or calculate it in constructor if not support add cell dynamically
+  */
   recalculateKeys() {
     const set = {};
     const inSet = _.propertyOf(set);
@@ -67,20 +70,24 @@ export default class CalculationNetwork {
             .all(depResults)
             .spread(factory)
             .then((value) => {
-              if (this.currentTaskId === taskId) {
+              const isAbandoned = this.currentTaskId !== taskId;
+              if (!isAbandoned) {
                 this.results[key] = value;
-                this.didRecalculate({ key, taskId, value });
-              } else {
-                this.didRecalculate({
-                  key,
-                  taskId,
-                  value,
-                  isAbandoned: true,
-                });
               }
+              this.didRecalculate({
+                key,
+                taskId,
+                value,
+                isAbandoned,
+              });
               return value;
             }, (error) => {
-              this.didRecalculate({ key, taskId, error });
+              this.didRecalculate({
+                key,
+                taskId,
+                error,
+                isAbandoned: this.currentTaskId !== taskId,
+              });
             });
         } else {
           remainingKeysNew.push(key);
@@ -91,7 +98,7 @@ export default class CalculationNetwork {
   }
 
   set(key, value) {
-    if (_.has(this.parameters, key) && value !== this.results[key]) {
+    if (_.has(this.parameters, key) && !_.isEqual(value, this.results[key])) {
       this.results[key] = value;
       if (!this.dirtyFlags) {
         this.dirtyFlags = {};
