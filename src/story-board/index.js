@@ -57,7 +57,7 @@ export default class StoryBoard extends React.Component {
         return results.get(key);
       },
       write(key, value) {
-        calculationNetwork.set(key, value);
+        calculationNetwork.write(key, value);
       },
       isUpdating(key) {
         return updating.get(key);

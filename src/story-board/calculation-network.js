@@ -22,7 +22,7 @@ export default class CalculationNetwork {
       });
     });
     _.forEach(parameters, (param, key) => {
-      this.set(key, param.default || null);
+      this.write(key, param.default || null);
     });
   }
 
@@ -90,7 +90,7 @@ export default class CalculationNetwork {
     }
   }
 
-  set(key, value) {
+  write(key, value) {
     if (_.has(this.parameters, key) && value !== this.results[key]) {
       this.results[key] = value;
       if (!this.dirtyFlags) {
@@ -101,7 +101,7 @@ export default class CalculationNetwork {
     }
   }
 
-  get(key) {
+  read(key) {
     return this.results[key];
   }
 }

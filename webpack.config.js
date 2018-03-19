@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: [
-    './src/index.jsx',
+    './src/index.js',
     'react-hot-loader/patch',
   ],
   devtool: 'source-map',

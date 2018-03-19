@@ -7,6 +7,8 @@ import StoryBoard from './story-board';
 import sampleStory from './sample-story';
 import components from './components';
 
+const { TimeSeries } = components;
+
 ReactDOM.render(
   <StoryBoard
     components={components}
@@ -38,6 +40,7 @@ ReactDOM.render(
             <Input value={read('toe')} disabled />
           </Form.Item>
         </Spin>
+        <TimeSeries />
       </Form>
     )}
   />,
