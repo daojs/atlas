@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import Immutable from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
