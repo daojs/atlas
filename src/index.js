@@ -26,8 +26,8 @@ ReactDOM.render(
     story={sampleStory}
     renderComponent={() => (
       <Form>
-        <Slicer parameter="foo" renderSlicer={WithLabel(FormInput, 'foo')}/>
-        <Slicer parameter="bar" renderSlicer={WithLabel(FormInput, 'bar')}/>
+        <Slicer parameter="@foo" renderSlicer={WithLabel(FormInput, 'foo')} />
+        <Slicer parameter="@bar" renderSlicer={WithLabel(FormInput, 'bar')} />
         <Cell renderCell={WithLabel(FormField, 'tic')} parameter="tic" />
         <Cell renderCell={WithLabel(FormField, 'tac')} parameter="tac" />
         <Cell renderCell={WithLabel(FormField, 'toe')} parameter="toe" />

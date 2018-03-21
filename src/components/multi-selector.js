@@ -6,6 +6,29 @@ import _ from 'lodash';
 const { Option } = Select;
 
 export default class MultiSelector extends Component {
+  componentDidUpdate() {
+    const {
+      value: {
+        defaultValue,
+        enums,
+      },
+      currentValue,
+    } = this.props;
+    if (enums.length > 0) {
+      if (_.isNil(currentValue)) {
+        this.onChange(defaultValue);
+      } else {
+        const values = _.filter(
+          currentValue,
+          val => _.includes(enums, val) || _.find(enums, { value: val }),
+        );
+        if (!_.isEqual(values, currentValue)) {
+          this.onChange(values);
+        }
+      }
+    }
+  }
+
   onChange(value) {
     this.props.update(value);
   }
@@ -16,6 +39,7 @@ export default class MultiSelector extends Component {
       enums,
     } = this.props.value;
     const opts = _.map(enums, item => ({ value: item.value || item, text: item.text || item }));
+
     const selector = enums.length > 0 ? (
       <Select
         mode="multiple"
@@ -39,6 +63,7 @@ export default class MultiSelector extends Component {
 MultiSelector.propTypes = {
   label: PropTypes.string,
   value: PropTypes.objectOf(PropTypes.any),
+  currentValue: PropTypes.arrayOf(PropTypes.string),
   update: PropTypes.func,
 };
 
@@ -46,4 +71,5 @@ MultiSelector.defaultProps = {
   label: '',
   update: _.noop,
   value: { defaultValue: [], enums: [] },
+  currentValue: undefined,
 };
