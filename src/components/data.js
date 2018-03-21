@@ -15,6 +15,7 @@ export default function Cell({
     <Spin spinning={input ? isUpdating(input) : false}>
       {renderCell({
         value: read(input || output),
+        currentValue: read(output),
         update: value => output && write(output, value),
       })}
     </Spin>

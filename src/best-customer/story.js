@@ -4,7 +4,6 @@ export default {
   parameters: {
     MeasureGlobal: { default: undefined },
     time: { default: { start: '2017-11-01', end: '2017-12-02' } },
-    virtualRoot: { default: undefined },
   },
   cells: {
     measureGlobal: {
