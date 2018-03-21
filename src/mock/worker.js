@@ -1,7 +1,3 @@
-const mockWorker = new Worker('dist/worker.js');
+import RpcClient from './rpc-client';
 
-mockWorker.onmessage = (event) => {
-  window.console.log(event.data);
-};
-
-export default mockWorker;
+export default new RpcClient('dist/worker.js');

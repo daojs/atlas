@@ -1,5 +1,5 @@
 import Promise from 'bluebird';
-import mockWorker from './mock/worker';
+import client from './mock/worker';
 
 export default {
   parameters: {
@@ -22,4 +22,6 @@ export default {
   },
 };
 
-mockWorker.postMessage([5, 10]);
+client
+  .call('mul', 5, 10)
+  .then(window.console.log);
