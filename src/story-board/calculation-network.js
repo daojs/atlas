@@ -16,7 +16,7 @@ export default class CalculationNetwork {
     this.results = _.defaults({}, _.mapValues(this.parameters, _.property('default')), _.mapValues(cells, _.constant(null)));
     this.dirtyFlags = _.mapValues(this.results, _.constant(true));
     this.dependents = {};
-    _.forEach(cells, ({ dependencies }, key) => {
+    _.forEach(cells, ({ dependencies = [] }, key) => {
       _.forEach(dependencies, (dep) => {
         this.dependents[dep] = this.dependents[dep] || [];
         this.dependents[dep].push(key);
@@ -59,7 +59,7 @@ export default class CalculationNetwork {
       const remainingKeysNew = [];
       _.forEach(remainingKeys, (key) => {
         const {
-          dependencies,
+          dependencies = [],
           factory,
         } = this.cells[key];
         const depResults = _.map(dependencies, _.propertyOf(results));
