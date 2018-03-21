@@ -13,7 +13,8 @@ export default class CalculationNetwork {
     this.cells = cells;
     this.willRecalculate = willRecalculate;
     this.didRecalculate = didRecalculate;
-    this.results = _.mapValues(cells, _.constant(null));
+    this.results = _.defaults({}, _.mapValues(parameters, _.property('default')), _.mapValues(cells, _.constant(null)));
+    this.dirtyFlags = _.mapValues(this.results, _.constant(true));
     this.dependents = {};
     _.forEach(cells, ({ dependencies }, key) => {
       _.forEach(dependencies, (dep) => {
@@ -21,9 +22,8 @@ export default class CalculationNetwork {
         this.dependents[dep].push(key);
       });
     });
-    _.forEach(parameters, (param, key) => {
-      this.write(key, param.default || null);
-    });
+
+    setTimeout(() => this.recalculate(), 0);
   }
 
   /**

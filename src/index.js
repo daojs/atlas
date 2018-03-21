@@ -6,6 +6,7 @@ import 'antd/dist/antd.css';
 import StoryBoard from './story-board';
 import sampleStory from './sample-story';
 import components from './components';
+import BestCustomer from './best-customer/layout';
 
 const {
   TimeSeries,
@@ -35,4 +36,9 @@ ReactDOM.render(
     )}
   />,
   document.getElementById('container'),
+);
+
+ReactDOM.render(
+  <BestCustomer />,
+  document.getElementById('bestcustomer'),
 );
