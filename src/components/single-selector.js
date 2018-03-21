@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 const { Option } = Select;
 
-export default class MultiSelector extends Component {
+export default class SingleSelector extends Component {
   componentDidUpdate() {
     const {
       value: {
@@ -56,14 +56,14 @@ export default class MultiSelector extends Component {
   }
 }
 
-MultiSelector.propTypes = {
+SingleSelector.propTypes = {
   label: PropTypes.string,
   value: PropTypes.objectOf(PropTypes.any),
   currentValue: PropTypes.string,
   update: PropTypes.func,
 };
 
-MultiSelector.defaultProps = {
+SingleSelector.defaultProps = {
   label: '',
   update: _.noop,
   value: { defaultValue: undefined, enums: [] },
