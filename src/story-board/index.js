@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import Immutable from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -14,7 +15,7 @@ export default class StoryBoard extends React.Component {
     } = props;
 
     this.state = {
-      results: Immutable.Map(),
+      results: Immutable.Map(_.mapValues(parameters, _.property('default'))),
       updating: Immutable.Map(),
     };
 
@@ -41,23 +42,14 @@ export default class StoryBoard extends React.Component {
   }
 
   getChildContext() {
-    const {
-      state: {
-        results,
-        updating,
-      },
-      calculationNetwork,
-    } = this;
-
     return {
-      read(key) {
-        return results.get(key);
-      },
-      write(key, value) {
-        calculationNetwork.write(key, value);
-      },
-      isUpdating(key) {
-        return updating.get(key);
+      read: key => this.state.results.get(key),
+      isUpdating: key => this.state.updating.get(key),
+      write: (key, value) => {
+        this.calculationNetwork.write(key, value);
+        this.setState(({ results }) => ({
+          results: results.set(key, value),
+        }));
       },
     };
   }
