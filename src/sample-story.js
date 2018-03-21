@@ -1,4 +1,5 @@
 import Promise from 'bluebird';
+import mockWorker from './mock/worker';
 
 export default {
   parameters: {
@@ -20,3 +21,5 @@ export default {
     },
   },
 };
+
+mockWorker.postMessage([5, 10]);

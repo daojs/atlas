@@ -2,14 +2,20 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: [
-    './src/index.js',
-    'react-hot-loader/patch',
-  ],
+  entry: {
+    index: [
+      './src/index.js',
+      'react-hot-loader/patch',
+    ],
+    worker: [
+      './worker/index.js',
+      'react-hot-loader/patch',
+    ],
+  },
   devtool: 'source-map',
   output: {
     path: path.resolve('dist'),
-    filename: 'index.js',
+    filename: '[name].js',
   },
   devServer: {
     contentBase: './',
