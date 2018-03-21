@@ -1,6 +1,9 @@
 ---
-  # Refer to docs/javascript/README.md for detail
-  extends: airbnb
+# Refer to docs/javascript/README.md for detail
+extends: airbnb
 
-  env:
-    node: true
+env:
+  node: true
+
+rules:
+  linebreak-style: off

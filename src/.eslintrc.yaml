@@ -6,4 +6,5 @@
     browser: true
     node: false
   rules:
-    react/jsx-filename-extension: 0
+    react/jsx-filename-extension: off
+    linebreak-style: off
