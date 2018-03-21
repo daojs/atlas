@@ -7,15 +7,15 @@ export default {
   },
   cells: {
     tic: {
-      dependencies: ['foo', 'bar'],
+      dependencies: ['@foo', '@bar'],
       factory: (foo, bar) => Promise.delay(1000).then(() => foo + bar),
     },
     tac: {
-      dependencies: ['foo', 'tic'],
+      dependencies: ['@foo', 'tic'],
       factory: (foo, tic) => Promise.delay(1000).then(() => foo + tic),
     },
     toe: {
-      dependencies: ['bar', 'tac'],
+      dependencies: ['@bar', 'tac'],
       factory: (bar, tac) => Promise.delay(1000).then(() => bar + tac),
     },
   },

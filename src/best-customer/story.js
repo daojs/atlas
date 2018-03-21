@@ -2,7 +2,7 @@ import Promise from 'bluebird';
 
 export default {
   parameters: {
-    MeasureGlobal: { default: undefined },
+    measureGlobal: { default: undefined },
     time: { default: { start: '2017-11-01', end: '2017-12-02' } },
   },
   cells: {
@@ -14,7 +14,7 @@ export default {
       }),
     },
     bestUser: {
-      dependencies: ['MeasureGlobal', 'time'],
+      dependencies: ['@measureGlobal', '@time'],
       factory: (MeasureGlobal, time) => Promise.resolve({ data: { data: { Department: 'STC', Discipline: 'DEV' }, metric: MeasureGlobal, time } }),
     },
   },

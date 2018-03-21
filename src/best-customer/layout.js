@@ -23,8 +23,8 @@ export default function () {
     story={sampleStory}
     renderComponent={() => (
       <Form>
-        <Data input="measureGlobal" output="MeasureGlobal" renderCell={WithLabel(SingleSelector, 'Measure')} />
-        <Data output="time" renderCell={WithLabel(TimeRange, 'Time Range')} />
+        <Data input="measureGlobal" output="@measureGlobal" renderCell={WithLabel(SingleSelector, 'Measure')} />
+        <Data output="@time" renderCell={WithLabel(TimeRange, 'Time Range')} />
         <Data input="bestUser" renderCell={WithLabel(Card, 'Best User Card')} />
       </Form>
     )}
