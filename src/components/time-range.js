@@ -9,17 +9,6 @@ const { RangePicker } = DatePicker;
 const dateFormat = 'YYYY-MM-DD';
 
 export default class TimeRangePicker extends PureComponent {
-  static propTypes = {
-    value: PropTypes.objectOf(PropTypes.any).isRequired,
-    label: PropTypes.string,
-    update: PropTypes.func,
-  }
-
-  static defaultProps = {
-    label: '',
-    onChange: _.noop,
-  }
-
   onChange(values) {
     const [start, end] = values;
     const value = { start: start.format(dateFormat), end: end.format(dateFormat) };
@@ -39,3 +28,15 @@ export default class TimeRangePicker extends PureComponent {
       </div>);
   }
 }
+
+TimeRangePicker.propTypes = {
+  value: PropTypes.objectOf(PropTypes.any),
+  label: PropTypes.string,
+  update: PropTypes.func,
+};
+
+TimeRangePicker.defaultProps = {
+  label: '',
+  update: _.noop,
+  value: {},
+};

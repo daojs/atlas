@@ -4,8 +4,10 @@ import FormField from './form-field';
 import Slicer from './slicer';
 import Cell from './cell';
 import MultiSelector from './multi-selector';
+import SingleSelector from './single-selector';
 import Data from './data';
-import TimeRange from './TimeRange';
+import TimeRange from './time-range';
+import Card from './card';
 
 export default {
   TimeSeries,
@@ -14,6 +16,8 @@ export default {
   Slicer,
   Cell,
   MultiSelector,
+  SingleSelector,
   Data,
   TimeRange,
+  Card,
 };
