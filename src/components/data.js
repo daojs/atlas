@@ -12,20 +12,28 @@ export default function Cell({
   isUpdating,
 }) {
   return (
-    <Spin spinning={isUpdating(input)}>
-      {renderCell({ value: read(input), update: write(output) })}
+    <Spin spinning={input ? isUpdating(input) : false}>
+      {renderCell({
+        value: read(input || output),
+        update: value => output && write(output, value),
+      })}
     </Spin>
   );
 }
 
 Cell.propTypes = {
-  input: PropTypes.string.isRequired,
-  output: PropTypes.string.isRequired,
+  input: PropTypes.string,
+  output: PropTypes.string,
   renderCell: PropTypes.func.isRequired,
+};
+
+Cell.defaultProps = {
+  input: undefined,
+  output: undefined,
 };
 
 Cell.contextTypes = {
   read: PropTypes.func,
+  write: PropTypes.func,
   isUpdating: PropTypes.func,
 };
-

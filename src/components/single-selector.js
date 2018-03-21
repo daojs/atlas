@@ -18,7 +18,6 @@ export default class MultiSelector extends Component {
     const opts = _.map(enums, item => ({ value: item.value || item, text: item.text || item }));
     const selector = enums.length > 0 ? (
       <Select
-        mode="multiple"
         style={{ width: '100%' }}
         defaultValue={defaultValue}
         onChange={args => this.onChange(args)}
@@ -45,5 +44,5 @@ MultiSelector.propTypes = {
 MultiSelector.defaultProps = {
   label: '',
   update: _.noop,
-  value: { defaultValue: [], enums: [] },
+  value: { defaultValue: undefined, enums: [] },
 };
