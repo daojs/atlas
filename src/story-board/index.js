@@ -11,7 +11,6 @@ export default class StoryBoard extends React.Component {
         parameters,
         cells,
       },
-      renderContent,
     } = props;
 
     this.state = {
@@ -39,10 +38,9 @@ export default class StoryBoard extends React.Component {
         }
       },
     });
-    this.renderContent = renderContent;
   }
 
-  render() {
+  getChildContext() {
     const {
       state: {
         results,
@@ -51,7 +49,7 @@ export default class StoryBoard extends React.Component {
       calculationNetwork,
     } = this;
 
-    return this.renderContent({
+    return {
       read(key) {
         return results.get(key);
       },
@@ -61,7 +59,11 @@ export default class StoryBoard extends React.Component {
       isUpdating(key) {
         return updating.get(key);
       },
-    });
+    };
+  }
+
+  render() {
+    return this.props.renderComponent();
   }
 }
 
@@ -75,6 +77,13 @@ StoryBoard.propTypes = {
       dependencies: PropTypes.arrayOf(PropTypes.string),
       factory: PropTypes.func,
     })),
+
   }).isRequired,
-  renderContent: PropTypes.func.isRequired,
+  renderComponent: PropTypes.func.isRequired,
+};
+
+StoryBoard.childContextTypes = {
+  read: PropTypes.func,
+  write: PropTypes.func,
+  isUpdating: PropTypes.func,
 };

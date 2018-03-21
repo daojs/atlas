@@ -1,45 +1,35 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Form, Input, Spin } from 'antd';
+import { Form } from 'antd';
 import 'antd/dist/antd.css';
 
 import StoryBoard from './story-board';
 import sampleStory from './sample-story';
 import components from './components';
 
-const { TimeSeries } = components;
+const {
+  TimeSeries,
+  Cell,
+  Slicer,
+  FormInput,
+  FormField,
+} = components;
+
+function WithLabel(Control, label) {
+  return props => <Control label={label} {...props} />;
+}
 
 ReactDOM.render(
   <StoryBoard
     components={components}
     story={sampleStory}
-    renderContent={({
-      read,
-      write,
-      isUpdating,
-    }) => (
+    renderComponent={() => (
       <Form>
-        <Form.Item label="foo">
-          <Input defaultValue={read('foo')} onChange={e => write('foo', e.target.value)} />
-        </Form.Item>
-        <Form.Item label="bar">
-          <Input defaultValue={read('bar')} onChange={e => write('bar', e.target.value)} />
-        </Form.Item>
-        <Spin spinning={isUpdating('tic')}>
-          <Form.Item label="tic">
-            <Input value={read('tic')} disabled />
-          </Form.Item>
-        </Spin>
-        <Spin spinning={isUpdating('tac')}>
-          <Form.Item label="tac">
-            <Input value={read('tac')} disabled />
-          </Form.Item>
-        </Spin>
-        <Spin spinning={isUpdating('toe')}>
-          <Form.Item label="toe">
-            <Input value={read('toe')} disabled />
-          </Form.Item>
-        </Spin>
+        <Slicer parameter="foo" renderSlicer={WithLabel(FormInput, 'foo')}/>
+        <Slicer parameter="bar" renderSlicer={WithLabel(FormInput, 'bar')}/>
+        <Cell renderCell={WithLabel(FormField, 'tic')} parameter="tic" />
+        <Cell renderCell={WithLabel(FormField, 'tac')} parameter="tac" />
+        <Cell renderCell={WithLabel(FormField, 'toe')} parameter="toe" />
         <TimeSeries />
       </Form>
     )}
