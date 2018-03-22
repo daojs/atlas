@@ -51,20 +51,26 @@ function createScalarFilter(descriptor) {
 }
 
 function createVectorFilter(dimensions) {
-  const keys = _.keys(dimensions);
+  const header = _.keys(dimensions);
   const filters = _.mapValues(dimensions, createScalarFilter);
   const filter = (item) => {
-    const vec = _.map(keys, key => filters[key](item[key]));
+    const vec = _.map(header, key => filters[key](item[key]));
 
     return _.every(vec) ? JSON.stringify(vec) : null;
   };
 
-  return { keys, filter };
+  return { header, filter };
 }
+
+const aggregationMethods = {
+  sum: _.sum,
+  average: values => _.sum(values) / values.length,
+  count: values => _.uniq(values).length,
+};
 
 export function query({
   data,
-  // metrics,
+  metrics,
   dimensions,
   // orderBy,
   // top,
@@ -73,7 +79,7 @@ export function query({
   const { id, name } = data;
   const table = Logger.read(id)[name];
   const results = {};
-  const { keys, filter } = createVectorFilter(dimensions);
+  const { header, filter } = createVectorFilter(dimensions);
 
   _.forEach(table, (item) => {
     const key = filter(item);
@@ -86,5 +92,17 @@ export function query({
     }
   });
 
-  return results;
+  _.forEach(metrics, ({ dimension }) => header.push(dimension));
+
+  const rows = [];
+  _.forEach(results, (items, key) => {
+    const row = JSON.parse(key);
+
+    _.forEach(metrics, ({ dimension, aggregation }) => {
+      row.push(aggregationMethods[aggregation](_.map(items, dimension)));
+    });
+    rows.push(row);
+  });
+
+  return { header, rows };
 }

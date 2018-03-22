@@ -30,10 +30,17 @@ client
   .call('simulate', {
     startDate: '2018-01-01',
     endDate: '2018-03-21',
-    customerCount: 20,
+    customerCount: 200,
   })
   .then(id => client.call('query', {
     data: { id, name: 'transaction' },
+    metrics: [{
+      dimension: 'customerId',
+      aggregation: 'count',
+    }, {
+      dimension: 'revenue',
+      aggregation: 'average',
+    }],
     dimensions: {
       department: { type: 'any' },
       timestamp: {
