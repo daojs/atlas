@@ -47,20 +47,11 @@ export default {
         }
         return simulation
           .then(({ transaction }) => client.call('reduce', transaction, {
-            metrics: [{
-              Revenue: {
-                dimension: 'revenue',
-                aggregation: 'sum',
-              },
-              UU: {
-                dimension: 'customerId',
-                aggregation: 'count',
-              },
-              TransactionCount: {
-                dimension: 'transactionId',
-                aggregation: 'count',
-              },
-            }[measure]],
+            metrics: {
+              Revenue: { revenue: 'sum' },
+              UU: { customerId: 'count' },
+              TransactionCount: { transactionId: 'count' },
+            }[measure],
             dimensions: {
               timestamp: {
                 type: 'days',
