@@ -22,7 +22,7 @@ export default class CalculationNetwork {
         this.dependents[dep].push(key);
       });
     });
-
+    this.latestTaskRecord = {};
     setTimeout(() => this.recalculate(), 0);
   }
 
@@ -52,8 +52,12 @@ export default class CalculationNetwork {
     const results = _.mapValues(_.omit(this.results, expandedKeys), Promise.resolve);
     let remainingKeys = expandedKeys;
 
-    this.currentTaskId = taskId;
     delete this.dirtyFlags;
+
+    this.latestTaskRecord = {
+      ...this.latestTaskRecord,
+      ..._.zipObject(remainingKeys, _.fill(new Array(remainingKeys.length), taskId)),
+    };
 
     while (remainingKeys.length > 0) {
       const remainingKeysNew = [];
@@ -70,7 +74,7 @@ export default class CalculationNetwork {
             .all(depResults)
             .spread(factory)
             .then((value) => {
-              const isAbandoned = this.currentTaskId !== taskId;
+              const isAbandoned = this.latestTaskRecord[key] !== taskId;
               if (!isAbandoned) {
                 this.results[key] = value;
               }
@@ -86,7 +90,7 @@ export default class CalculationNetwork {
                 key,
                 taskId,
                 error,
-                isAbandoned: this.currentTaskId !== taskId,
+                isAbandoned: this.latestTaskRecord[key] !== taskId,
               });
             });
         } else {
