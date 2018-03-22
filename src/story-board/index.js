@@ -15,7 +15,7 @@ export default class StoryBoard extends React.Component {
     } = props;
 
     this.state = {
-      results: Immutable.Map(_.mapValues(parameters, _.property('default'))),
+      results: Immutable.Map(_.mapValues(_.mapKeys(parameters, (val, key) => `@${key}`), _.property('default'))),
       updating: Immutable.Map(),
     };
 

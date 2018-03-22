@@ -38,5 +38,5 @@ TimeRangePicker.propTypes = {
 TimeRangePicker.defaultProps = {
   label: '',
   update: _.noop,
-  value: { start: '2018-1-1', end: '2018-1-3' },
+  value: {},
 };
