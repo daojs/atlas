@@ -13,10 +13,36 @@ const marginY = 10; // px
 
 const sectionHeight = (layout, sectionId) => {
   const sectionLayout = _.find(layout, { i: sectionId.toString() }) || {};
-  const rows = _.get(sectionLayout, 'h', 0);
+  const rows = _.get(sectionLayout, 'h', 4);
   const height = (rows * (rowHeight + marginY)) - marginY;
   return `${_.max([height, 0])}px`;
 };
+
+// const sectionPadding = 12; // px
+
+// const styles = {
+//   section: {
+//     pposition: 'relative',
+//     border: '1px solid #eee',
+//     padding: `${sectionPadding}px`,
+//     boxSizing: 'border-box',
+//   },
+//   sectionHover: {
+//     boxShadow: '0 0 5px #aaa',
+//     cursor: 'move',
+//   },
+//   resizerMark: {
+//     position: 'absolute',
+//     right: 1,
+//     bottom: 1,
+//     marginTop: `-${sectionPadding}px`,
+//     marginLeft: `-${sectionPadding}px`,
+//     width: `${sectionPadding}px`,
+//     height: `${sectionPadding}px`,
+//     backgroundColor: '#fff',
+//     zIndex: 10,
+//   },
+// };
 
 export default class SectionContainer extends Component {
   constructor(props) {
@@ -65,7 +91,9 @@ export default class SectionContainer extends Component {
       >
         {React.Children.map(this.props.children, child =>
           React.cloneElement(child, {
-            style: { height: sectionHeight(this.state.layout, child.key) },
+            style: {
+              height: sectionHeight(this.state.layout, child.key),
+            },
         }))}
       </ResponsiveReactGridLayout>
     );
