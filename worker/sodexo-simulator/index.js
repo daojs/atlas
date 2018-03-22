@@ -76,7 +76,7 @@ function simulateRecharge({ time, customer }, logger) {
   });
 
   logger.log('recharge', _.defaults({
-    timestamp: time.toString(),
+    timestamp: time.toISOString(),
     channel: channels[1],
     rechargeAmount: amount,
   }, customer));
@@ -90,7 +90,7 @@ function simulateAllowance({ day, customer }, logger) {
   });
 
   logger.log('recharge', _.defaults({
-    timestamp: time.toString(),
+    timestamp: time.toISOString(),
     channel: channels[0],
     rechargeAmount: allowanceAmount,
   }));
@@ -118,7 +118,7 @@ function simulateMeal({
 
     logger.log('transaction', _.defaults({
       meal,
-      timestamp: time.toString(),
+      timestamp: time.toISOString(),
       branch: branch.name,
       dish: dish.name,
       revenue: dish.price,
@@ -173,12 +173,4 @@ export function simulate({
       });
     });
   });
-}
-
-export function readLog(id) {
-  return Logger.read(id);
-}
-
-export function removeLog(id) {
-  Logger.remove(id);
 }

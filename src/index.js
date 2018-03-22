@@ -14,14 +14,45 @@ ReactDOM.render(
 );
 
 client
-  .call('mul', 5, 10)
-  .then(window.console.log);
-
-client
   .call('simulate', {
     startDate: '2018-01-01',
     endDate: '2018-03-21',
-    customerCount: 1,
+    customerCount: 200,
   })
-  .then(id => client.call('readLog', id))
+  .then(({ transaction }) => client.call('reduce', transaction, {
+    metrics: [{
+      dimension: 'revenue',
+      aggregation: 'sum',
+    }],
+    dimensions: {
+      customerId: { type: 'any' },
+      timestamp: {
+        type: 'months',
+        from: '2018-01',
+        to: '2018-04',
+      },
+    },
+  }))
+  .then(id => client.call('reduce', id, {
+    metrics: [{
+      dimension: 'revenue',
+      aggregation: 'average',
+    }],
+    dimensions: {
+      customerId: { type: 'any' },
+    },
+  }))
+  .then(id => client.call('reduce', id, {
+    metrics: [{
+      dimension: 'customerId',
+      aggregation: 'count',
+    }],
+    dimensions: {
+      revenue: {
+        type: 'bins',
+        step: 50,
+      },
+    },
+  }))
+  .then(id => client.call('read', id))
   .then(window.console.log);
