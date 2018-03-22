@@ -174,11 +174,3 @@ export function simulate({
     });
   });
 }
-
-export function readLog(id) {
-  return Logger.read(id);
-}
-
-export function removeLog(id) {
-  Logger.remove(id);
-}

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import moment from 'moment';
-import Logger from '../sodexo-simulator/logger';
+import storage from '../storage';
 
 function createDateFilter(descriptor, format) {
   const { from, to } = descriptor;
@@ -68,16 +68,11 @@ const aggregationMethods = {
   count: values => _.uniq(values).length,
 };
 
-export function query({
-  data,
+export function query(id, {
   metrics,
   dimensions,
-  // orderBy,
-  // top,
-  // offset,
 }) {
-  const { id, name } = data;
-  const table = Logger.read(id)[name];
+  const table = storage.read(id);
   const results = {};
   const { header, filter } = createVectorFilter(dimensions);
 
@@ -101,8 +96,8 @@ export function query({
     _.forEach(metrics, ({ dimension, aggregation }) => {
       row.push(aggregationMethods[aggregation](_.map(items, dimension)));
     });
-    rows.push(row);
+    rows.push(_.zipObject(header, row));
   });
 
-  return { header, rows };
+  return storage.write(rows);
 }

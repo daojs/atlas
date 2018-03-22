@@ -32,17 +32,13 @@ client
     endDate: '2018-03-21',
     customerCount: 200,
   })
-  .then(id => client.call('query', {
-    data: { id, name: 'transaction' },
+  .then(({ transaction }) => client.call('query', transaction, {
     metrics: [{
-      dimension: 'customerId',
-      aggregation: 'count',
-    }, {
       dimension: 'revenue',
-      aggregation: 'average',
+      aggregation: 'sum',
     }],
     dimensions: {
-      department: { type: 'any' },
+      customerId: { type: 'any' },
       timestamp: {
         type: 'months',
         from: '2018-01',
@@ -50,4 +46,26 @@ client
       },
     },
   }))
+  .then(id => client.call('query', id, {
+    metrics: [{
+      dimension: 'revenue',
+      aggregation: 'average',
+    }],
+    dimensions: {
+      customerId: { type: 'any' },
+    },
+  }))
+  .then(id => client.call('query', id, {
+    metrics: [{
+      dimension: 'customerId',
+      aggregation: 'count',
+    }],
+    dimensions: {
+      revenue: {
+        type: 'bins',
+        step: 50,
+      },
+    },
+  }))
+  .then(id => client.call('read', id))
   .then(window.console.log);
