@@ -43,7 +43,7 @@ export default function () {
           <SectionCard key="bestCustomer" title="Best Customer Overview">
             <Cell input="measureCustomer" output="@measureCustomer" renderCell={WithLabel(SingleSelector, 'Measure')} />
             <Cell input="bestCustomerQuery" title="Best Customer Query" renderCell={WithChart(PlainData)} />
-            <Cell input="bestCustomerTSAD" title="Best Customer TSAD" renderCell={WithChart(LineWithDataZoom)} />
+            <Cell input="bestCustomerTSAD" title="Best Customer TSAD" renderCell={WithChart(PlainData)} />
           </SectionCard>
           <SectionCard key="bestCustomerExpensePerUser" title="Best Customer Expense Per User">
             <Cell input="granularityCustomer" output="@granularityCustomer" renderCell={WithLabel(SingleSelector, 'Granularity')} />

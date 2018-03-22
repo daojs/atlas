@@ -20,7 +20,7 @@ export default class SectionCard extends PureComponent {
             onMouseDown={(e) => { e.stopPropagation(); }}
             onMouseUp={(e) => { e.stopPropagation(); }}
             style={{
-              cursor: 'pointer',
+              cursor: 'initial',
             }}
           >
             {this.props.children}
@@ -34,7 +34,6 @@ export default class SectionCard extends PureComponent {
 SectionCard.propTypes = {
   children: PropTypes.arrayOf(any),
   title: PropTypes.string,
-  id: PropTypes.string.isRequired,
   className: PropTypes.string,
   style: PropTypes.objectOf(any),
 };
