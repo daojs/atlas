@@ -7,6 +7,7 @@ import Cell from './cell';
 import TimeRange from './time-range';
 import PlainData from './plain-data';
 import SectionContainer from './section-container';
+import SectionCard from './section-card';
 
 export default {
   TimeSeries,
@@ -18,4 +19,5 @@ export default {
   TimeRange,
   PlainData,
   SectionContainer,
+  SectionCard,
 };
