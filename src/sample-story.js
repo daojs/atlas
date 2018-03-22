@@ -32,7 +32,7 @@ client
     endDate: '2018-03-21',
     customerCount: 200,
   })
-  .then(({ transaction }) => client.call('query', transaction, {
+  .then(({ transaction }) => client.call('reduce', transaction, {
     metrics: [{
       dimension: 'revenue',
       aggregation: 'sum',
@@ -46,7 +46,7 @@ client
       },
     },
   }))
-  .then(id => client.call('query', id, {
+  .then(id => client.call('reduce', id, {
     metrics: [{
       dimension: 'revenue',
       aggregation: 'average',
@@ -55,7 +55,7 @@ client
       customerId: { type: 'any' },
     },
   }))
-  .then(id => client.call('query', id, {
+  .then(id => client.call('reduce', id, {
     metrics: [{
       dimension: 'customerId',
       aggregation: 'count',

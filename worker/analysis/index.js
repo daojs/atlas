@@ -68,7 +68,7 @@ const aggregationMethods = {
   count: values => _.uniq(values).length,
 };
 
-export function query(id, {
+export function reduce(id, {
   metrics,
   dimensions,
 }) {
