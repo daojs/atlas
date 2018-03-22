@@ -39,28 +39,32 @@ export default {
       dependencies: ['@time', '@measureCustomer', 'bestUser'],
       factory: (time, measure, bestUser) => Promise.resolve({ time, measure, bestUser }),
     },
-    bestCustomerTSAD: {
-      dependencies: ['@time', '@measureCustomer', 'bestUser'],
-      factory: (time, measure, bestUser) => {
-        if (_.some([time, measure, bestUser], _.isNil)) {
+    mapCustomerMetric: {
+      dependencies: ['@measureCustomer'],
+      factory: measure => ({
+        Revenue: {
+          dimension: 'revenue',
+          aggregation: 'sum',
+        },
+        UU: {
+          dimension: 'customerId',
+          aggregation: 'count',
+        },
+        TransactionCount: {
+          dimension: 'transactionId',
+          aggregation: 'count',
+        },
+      }[measure]),
+    },
+    fetchCustomerTSAD: {
+      dependencies: ['@time', 'mapCustomerMetric', 'bestUser'],
+      factory: (time, metric, bestUser) => {
+        if (_.some([time, metric, bestUser], _.isNil)) {
           return Promise.resolve([]);
         }
         return simulation
           .then(({ transaction }) => client.call('reduce', transaction, {
-            metrics: [{
-              Revenue: {
-                dimension: 'revenue',
-                aggregation: 'sum',
-              },
-              UU: {
-                dimension: 'customerId',
-                aggregation: 'count',
-              },
-              TransactionCount: {
-                dimension: 'transactionId',
-                aggregation: 'count',
-              },
-            }[measure]],
+            metrics: [metric],
             dimensions: {
               timestamp: {
                 type: 'days',
@@ -69,7 +73,38 @@ export default {
               },
               ...bestUser,
             },
-          })).then(id => client.call('read', id).finally(() => client.call('remove', id)));
+          }))
+          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      },
+    },
+    bestCustomerTSAD: {
+      dependencies: ['fetchCustomerTSAD', 'mapCustomerMetric', 'bestUser'],
+      factory: (data, metric, bestUser) => {
+        let expectedData = {
+          data: [],
+          meta: {
+            headers: [],
+            collaspsedColumns: {},
+          },
+        };
+        if (!_.some([data, metric, bestUser], _.isNil)) {
+          const results = _.map(data, item => [item.timestamp, item[metric.dimension]]);
+          expectedData = {
+            data: results,
+            meta: {
+              headers: ['time', metric.dimension],
+              collaspsedColumns: bestUser,
+            },
+          };
+        }
+
+        return convertData({
+          ...expectedData,
+          groupDimensions: [],
+          axisDimensions: ['time'],
+          metricDimensions: [metric.dimension],
+          serieNameTemplate: metric.dimension,
+        });
       },
     },
     granularityCustomer: {
