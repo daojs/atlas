@@ -51,18 +51,18 @@ function createScalarFilter(descriptor) {
 }
 
 function createVectorFilter(dimensions) {
-  const header = _.keys(dimensions);
+  const filterDims = _.keys(dimensions);
   const filters = _.mapValues(dimensions, createScalarFilter);
   const filter = (item) => {
-    const vec = _.map(header, key => filters[key](item[key]));
+    const vec = _.map(filterDims, key => filters[key](item[key]));
 
     return _.every(vec) ? JSON.stringify(vec) : null;
   };
 
-  return { header, filter };
+  return { filterDims, filter };
 }
 
-const aggregationMethods = {
+const aggrs = {
   sum: _.sum,
   average: values => _.sum(values) / values.length,
   count: values => _.uniq(values).length,
@@ -74,7 +74,8 @@ export function reduce(id, {
 }) {
   const table = storage.read(id);
   const results = {};
-  const { header, filter } = createVectorFilter(dimensions);
+  const { filterDims, filter } = createVectorFilter(dimensions);
+  const metricsDims = _.keys(metrics);
 
   _.forEach(table, (item) => {
     const key = filter(item);
@@ -87,17 +88,13 @@ export function reduce(id, {
     }
   });
 
-  _.forEach(metrics, ({ dimension }) => header.push(dimension));
 
-  const rows = [];
-  _.forEach(results, (items, key) => {
+  const columns = filterDims.concat(metricsDims);
+
+  return storage.write(_.map(results, (items, key) => {
     const row = JSON.parse(key);
 
-    _.forEach(metrics, ({ dimension, aggregation }) => {
-      row.push(aggregationMethods[aggregation](_.map(items, dimension)));
-    });
-    rows.push(_.zipObject(header, row));
-  });
-
-  return storage.write(rows);
+    row.push(..._.map(metricsDims, dim => aggrs[metrics[dim]](_.map(items, dim))));
+    return _.zipObject(columns, row);
+  }));
 }

@@ -42,29 +42,20 @@ export default {
     mapCustomerMetric: {
       dependencies: ['@measureCustomer'],
       factory: measure => ({
-        Revenue: {
-          dimension: 'revenue',
-          aggregation: 'sum',
-        },
-        UU: {
-          dimension: 'customerId',
-          aggregation: 'count',
-        },
-        TransactionCount: {
-          dimension: 'transactionId',
-          aggregation: 'count',
-        },
+        Revenue: { revenue: 'sum' },
+        UU: { customerId: 'count' },
+        TransactionCount: { transactionId: 'count' },
       }[measure]),
     },
     fetchCustomerTSAD: {
       dependencies: ['@time', 'mapCustomerMetric', 'bestUser'],
-      factory: (time, metric, bestUser) => {
-        if (_.some([time, metric, bestUser], _.isNil)) {
+      factory: (time, metrics, bestUser) => {
+        if (_.some([time, metrics, bestUser], _.isNil)) {
           return Promise.resolve([]);
         }
         return simulation
           .then(({ transaction }) => client.call('reduce', transaction, {
-            metrics: [metric],
+            metrics,
             dimensions: {
               timestamp: {
                 type: 'days',
