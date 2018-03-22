@@ -2,11 +2,14 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import { Form } from 'antd';
 import 'antd/dist/antd.css';
+import _ from 'lodash';
 
 import StoryBoard from './story-board';
 import sampleStory from './sample-story';
 import components from './components';
 import BestCustomer from './best-customer/layout';
+
+_.templateSettings.interpolate = /{{([\s\S]+?)}}/g; // eslint-disable-line
 
 const {
   TimeSeries,

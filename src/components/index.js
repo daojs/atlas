@@ -8,6 +8,7 @@ import SingleSelector from './single-selector';
 import Data from './data';
 import TimeRange from './time-range';
 import Card from './card';
+import SectionContainer from './section-container';
 
 export default {
   TimeSeries,
@@ -20,4 +21,5 @@ export default {
   Data,
   TimeRange,
   Card,
+  SectionContainer,
 };
