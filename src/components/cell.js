@@ -6,6 +6,7 @@ export default function Cell({
   input,
   output,
   renderCell,
+  ...otherProps
 }, {
   read,
   write,
@@ -13,11 +14,12 @@ export default function Cell({
 }) {
   return (
     <Spin spinning={input ? isUpdating(input) : false}>
-      {renderCell({
+      {read(input || output) ? renderCell({
+        ...otherProps,
         value: read(input || output),
         currentValue: read(output),
         update: value => output && write(output, value),
-      })}
+      }) : null}
     </Spin>
   );
 }
