@@ -71,30 +71,24 @@ export default {
     bestCustomerTSAD: {
       dependencies: ['fetchCustomerTSAD', 'mapCustomerMetric', 'bestUser'],
       factory: (data, metric, bestUser) => {
-        let expectedData = {
-          data: [],
+        if (_.some([data, metric, bestUser], _.isNil)) {
+          return undefined;
+        }
+        const dimension = _.keys(metric)[0];
+        const results = _.map(data, item => [item.timestamp, item[dimension]]);
+        const expectedData = {
+          data: results,
           meta: {
-            headers: [],
-            collaspsedColumns: {},
+            headers: ['time', dimension],
+            collaspsedColumns: bestUser,
           },
         };
-        if (!_.some([data, metric, bestUser], _.isNil)) {
-          const results = _.map(data, item => [item.timestamp, item[metric.dimension]]);
-          expectedData = {
-            data: results,
-            meta: {
-              headers: ['time', metric.dimension],
-              collaspsedColumns: bestUser,
-            },
-          };
-        }
-
         return convertData({
           ...expectedData,
           groupDimensions: [],
           axisDimensions: ['time'],
-          metricDimensions: [metric.dimension],
-          serieNameTemplate: metric.dimension,
+          metricDimensions: [dimension],
+          serieNameTemplate: dimension,
         });
       },
     },
