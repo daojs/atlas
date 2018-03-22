@@ -1,10 +1,18 @@
 import Promise from 'bluebird';
+import _ from 'lodash';
 import { fetchData, convertData, topNData } from '../transforms';
+import client from '../mock/worker';
+
+const simulation = client.call('simulate', {
+  startDate: '2018-01-01',
+  endDate: '2018-03-21',
+  customerCount: 200,
+});
 
 export default {
   parameters: {
     measureUser: { default: undefined },
-    time: { default: { start: '2017-11-01', end: '2017-12-02' } },
+    time: { default: { start: '2018-1-01', end: '2018-2-1' } },
     measureCustomer: { default: undefined },
     granularityCustomer: { default: undefined },
     measureFavor: { default: undefined },
@@ -19,7 +27,7 @@ export default {
     },
     bestUser: {
       dependencies: ['@measureUser', '@time'],
-      factory: (measureUser, time) => Promise.resolve({ data: { data: { Department: 'STC', Discipline: 'DEV' }, metric: measureUser, time } }),
+      factory: () => Promise.resolve({ department: 'STC', discipline: 'SDE' }),
     },
     measureCustomer: {
       factory: () => Promise.resolve({
@@ -33,7 +41,36 @@ export default {
     },
     bestCustomerTSAD: {
       dependencies: ['@time', '@measureCustomer', 'bestUser'],
-      factory: (time, measure, bestUser) => Promise.resolve({ time, measure, bestUser }),
+      factory: (time, measure, bestUser) => {
+        if (_.some([time, measure, bestUser], _.isNil)) {
+          return Promise.resolve([]);
+        }
+        return simulation
+          .then(({ transaction }) => client.call('reduce', transaction, {
+            metrics: [{
+              Revenue: {
+                dimension: 'revenue',
+                aggregation: 'sum',
+              },
+              UU: {
+                dimension: 'customerId',
+                aggregation: 'count',
+              },
+              TransactionCount: {
+                dimension: 'customerId',
+                aggregation: 'count',
+              },
+            }[measure]],
+            dimensions: {
+              timestamp: {
+                type: 'days',
+                from: time.start,
+                to: time.end,
+              },
+              ...bestUser,
+            },
+          })).then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      },
     },
     granularityCustomer: {
       factory: () => Promise.resolve({
