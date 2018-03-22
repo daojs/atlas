@@ -12,7 +12,7 @@ const simulation = client.call('simulate', {
 export default {
   parameters: {
     measureUser: { default: undefined },
-    time: { default: { start: '2018-1-01', end: '2018-2-1' } },
+    time: { default: { start: '2018-01-01', end: '2018-02-01' } },
     measureCustomer: { default: undefined },
     granularityCustomer: { default: undefined },
     measureFavor: { default: undefined },
@@ -57,7 +57,7 @@ export default {
                 aggregation: 'count',
               },
               TransactionCount: {
-                dimension: 'customerId',
+                dimension: 'transactionId',
                 aggregation: 'count',
               },
             }[measure]],
