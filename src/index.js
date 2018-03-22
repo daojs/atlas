@@ -27,9 +27,9 @@ client
     dimensions: {
       customerId: { type: 'any' },
       timestamp: {
-        type: 'months',
-        from: '2018-01',
-        to: '2018-04',
+        type: 'days',
+        from: '2018-01-01',
+        to: '2018-02-01',
       },
     },
   }))
@@ -44,13 +44,13 @@ client
   }))
   .then(id => client.call('reduce', id, {
     metrics: [{
-      dimension: 'customerId',
+      dimension: 'transactionId',
       aggregation: 'count',
     }],
     dimensions: {
       revenue: {
         type: 'bins',
-        step: 50,
+        step: 5,
       },
     },
   }))

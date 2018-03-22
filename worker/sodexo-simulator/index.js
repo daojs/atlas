@@ -76,6 +76,7 @@ function simulateRecharge({ time, customer }, logger) {
   });
 
   logger.log('recharge', _.defaults({
+    rechargeId: uuid(),
     timestamp: time.toISOString(),
     channel: channels[1],
     rechargeAmount: amount,
@@ -90,6 +91,7 @@ function simulateAllowance({ day, customer }, logger) {
   });
 
   logger.log('recharge', _.defaults({
+    rechargeId: uuid(),
     timestamp: time.toISOString(),
     channel: channels[0],
     rechargeAmount: allowanceAmount,
@@ -117,6 +119,7 @@ function simulateMeal({
     });
 
     logger.log('transaction', _.defaults({
+      transactionId: uuid(),
       meal,
       timestamp: time.toISOString(),
       branch: branch.name,
