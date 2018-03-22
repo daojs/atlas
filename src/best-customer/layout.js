@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from 'antd';
+import { Form, Card } from 'antd';
 import 'antd/dist/antd.css';
 
 import StoryBoard from '../story-board';
@@ -7,15 +7,21 @@ import storyConfig from './story';
 import components from '../components';
 
 const {
-  Data,
+  Cell,
   TimeRange,
   SingleSelector,
-  Card,
+  PlainData,
   SectionContainer,
+  Donut,
+  LineWithDataZoom,
 } = components;
 
 function WithLabel(Control, label) {
   return props => <Control label={label} {...props} />;
+}
+
+function WithChart(Control) {
+  return props => <Control {...props.value} {...props} />; //eslint-disable-line
 }
 
 export default function () {
@@ -25,38 +31,40 @@ export default function () {
     renderComponent={() => (
       <Form>
         <h2>Best User Analysis</h2>
-        <Data output="@time" renderCell={WithLabel(TimeRange, 'Time Range')} />
-        <SectionContainer id={storyConfig.id} >
-          <div key="bestUser">
-            <Data input="measureUser" output="@measureUser" renderCell={WithLabel(SingleSelector, 'Measure')} />
-            <Data input="bestUser" renderCell={WithLabel(Card, 'Best User Card')} />
+        <SectionContainer id={storyConfig.id}>
+          <div key="slicer">
+            <Cell output="@time" renderCell={WithLabel(TimeRange, 'Time Range')} />
           </div>
-          <div key="bestCustomer">
-            <h2>Best Customer Overview</h2>
-            <Data input="measureCustomer" output="@measureCustomer" renderCell={WithLabel(SingleSelector, 'Measure')} />
-            <Data input="bestCustomerQuery" renderCell={WithLabel(Card, 'Best Customer Query')} />
-            <Data input="bestCustomerTSAD" renderCell={WithLabel(Card, 'Best Customer TSAD')} />
-          </div>
-          <div key="bestCustomerExpensePerUser">
-            <h2>Best Customer Expense Per User</h2>
-            <Data input="granularityCustomer" output="@granularityCustomer" renderCell={WithLabel(SingleSelector, 'Granularity')} />
-            <Data input="customerExpensePerUserBucket" renderCell={WithLabel(Card, 'Best Customer Expense Per User Bucket')} />
-            <Data input="customerExpensePerUserRank" renderCell={WithLabel(Card, 'Best Customer Expense Per User TSAD')} />
-          </div>
-          <div key="favor">
-            <h2>Favor XXX of Best Customers</h2>
-            <Data input="measureFavor" output="@measureFavor" renderCell={WithLabel(SingleSelector, 'Measure')} />
-            <Data input="dimensionFavor" output="@dimensionFavor" renderCell={WithLabel(SingleSelector, 'Dimension')} />
-            <Data input="favorBestCustomerReduce" renderCell={WithLabel(Card, 'Favor Best Customer Reduce')} />
-            <Data input="favorBestCustomerTrend" renderCell={WithLabel(Card, 'Favor Customer Trend')} />
-          </div>
-          <div key="mealCard">
-            <h2>Usage of Meal Card</h2>
-            <Data input="usageMealCardReduce" renderCell={WithLabel(Card, 'Usage of Meal Card Reduce')} />
-            <Data input="usageMealCardBucketCRAP" renderCell={WithLabel(Card, 'Usage of Meal Card Bucket CardRechargeAmountPerUU')} />
-            <Data input="usageMealCardQuery" renderCell={WithLabel(Card, 'Usage of Meal Card Query')} />
-            <Data input="usageMealCardBucketCB" renderCell={WithLabel(Card, 'Usage of Meal Card CardBalance')} />
-          </div>
+          <Card key="bestUser" title="Best User">
+            <Cell input="measureUser" output="@measureUser" renderCell={WithLabel(SingleSelector, 'Measure')} />
+            <Cell input="bestUser" title="Best User Card" renderCell={WithChart(PlainData)} />
+          </Card>
+          <Card key="bestCustomer" title="Best Customer Overview">
+            <Cell input="measureCustomer" output="@measureCustomer" renderCell={WithLabel(SingleSelector, 'Measure')} />
+            <Cell input="bestCustomerQuery" title="Best Customer Query" renderCell={WithChart(PlainData)} />
+            <Cell input="bestCustomerTSAD" title="Best Customer TSAD" renderCell={WithChart(PlainData)} />
+          </Card>
+          <Card key="bestCustomerExpensePerUser" title="Best Customer Expense Per User">
+            <Cell input="granularityCustomer" output="@granularityCustomer" renderCell={WithLabel(SingleSelector, 'Granularity')} />
+            <Cell input="customerExpensePerUserBucket" title="Best Customer Expense Per User Bucket" renderCell={WithChart(PlainData)} />
+            <Cell input="customerExpensePerUserRank" title="Best Customer Expense Per User TSAD" renderCell={WithChart(PlainData)} />
+          </Card>
+          <Card key="favor" title="Favor XXX of Best Customers">
+            <Cell input="measureFavor" output="@measureFavor" renderCell={WithLabel(SingleSelector, 'Measure')} />
+            <Cell input="dimensionFavor" output="@dimensionFavor" renderCell={WithLabel(SingleSelector, 'Dimension')} />
+            <Cell input="favorBestCustomerReduce" title="Favor Best Customer Reduce" renderCell={WithChart(PlainData)} />
+            <Cell input="favorBestCustomerTrend" title="Favor Customer Trend" renderCell={WithChart(PlainData)} />
+          </Card>
+          <Card key="mealCard" title="Usage of Meal Card">
+            <Cell input="usageMealCardReduce" title="Usage of Meal Card Reduce" renderCell={WithChart(PlainData)} />
+            <Cell input="usageMealCardBucketCRAP" title="Usage of Meal Card Bucket CardRechargeAmountPerUU" renderCell={WithChart(PlainData)} />
+            <Cell input="usageMealCardQuery" title="Usage of Meal Card Query" renderCell={WithChart(PlainData)} />
+            <Cell input="usageMealCardBucketCB" title="Usage of Meal Card CardBalance" renderCell={WithChart(PlainData)} />
+          </Card>
+          <Card key="revenue" title="Revenue analysis">
+            <Cell input="formatRevenue2Line" title="Revenue compare line" renderCell={WithChart(LineWithDataZoom)} />
+            <Cell input="top3Revenue" title="Top 3 revenue" renderCell={WithChart(Donut)} />
+          </Card>
         </SectionContainer>
       </Form>
     )}

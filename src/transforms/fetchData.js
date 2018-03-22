@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import axios from 'axios';
 
-const mtUrl = 'http://localhost:9001/data';
+const mtUrl = 'http://localhost:8080/data';
 
 function dimension2Filter(area, obj) {
   const {

@@ -1,5 +1,6 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 import Promise from 'bluebird';
+import layout from '../mock/layout';
 // import { GraphQLClient } from 'graphql-request';
 
 // const client = new GraphQLClient('/graphql');
@@ -35,8 +36,12 @@ import Promise from 'bluebird';
 //   });
 // }
 
-export function getLayout() {
-  return Promise.resolve([]);
+export function getLayout({
+  storyId,
+  sectionIds,
+}) {
+  const lgs = layout[storyId];
+  return Promise.resolve(_.filter(lgs, lg => _.includes(sectionIds, lg.i)));
 }
 
 export function setLayout() {
