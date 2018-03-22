@@ -30,7 +30,17 @@ client
   .call('simulate', {
     startDate: '2018-01-01',
     endDate: '2018-03-21',
-    customerCount: 1,
+    customerCount: 20,
   })
-  .then(id => client.call('readLog', id))
+  .then(id => client.call('query', {
+    data: { id, name: 'transaction' },
+    dimensions: {
+      department: { type: 'any' },
+      timestamp: {
+        type: 'months',
+        from: '2018-01',
+        to: '2018-04',
+      },
+    },
+  }))
   .then(window.console.log);
