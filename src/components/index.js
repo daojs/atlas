@@ -10,6 +10,7 @@ import SectionContainer from './section-container';
 import Donut from './donut';
 import LineWithDataZoom from './line-datazoom';
 import Line from './line';
+import SectionCard from './section-card';
 
 export default {
   TimeSeries,
@@ -24,4 +25,5 @@ export default {
   Donut,
   LineWithDataZoom,
   Line,
+  SectionCard,
 };
