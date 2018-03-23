@@ -52,6 +52,7 @@ const pMeals = {
 function createCustomer() {
   const cardType = _.sample(cardTypes);
   const customerId = uuid();
+  const branch = _.sample(branches);
 
   pMeals.breakfast[customerId] = _.random(0.2, true);
   pMeals.lunch[customerId] = _.random(0.8, true);
@@ -65,6 +66,8 @@ function createCustomer() {
     age: _.sample(ages),
     cardType,
     balance: cardType === cardTypes[0] ? allowanceAmount : _.sample(rechargeAmount),
+    branchName: branch.name,
+    skuType: _.sample(branch.dishes).name,
   };
 }
 

@@ -3,6 +3,24 @@ import _ from 'lodash';
 import { fetchData, convertData, topNData } from '../transforms';
 import client from '../mock/worker';
 
+const metricsDictionary = {
+  Revenue: { revenue: 'sum' },
+  UU: { customerId: 'count' },
+  TransactionCount: { transactionId: 'count' },
+};
+
+const dimensionsDictionary = {
+  BranchName: {
+    branchName: { type: 'any' },
+  },
+  CardType: {
+    cardType: { type: 'any' },
+  },
+  SKUType: {
+    skuType: { type: 'any' },
+  },
+};
+
 const simulation = client.call('simulate', {
   startDate: '2018-01-01',
   endDate: '2018-03-21',
@@ -180,7 +198,7 @@ export default {
             dimensions: {
               customerId: { type: 'any' },
               timestamp: {
-                type: `${granularity}s`,
+                type: 'time',
                 from: time.start,
                 to: time.end,
               },
@@ -212,8 +230,6 @@ export default {
           return undefined;
         }
 
-        window.console.log(data);
-
         const results = _.map(data, item => [item.customerId, item.revenue]);
         const expectedData = {
           data: results,
@@ -243,11 +259,42 @@ export default {
         enums: ['BranchName', 'CardType', 'SKUType'],
       }),
     },
+    fetchFavorBestCustomerReduce: {
+      dependencies: ['@time', '@measureFavor', '@dimensionFavor', 'bestUser'],
+      factory: (time, measure, dimension, bestUser) => {
+        if (_.some([time, measure, dimension, bestUser], _.isNil)) {
+          return Promise.resolve([]);
+        }
+
+        const metrics = metricsDictionary[measure];
+        const selectedDimensions = dimensionsDictionary[dimension];
+
+        return simulation
+          .then(({ transaction }) => client.call('reduce', transaction, {
+            metrics,
+            dimensions: {
+              timestamp: {
+                type: 'time',
+                from: time.start,
+                to: time.end,
+              },
+              ...bestUser,
+              ...selectedDimensions,
+            },
+          }))
+          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      },
+    },
     favorBestCustomerReduce: {
-      dependencies: ['@time', '@measureFavor', 'bestUser'],
-      factory: (time, measure, bestUser) => Promise.resolve({
-        time, measure, bestUser,
-      }),
+      dependencies: ['fetchFavorBestCustomerReduce', '@measureFavor', '@dimensionFavor'],
+      factory: (data, measure, dimension) => {
+        const dimensionKey = _.keys(dimensionsDictionary[dimension])[0];
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+
+        return Promise.resolve({
+          source: [['name', 'value']].concat(_.map(data, item => [item[dimensionKey], item[measureKey]])),
+        });
+      },
     },
     favorBestCustomerTrend: {
       dependencies: ['@time', '@measureFavor', 'bestUser'],
@@ -309,8 +356,7 @@ export default {
             },
           },
         }).finally(() => client.call('remove', id)))
-        .then(id => client.call('read', id).finally(() => client.call('remove', id)))
-        .tap(window.console.log),
+        .then(id => client.call('read', id).finally(() => client.call('remove', id))),
     },
     usageMealCardBucketCRAP: {
       dependencies: ['fetchUsageMealCardBucketCRAP'],

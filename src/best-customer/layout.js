@@ -55,7 +55,7 @@ export default function () {
           <SectionCard key="favor" title="Favor XXX of Best Customers">
             <Cell input="measureFavor" output="@measureFavor" renderCell={WithLabel(SingleSelector, 'Measure')} />
             <Cell input="dimensionFavor" output="@dimensionFavor" renderCell={WithLabel(SingleSelector, 'Dimension')} />
-            <Cell input="favorBestCustomerReduce" title="Favor Best Customer Reduce" renderCell={WithChart(PlainData)} />
+            <Cell input="favorBestCustomerReduce" title="Favor Best Customer Reduce" renderCell={WithChart(Donut)} />
             <Cell input="favorBestCustomerTrend" title="Favor Customer Trend" renderCell={WithChart(PlainData)} />
           </SectionCard>
           <SectionCard key="mealCard" title="Usage of Meal SectionCard">
