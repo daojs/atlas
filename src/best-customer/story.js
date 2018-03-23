@@ -187,14 +187,49 @@ export default {
               ...bestUser,
             },
           }))
+          .then(id => client.call('reduce', id, {
+            metrics: {
+              revenue: 'average',
+            },
+            dimensions: {
+              customerId: { type: 'any' },
+            },
+          }))
           .then(id => client.call('read', id).finally(() => client.call('remove', id)));
       },
     },
     customerExpensePerUserRank: {
       dependencies: ['fetchCustomerExpensePerUserRank'],
-      factory: data => Promise.resolve({
-        data,
-      }),
+      factory: (rawData) => {
+        const data = _.chain(rawData)
+          .sortBy(['revenue'])
+          .reverse()
+          .slice(0, 10)
+          .reverse()
+          .value();
+
+        if (!data) {
+          return undefined;
+        }
+
+        window.console.log(data);
+
+        const results = _.map(data, item => [item.customerId, item.revenue]);
+        const expectedData = {
+          data: results,
+          meta: {
+            headers: ['customerId', 'revenue'],
+          },
+        };
+
+        return convertData({
+          ...expectedData,
+          groupDimensions: [],
+          axisDimensions: ['customerId'],
+          metricDimensions: ['revenue'],
+          serieNameTemplate: 'revenue',
+        });
+      },
     },
     measureFavor: {
       factory: () => Promise.resolve({
@@ -222,7 +257,7 @@ export default {
     },
 
     // Section 4
-    fetchMealCardReduce: {
+    fetchUsageMealCardReduce: {
       dependencies: ['@time', 'bestUser'],
       factory: (time, bestUser) => simulation
         .then(({ recharge }) => client.call('reduce', recharge, {
@@ -233,25 +268,55 @@ export default {
             cardType: { type: 'any' },
             timestamp: {
               type: 'time',
-              from: time.startDate,
-              to: time.endDate,
+              from: time.start,
+              to: time.end,
             },
           }, bestUser),
         }))
+        .then(id => client.call('read', id).finally(() => client.call('remove', id))),
+    },
+    usageMealCardReduce: {
+      dependencies: ['fetchUsageMealCardReduce'],
+      factory: data => Promise.resolve({
+        title: `共有${_.sum(_.map(data, 'customerId'))}人充值`,
+        source: [['name', 'value']].concat(_.map(data, item => [item.cardType, item.customerId])),
+      }),
+    },
+    fetchUsageMealCardBucketCRAP: {
+      dependencies: ['@time', 'bestUser'],
+      factory: (time, bestUser) => simulation
+        .then(({ recharge }) => client.call('reduce', recharge, {
+          metrics: {
+            rechargeAmount: 'sum',
+          },
+          dimensions: _.defaults({
+            customerId: { type: 'any' },
+            timestamp: {
+              type: 'time',
+              from: time.start,
+              to: time.end,
+            },
+          }, bestUser),
+        }))
+        .then(id => client.call('reduce', id, {
+          metrics: {
+            customerId: 'count',
+          },
+          dimensions: {
+            rechargeAmount: {
+              type: 'bins',
+              step: 200,
+            },
+          },
+        }).finally(() => client.call('remove', id)))
         .then(id => client.call('read', id).finally(() => client.call('remove', id)))
         .tap(window.console.log),
     },
-    usageMealCardReduce: {
-      dependencies: ['fetchMealCardReduce'],
-      factory: fetchMealCardReduce => Promise.resolve({
-        title: `共有${_.sum(_.map(fetchMealCardReduce, 'customerId'))}人充值`,
-        source: [['name', 'value']].concat(_.map(fetchMealCardReduce, item => [item.cardType, item.customerId])),
-      }).tap(window.console.log),
-    },
     usageMealCardBucketCRAP: {
-      dependencies: ['@time', 'bestUser'],
-      factory: (time, bestUser) => Promise.resolve({
-        time, bestUser, measure: 'CardRechargeAmountPerUU',
+      dependencies: ['fetchUsageMealCardBucketCRAP'],
+      factory: data => Promise.resolve({
+        title: '',
+        source: [['name', 'value']].concat(_.map(data, item => [item.rechargeAmount, item.customerId])),
       }),
     },
     usageMealCardQuery: {
@@ -264,54 +329,6 @@ export default {
       dependencies: ['@time', 'bestUser'],
       factory: (time, bestUser) => Promise.resolve({
         time, bestUser, measure: 'CardBalance',
-      }),
-    },
-    revenue: { // from here to test chart with real data
-      dependencies: ['@time'],
-      factory: time => fetchData({
-        parameters: {
-          BranchName: {
-            type: 'enum',
-            values: ['AllUp'],
-          },
-          CardType: {
-            type: 'enum',
-            values: ['员工卡', '访客卡'],
-          },
-          MealName: {
-            type: 'enum',
-            values: ['午餐', '早餐'],
-          },
-          SKUType: {
-            type: 'enum',
-            values: ['AllUp'],
-          },
-          time: {
-            type: 'range',
-            values: time,
-          },
-        },
-        metric: '169feb7a-c332-4979-9c6a-377bf2d75152',
-      }),
-    },
-    formatRevenue2Line: {
-      dependencies: ['revenue'],
-      factory: revenue => convertData({
-        ...revenue,
-        groupDimensions: ['BranchName', 'MealName', 'SKUType', 'CardType'],
-        axisDimensions: ['time'],
-        metricDimensions: ['169feb7a-c332-4979-9c6a-377bf2d75152'],
-        serieNameTemplate: 'BranchName({{BranchName}});MealName({{MealName}});SKUType({{SKUType}});CardType({{CardType}})',
-      }),
-    },
-    top3Revenue: {
-      dependencies: ['formatRevenue2Line'],
-      factory: ({ source, seriesMapper }) => topNData({
-        take: 3,
-        metric: '169feb7a-c332-4979-9c6a-377bf2d75152',
-        axisDimensions: ['time'],
-        source,
-        seriesMapper,
       }),
     },
   },
