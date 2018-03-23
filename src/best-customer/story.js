@@ -9,6 +9,42 @@ const simulation = client.call('simulate', {
   customerCount: 200,
 });
 
+simulation
+  .then(({ transaction }) => client.call('reduce', transaction, {
+    metrics: {
+      revenue: 'sum',
+    },
+    dimensions: {
+      customerId: { type: 'any' },
+      timestamp: {
+        type: 'days',
+        from: '2018-01-01',
+        to: '2018-02-01',
+      },
+    },
+  }))
+  .then(id => client.call('reduce', id, {
+    metrics: {
+      revenue: 'average',
+    },
+    dimensions: {
+      customerId: { type: 'any' },
+    },
+  }))
+  .then(id => client.call('reduce', id, {
+    metrics: {
+      customerId: 'count',
+    },
+    dimensions: {
+      revenue: {
+        type: 'bins',
+        step: 10,
+      },
+    },
+  }))
+  .then(id => client.call('read', id).finally(() => client.call('remove', id)))
+  .then(window.console.log);
+
 export default {
   parameters: {
     measureUser: { default: undefined },
