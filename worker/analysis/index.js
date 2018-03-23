@@ -117,3 +117,5 @@ export function reduce(id, {
     return _.zipObject(columns, row);
   }));
 }
+
+export { query } from './query';

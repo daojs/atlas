@@ -266,20 +266,25 @@ export default {
           return Promise.resolve([]);
         }
 
-        const metrics = metricsDictionary[measure];
-        const selectedDimensions = dimensionsDictionary[dimension];
+        const aggregation = metricsDictionary[measure];
 
         return simulation
-          .then(({ transaction }) => client.call('reduce', transaction, {
-            metrics,
-            dimensions: {
+          .then(({ transaction }) => client.call('query', transaction, {
+            aggregation,
+            filter: {
               timestamp: {
-                type: 'time',
+                type: 'time-range',
                 from: time.start,
                 to: time.end,
               },
               ...bestUser,
-              ...selectedDimensions,
+            },
+            groupBy: {
+              [{
+                BranchName: 'branchName',
+                CardType: 'cardType',
+                SKUType: 'skuType',
+              }[dimension]]: 'value',
             },
           }))
           .then(id => client.call('read', id).finally(() => client.call('remove', id)));
