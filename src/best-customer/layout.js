@@ -7,6 +7,7 @@ import storyConfig from './story';
 import components from '../components';
 
 const {
+  Bar,
   Cell,
   TimeRange,
   SingleSelector,
@@ -47,7 +48,7 @@ export default function () {
           </SectionCard>
           <SectionCard key="bestCustomerExpensePerUser" title="Best Customer Expense Per User">
             <Cell input="granularityCustomer" output="@granularityCustomer" renderCell={WithLabel(SingleSelector, 'Granularity')} />
-            <Cell input="customerExpensePerUserBucket" title="Best Customer Expense Per User Bucket" renderCell={WithChart(PlainData)} />
+            <Cell input="customerExpensePerUserBucket" title="Best Customer Expense Per User Bucket" renderCell={WithChart(Bar)} />
             <Cell input="customerExpensePerUserRank" title="Best Customer Expense Per User TSAD" renderCell={WithChart(PlainData)} />
           </SectionCard>
           <SectionCard key="favor" title="Favor XXX of Best Customers">

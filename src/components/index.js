@@ -1,3 +1,4 @@
+import Bar from './bar';
 import TimeSeries from './time-series';
 import FormInput from './form-input';
 import FormField from './form-field';
@@ -13,6 +14,7 @@ import Line from './line';
 import SectionCard from './section-card';
 
 export default {
+  Bar,
   TimeSeries,
   FormInput,
   FormField,
