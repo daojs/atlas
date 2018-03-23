@@ -48,6 +48,9 @@ function createScalarFilter(descriptor) {
     if (descriptor.type === 'days') {
       return createDateFilter(descriptor, 'YYYY-MM-DD');
     }
+    if (descriptor.type === 'weeks') {
+      return createDateFilter(descriptor, 'YYYY-[W]WW');
+    }
     if (descriptor.type === 'months') {
       return createDateFilter(descriptor, 'YYYY-MM');
     }
