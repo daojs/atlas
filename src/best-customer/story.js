@@ -296,11 +296,57 @@ export default {
         });
       },
     },
+    fetchFavorBestCustomerTrend: {
+      dependencies: ['@time', '@measureFavor', '@dimensionFavor', 'bestUser'],
+      factory: (time, measure, dimension, bestUser) => {
+        if (_.some([time, measure, dimension, bestUser], _.isNil)) {
+          return Promise.resolve([]);
+        }
+
+        const metrics = metricsDictionary[measure];
+        const selectedDimensions = dimensionsDictionary[dimension];
+
+        return simulation
+          .then(({ transaction }) => client.call('reduce', transaction, {
+            metrics,
+            dimensions: {
+              timestamp: {
+                type: 'days',
+                from: time.start,
+                to: time.end,
+              },
+              ...bestUser,
+              ...selectedDimensions,
+            },
+          }))
+          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      },
+    },
     favorBestCustomerTrend: {
-      dependencies: ['@time', '@measureFavor', 'bestUser'],
-      factory: (time, measure, bestUser) => Promise.resolve({
-        time, measure, bestUser,
-      }),
+      dependencies: ['fetchFavorBestCustomerTrend', '@measureFavor', '@dimensionFavor'],
+      factory: (rawData, measure, dimension) => {
+        if (_.some([rawData, measure, dimension], _.isNil)) {
+          return undefined;
+        }
+
+        const dimensionKey = _.keys(dimensionsDictionary[dimension])[0];
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+
+        const dataAggregated = _.chain(rawData)
+          .groupBy(_.property('timestamp'))
+          .mapValues(val => _.reduce(val, (memo, cur) => ({
+            [cur[dimensionKey]]: cur[measureKey], ...memo,
+          }), {}))
+          .value();
+
+        const series = _.uniq(_.reduce(dataAggregated, (memo, cur) => [
+          ..._.keys(cur), ...memo], []));
+
+        const source = [['time', ...series]].concat(_.map(dataAggregated, (val, key) =>
+          [key, ..._.map(series, s => val[s] || 0)]));
+
+        return Promise.resolve({ title: '', source });
+      },
     },
 
     // Section 4

@@ -56,7 +56,7 @@ export default function () {
             <Cell input="measureFavor" output="@measureFavor" renderCell={WithLabel(SingleSelector, 'Measure')} />
             <Cell input="dimensionFavor" output="@dimensionFavor" renderCell={WithLabel(SingleSelector, 'Dimension')} />
             <Cell input="favorBestCustomerReduce" title="Favor Best Customer Reduce" renderCell={WithChart(Donut)} />
-            <Cell input="favorBestCustomerTrend" title="Favor Customer Trend" renderCell={WithChart(PlainData)} />
+            <Cell input="favorBestCustomerTrend" title="Favor Customer Trend" renderCell={WithChart(LineWithDataZoom)} />
           </SectionCard>
           <SectionCard key="mealCard" title="Usage of Meal SectionCard">
             <Cell input="usageMealCardReduce" subTitle="Usage of Meal SectionCard Reduce" renderCell={WithChart(Donut)} />
