@@ -23,7 +23,7 @@ const dimensionsDictionary = {
 
 const simulation = client.call('simulate', {
   startDate: '2018-01-01',
-  endDate: '2018-03-21',
+  endDate: '2018-03-31',
   customerCount: 200,
 });
 
