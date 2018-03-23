@@ -108,7 +108,7 @@ function processGroupBy(groupBy) {
 function processOrderBy(orderBy) {
   const options = _.map(orderBy, option => ({
     key: option.replace(/^-\s*/, ''),
-    direction: options.match(/^-\s*/) ? -1 : 1,
+    direction: option.match(/^-\s*/) ? -1 : 1,
   }));
   return (a, b) => {
     let result = 0;

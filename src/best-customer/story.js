@@ -21,6 +21,12 @@ const dimensionsDictionary = {
   },
 };
 
+const groupByDictionary = {
+  BranchName: 'branchName',
+  CardType: 'cardType',
+  SKUType: 'skuType',
+};
+
 const simulation = client.call('simulate', {
   startDate: '2018-01-01',
   endDate: '2018-03-31',
@@ -67,20 +73,23 @@ export default {
     },
     fetchCustomerTSAD: {
       dependencies: ['@time', 'mapCustomerMetric', 'bestUser'],
-      factory: (time, metrics, bestUser) => {
-        if (_.some([time, metrics, bestUser], _.isNil)) {
+      factory: (time, aggregation, bestUser) => {
+        if (_.some([time, aggregation, bestUser], _.isNil)) {
           return Promise.resolve([]);
         }
         return simulation
-          .then(({ transaction }) => client.call('reduce', transaction, {
-            metrics,
-            dimensions: {
+          .then(({ transaction }) => client.call('query', transaction, {
+            aggregation,
+            filter: {
               timestamp: {
-                type: 'days',
+                type: 'time-range',
                 from: time.start,
                 to: time.end,
               },
               ...bestUser,
+            },
+            groupBy: {
+              timestamp: 'day',
             },
           }))
           .then(id => client.call('read', id).finally(() => client.call('remove', id)));
@@ -124,39 +133,42 @@ export default {
         }
 
         return simulation
-          .then(({ transaction }) => client.call('reduce', transaction, {
-            metrics: {
+          .then(({ transaction }) => client.call('query', transaction, {
+            aggregation: {
               revenue: 'sum',
             },
-            dimensions: {
-              customerId: { type: 'any' },
+            filter: {
               timestamp: {
-                type: `${granularity}s`,
+                type: 'time-range',
                 from: time.start,
                 to: time.end,
               },
               ...bestUser,
             },
+            groupBy: {
+              timestamp: granularity,
+              customerId: 'value',
+            },
           }))
-          .then(id => client.call('reduce', id, {
-            metrics: {
+          .then(id => client.call('query', id, {
+            aggregation: {
               revenue: 'average',
             },
-            dimensions: {
-              customerId: { type: 'any' },
+            groupBy: {
+              customerId: 'value',
             },
-          }))
-          .then(id => client.call('reduce', id, {
-            metrics: {
+          }).finally(() => client.call('remove', id)))
+          .then(id => client.call('query', id, {
+            aggregation: {
               customerId: 'count',
             },
-            dimensions: {
+            groupBy: {
               revenue: {
-                type: 'bins',
+                type: 'bin',
                 step: 10,
               },
             },
-          }))
+          }).finally(() => client.call('remove', id)))
           .then(id => client.call('read', id).finally(() => client.call('remove', id)));
       },
     },
@@ -191,41 +203,38 @@ export default {
         }
 
         return simulation
-          .then(({ transaction }) => client.call('reduce', transaction, {
-            metrics: {
+          .then(({ transaction }) => client.call('query', transaction, {
+            aggregation: {
               revenue: 'sum',
             },
-            dimensions: {
-              customerId: { type: 'any' },
+            filter: {
               timestamp: {
-                type: 'time',
+                type: 'time-range',
                 from: time.start,
                 to: time.end,
               },
               ...bestUser,
             },
+            groupBy: {
+              customerId: 'value',
+            },
           }))
-          .then(id => client.call('reduce', id, {
-            metrics: {
+          .then(id => client.call('query', id, {
+            aggregation: {
               revenue: 'average',
             },
-            dimensions: {
-              customerId: { type: 'any' },
+            groupBy: {
+              customerId: 'value',
             },
-          }))
+            orderBy: ['-revenue'],
+            top: 10,
+          }).finally(() => client.call('remove', id)))
           .then(id => client.call('read', id).finally(() => client.call('remove', id)));
       },
     },
     customerExpensePerUserRank: {
       dependencies: ['fetchCustomerExpensePerUserRank'],
-      factory: (rawData) => {
-        const data = _.chain(rawData)
-          .sortBy(['revenue'])
-          .reverse()
-          .slice(0, 10)
-          .reverse()
-          .value();
-
+      factory: (data) => {
         if (!data) {
           return undefined;
         }
@@ -280,11 +289,7 @@ export default {
               ...bestUser,
             },
             groupBy: {
-              [{
-                BranchName: 'branchName',
-                CardType: 'cardType',
-                SKUType: 'skuType',
-              }[dimension]]: 'value',
+              [groupByDictionary[dimension]]: 'value',
             },
           }))
           .then(id => client.call('read', id).finally(() => client.call('remove', id)));
@@ -308,20 +313,22 @@ export default {
           return Promise.resolve([]);
         }
 
-        const metrics = metricsDictionary[measure];
-        const selectedDimensions = dimensionsDictionary[dimension];
+        const aggregation = metricsDictionary[measure];
 
         return simulation
-          .then(({ transaction }) => client.call('reduce', transaction, {
-            metrics,
-            dimensions: {
+          .then(({ transaction }) => client.call('query', transaction, {
+            aggregation,
+            filter: {
               timestamp: {
-                type: 'days',
+                type: 'time-range',
                 from: time.start,
                 to: time.end,
               },
               ...bestUser,
-              ...selectedDimensions,
+            },
+            groupBy: {
+              timestamp: 'day',
+              [groupByDictionary[dimension]]: 'value',
             },
           }))
           .then(id => client.call('read', id).finally(() => client.call('remove', id)));
@@ -358,18 +365,21 @@ export default {
     fetchUsageMealCardReduce: {
       dependencies: ['@time', 'bestUser'],
       factory: (time, bestUser) => simulation
-        .then(({ recharge }) => client.call('reduce', recharge, {
-          metrics: {
+        .then(({ recharge }) => client.call('query', recharge, {
+          aggregation: {
             customerId: 'count',
           },
-          dimensions: _.defaults({
-            cardType: { type: 'any' },
+          filter: {
             timestamp: {
-              type: 'time',
+              type: 'time-range',
               from: time.start,
               to: time.end,
             },
-          }, bestUser),
+            ...bestUser,
+          },
+          groupBy: {
+            cardType: 'value',
+          }
         }))
         .then(id => client.call('read', id).finally(() => client.call('remove', id))),
     },
@@ -383,26 +393,29 @@ export default {
     fetchUsageMealCardBucketCRAP: {
       dependencies: ['@time', 'bestUser'],
       factory: (time, bestUser) => simulation
-        .then(({ recharge }) => client.call('reduce', recharge, {
-          metrics: {
+        .then(({ recharge }) => client.call('query', recharge, {
+          aggregation: {
             rechargeAmount: 'sum',
           },
-          dimensions: _.defaults({
-            customerId: { type: 'any' },
+          filter: {
             timestamp: {
-              type: 'time',
+              type: 'time-range',
               from: time.start,
               to: time.end,
             },
-          }, bestUser),
+            ...bestUser,
+          },
+          groupBy: {
+            customerId: 'value',
+          },
         }))
-        .then(id => client.call('reduce', id, {
-          metrics: {
+        .then(id => client.call('query', id, {
+          aggregation: {
             customerId: 'count',
           },
-          dimensions: {
+          groupBy: {
             rechargeAmount: {
-              type: 'bins',
+              type: 'bin',
               step: 200,
             },
           },
