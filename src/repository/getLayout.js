@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import Promise from 'bluebird';
-import layout from '../mock/layout';
+import mockLayout from '../mock/layout';
 // import { GraphQLClient } from 'graphql-request';
 
 // const client = new GraphQLClient('/graphql');
@@ -36,14 +36,31 @@ import layout from '../mock/layout';
 //   });
 // }
 
+const storageKey = 'dao-layout';
+
+const layoutStore = (() => {
+  let storage;
+  try {
+    storage = JSON.parse(localStorage.getItem(storageKey));
+  } catch (err) {
+    storage = {};
+  }
+  return _.defaults(storage, mockLayout);
+})();
+
 export function getLayout({
   storyId,
   sectionIds,
 }) {
-  const lgs = layout[storyId];
-  return Promise.resolve(_.filter(lgs, lg => _.includes(sectionIds, lg.i)));
+  const sectionLayouts = layoutStore[storyId];
+  return Promise.resolve(_.filter(sectionLayouts, sectionLayout => _.includes(sectionIds, sectionLayout.i)));
 }
 
-export function setLayout() {
+export function setLayout({
+  storyId,
+  storyLayout,
+}) {
+  layoutStore[storyId] = storyLayout;
+  localStorage.setItem(storageKey, JSON.stringify(layoutStore));
   return Promise.resolve();
 }
