@@ -12,7 +12,15 @@ export default class SectionCard extends PureComponent {
         <Card
           title={this.props.title}
           style={{
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
             cursor: 'move',
+          }}
+          bodyStyle={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
           <div
@@ -21,6 +29,7 @@ export default class SectionCard extends PureComponent {
             onMouseUp={(e) => { e.stopPropagation(); }}
             style={{
               cursor: 'initial',
+              flex: 1,
             }}
           >
             {this.props.children}
