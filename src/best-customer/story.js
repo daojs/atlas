@@ -170,11 +170,33 @@ export default {
         time, measure, bestUser,
       }),
     },
-    usageMealCardReduce: {
+
+    // Section 4
+    fetchMealCardReduce: {
       dependencies: ['@time', 'bestUser'],
-      factory: (time, bestUser) => Promise.resolve({
-        time, bestUser, measure: 'CardUU', Dimension: 'Channel',
-      }),
+      factory: (time, bestUser) => simulation
+        .then(({ recharge }) => client.call('reduce', recharge, {
+          metrics: {
+            customerId: 'count',
+          },
+          dimensions: _.defaults({
+            cardType: { type: 'any' },
+            timestamp: {
+              type: 'time',
+              from: time.startDate,
+              to: time.endDate,
+            },
+          }, bestUser),
+        }))
+        .then(id => client.call('read', id).finally(() => client.call('remove', id)))
+        .tap(window.console.log),
+    },
+    usageMealCardReduce: {
+      dependencies: ['fetchMealCardReduce'],
+      factory: fetchMealCardReduce => Promise.resolve({
+        title: `共有${_.sum(_.map(fetchMealCardReduce, 'customerId'))}人充值`,
+        source: [['name', 'value']].concat(_.map(fetchMealCardReduce, item => [item.cardType, item.customerId])),
+      }).tap(window.console.log),
     },
     usageMealCardBucketCRAP: {
       dependencies: ['@time', 'bestUser'],
