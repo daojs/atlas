@@ -59,7 +59,7 @@ export default function () {
           </SectionCard>
           <SectionCard key="mealCard" title="Usage of Meal SectionCard">
             <Cell input="usageMealCardReduce" subTitle="Usage of Meal SectionCard Reduce" renderCell={WithChart(Donut)} />
-            <Cell input="usageMealCardBucketCRAP" title="Usage of Meal SectionCard Bucket CardRechargeAmountPerUU" renderCell={WithChart(PlainData)} />
+            <Cell input="usageMealCardBucketCRAP" title="Usage of Meal SectionCard Bucket CardRechargeAmountPerUU" renderCell={WithChart(Bar)} />
             <Cell input="usageMealCardQuery" title="Usage of Meal SectionCard Query" renderCell={WithChart(PlainData)} />
             <Cell input="usageMealCardBucketCB" title="Usage of Meal SectionCard CardBalance" renderCell={WithChart(PlainData)} />
           </SectionCard>
