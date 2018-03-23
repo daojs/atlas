@@ -9,42 +9,6 @@ const simulation = client.call('simulate', {
   customerCount: 200,
 });
 
-simulation
-  .then(({ transaction }) => client.call('reduce', transaction, {
-    metrics: {
-      revenue: 'sum',
-    },
-    dimensions: {
-      customerId: { type: 'any' },
-      timestamp: {
-        type: 'days',
-        from: '2018-01-01',
-        to: '2018-02-01',
-      },
-    },
-  }))
-  .then(id => client.call('reduce', id, {
-    metrics: {
-      revenue: 'average',
-    },
-    dimensions: {
-      customerId: { type: 'any' },
-    },
-  }))
-  .then(id => client.call('reduce', id, {
-    metrics: {
-      customerId: 'count',
-    },
-    dimensions: {
-      revenue: {
-        type: 'bins',
-        step: 10,
-      },
-    },
-  }))
-  .then(id => client.call('read', id).finally(() => client.call('remove', id)))
-  .then(window.console.log);
-
 export default {
   parameters: {
     measureUser: { default: undefined },
@@ -134,11 +98,72 @@ export default {
         enums: ['day', 'week', 'month'],
       }),
     },
-    customerExpensePerUserBucket: {
+    fetchCustomerExpencePerUserBucket: {
       dependencies: ['@time', '@granularityCustomer', 'bestUser'],
-      factory: (time, granularity, bestUser) => Promise.resolve({
-        time, granularity, bestUser, measure: 'RevenuePerUU',
-      }),
+      factory: (time, granularity, bestUser) => {
+        if (_.some([time, granularity, bestUser], _.isNil)) {
+          return Promise.resolve([]);
+        }
+
+        return simulation
+          .then(({ transaction }) => client.call('reduce', transaction, {
+            metrics: {
+              revenue: 'sum',
+            },
+            dimensions: {
+              customerId: { type: 'any' },
+              timestamp: {
+                type: `${granularity}s`,
+                from: time.start,
+                to: time.end,
+              },
+              ...bestUser,
+            },
+          }))
+          .then(id => client.call('reduce', id, {
+            metrics: {
+              revenue: 'average',
+            },
+            dimensions: {
+              customerId: { type: 'any' },
+            },
+          }))
+          .then(id => client.call('reduce', id, {
+            metrics: {
+              customerId: 'count',
+            },
+            dimensions: {
+              revenue: {
+                type: 'bins',
+                step: 10,
+              },
+            },
+          }))
+          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      },
+    },
+    customerExpensePerUserBucket: {
+      dependencies: ['fetchCustomerExpencePerUserBucket'],
+      factory: (data) => {
+        if (!data) {
+          return undefined;
+        }
+        const results = _.map(data, item => [item.revenue, item.customerId]);
+        const expectedData = {
+          data: results,
+          meta: {
+            headers: ['revenue', 'customerId'],
+          },
+        };
+
+        return convertData({
+          ...expectedData,
+          groupDimensions: [],
+          axisDimensions: ['revenue'],
+          metricDimensions: ['customerId'],
+          serieNameTemplate: 'customerId',
+        });
+      },
     },
     customerExpensePerUserRank: {
       dependencies: ['@time', '@granularityCustomer', 'bestUser'],
