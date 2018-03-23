@@ -187,14 +187,49 @@ export default {
               ...bestUser,
             },
           }))
+          .then(id => client.call('reduce', id, {
+            metrics: {
+              revenue: 'average',
+            },
+            dimensions: {
+              customerId: { type: 'any' },
+            },
+          }))
           .then(id => client.call('read', id).finally(() => client.call('remove', id)));
       },
     },
     customerExpensePerUserRank: {
       dependencies: ['fetchCustomerExpensePerUserRank'],
-      factory: data => Promise.resolve({
-        data,
-      }),
+      factory: (rawData) => {
+        const data = _.chain(rawData)
+          .sortBy(['revenue'])
+          .reverse()
+          .slice(0, 10)
+          .reverse()
+          .value();
+
+        if (!data) {
+          return undefined;
+        }
+
+        window.console.log(data);
+
+        const results = _.map(data, item => [item.customerId, item.revenue]);
+        const expectedData = {
+          data: results,
+          meta: {
+            headers: ['customerId', 'revenue'],
+          },
+        };
+
+        return convertData({
+          ...expectedData,
+          groupDimensions: [],
+          axisDimensions: ['customerId'],
+          metricDimensions: ['revenue'],
+          serieNameTemplate: 'revenue',
+        });
+      },
     },
     measureFavor: {
       factory: () => Promise.resolve({
@@ -238,15 +273,14 @@ export default {
             },
           }, bestUser),
         }))
-        .then(id => client.call('read', id).finally(() => client.call('remove', id)))
-        .tap(window.console.log),
+        .then(id => client.call('read', id).finally(() => client.call('remove', id))),
     },
     usageMealCardReduce: {
       dependencies: ['fetchMealCardReduce'],
       factory: fetchMealCardReduce => Promise.resolve({
         title: `共有${_.sum(_.map(fetchMealCardReduce, 'customerId'))}人充值`,
         source: [['name', 'value']].concat(_.map(fetchMealCardReduce, item => [item.cardType, item.customerId])),
-      }).tap(window.console.log),
+      }),
     },
     usageMealCardBucketCRAP: {
       dependencies: ['@time', 'bestUser'],

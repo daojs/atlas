@@ -16,6 +16,7 @@ const {
   Donut,
   LineWithDataZoom,
   SectionCard,
+  HorizontalBar,
 } = components;
 
 function WithLabel(Control, label) {
@@ -49,7 +50,7 @@ export default function () {
           <SectionCard key="bestCustomerExpensePerUser" title="Best Customer Expense Per User">
             <Cell input="granularityCustomer" output="@granularityCustomer" renderCell={WithLabel(SingleSelector, 'Granularity')} />
             <Cell input="customerExpensePerUserBucket" title="Best Customer Expense Per User Bucket" renderCell={WithChart(Bar)} />
-            <Cell input="customerExpensePerUserRank" title="Best Customer Expense Per User TSAD" renderCell={WithChart(PlainData)} />
+            <Cell input="customerExpensePerUserRank" title="Best Customer Expense Per User TSAD" renderCell={WithChart(HorizontalBar)} />
           </SectionCard>
           <SectionCard key="favor" title="Favor XXX of Best Customers">
             <Cell input="measureFavor" output="@measureFavor" renderCell={WithLabel(SingleSelector, 'Measure')} />

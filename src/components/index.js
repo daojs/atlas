@@ -2,6 +2,7 @@ import Bar from './bar';
 import TimeSeries from './time-series';
 import FormInput from './form-input';
 import FormField from './form-field';
+import HorizontalBar from './horizontal-bar';
 import MultiSelector from './multi-selector';
 import SingleSelector from './single-selector';
 import Cell from './cell';
@@ -18,6 +19,7 @@ export default {
   TimeSeries,
   FormInput,
   FormField,
+  HorizontalBar,
   Cell,
   MultiSelector,
   SingleSelector,
