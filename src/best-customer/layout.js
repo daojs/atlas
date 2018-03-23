@@ -58,14 +58,10 @@ export default function () {
             <Cell input="favorBestCustomerTrend" title="Favor Customer Trend" renderCell={WithChart(PlainData)} />
           </SectionCard>
           <SectionCard key="mealCard" title="Usage of Meal SectionCard">
-            <Cell input="usageMealCardReduce" title="Usage of Meal SectionCard Reduce" renderCell={WithChart(PlainData)} />
+            <Cell input="usageMealCardReduce" subTitle="Usage of Meal SectionCard Reduce" renderCell={WithChart(Donut)} />
             <Cell input="usageMealCardBucketCRAP" title="Usage of Meal SectionCard Bucket CardRechargeAmountPerUU" renderCell={WithChart(PlainData)} />
             <Cell input="usageMealCardQuery" title="Usage of Meal SectionCard Query" renderCell={WithChart(PlainData)} />
             <Cell input="usageMealCardBucketCB" title="Usage of Meal SectionCard CardBalance" renderCell={WithChart(PlainData)} />
-          </SectionCard>
-          <SectionCard key="revenue" title="Revenue analysis">
-            <Cell input="formatRevenue2Line" title="Revenue compare line" renderCell={WithChart(LineWithDataZoom)} />
-            <Cell input="top3Revenue" title="Top 3 revenue" renderCell={WithChart(Donut)} />
           </SectionCard>
         </SectionContainer>
       </Form>
