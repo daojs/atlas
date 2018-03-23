@@ -165,10 +165,35 @@ export default {
         });
       },
     },
-    customerExpensePerUserRank: {
+    fetchCustomerExpensePerUserRank: {
       dependencies: ['@time', '@granularityCustomer', 'bestUser'],
-      factory: (time, granularity, bestUser) => Promise.resolve({
-        time, granularity, bestUser, measure: 'RevenuePerUU',
+      factory: (time, granularity, bestUser) => {
+        if (_.some([time, granularity, bestUser], _.isNil)) {
+          return Promise.resolve([]);
+        }
+
+        return simulation
+          .then(({ transaction }) => client.call('reduce', transaction, {
+            metrics: {
+              revenue: 'sum',
+            },
+            dimensions: {
+              customerId: { type: 'any' },
+              timestamp: {
+                type: `${granularity}s`,
+                from: time.start,
+                to: time.end,
+              },
+              ...bestUser,
+            },
+          }))
+          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      },
+    },
+    customerExpensePerUserRank: {
+      dependencies: ['fetchCustomerExpensePerUserRank'],
+      factory: data => Promise.resolve({
+        data,
       }),
     },
     measureFavor: {
