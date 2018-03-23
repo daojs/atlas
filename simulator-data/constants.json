@@ -1,0 +1,39 @@
+{
+  "branches": [{
+    "name": "员工餐厅",
+    "serves": ["breakfast", "lunch", "dinner"],
+    "dishes": [
+      { "name": "拉面", "price": 15 },
+      { "name": "麻辣烫", "price": 18 },
+      { "name": "京味涮肉", "price": 20 }
+    ]
+  }, {
+    "name": "自助餐厅",
+    "serves": ["lunch"],
+    "dishes": [
+      { "name": "自助餐", "price": 36 }
+    ]
+  }, {
+    "name": "悦餐厅",
+    "serves": ["lunch", "dinner"],
+    "dishes": [
+      { "name": "海南鸡饭", "price": 25 },
+      { "name": "沙朗牛排", "price": 45 }
+    ]
+  }, {
+    "name": "沙拉吧",
+    "serves": ["breakfast", "lunch", "dinner"],
+    "dishes": [
+      { "name": "匹萨套餐", "price": 20 },
+      { "name": "凯撒沙拉", "price": 23 }
+    ]
+  }],
+  "disciplines": ["SDE", "PM", "DESIGNER", "MARKETING"],
+  "departments": ["STC", "MODC", "MSRA"],
+  "channels": ["餐补", "充值"],
+  "cardTypes": ["员工卡", "充值卡"],
+  "rechargeAmount": [100, 200, 300, 500, 1000],
+  "genders": ["Male", "Female"],
+  "allowanceDate": 27,
+  "allowanceAmount": 600
+}

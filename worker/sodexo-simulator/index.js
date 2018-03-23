@@ -1,182 +1,39 @@
 import _ from 'lodash';
-import moment from 'moment';
-import uuid from 'uuid/v4';
-import Logger from './logger';
-import constants from './constants.json';
+import storage from '../storage';
+import customersData from '../../simulator-data/data/customers.json';
+import rechargeData from '../../simulator-data/data/recharge.json';
+import transactionData from '../../simulator-data/data/transaction.json';
 
-const {
-  branches,
-  disciplines,
-  departments,
-  genders,
-  channels,
-  cardTypes,
-  rechargeAmount,
-  allowanceDate,
-  allowanceAmount,
-} = constants;
-
-const ages = _.range(22, 45);
-const meals = [
-  'breakfast',
-  'lunch',
-  'dinner',
-];
-const servingBranches = _.zipObject(
-  meals,
-  _.map(
-    meals,
-    period => _.filter(
-      branches,
-      ({ serves }) => _.includes(serves, period)
-    ),
-  ),
-);
-
-function forDays(startDate, endDate, iteratee) {
-  const momentStart = moment(startDate).startOf('day');
-  const momentEnd = moment(endDate).startOf('day');
-  let day = momentStart;
-  while (day.isBefore(momentEnd)) {
-    iteratee(day);
-    day = day.add(1, 'day');
-  }
+function isInTimeRange(timestamp, startDate, endDate) {
+  return new Date(timestamp).getTime() < new Date(endDate).getTime() &&
+    new Date(timestamp).getTime() > new Date(startDate).getTime();
 }
-
-const pMeals = {
-  breakfast: {},
-  lunch: {},
-  dinner: {},
-};
-
-function createCustomer() {
-  const cardType = _.sample(cardTypes);
-  const customerId = uuid();
-  const branch = _.sample(branches);
-
-  pMeals.breakfast[customerId] = _.random(0.2, true);
-  pMeals.lunch[customerId] = _.random(0.8, true);
-  pMeals.dinner[customerId] = _.random(0.3, true);
-
-  return {
-    customerId,
-    department: _.sample(departments),
-    discipline: _.sample(disciplines),
-    gender: _.sample(genders),
-    age: _.sample(ages),
-    cardType,
-    balance: cardType === cardTypes[0] ? allowanceAmount : _.sample(rechargeAmount),
-    branchName: branch.name,
-    skuType: _.sample(branch.dishes).name,
-  };
-}
-
-function simulateRecharge({ time, customer }, logger) {
-  const amount = _.sample(rechargeAmount);
-
-  _.extend(customer, {
-    balance: customer.balance + amount,
-  });
-
-  logger.log('recharge', _.defaults({
-    rechargeId: uuid(),
-    timestamp: time.toISOString(),
-    channel: channels[1],
-    rechargeAmount: amount,
-  }, customer));
-}
-
-function simulateAllowance({ day, customer }, logger) {
-  const time = day.clone().add(9, 'hour');
-
-  _.extend(customer, {
-    balance: customer.balance + allowanceAmount,
-  });
-
-  logger.log('recharge', _.defaults({
-    rechargeId: uuid(),
-    timestamp: time.toISOString(),
-    channel: channels[0],
-    rechargeAmount: allowanceAmount,
-  }));
-}
-
-function simulateMeal({
-  meal,
-  startTime,
-  duration,
-}) {
-  return ({ day, customer }, logger) => {
-    const branch = _.sample(servingBranches[meal]);
-    const dish = _.sample(branch.dishes);
-    const time = day.clone().add(startTime, 'hour');
-
-    time.add(_.random(true) * duration, 'hour');
-    if (customer.balance < dish.price) {
-      simulateRecharge({ time, customer }, logger);
-      time.add(_.random(5, true), 'minute');
-    }
-
-    _.extend(customer, {
-      balance: customer.balance - dish.price,
-    });
-
-    logger.log('transaction', _.defaults({
-      transactionId: uuid(),
-      meal,
-      timestamp: time.toISOString(),
-      branch: branch.name,
-      dish: dish.name,
-      revenue: dish.price,
-    }, customer));
-  };
-}
-
-const simulateBreakfast = simulateMeal({
-  meal: 'breakfast',
-  startTime: 8.5,
-  duration: 1,
-});
-
-
-const simulateLunch = simulateMeal({
-  meal: 'lunch',
-  startTime: 11.5,
-  duration: 2,
-});
-
-const simulateDinner = simulateMeal({
-  meal: 'dinner',
-  startTime: 17.5,
-  duration: 1.5,
-});
-
 export function simulate({
   customerCount,
   startDate,
   endDate,
 }) {
-  const customers = _.times(customerCount, createCustomer);
+  if (customersData.length < customerCount) {
+    throw Error('Doesnt have enough data. Please edit the generate-date.js and run npm run data to generage more date');
+  }
 
-  return Logger.record((logger) => {
-    forDays(startDate, endDate, (day) => {
-      _.forEach(customers, (customer) => {
-        const { customerId } = customer;
+  const customers = _.slice(customersData, 0, customerCount);
+  const cidsMap = _.invert(_.values(_.map(customers, customer => customer.customerId)));
+  const recharge = _.filter(
+    rechargeData,
+    record => _.has(cidsMap, record.customerId) &&
+      isInTimeRange(record.timestamp, startDate, endDate),
+  );
+  const transaction = _.filter(
+    transactionData,
+    record => _.has(cidsMap, record.customerId) &&
+      isInTimeRange(record.timestamp, startDate, endDate),
+  );
 
-        if (day.date === allowanceDate && customer.cardType === cardTypes[0]) {
-          simulateAllowance({ day, customer }, logger);
-        }
+  const ret = {
+    recharge: storage.write(recharge),
+    transaction: storage.write(transaction),
+  };
 
-        if (_.random(true) < pMeals.breakfast[customerId]) {
-          simulateBreakfast({ day, customer }, logger);
-        }
-        if (_.random(true) < pMeals.lunch[customerId]) {
-          simulateLunch({ day, customer }, logger);
-        }
-        if (_.random(true) < pMeals.dinner[customerId]) {
-          simulateDinner({ day, customer }, logger);
-        }
-      });
-    });
-  });
+  return ret;
 }
