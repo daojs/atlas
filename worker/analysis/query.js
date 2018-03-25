@@ -127,8 +127,7 @@ function processOrderBy(orderBy) {
     return result;
   };
 }
-
-export function query(id, {
+export function query2(dataOriginal, {
   aggregation = {},
   filter = {},
   groupBy = {},
@@ -143,7 +142,6 @@ export function query(id, {
     callback: cbGroup,
   } = processGroupBy(groupBy);
 
-  const dataOriginal = storage.read(id);
   const dataFiltered = _.filter(dataOriginal, cbFilter);
   const dataGrouped = _.groupBy(dataFiltered, cbGroup);
   const dataAggregated = _.mapValues(dataGrouped, cbAggregate);
@@ -161,6 +159,11 @@ export function query(id, {
     _.isUndefined(top) ? top : offset + top,
   );
 
-  return storage.write(result);
+  return result;
 }
 
+export function query(id, options) {
+  const dataOriginal = storage.read(id);
+
+  return storage.write(query2(dataOriginal, options));
+}

@@ -8,7 +8,9 @@ onmessage = function handler(event) {
   }
 
   function resolve(value) {
-    postMessage([id, null, value]);
+    Promise.resolve(value)
+      .then(result => postMessage([id, null, result]))
+      .catch(error => reject(error.message));
   }
 
   if (typeof id !== 'string') {

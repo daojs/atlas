@@ -1,0 +1,13 @@
+---
+foo: 1
+bar: 2
+tic:
+  @proc: sum
+  @args:
+    - @ref: foo
+    - @ref: bar
+result:
+  @proc: sum
+  @args:
+    - @ref: tic
+    - @ref: tic

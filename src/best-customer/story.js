@@ -133,43 +133,65 @@ export default {
         }
 
         return simulation
-          .then(({ transaction }) => client.call('query', transaction, {
-            aggregation: {
-              revenue: 'sum',
+          .then(({ transaction }) => client.call('dag', {
+            transactionData: {
+              '@proc': 'read',
+              '@args': [
+                transaction,
+              ],
             },
-            filter: {
-              timestamp: {
-                type: 'time-range',
-                from: time.start,
-                to: time.end,
-              },
-              ...bestUser,
+            step1: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'transactionData',
+              }, {
+                aggregation: {
+                  revenue: 'sum',
+                },
+                filter: {
+                  timestamp: {
+                    type: 'time-range',
+                    from: time.start,
+                    to: time.end,
+                  },
+                  ...bestUser,
+                },
+                groupBy: {
+                  timestamp: granularity,
+                  customerId: 'value',
+                },
+              }],
             },
-            groupBy: {
-              timestamp: granularity,
-              customerId: 'value',
+            step2: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'step1',
+              }, {
+                aggregation: {
+                  revenue: 'average',
+                },
+                groupBy: {
+                  customerId: 'value',
+                },
+              }],
             },
-          }))
-          .then(id => client.call('query', id, {
-            aggregation: {
-              revenue: 'average',
+            result: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'step2',
+              }, {
+                aggregation: {
+                  customerId: 'count',
+                },
+                groupBy: {
+                  revenue: {
+                    type: 'bin',
+                    step: 10,
+                  },
+                },
+              }],
             },
-            groupBy: {
-              customerId: 'value',
-            },
-          }).finally(() => client.call('remove', id)))
-          .then(id => client.call('query', id, {
-            aggregation: {
-              customerId: 'count',
-            },
-            groupBy: {
-              revenue: {
-                type: 'bin',
-                step: 10,
-              },
-            },
-          }).finally(() => client.call('remove', id)))
-          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+          }, 'result'));
       },
     },
     customerExpensePerUserBucket: {

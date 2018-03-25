@@ -3,6 +3,7 @@ import * as procedures from './procedures';
 import * as simulator from './sodexo-simulator';
 import * as analysis from './analysis';
 import storage from './storage';
+import * as dagQL from './dag-ql';
 
 register(procedures);
 register(simulator);
@@ -12,3 +13,5 @@ register({
   read: id => storage.read(id),
   remove: id => storage.remove(id),
 });
+
+register(dagQL);

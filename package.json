@@ -38,7 +38,8 @@
     "react-dom": "^16.2.0",
     "react-grid-layout": "^0.16.6",
     "react-resizable": "^1.7.5",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "yamljs": "^0.3.0"
   },
   "scripts": {
     "start": "webpack-dev-server",
