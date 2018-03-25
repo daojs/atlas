@@ -6,8 +6,11 @@ import { validate, getDimensionSeries } from '../utils';
 
 export default class HorizontalBar extends PureComponent {
   render() {
-    validate(this.props.source);
-    const dimensions = _.first(this.props.source);
+    const {
+      source,
+    } = this.props.value;
+    validate(source);
+    const dimensions = _.first(source);
     const option = {
       legend: {},
       tooltip: {
@@ -17,7 +20,7 @@ export default class HorizontalBar extends PureComponent {
         },
       },
       dataset: {
-        source: this.props.source,
+        source,
         dimensions,
       },
       yAxis: { type: 'category' },
@@ -35,5 +38,5 @@ export default class HorizontalBar extends PureComponent {
 }
 
 HorizontalBar.propTypes = {
-  source: PropTypes.arrayOf(PropTypes.array).isRequired,
+  value: PropTypes.objectOf(PropTypes.any).isRequired,
 };

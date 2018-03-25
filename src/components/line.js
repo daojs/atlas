@@ -6,7 +6,10 @@ import { validate, getDataOption } from '../utils';
 
 export default class Line extends PureComponent {
   getSource() {
-    return this.props.source;
+    const {
+      source,
+    } = this.props.value;
+    return source;
   }
 
   getOption() {
@@ -62,7 +65,7 @@ export default class Line extends PureComponent {
 }
 
 Line.propTypes = {
-  source: PropTypes.arrayOf(PropTypes.array).isRequired,
+  value: PropTypes.objectOf(PropTypes.any).isRequired,
   title: PropTypes.string,
   onSlicerChange: PropTypes.func,
 };

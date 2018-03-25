@@ -6,14 +6,17 @@ import { validate, getDimensionSeries } from '../utils';
 
 export default class Bar extends PureComponent {
   render() {
-    validate(this.props.source);
-    const dimensions = _.first(this.props.source);
+    const {
+      source,
+    } = this.props.value;
+    validate(source);
+    const dimensions = _.first(source);
 
     const option = {
       legend: {},
       tooltip: {},
       dataset: {
-        source: this.props.source,
+        source,
         dimensions,
       },
       yAxis: {},
@@ -25,11 +28,15 @@ export default class Bar extends PureComponent {
     };
 
     return (
-      <ReactEcharts option={option} {...this.props} />
+      <ReactEcharts
+        option={option}
+        notMerge={true} //eslint-disable-line
+        {...this.props}
+      />
     );
   }
 }
 
 Bar.propTypes = {
-  source: PropTypes.arrayOf(PropTypes.array).isRequired,
+  value: PropTypes.objectOf(PropTypes.any).isRequired,
 };
