@@ -12,6 +12,9 @@ export default function Cell({
   write,
   isUpdating,
 }) {
+  if (!input && !output) {
+    return renderCell({ ...otherProps });
+  }
   return (
     <Spin spinning={input ? isUpdating(input) : false}>
       {read(input || output) ? renderCell({

@@ -1,15 +1,13 @@
 export default {
-  key: '1000',
+  key: '10000',
   type: 'SectionContainer',
   items: [{
     key: 'slicer',
-    items: [{
-      output: '@time',
-      type: 'TimeRange',
-      props: {
-        label: 'Time Range',
-      },
-    }],
+    output: '@time',
+    type: 'TimeRange',
+    props: {
+      label: 'Time Range',
+    },
   }, {
     key: 'bestUser',
     type: 'SectionCard',
@@ -55,7 +53,7 @@ export default {
       },
     }, {
       key: 'bestCustomerTSAD',
-      input: 'bestCustomerQuery',
+      input: 'bestCustomerTSAD',
       type: 'LineWithDataZoom',
       props: {
         title: 'Best Customer TSAD',
