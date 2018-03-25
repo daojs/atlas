@@ -19,10 +19,6 @@ const {
   HorizontalBar,
 } = components;
 
-function WithLabel(Control, label) {
-  return props => <Control label={label} {...props} />;
-}
-
 function WithChart(Control) {
   return props => <Control {...props.value} {...props} />; //eslint-disable-line
 }
@@ -36,25 +32,25 @@ export default function () {
         <h2>Best User Analysis</h2>
         <SectionContainer id={storyConfig.id}>
           <div key="slicer">
-            <Cell output="@time" renderCell={WithLabel(TimeRange, 'Time Range')} />
+            <Cell output="@time" label="Time Range" renderCell={WithChart(TimeRange)} />
           </div>
           <SectionCard key="bestUser" title="Best User">
-            <Cell input="measureUser" output="@measureUser" renderCell={WithLabel(SingleSelector, 'Measure')} />
+            <Cell input="measureUser" output="@measureUser" label="Measure" renderCell={WithChart(SingleSelector)} />
             <Cell input="bestUser" title="Best User SectionCard" renderCell={WithChart(PlainData)} />
           </SectionCard>
           <SectionCard key="bestCustomer" title="Best Customer Overview">
-            <Cell input="measureCustomer" output="@measureCustomer" renderCell={WithLabel(SingleSelector, 'Measure')} />
+            <Cell input="measureCustomer" output="@measureCustomer" label="Measure" renderCell={WithChart(SingleSelector)} />
             <Cell input="bestCustomerQuery" title="Best Customer Query" renderCell={WithChart(PlainData)} />
             <Cell input="bestCustomerTSAD" title="Best Customer TSAD" renderCell={WithChart(LineWithDataZoom)} />
           </SectionCard>
           <SectionCard key="bestCustomerExpensePerUser" title="Best Customer Expense Per User">
-            <Cell input="granularityCustomer" output="@granularityCustomer" renderCell={WithLabel(SingleSelector, 'Granularity')} />
+            <Cell input="granularityCustomer" output="@granularityCustomer" label="Granularity" renderCell={WithChart(SingleSelector)} />
             <Cell input="customerExpensePerUserBucket" title="Best Customer Expense Per User Bucket" renderCell={WithChart(Bar)} />
             <Cell input="customerExpensePerUserRank" title="Best Customer Expense Per User TSAD" renderCell={WithChart(HorizontalBar)} />
           </SectionCard>
           <SectionCard key="favor" title="Favor XXX of Best Customers">
-            <Cell input="measureFavor" output="@measureFavor" renderCell={WithLabel(SingleSelector, 'Measure')} />
-            <Cell input="dimensionFavor" output="@dimensionFavor" renderCell={WithLabel(SingleSelector, 'Dimension')} />
+            <Cell input="measureFavor" output="@measureFavor" label="Measure" renderCell={WithChart(SingleSelector)} />
+            <Cell input="dimensionFavor" output="@dimensionFavor" label="Dimension" renderCell={WithChart(SingleSelector)} />
             <Cell input="favorBestCustomerReduce" title="Favor Best Customer Reduce" renderCell={WithChart(Donut)} />
             <Cell input="favorBestCustomerTrend" title="Favor Customer Trend" renderCell={WithChart(LineWithDataZoom)} />
           </SectionCard>
