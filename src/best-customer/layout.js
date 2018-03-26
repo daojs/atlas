@@ -34,7 +34,7 @@ export default function () {
           <div key="slicer">
             <Cell output="@time" label="Time Range" renderCell={WithComponent(TimeRange)} />
           </div>
-          <SectionCard key="bestUser" title="Best User">
+          <SectionCard key="bestUser" title="Best User Analysis of xxx">
             <Cell input="measureUser" output="@measureUser" label="Measure" renderCell={WithComponent(SingleSelector)} />
             <Cell input="bestUser" title="Best User SectionCard" renderCell={WithComponent(PlainData)} />
           </SectionCard>
@@ -59,6 +59,11 @@ export default function () {
             <Cell input="usageMealCardBucketCRAP" title="Usage of Meal SectionCard Bucket CardRechargeAmountPerUU" renderCell={WithComponent(Bar)} />
             <Cell input="usageMealCardQuery" title="Usage of Meal SectionCard Query" renderCell={WithComponent(PlainData)} />
             <Cell input="usageMealCardBucketCB" title="Usage of Meal SectionCard CardBalance" renderCell={WithComponent(PlainData)} />
+          </SectionCard>
+          <SectionCard key="growthAbility" title="Growth Ability">
+            <Cell input="measureGrowth" output="@measureGrowth" label="Measure" renderCell={WithComponent(SingleSelector)} />
+            <Cell input="growthAbilityCumulative" subTitle="Growth Ability Cumulative" renderCell={WithComponent(LineWithDataZoom)} />
+            <Cell input="growthAbilityGrowthRate" subTitle="Growth Ability Growth Rate" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
         </SectionContainer>
       </Form>
