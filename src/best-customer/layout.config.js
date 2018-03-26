@@ -160,5 +160,34 @@ export default {
         title: 'Usage of Meal SectionCard CardBalance',
       },
     }],
+  }, {
+    key: 'growthAbility',
+    type: 'SectionCard',
+    props: {
+      title: 'Growth Ability',
+    },
+    items: [{
+      key: 'measureGrowth',
+      input: 'measureGrowth',
+      output: '@measureGrowth',
+      type: 'SingleSelector',
+      props: {
+        label: 'Measure',
+      },
+    }, {
+      key: 'growthAbilityCumulative',
+      input: 'growthAbilityCumulative',
+      type: 'LineWithDataZoom',
+      props: {
+        subTitle: 'Growth Ability Cumulative',
+      },
+    }, {
+      key: 'growthAbilityGrowthRate',
+      input: 'growthAbilityGrowthRate',
+      type: 'LineWithDataZoom',
+      props: {
+        title: 'Growth Ability Growth Rate',
+      },
+    }],
   }],
 };
