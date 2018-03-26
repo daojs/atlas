@@ -282,35 +282,6 @@ export default {
               }],
             },
           }, 'result'));
-
-        // return simulation
-        //   .then(({ transaction }) => client.call('query', transaction, {
-        //     aggregation: {
-        //       revenue: 'sum',
-        //     },
-        //     filter: {
-        //       timestamp: {
-        //         type: 'time-range',
-        //         from: time.start,
-        //         to: time.end,
-        //       },
-        //       ...bestUser,
-        //     },
-        //     groupBy: {
-        //       customerId: 'value',
-        //     },
-        //   }))
-        //   .then(id => client.call('query', id, {
-        //     aggregation: {
-        //       revenue: 'average',
-        //     },
-        //     groupBy: {
-        //       customerId: 'value',
-        //     },
-        //     orderBy: ['-revenue'],
-        //     top: 10,
-        //   }).finally(() => client.call('remove', id)))
-        //   .then(id => client.call('read', id).finally(() => client.call('remove', id)));
       },
     },
     customerExpensePerUserRank: {
