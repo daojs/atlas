@@ -30,7 +30,7 @@ export default class MultiSelector extends Component {
   }
 
   onChange(value) {
-    this.props.update(value);
+    setTimeout(() => this.props.update(value), 0);
   }
 
   render() {
