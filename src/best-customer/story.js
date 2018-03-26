@@ -77,22 +77,35 @@ export default {
         if (_.some([time, aggregation, bestUser], _.isNil)) {
           return Promise.resolve([]);
         }
+
         return simulation
-          .then(({ transaction }) => client.call('query', transaction, {
-            aggregation,
-            filter: {
-              timestamp: {
-                type: 'time-range',
-                from: time.start,
-                to: time.end,
-              },
-              ...bestUser,
+          .then(({ transaction }) => client.call('dag', {
+            transactionData: {
+              '@proc': 'read',
+              '@args': [
+                transaction,
+              ],
             },
-            groupBy: {
-              timestamp: 'day',
+            result: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'transactionData',
+              }, {
+                aggregation,
+                filter: {
+                  timestamp: {
+                    type: 'time-range',
+                    from: time.start,
+                    to: time.end,
+                  },
+                  ...bestUser,
+                },
+                groupBy: {
+                  timestamp: 'day',
+                },
+              }],
             },
-          }))
-          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+          }, 'result'));
       },
     },
     bestCustomerTSAD: {
