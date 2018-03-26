@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactEcharts from 'echarts-for-react';
 import _ from 'lodash';
-import { validate, getDataOption } from '../utils';
+import { validate } from '../utils';
+
 
 export default class Line extends PureComponent {
   getSource() {
@@ -12,14 +13,51 @@ export default class Line extends PureComponent {
     return source;
   }
 
-  getOption() {
-    const dataOption = getDataOption({
-      source: this.getSource(),
-      defaultSeriesOpt: {
-        type: 'line',
-      },
-    });
+  getDimensions() {
+    return _.chain(this.getSource())
+      .first()
+      .keys()
+      .value();
+  }
 
+  getAxisDimension() {
+    return _.first(this.props.value.axisDimensions) ||
+      _.first(this.getDimensions());
+  }
+
+  getAxisData() {
+    const axisDim = this.getAxisDimension();
+    return _.chain(this.getSource())
+      .map(row => row[axisDim])
+      .value();
+  }
+
+  getAxisOption() {
+    return {
+      data: this.getAxisData(),
+      type: 'category',
+      boundaryGap: false,
+    };
+  }
+
+  getMetricDimensions() {
+    return _.isEmpty(this.props.value.metricDimensions) ?
+      _.difference(this.getDimensions(), [this.getAxisDimension()]) :
+      this.props.value.metricDimensions;
+  }
+
+  getSeriesOption() {
+    const source = this.getSource();
+    return _.chain(this.getMetricDimensions())
+      .map(dim => _.defaults({
+        type: 'line',
+        name: dim,
+        data: _.map(source, row => row[dim]),
+      }))
+      .value();
+  }
+
+  getOption() {
     return _.defaultsDeep({
       title: {
         text: this.props.title,
@@ -31,13 +69,8 @@ export default class Line extends PureComponent {
       yAxis: {
         type: 'value',
       },
-      xAxis: {
-        type: 'category',
-        boundaryGap: false,
-      },
-    }, {
-      xAxis: dataOption.axis,
-      series: dataOption.series,
+      xAxis: this.getAxisOption(),
+      series: this.getSeriesOption(),
     });
   }
 
