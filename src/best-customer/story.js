@@ -48,6 +48,7 @@ export default {
     granularityCustomer: { default: undefined },
     measureFavor: { default: undefined },
     dimensionFavor: { default: undefined },
+    measureGrowth: { default: undefined },
   },
   cells: {
     measureUser: {
@@ -490,6 +491,95 @@ export default {
       factory: (time, bestUser) => Promise.resolve({
         time, bestUser, measure: 'CardBalance',
       }),
+    },
+    measureGrowth: {
+      factory: () => Promise.resolve({
+        defaultValue: 'UU',
+        enums: ['Revenue', 'UU', 'TransactionCount'],
+      }),
+    },
+    fetchTrendForGrowth: {
+      dependencies: ['@time', '@measureGrowth', 'bestUser'],
+      factory: (time, measure, bestUser) => {
+        if (_.some([time, measure, bestUser], _.isNil)) {
+          return Promise.resolve([]);
+        }
+
+        const aggregation = metricsDictionary[measure];
+
+        return simulation
+          .then(({ transaction }) => client.call('query', transaction, {
+            aggregation,
+            filter: {
+              timestamp: {
+                type: 'time-range',
+                from: time.start,
+                to: time.end,
+              },
+              ...bestUser,
+            },
+            groupBy: {
+              timestamp: 'day',
+            },
+          }))
+          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      },
+    },
+    fetchCumulativeTrend: {
+      dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
+      factory: (trend, measure) => {
+        if (_.some([trend, measure], _.isNil)) {
+          return undefined;
+        }
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+        return client.call('cumulative', trend, {
+          measureKey,
+          timestampKey: 'timestamp',
+        });
+      },
+    },
+    fetchGrowthRateTrend: {
+      dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
+      factory: (trend, measure) => {
+        if (_.some([trend, measure], _.isNil)) {
+          return undefined;
+        }
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+        return client.call('growthRate', trend, {
+          measureKey,
+          timestampKey: 'timestamp',
+        });
+      },
+    },
+    growthAbilityCumulative: {
+      dependencies: ['fetchCumulativeTrend', '@measureGrowth', 'bestUser'],
+      factory: (rawData, measure, bestUser) => {
+        if (_.some([rawData, measure, bestUser], _.isNil)) {
+          return undefined;
+        }
+
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+
+        const source = [['time', measureKey]].concat(_.map(rawData, ({ timestamp, value }) =>
+          [timestamp, value]));
+
+        return Promise.resolve({ title: '', source });
+      },
+    },
+    growthAbilityGrowthRate: {
+      dependencies: ['fetchGrowthRateTrend', '@measureGrowth', 'bestUser'],
+      factory: (rawData, measure, bestUser) => {
+        if (_.some([rawData, measure, bestUser], _.isNil)) {
+          return undefined;
+        }
+
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+
+        const source = [['time', measureKey]].concat(_.map(rawData, ({ timestamp, value }) =>
+          [timestamp, value]));
+
+        return Promise.resolve({ title: '', source });
+      },
     },
   },
   id: '10000',
