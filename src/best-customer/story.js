@@ -238,33 +238,79 @@ export default {
         }
 
         return simulation
-          .then(({ transaction }) => client.call('query', transaction, {
-            aggregation: {
-              revenue: 'sum',
+          .then(({ transaction }) => client.call('dag', {
+            transactionData: {
+              '@proc': 'read',
+              '@args': [
+                transaction,
+              ],
             },
-            filter: {
-              timestamp: {
-                type: 'time-range',
-                from: time.start,
-                to: time.end,
-              },
-              ...bestUser,
+            stepFilter: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'transactionData',
+              }, {
+                aggregation: {
+                  revenue: 'sum',
+                },
+                filter: {
+                  timestamp: {
+                    type: 'time-range',
+                    from: time.start,
+                    to: time.end,
+                  },
+                  ...bestUser,
+                },
+                groupBy: {
+                  customerId: 'value',
+                },
+              }],
             },
-            groupBy: {
-              customerId: 'value',
+            result: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'stepFilter',
+              }, {
+                aggregation: {
+                  revenue: 'average',
+                },
+                groupBy: {
+                  customerId: 'value',
+                },
+                orderBy: ['-revenue'],
+                top: 10,
+              }],
             },
-          }))
-          .then(id => client.call('query', id, {
-            aggregation: {
-              revenue: 'average',
-            },
-            groupBy: {
-              customerId: 'value',
-            },
-            orderBy: ['-revenue'],
-            top: 10,
-          }).finally(() => client.call('remove', id)))
-          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+          }, 'result'));
+
+        // return simulation
+        //   .then(({ transaction }) => client.call('query', transaction, {
+        //     aggregation: {
+        //       revenue: 'sum',
+        //     },
+        //     filter: {
+        //       timestamp: {
+        //         type: 'time-range',
+        //         from: time.start,
+        //         to: time.end,
+        //       },
+        //       ...bestUser,
+        //     },
+        //     groupBy: {
+        //       customerId: 'value',
+        //     },
+        //   }))
+        //   .then(id => client.call('query', id, {
+        //     aggregation: {
+        //       revenue: 'average',
+        //     },
+        //     groupBy: {
+        //       customerId: 'value',
+        //     },
+        //     orderBy: ['-revenue'],
+        //     top: 10,
+        //   }).finally(() => client.call('remove', id)))
+        //   .then(id => client.call('read', id).finally(() => client.call('remove', id)));
       },
     },
     customerExpensePerUserRank: {
