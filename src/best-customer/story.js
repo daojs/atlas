@@ -8,6 +8,13 @@ import dags from '../dags';
 
 const {
   fetchCustomerTSADFactory,
+  fetchCustomerExpensePerUserBucketFactory,
+  fetchCustomerExpensePerUserRankFactory,
+  fetchFavorBestCustomerReduceFactory,
+  fetchFavorBestCustomerTrendFactory,
+  fetchUsageMealCardReduceFactory,
+  fetchUsageMealCardBucketFactory,
+  fetchTrendForGrowth,
 } = dags;
 
 const metricsDictionary = {
@@ -104,72 +111,7 @@ export default {
     },
     fetchCustomerExpencePerUserBucket: {
       dependencies: ['@time', '@granularityCustomer', 'bestUser'],
-      factory: (time, granularity, bestUser) => {
-        if (_.some([time, granularity, bestUser], _.isNil)) {
-          return Promise.resolve([]);
-        }
-
-        return simulation
-          .then(({ transaction }) => client.call('dag', {
-            transactionData: {
-              '@proc': 'read',
-              '@args': [
-                transaction,
-              ],
-            },
-            step1: {
-              '@proc': 'query2',
-              '@args': [{
-                '@ref': 'transactionData',
-              }, {
-                aggregation: {
-                  revenue: 'sum',
-                },
-                filter: {
-                  timestamp: {
-                    type: 'time-range',
-                    from: time.start,
-                    to: time.end,
-                  },
-                  ...bestUser,
-                },
-                groupBy: {
-                  timestamp: granularity,
-                  customerId: 'value',
-                },
-              }],
-            },
-            step2: {
-              '@proc': 'query2',
-              '@args': [{
-                '@ref': 'step1',
-              }, {
-                aggregation: {
-                  revenue: 'average',
-                },
-                groupBy: {
-                  customerId: 'value',
-                },
-              }],
-            },
-            result: {
-              '@proc': 'query2',
-              '@args': [{
-                '@ref': 'step2',
-              }, {
-                aggregation: {
-                  customerId: 'count',
-                },
-                groupBy: {
-                  revenue: {
-                    type: 'bin',
-                    step: 10,
-                  },
-                },
-              }],
-            },
-          }, 'result'));
-      },
+      factory: fetchCustomerExpensePerUserBucketFactory(client, simulation),
     },
     customerExpensePerUserBucket: {
       dependencies: ['fetchCustomerExpencePerUserBucket'],
@@ -196,57 +138,7 @@ export default {
     },
     fetchCustomerExpensePerUserRank: {
       dependencies: ['@time', '@granularityCustomer', 'bestUser'],
-      factory: (time, granularity, bestUser) => {
-        if (_.some([time, granularity, bestUser], _.isNil)) {
-          return Promise.resolve([]);
-        }
-
-        return simulation
-          .then(({ transaction }) => client.call('dag', {
-            transactionData: {
-              '@proc': 'read',
-              '@args': [
-                transaction,
-              ],
-            },
-            stepFilter: {
-              '@proc': 'query2',
-              '@args': [{
-                '@ref': 'transactionData',
-              }, {
-                aggregation: {
-                  revenue: 'sum',
-                },
-                filter: {
-                  timestamp: {
-                    type: 'time-range',
-                    from: time.start,
-                    to: time.end,
-                  },
-                  ...bestUser,
-                },
-                groupBy: {
-                  customerId: 'value',
-                },
-              }],
-            },
-            result: {
-              '@proc': 'query2',
-              '@args': [{
-                '@ref': 'stepFilter',
-              }, {
-                aggregation: {
-                  revenue: 'average',
-                },
-                groupBy: {
-                  customerId: 'value',
-                },
-                orderBy: ['-revenue'],
-                top: 10,
-              }],
-            },
-          }, 'result'));
-      },
+      factory: fetchCustomerExpensePerUserRankFactory(client, simulation),
     },
     customerExpensePerUserRank: {
       dependencies: ['fetchCustomerExpensePerUserRank'],
@@ -286,42 +178,9 @@ export default {
     },
     fetchFavorBestCustomerReduce: {
       dependencies: ['@time', '@measureFavor', '@dimensionFavor', 'bestUser'],
-      factory: (time, measure, dimension, bestUser) => {
-        if (_.some([time, measure, dimension, bestUser], _.isNil)) {
-          return Promise.resolve([]);
-        }
-
-        const aggregation = metricsDictionary[measure];
-
-        return simulation
-          .then(({ transaction }) => client.call('dag', {
-            transactionData: {
-              '@proc': 'read',
-              '@args': [
-                transaction,
-              ],
-            },
-            result: {
-              '@proc': 'query2',
-              '@args': [{
-                '@ref': 'transactionData',
-              }, {
-                aggregation,
-                filter: {
-                  timestamp: {
-                    type: 'time-range',
-                    from: time.start,
-                    to: time.end,
-                  },
-                  ...bestUser,
-                },
-                groupBy: {
-                  [groupByDictionary[dimension]]: 'value',
-                },
-              }],
-            },
-          }, 'result'));
-      },
+      factory: fetchFavorBestCustomerReduceFactory(client, simulation, {
+        metricsDictionary, groupByDictionary,
+      }),
     },
     favorBestCustomerReduce: {
       dependencies: ['fetchFavorBestCustomerReduce', '@measureFavor', '@dimensionFavor'],
@@ -336,43 +195,9 @@ export default {
     },
     fetchFavorBestCustomerTrend: {
       dependencies: ['@time', '@measureFavor', '@dimensionFavor', 'bestUser'],
-      factory: (time, measure, dimension, bestUser) => {
-        if (_.some([time, measure, dimension, bestUser], _.isNil)) {
-          return Promise.resolve([]);
-        }
-
-        const aggregation = metricsDictionary[measure];
-
-        return simulation
-          .then(({ transaction }) => client.call('dag', {
-            transactionData: {
-              '@proc': 'read',
-              '@args': [
-                transaction,
-              ],
-            },
-            result: {
-              '@proc': 'query2',
-              '@args': [{
-                '@ref': 'transactionData',
-              }, {
-                aggregation,
-                filter: {
-                  timestamp: {
-                    type: 'time-range',
-                    from: time.start,
-                    to: time.end,
-                  },
-                  ...bestUser,
-                },
-                groupBy: {
-                  timestamp: 'day',
-                  [groupByDictionary[dimension]]: 'value',
-                },
-              }],
-            },
-          }, 'result'));
-      },
+      factory: fetchFavorBestCustomerTrendFactory(client, simulation, {
+        metricsDictionary, groupByDictionary,
+      }),
     },
     favorBestCustomerTrend: {
       dependencies: ['fetchFavorBestCustomerTrend', '@measureFavor', '@dimensionFavor'],
@@ -409,24 +234,7 @@ export default {
     // Section 4
     fetchUsageMealCardReduce: {
       dependencies: ['@time', 'bestUser'],
-      factory: (time, bestUser) => simulation
-        .then(({ recharge }) => client.call('query', recharge, {
-          aggregation: {
-            customerId: 'count',
-          },
-          filter: {
-            timestamp: {
-              type: 'time-range',
-              from: time.start,
-              to: time.end,
-            },
-            ...bestUser,
-          },
-          groupBy: {
-            cardType: 'value',
-          },
-        }))
-        .then(id => client.call('read', id).finally(() => client.call('remove', id))),
+      factory: fetchUsageMealCardReduceFactory(client, simulation),
     },
     usageMealCardReduce: {
       dependencies: ['fetchUsageMealCardReduce'],
@@ -437,35 +245,7 @@ export default {
     },
     fetchUsageMealCardBucketCRAP: {
       dependencies: ['@time', 'bestUser'],
-      factory: (time, bestUser) => simulation
-        .then(({ recharge }) => client.call('query', recharge, {
-          aggregation: {
-            rechargeAmount: 'sum',
-          },
-          filter: {
-            timestamp: {
-              type: 'time-range',
-              from: time.start,
-              to: time.end,
-            },
-            ...bestUser,
-          },
-          groupBy: {
-            customerId: 'value',
-          },
-        }))
-        .then(id => client.call('query', id, {
-          aggregation: {
-            customerId: 'count',
-          },
-          groupBy: {
-            rechargeAmount: {
-              type: 'bin',
-              step: 200,
-            },
-          },
-        }).finally(() => client.call('remove', id)))
-        .then(id => client.call('read', id).finally(() => client.call('remove', id))),
+      factory: fetchUsageMealCardBucketFactory(client, simulation),
     },
     usageMealCardBucketCRAP: {
       dependencies: ['fetchUsageMealCardBucketCRAP'],
@@ -494,30 +274,7 @@ export default {
     },
     fetchTrendForGrowth: {
       dependencies: ['@time', '@measureGrowth', 'bestUser'],
-      factory: (time, measure, bestUser) => {
-        if (_.some([time, measure, bestUser], _.isNil)) {
-          return Promise.resolve([]);
-        }
-
-        const aggregation = metricsDictionary[measure];
-
-        return simulation
-          .then(({ transaction }) => client.call('query', transaction, {
-            aggregation,
-            filter: {
-              timestamp: {
-                type: 'time-range',
-                from: time.start,
-                to: time.end,
-              },
-              ...bestUser,
-            },
-            groupBy: {
-              timestamp: 'day',
-            },
-          }))
-          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
-      },
+      factory: fetchTrendForGrowth(client, simulation, { metricsDictionary }),
     },
     fetchCumulativeTrend: {
       dependencies: ['fetchTrendForGrowth', '@measureGrowth'],

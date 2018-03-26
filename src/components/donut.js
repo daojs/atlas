@@ -6,12 +6,15 @@ import _ from 'lodash';
 export default class Donut extends PureComponent {
   render() {
     const {
-      source,
+      value,
       percent,
       title,
       subTitle,
       hasLegend,
     } = this.props;
+
+    const { source } = value;
+
     if (_.isEmpty(source) && _.isNull(percent)) {
       return null;
     }
@@ -119,7 +122,7 @@ export default class Donut extends PureComponent {
 }
 
 Donut.propTypes = {
-  source: PropTypes.arrayOf(PropTypes.array),
+  value: PropTypes.objectOf(PropTypes.any).isRequired,
   percent: PropTypes.number,
   title: PropTypes.string,
   subTitle: PropTypes.string,
@@ -127,7 +130,6 @@ Donut.propTypes = {
 };
 
 Donut.defaultProps = {
-  source: null,
   percent: null,
   title: '',
   subTitle: '',
