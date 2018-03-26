@@ -1,7 +1,14 @@
 import Promise from 'bluebird';
 import _ from 'lodash';
-import { fetchData, convertData, topNData } from '../transforms';
+import { convertData } from '../transforms';
 import client from '../mock/worker';
+
+// dags
+import dags from '../dags';
+
+const {
+  fetchCustomerTSADFactory,
+} = dags;
 
 const metricsDictionary = {
   Revenue: { revenue: 'sum' },
@@ -41,6 +48,7 @@ export default {
     granularityCustomer: { default: undefined },
     measureFavor: { default: undefined },
     dimensionFavor: { default: undefined },
+    measureGrowth: { default: undefined },
   },
   cells: {
     measureUser: {
@@ -73,40 +81,7 @@ export default {
     },
     fetchCustomerTSAD: {
       dependencies: ['@time', 'mapCustomerMetric', 'bestUser'],
-      factory: (time, aggregation, bestUser) => {
-        if (_.some([time, aggregation, bestUser], _.isNil)) {
-          return Promise.resolve([]);
-        }
-
-        return simulation
-          .then(({ transaction }) => client.call('dag', {
-            transactionData: {
-              '@proc': 'read',
-              '@args': [
-                transaction,
-              ],
-            },
-            result: {
-              '@proc': 'query2',
-              '@args': [{
-                '@ref': 'transactionData',
-              }, {
-                aggregation,
-                filter: {
-                  timestamp: {
-                    type: 'time-range',
-                    from: time.start,
-                    to: time.end,
-                  },
-                  ...bestUser,
-                },
-                groupBy: {
-                  timestamp: 'day',
-                },
-              }],
-            },
-          }, 'result'));
-      },
+      factory: fetchCustomerTSADFactory(client, simulation),
     },
     bestCustomerTSAD: {
       dependencies: ['fetchCustomerTSAD', 'mapCustomerMetric', 'bestUser'],
@@ -271,35 +246,6 @@ export default {
               }],
             },
           }, 'result'));
-
-        // return simulation
-        //   .then(({ transaction }) => client.call('query', transaction, {
-        //     aggregation: {
-        //       revenue: 'sum',
-        //     },
-        //     filter: {
-        //       timestamp: {
-        //         type: 'time-range',
-        //         from: time.start,
-        //         to: time.end,
-        //       },
-        //       ...bestUser,
-        //     },
-        //     groupBy: {
-        //       customerId: 'value',
-        //     },
-        //   }))
-        //   .then(id => client.call('query', id, {
-        //     aggregation: {
-        //       revenue: 'average',
-        //     },
-        //     groupBy: {
-        //       customerId: 'value',
-        //     },
-        //     orderBy: ['-revenue'],
-        //     top: 10,
-        //   }).finally(() => client.call('remove', id)))
-        //   .then(id => client.call('read', id).finally(() => client.call('remove', id)));
       },
     },
     customerExpensePerUserRank: {
@@ -348,21 +294,33 @@ export default {
         const aggregation = metricsDictionary[measure];
 
         return simulation
-          .then(({ transaction }) => client.call('query', transaction, {
-            aggregation,
-            filter: {
-              timestamp: {
-                type: 'time-range',
-                from: time.start,
-                to: time.end,
-              },
-              ...bestUser,
+          .then(({ transaction }) => client.call('dag', {
+            transactionData: {
+              '@proc': 'read',
+              '@args': [
+                transaction,
+              ],
             },
-            groupBy: {
-              [groupByDictionary[dimension]]: 'value',
+            result: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'transactionData',
+              }, {
+                aggregation,
+                filter: {
+                  timestamp: {
+                    type: 'time-range',
+                    from: time.start,
+                    to: time.end,
+                  },
+                  ...bestUser,
+                },
+                groupBy: {
+                  [groupByDictionary[dimension]]: 'value',
+                },
+              }],
             },
-          }))
-          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+          }, 'result'));
       },
     },
     favorBestCustomerReduce: {
@@ -386,22 +344,34 @@ export default {
         const aggregation = metricsDictionary[measure];
 
         return simulation
-          .then(({ transaction }) => client.call('query', transaction, {
-            aggregation,
-            filter: {
-              timestamp: {
-                type: 'time-range',
-                from: time.start,
-                to: time.end,
-              },
-              ...bestUser,
+          .then(({ transaction }) => client.call('dag', {
+            transactionData: {
+              '@proc': 'read',
+              '@args': [
+                transaction,
+              ],
             },
-            groupBy: {
-              timestamp: 'day',
-              [groupByDictionary[dimension]]: 'value',
+            result: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'transactionData',
+              }, {
+                aggregation,
+                filter: {
+                  timestamp: {
+                    type: 'time-range',
+                    from: time.start,
+                    to: time.end,
+                  },
+                  ...bestUser,
+                },
+                groupBy: {
+                  timestamp: 'day',
+                  [groupByDictionary[dimension]]: 'value',
+                },
+              }],
             },
-          }))
-          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+          }, 'result'));
       },
     },
     favorBestCustomerTrend: {
@@ -515,6 +485,95 @@ export default {
       factory: (time, bestUser) => Promise.resolve({
         time, bestUser, measure: 'CardBalance',
       }),
+    },
+    measureGrowth: {
+      factory: () => Promise.resolve({
+        defaultValue: 'UU',
+        enums: ['Revenue', 'UU', 'TransactionCount'],
+      }),
+    },
+    fetchTrendForGrowth: {
+      dependencies: ['@time', '@measureGrowth', 'bestUser'],
+      factory: (time, measure, bestUser) => {
+        if (_.some([time, measure, bestUser], _.isNil)) {
+          return Promise.resolve([]);
+        }
+
+        const aggregation = metricsDictionary[measure];
+
+        return simulation
+          .then(({ transaction }) => client.call('query', transaction, {
+            aggregation,
+            filter: {
+              timestamp: {
+                type: 'time-range',
+                from: time.start,
+                to: time.end,
+              },
+              ...bestUser,
+            },
+            groupBy: {
+              timestamp: 'day',
+            },
+          }))
+          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      },
+    },
+    fetchCumulativeTrend: {
+      dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
+      factory: (trend, measure) => {
+        if (_.some([trend, measure], _.isNil)) {
+          return undefined;
+        }
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+        return client.call('cumulative', trend, {
+          measureKey,
+          timestampKey: 'timestamp',
+        });
+      },
+    },
+    fetchGrowthRateTrend: {
+      dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
+      factory: (trend, measure) => {
+        if (_.some([trend, measure], _.isNil)) {
+          return undefined;
+        }
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+        return client.call('growthRate', trend, {
+          measureKey,
+          timestampKey: 'timestamp',
+        });
+      },
+    },
+    growthAbilityCumulative: {
+      dependencies: ['fetchCumulativeTrend', '@measureGrowth', 'bestUser'],
+      factory: (rawData, measure, bestUser) => {
+        if (_.some([rawData, measure, bestUser], _.isNil)) {
+          return undefined;
+        }
+
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+
+        const source = [['time', measureKey]].concat(_.map(rawData, ({ timestamp, value }) =>
+          [timestamp, value]));
+
+        return Promise.resolve({ title: '', source });
+      },
+    },
+    growthAbilityGrowthRate: {
+      dependencies: ['fetchGrowthRateTrend', '@measureGrowth', 'bestUser'],
+      factory: (rawData, measure, bestUser) => {
+        if (_.some([rawData, measure, bestUser], _.isNil)) {
+          return undefined;
+        }
+
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+
+        const source = [['time', measureKey]].concat(_.map(rawData, ({ timestamp, value }) =>
+          [timestamp, value]));
+
+        return Promise.resolve({ title: '', source });
+      },
     },
   },
   id: '10000',
