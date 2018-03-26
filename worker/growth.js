@@ -1,35 +1,47 @@
 import _ from 'lodash';
 
-function sortByTimestamp(data) {
-  return _.sortBy(data, ({ timestamp }) => new Date(timestamp));
+function sortByTimestamp(data, timestampKey) {
+  return _.sortBy(data, ({ [timestampKey]: timestamp }) => new Date(timestamp));
 }
 
-export function cumulative(data, measure) {
+export function cumulative(data, {
+  measureKey,
+  timestampKey,
+}) {
   // starting from 0?
-  const [first, ...rest] = sortByTimestamp(data);
-  return _.reduce(rest, (memo, item, index) => [...memo, {
-    timestamp: item.timestamp,
-    value: item[measure] + memo[index].value,
-    raw: item,
-  }], [{
-    timestamp: first.timestamp,
-    value: first[measure],
+  const [first, ...rest] = sortByTimestamp(data, timestampKey);
+  return _.reduce(rest, (memo, item, index) => {
+    memo.push({
+      timestamp: item[timestampKey],
+      value: item[measureKey] + memo[index].value,
+      raw: item,
+    });
+
+    return memo;
+  }, [{
+    timestamp: first[timestampKey],
+    value: first[measureKey],
     raw: first,
   }]);
 }
 
-export function growthRate(data, measure) {
-  const [first, ...rest] = sortByTimestamp(data);
+export function growthRate(data, {
+  measureKey,
+  timestampKey,
+}) {
+  const [first, ...rest] = sortByTimestamp(data, timestampKey);
   return _.reduce(rest, (memo, item, index) => {
-    const lastItemValue = memo[index].raw[measure];
+    const lastItemValue = memo[index].raw[measureKey];
 
-    return [...memo, {
-      timestamp: item.timestamp,
-      value: (item[measure] - lastItemValue) / lastItemValue,
+    memo.push({
+      timestamp: item[timestampKey],
+      value: (item[measureKey] - lastItemValue) / lastItemValue,
       raw: item,
-    }];
+    });
+
+    return memo;
   }, [{
-    timestamp: first.timestamp,
+    timestamp: first[timestampKey],
     value: 0,
     raw: first,
   }]);

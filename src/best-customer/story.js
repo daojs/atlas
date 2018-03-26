@@ -504,7 +504,10 @@ export default {
           return undefined;
         }
         const measureKey = _.keys(metricsDictionary[measure])[0];
-        return client.call('cumulative', trend, measureKey);
+        return client.call('cumulative', trend, {
+          measureKey,
+          timestampKey: 'timestamp',
+        });
       },
     },
     fetchGrowthRateTrend: {
@@ -514,7 +517,10 @@ export default {
           return undefined;
         }
         const measureKey = _.keys(metricsDictionary[measure])[0];
-        return client.call('growthRate', trend, measureKey);
+        return client.call('growthRate', trend, {
+          measureKey,
+          timestampKey: 'timestamp',
+        });
       },
     },
     growthAbilityCumulative: {
