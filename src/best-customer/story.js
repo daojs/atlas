@@ -330,21 +330,33 @@ export default {
         const aggregation = metricsDictionary[measure];
 
         return simulation
-          .then(({ transaction }) => client.call('query', transaction, {
-            aggregation,
-            filter: {
-              timestamp: {
-                type: 'time-range',
-                from: time.start,
-                to: time.end,
-              },
-              ...bestUser,
+          .then(({ transaction }) => client.call('dag', {
+            transactionData: {
+              '@proc': 'read',
+              '@args': [
+                transaction,
+              ],
             },
-            groupBy: {
-              [groupByDictionary[dimension]]: 'value',
+            result: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'transactionData',
+              }, {
+                aggregation,
+                filter: {
+                  timestamp: {
+                    type: 'time-range',
+                    from: time.start,
+                    to: time.end,
+                  },
+                  ...bestUser,
+                },
+                groupBy: {
+                  [groupByDictionary[dimension]]: 'value',
+                },
+              }],
             },
-          }))
-          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+          }, 'result'));
       },
     },
     favorBestCustomerReduce: {
@@ -368,22 +380,34 @@ export default {
         const aggregation = metricsDictionary[measure];
 
         return simulation
-          .then(({ transaction }) => client.call('query', transaction, {
-            aggregation,
-            filter: {
-              timestamp: {
-                type: 'time-range',
-                from: time.start,
-                to: time.end,
-              },
-              ...bestUser,
+          .then(({ transaction }) => client.call('dag', {
+            transactionData: {
+              '@proc': 'read',
+              '@args': [
+                transaction,
+              ],
             },
-            groupBy: {
-              timestamp: 'day',
-              [groupByDictionary[dimension]]: 'value',
+            result: {
+              '@proc': 'query2',
+              '@args': [{
+                '@ref': 'transactionData',
+              }, {
+                aggregation,
+                filter: {
+                  timestamp: {
+                    type: 'time-range',
+                    from: time.start,
+                    to: time.end,
+                  },
+                  ...bestUser,
+                },
+                groupBy: {
+                  timestamp: 'day',
+                  [groupByDictionary[dimension]]: 'value',
+                },
+              }],
             },
-          }))
-          .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+          }, 'result'));
       },
     },
     favorBestCustomerTrend: {
@@ -431,7 +455,7 @@ export default {
           },
           groupBy: {
             cardType: 'value',
-          }
+          },
         }))
         .then(id => client.call('read', id).finally(() => client.call('remove', id))),
     },
