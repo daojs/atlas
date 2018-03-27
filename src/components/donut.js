@@ -1,136 +1,114 @@
-import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import ReactEcharts from 'echarts-for-react';
 import _ from 'lodash';
+import BaseChart from './base';
 
-export default class Donut extends PureComponent {
-  render() {
-    const {
-      value,
-      percent,
-      title,
-      subTitle,
-      hasLegend,
-    } = this.props;
+export default class Donut extends BaseChart {
+  getMetricDimensions() {
+    // Donut chart only supports 1 dimension
+    return _.slice(super.getMetricDimensions(), 0, 1);
+  }
 
-    const { source } = value;
+  getSeriesOption() {
+    const source = this.getSource();
+    const axisDim = this.getAxisDimension();
 
-    if (_.isEmpty(source) && _.isNull(percent)) {
-      return null;
-    }
-
-    const rawOption = {
-      title: {
-        text: title,
-        subtext: subTitle,
-        x: 'center',
-        y: 'center',
-        textStyle: {
-          fontSize: '26',
-        },
-        subtextStyle: {
-          fontSize: '16',
-        },
-      },
-      series: [
-        {
-          type: 'pie',
-          radius: ['50%', '70%'],
-          hoverOffset: 0,
-          label: {
-            normal: {
-              show: false,
-            },
-          },
-          labelLine: {
-            normal: {
-              show: false,
-            },
-          },
-        },
-      ],
-    };
-
-    const option = _.isNull(percent) ?
-      _.defaultsDeep({
-        dataset: {
-          source,
-        },
-        tooltip: {
-          trigger: 'item',
-          formatter: '{b}: {d}%',
-        },
-        legend: hasLegend ?
-          {
-            orient: 'vertical',
-            top: 'middle',
-            right: '5%',
-            formatter: name => _.chain(source)
-              .filter(row => row[0] === name)
-              .map((() => {
-                const total = _.chain(source)
-                  .slice(1)
-                  .reduce((tot, curRow) => tot + curRow[1], 0)
-                  .value();
-
-                return row => `${row[0]} | ${_.round((row[1] / total) * 100, 2)}%    ${row[1]}`;
-              })())
-              .first()
-              .value(),
-            data: source.slice(1).map(row => ({
-              name: row[0],
-              value: row.join(':'),
-              icon: 'circle',
-            })),
-          } :
-          {
+    return _.chain(this.getMetricDimensions())
+      .map(metricDim => ({
+        type: 'pie',
+        name: metricDim,
+        radius: ['50%', '70%'],
+        hoverOffset: 0,
+        label: {
+          normal: {
             show: false,
           },
-      }, rawOption) :
-      _.defaultsDeep({
-        series: [
-          {
-            data: [
-              {
-                value: percent,
-                itemStyle: {
-                  normal: {
-                    color: '#58afff',
-                  },
-                },
-              },
-              {
-                value: _.max([100 - percent, 0]),
-                itemStyle: {
-                  normal: {
-                    color: '#f2f4f6',
-                  },
-                  emphasis: {
-                    color: '#f8f8f8',
-                  },
-                },
-              },
-            ],
+        },
+        labelLine: {
+          normal: {
+            show: false,
           },
-        ],
-      }, rawOption);
+        },
+        data: _.map(source, row => ({
+          name: row[axisDim],
+          value: row[metricDim],
+        })),
+      }))
+      .value();
+  }
 
-    return (
-      <ReactEcharts option={option} />
-    );
+  getLegendOption() {
+    const source = this.getSource();
+    const axisDim = this.getAxisDimension();
+    const metricDim = this.getMetricDimensions()[0];
+
+    return this.props.hasLegend ?
+      {
+        orient: 'vertical',
+        top: 'middle',
+        right: '5%',
+        // Use circle icon for all legends
+        data: _.map(source, row => ({
+          name: row[axisDim],
+          icon: 'circle',
+        })),
+        formatter: name => _.chain(source)
+          .filter(row => row[axisDim] === name)
+          .map((() => {
+            const total = _.chain(source)
+              .reduce((tot, row) => tot + row[metricDim], 0)
+              .value();
+
+            return row => `${row[axisDim]} | ${_.round((row[metricDim] / total) * 100, 2)}%    ${row[metricDim]}`;
+          })())
+          .first()
+          .value(),
+      } :
+      {
+        show: false,
+      };
+  }
+
+  getTitleOption() {
+    const {
+      title,
+      subTitle,
+    } = this.props;
+    return {
+      text: title,
+      subtext: subTitle,
+      x: 'center',
+      y: 'center',
+      textStyle: {
+        fontSize: '26',
+      },
+      subtextStyle: {
+        fontSize: '16',
+      },
+    };
+  }
+
+  getOption() {
+    return {
+      title: this.getTitleOption(),
+      series: this.getSeriesOption(),
+      legend: this.getLegendOption(),
+      tooltip: {
+        trigger: 'item',
+        // {a} === seriesName, {b} === name, {c} === value, {d} === percent
+        formatter: '{b}: {d}%',
+      },
+    };
   }
 }
 
 Donut.propTypes = {
   value: PropTypes.objectOf(PropTypes.any).isRequired,
-  percent: PropTypes.number,
   title: PropTypes.string,
   subTitle: PropTypes.string,
   hasLegend: PropTypes.bool,
 };
 
 Donut.defaultProps = {
-  percent: null,
   title: '',
   subTitle: '',
   hasLegend: true,

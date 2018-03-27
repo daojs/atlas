@@ -169,7 +169,9 @@ export default {
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
         return Promise.resolve({
-          source: [['name', 'value']].concat(_.map(data, item => [item[dimensionKey], item[measureKey]])),
+          source: data,
+          axisDimensions: [dimensionKey],
+          metricDimensions: [measureKey],
         });
       },
     },
@@ -220,7 +222,9 @@ export default {
       dependencies: ['fetchUsageMealCardReduce'],
       factory: data => Promise.resolve({
         title: `共有${_.sum(_.map(data, 'customerId'))}人充值`,
-        source: [['name', 'value']].concat(_.map(data, item => [item.cardType, item.customerId])),
+        source: data,
+        axisDimensions: ['cardType'],
+        metricDimensions: ['customerId'],
       }),
     },
     fetchUsageMealCardBucketCRAP: {
