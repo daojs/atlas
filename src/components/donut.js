@@ -89,14 +89,13 @@ export default class Donut extends BaseChart {
 
   getOption() {
     return {
-      title: this.getTitleOption(),
-      series: this.getSeriesOption(),
       legend: this.getLegendOption(),
       tooltip: {
         trigger: 'item',
         // {a} === seriesName, {b} === name, {c} === value, {d} === percent
         formatter: '{b}: {d}%',
       },
+      ...super.getOption(),
     };
   }
 }

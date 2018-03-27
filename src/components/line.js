@@ -34,7 +34,6 @@ export default class Line extends BaseChart {
 
   getOption() {
     return {
-      title: this.getTitleOption(),
       legend: {},
       tooltip: {
         trigger: 'axis',
@@ -43,7 +42,7 @@ export default class Line extends BaseChart {
         type: 'value',
       },
       xAxis: this.getAxisOption(),
-      series: this.getSeriesOption(),
+      ...super.getOption(),
     };
   }
 

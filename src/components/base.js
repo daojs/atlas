@@ -54,18 +54,21 @@ export default class BaseChart extends PureComponent {
     throw new Error('Unimplement BaseChart.getSeriesOption()');
   }
 
-  getOption() {
-    throw new Error('Unimplement BaseChart.getOption()');
-  }
-
-  getEvents() {
-    return {};
-  }
-
   getTitleOption() {
     return {
       text: this.props.title,
     };
+  }
+
+  getOption() {
+    return {
+      title: this.getTitleOption(),
+      series: this.getSeriesOption(),
+    };
+  }
+
+  getEvents() {
+    return {};
   }
 
   render() {

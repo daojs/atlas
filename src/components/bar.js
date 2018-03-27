@@ -26,7 +26,7 @@ export default class Bar extends BaseChart {
       tooltip: {},
       yAxis: {},
       xAxis: this.getAxisOption(),
-      series: this.getSeriesOption(),
+      ...super.getOption(),
     };
   }
 }
