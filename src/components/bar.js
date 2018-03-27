@@ -12,7 +12,7 @@ export default class Bar extends BaseChart {
   getSeriesOption() {
     const source = this.getSource();
     return _.chain(this.getMetricDimensions())
-      .map(dim => _.defaults({
+      .map(dim => ({
         type: 'bar',
         name: dim,
         data: _.map(source, row => row[dim]),
