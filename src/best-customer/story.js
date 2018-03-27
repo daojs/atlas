@@ -119,21 +119,12 @@ export default {
         if (!data) {
           return undefined;
         }
-        const results = _.map(data, item => [item.revenue, item.customerId]);
-        const expectedData = {
-          data: results,
-          meta: {
-            headers: ['revenue', 'customerId'],
-          },
-        };
 
-        return convertData({
-          ...expectedData,
-          groupDimensions: [],
+        return {
+          source: data,
           axisDimensions: ['revenue'],
           metricDimensions: ['customerId'],
-          serieNameTemplate: 'customerId',
-        });
+        };
       },
     },
     fetchCustomerExpensePerUserRank: {
@@ -250,8 +241,9 @@ export default {
     usageMealCardBucketCRAP: {
       dependencies: ['fetchUsageMealCardBucketCRAP'],
       factory: data => Promise.resolve({
-        title: '',
-        source: [['name', 'value']].concat(_.map(data, item => [item.rechargeAmount, item.customerId])),
+        source: data,
+        axisDimensions: ['rechargeAmount'],
+        metricDimensions: ['customerId'],
       }),
     },
     usageMealCardQuery: {

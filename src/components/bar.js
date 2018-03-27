@@ -1,39 +1,36 @@
-import React, { PureComponent } from 'react';
+/* eslint-disable class-methods-use-this */
+
 import PropTypes from 'prop-types';
-import ReactEcharts from 'echarts-for-react';
 import _ from 'lodash';
-import { validate, getDimensionSeries } from '../utils';
+import BaseChart from './base';
 
-export default class Bar extends PureComponent {
-  render() {
-    const {
-      source,
-    } = this.props.value;
-    validate(source);
-    const dimensions = _.first(source);
+export default class Bar extends BaseChart {
+  getAxisOption() {
+    return {
+      data: this.getAxisData(),
+      type: 'category',
+    };
+  }
 
-    const option = {
+  getSeriesOption() {
+    const source = this.getSource();
+    return _.chain(this.getMetricDimensions())
+      .map(dim => _.defaults({
+        type: 'bar',
+        name: dim,
+        data: _.map(source, row => row[dim]),
+      }))
+      .value();
+  }
+
+  getOption() {
+    return {
       legend: {},
       tooltip: {},
-      dataset: {
-        source,
-        dimensions,
-      },
       yAxis: {},
-      xAxis: { type: 'category' },
-      series: getDimensionSeries({
-        dimensions,
-        type: 'bar',
-      }),
+      xAxis: this.getAxisOption(),
+      series: this.getSeriesOption(),
     };
-
-    return (
-      <ReactEcharts
-        option={option}
-        notMerge={true} //eslint-disable-line
-        {...this.props}
-      />
-    );
   }
 }
 
