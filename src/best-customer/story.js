@@ -1,6 +1,5 @@
 import Promise from 'bluebird';
 import _ from 'lodash';
-import { convertData } from '../transforms';
 import client from '../mock/worker';
 
 // dags
@@ -138,21 +137,11 @@ export default {
           return undefined;
         }
 
-        const results = _.map(data, item => [item.customerId, item.revenue]);
-        const expectedData = {
-          data: results,
-          meta: {
-            headers: ['customerId', 'revenue'],
-          },
-        };
-
-        return convertData({
-          ...expectedData,
-          groupDimensions: [],
+        return {
+          source: data,
           axisDimensions: ['customerId'],
           metricDimensions: ['revenue'],
-          serieNameTemplate: 'revenue',
-        });
+        };
       },
     },
     measureFavor: {

@@ -1,6 +1,3 @@
-/* eslint-disable class-methods-use-this */
-
-import PropTypes from 'prop-types';
 import _ from 'lodash';
 import BaseChart from './base';
 
@@ -34,6 +31,3 @@ export default class Bar extends BaseChart {
   }
 }
 
-Bar.propTypes = {
-  value: PropTypes.objectOf(PropTypes.any).isRequired,
-};

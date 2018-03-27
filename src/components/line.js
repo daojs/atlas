@@ -43,7 +43,6 @@ export default class Line extends BaseChart {
 }
 
 Line.propTypes = {
-  value: PropTypes.objectOf(PropTypes.any).isRequired,
   title: PropTypes.string,
   onSlicerChange: PropTypes.func,
 };
