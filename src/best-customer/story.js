@@ -96,22 +96,11 @@ export default {
         if (_.some([data, metric, bestUser], _.isNil)) {
           return undefined;
         }
-        const dimension = _.keys(metric)[0];
-        const results = _.map(data, item => [item.timestamp, item[dimension]]);
-        const expectedData = {
-          data: results,
-          meta: {
-            headers: ['time', dimension],
-            collaspsedColumns: bestUser,
-          },
+        return {
+          source: data,
+          axisDimensions: ['timestamp'],
+          metricDimensions: _.keys(metric),
         };
-        return convertData({
-          ...expectedData,
-          groupDimensions: [],
-          axisDimensions: ['time'],
-          metricDimensions: [dimension],
-          serieNameTemplate: dimension,
-        });
       },
     },
     granularityCustomer: {
@@ -230,10 +219,15 @@ export default {
         const series = _.uniq(_.reduce(dataAggregated, (memo, cur) => [
           ..._.keys(cur), ...memo], []));
 
-        const source = [['time', ...series]].concat(_.map(dataAggregated, (val, key) =>
-          [key, ..._.map(series, s => val[s] || 0)]));
+        const source = _.map(dataAggregated, (val, key) => ({
+          timestamp: key,
+          ..._.zipObject(series, _.map(series, s => val[s] || 0)),
+        }));
 
-        return Promise.resolve({ title: '', source });
+        return Promise.resolve({
+          source,
+          axisDimensions: ['timestamp'],
+        });
       },
     },
 
@@ -317,10 +311,15 @@ export default {
 
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
-        const source = [['time', measureKey]].concat(_.map(rawData, ({ timestamp, value }) =>
-          [timestamp, value]));
+        const source = _.map(rawData, ({ timestamp, value }) => ({
+          timestamp,
+          [measureKey]: value,
+        }));
 
-        return Promise.resolve({ title: '', source });
+        return Promise.resolve({
+          source,
+          axisDimensions: ['timestamp'],
+        });
       },
     },
     growthAbilityGrowthRate: {
@@ -332,10 +331,15 @@ export default {
 
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
-        const source = [['time', measureKey]].concat(_.map(rawData, ({ timestamp, value }) =>
-          [timestamp, value]));
+        const source = _.map(rawData, ({ timestamp, value }) => ({
+          timestamp,
+          [measureKey]: value,
+        }));
 
-        return Promise.resolve({ title: '', source });
+        return Promise.resolve({
+          source,
+          axisDimensions: ['timestamp'],
+        });
       },
     },
   },
