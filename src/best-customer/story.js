@@ -3,7 +3,7 @@ import _ from 'lodash';
 import client from '../mock/worker';
 
 // dags
-import dags from '../dags';
+import factories from '../factories';
 
 const {
   fetchCustomerTSADFactory,
@@ -14,7 +14,7 @@ const {
   fetchUsageMealCardReduceFactory,
   fetchUsageMealCardBucketFactory,
   fetchTrendForGrowth,
-} = dags;
+} = factories;
 
 const metricsDictionary = {
   利润: { revenue: 'sum' },
@@ -23,18 +23,6 @@ const metricsDictionary = {
 };
 
 const dimensionsDictionary = {
-  餐厅名称: {
-    branchName: { type: 'any' },
-  },
-  餐卡类别: {
-    cardType: { type: 'any' },
-  },
-  菜品类别: {
-    skuType: { type: 'any' },
-  },
-};
-
-const dimensionsDictionaryMT = {
   餐厅名称: {
     Branch: { type: 'any' },
   },
@@ -47,12 +35,6 @@ const dimensionsDictionaryMT = {
 };
 
 const groupByDictionary = {
-  餐厅名称: 'branchName',
-  餐卡类别: 'cardType',
-  菜品类别: 'skuType',
-};
-
-const groupByDictionaryMT = {
   餐厅名称: 'Branch',
   餐卡类别: 'cardType',
   菜品类别: 'SKU',
@@ -177,13 +159,13 @@ export default {
     fetchFavorBestCustomerReduce: {
       dependencies: ['@time', '@measureFavor', '@dimensionFavor', 'bestUser'],
       factory: fetchFavorBestCustomerReduceFactory(client, simulation, {
-        metricsDictionary, groupByDictionary: groupByDictionaryMT,
+        metricsDictionary, groupByDictionary,
       }),
     },
     favorBestCustomerReduce: {
       dependencies: ['fetchFavorBestCustomerReduce', '@measureFavor', '@dimensionFavor'],
       factory: ({ data }, measure, dimension) => {
-        const dimensionKey = _.keys(dimensionsDictionaryMT[dimension])[0];
+        const dimensionKey = _.keys(dimensionsDictionary[dimension])[0];
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
         return Promise.resolve({
@@ -196,7 +178,7 @@ export default {
     fetchFavorBestCustomerTrend: {
       dependencies: ['@time', '@measureFavor', '@dimensionFavor', 'bestUser'],
       factory: fetchFavorBestCustomerTrendFactory(client, simulation, {
-        metricsDictionary, groupByDictionary: groupByDictionaryMT,
+        metricsDictionary, groupByDictionary,
       }),
     },
     favorBestCustomerTrend: {
@@ -206,7 +188,7 @@ export default {
           return undefined;
         }
 
-        const dimensionKey = _.keys(dimensionsDictionaryMT[dimension])[0];
+        const dimensionKey = _.keys(dimensionsDictionary[dimension])[0];
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
         const dataAggregated = _.chain(rawData)
