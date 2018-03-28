@@ -34,8 +34,26 @@ const dimensionsDictionary = {
   },
 };
 
+const dimensionsDictionaryMT = {
+  餐厅名称: {
+    Branch: { type: 'any' },
+  },
+  餐卡类别: {
+    cardType: { type: 'any' },
+  },
+  菜品类别: {
+    skuType: { type: 'any' },
+  },
+};
+
 const groupByDictionary = {
   餐厅名称: 'branchName',
+  餐卡类别: 'cardType',
+  菜品类别: 'skuType',
+};
+
+const groupByDictionaryMT = {
+  餐厅名称: 'Branch',
   餐卡类别: 'cardType',
   菜品类别: 'skuType',
 };
@@ -91,7 +109,7 @@ export default {
     },
     bestCustomerTSAD: {
       dependencies: ['fetchCustomerTSAD', 'mapCustomerMetric', 'bestUser'],
-      factory: (data, metric, bestUser) => {
+      factory: ({ data }, metric, bestUser) => {
         if (_.some([data, metric, bestUser], _.isNil)) {
           return undefined;
         }
@@ -159,13 +177,13 @@ export default {
     fetchFavorBestCustomerReduce: {
       dependencies: ['@time', '@measureFavor', '@dimensionFavor', 'bestUser'],
       factory: fetchFavorBestCustomerReduceFactory(client, simulation, {
-        metricsDictionary, groupByDictionary,
+        metricsDictionary, groupByDictionary: groupByDictionaryMT,
       }),
     },
     favorBestCustomerReduce: {
       dependencies: ['fetchFavorBestCustomerReduce', '@measureFavor', '@dimensionFavor'],
-      factory: (data, measure, dimension) => {
-        const dimensionKey = _.keys(dimensionsDictionary[dimension])[0];
+      factory: ({ data }, measure, dimension) => {
+        const dimensionKey = _.keys(dimensionsDictionaryMT[dimension])[0];
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
         return Promise.resolve({
