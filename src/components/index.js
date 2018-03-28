@@ -13,6 +13,7 @@ import Donut from './donut';
 import LineWithDataZoom from './line-datazoom';
 import Line from './line';
 import SectionCard from './section-card';
+import Heatmap from './heatmap';
 
 export default {
   Bar,
@@ -30,4 +31,5 @@ export default {
   LineWithDataZoom,
   Line,
   SectionCard,
+  Heatmap,
 };
