@@ -17,9 +17,9 @@ const {
 } = dags;
 
 const metricsDictionary = {
-  Revenue: { revenue: 'sum' },
-  UU: { customerId: 'count' },
-  TransactionCount: { transactionId: 'count' },
+  利润: { revenue: 'sum' },
+  独立用户数: { customerId: 'count' },
+  交易笔数: { transactionId: 'count' },
 };
 
 const dimensionsDictionary = {
@@ -59,8 +59,8 @@ export default {
   cells: {
     measureUser: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     bestUser: {
@@ -69,8 +69,8 @@ export default {
     },
     measureCustomer: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     bestCustomerQuery: {
@@ -80,9 +80,9 @@ export default {
     mapCustomerMetric: {
       dependencies: ['@measureCustomer'],
       factory: measure => ({
-        Revenue: { revenue: 'sum' },
-        UU: { customerId: 'count' },
-        TransactionCount: { transactionId: 'count' },
+        利润: { revenue: 'sum' },
+        独立用户数: { customerId: 'count' },
+        交易笔数: { transactionId: 'count' },
       }[measure]),
     },
     fetchCustomerTSAD: {
@@ -146,8 +146,8 @@ export default {
     },
     measureFavor: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     dimensionFavor: {
@@ -253,8 +253,8 @@ export default {
     },
     measureGrowth: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     fetchTrendForGrowth: {
