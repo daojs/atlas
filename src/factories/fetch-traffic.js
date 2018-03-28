@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-export default function (client, simulation, { metricsDictionary, groupByDictionary }) {
-  return (time, measure, dimension, bestUser) => {
-    if (_.some([time, measure, dimension, bestUser], _.isNil)) {
+export default function (client, simulation, { metricsDictionary }) {
+  return (time, measure, bestUser) => {
+    if (_.some([time, measure, bestUser], _.isNil)) {
       return Promise.resolve([]);
     }
 
@@ -16,7 +16,7 @@ export default function (client, simulation, { metricsDictionary, groupByDiction
             transaction,
           ],
         },
-        result: {
+        step1: {
           '@proc': 'query2',
           '@args': [{
             '@ref': 'transactionData',
@@ -31,8 +31,26 @@ export default function (client, simulation, { metricsDictionary, groupByDiction
               ...bestUser,
             },
             groupBy: {
-              timestamp: 'day',
-              [groupByDictionary[dimension]]: 'value',
+              timestamp: {
+                type: 'time-bin',
+                step: 'PT10M',
+              },
+            },
+          }],
+        },
+        result: {
+          '@proc': 'query2',
+          '@args': [{
+            '@ref': 'step1',
+          }, {
+            aggregation: {
+              [_.keys(aggregation)[0]]: 'average',
+            },
+            groupBy: {
+              timestamp: {
+                type: 'time-phase',
+                step: 'P1D',
+              },
             },
           }],
         },
