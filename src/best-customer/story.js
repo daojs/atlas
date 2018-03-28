@@ -271,22 +271,18 @@ export default {
         }
 
         // sort the data to know start & end
-        const sorted = _.sortBy(_.map(rawData, ({ timestamp, ...rest }) => ({
-          time: new Date(`1970-01-01T${timestamp}:00.000Z`),
-          timestamp,
-          ...rest,
-        })), 'time');
+        const sorted = _.sortBy(rawData, 'timestamp');
 
-        const first = Number(sorted[0].time);
-        const end = Number(_.last(sorted).time);
+        const first = sorted[0].timestamp;
+        const end = _.last(sorted).timestamp;
 
-        const keyed = _.keyBy(sorted, item => Number(item.time));
+        const keyed = _.keyBy(sorted, 'timestamp');
 
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
         // fill 0 data in
         const source = _.map(_.range(first, end + 1, 10 * 60 * 1000), time => ({
-          timestamp: (new Date(time)).toISOString().substr(11, 5),
+          timestamp: (new Date(time)).toLocaleTimeString({}, { hour: '2-digit', minute: '2-digit', hour12: false }),
           [measureKey]: keyed[time] ? keyed[time][measureKey] : 0,
         }));
 

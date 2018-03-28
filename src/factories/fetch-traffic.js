@@ -9,20 +9,51 @@ export default function (client, simulation, { metricsDictionary }) {
     const aggregation = metricsDictionary[measure];
 
     return simulation
-      .then(({ transaction }) => client.call('query', transaction, {
-        aggregation,
-        filter: {
-          timestamp: {
-            type: 'time-range',
-            from: time.start,
-            to: time.end,
-          },
-          ...bestUser,
+      .then(({ transaction }) => client.call('dag', {
+        transactionData: {
+          '@proc': 'read',
+          '@args': [
+            transaction,
+          ],
         },
-        groupBy: {
-          timestamp: 'ten-minute',
+        step1: {
+          '@proc': 'query2',
+          '@args': [{
+            '@ref': 'transactionData',
+          }, {
+            aggregation,
+            filter: {
+              timestamp: {
+                type: 'time-range',
+                from: time.start,
+                to: time.end,
+              },
+              ...bestUser,
+            },
+            groupBy: {
+              timestamp: {
+                type: 'time-bin',
+                step: 'PT10M',
+              },
+            },
+          }],
         },
-      }))
-      .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+        result: {
+          '@proc': 'query2',
+          '@args': [{
+            '@ref': 'step1',
+          }, {
+            aggregation: {
+              [_.keys(aggregation)[0]]: 'average',
+            },
+            groupBy: {
+              timestamp: {
+                type: 'time-phase',
+                step: 'P1D',
+              },
+            },
+          }],
+        },
+      }, 'result'));
   };
 }
