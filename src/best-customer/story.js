@@ -17,27 +17,27 @@ const {
 } = dags;
 
 const metricsDictionary = {
-  Revenue: { revenue: 'sum' },
-  UU: { customerId: 'count' },
-  TransactionCount: { transactionId: 'count' },
+  利润: { revenue: 'sum' },
+  独立用户数: { customerId: 'count' },
+  交易笔数: { transactionId: 'count' },
 };
 
 const dimensionsDictionary = {
-  BranchName: {
+  餐厅名称: {
     branchName: { type: 'any' },
   },
-  CardType: {
+  餐卡类别: {
     cardType: { type: 'any' },
   },
-  SKUType: {
+  菜品类别: {
     skuType: { type: 'any' },
   },
 };
 
 const groupByDictionary = {
-  BranchName: 'branchName',
-  CardType: 'cardType',
-  SKUType: 'skuType',
+  餐厅名称: 'branchName',
+  餐卡类别: 'cardType',
+  菜品类别: 'skuType',
 };
 
 const simulation = client.call('simulate', {
@@ -59,8 +59,8 @@ export default {
   cells: {
     measureUser: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     bestUser: {
@@ -69,8 +69,8 @@ export default {
     },
     measureCustomer: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     bestCustomerQuery: {
@@ -80,9 +80,9 @@ export default {
     mapCustomerMetric: {
       dependencies: ['@measureCustomer'],
       factory: measure => ({
-        Revenue: { revenue: 'sum' },
-        UU: { customerId: 'count' },
-        TransactionCount: { transactionId: 'count' },
+        利润: { revenue: 'sum' },
+        独立用户数: { customerId: 'count' },
+        交易笔数: { transactionId: 'count' },
       }[measure]),
     },
     fetchCustomerTSAD: {
@@ -146,14 +146,14 @@ export default {
     },
     measureFavor: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     dimensionFavor: {
       factory: () => Promise.resolve({
-        defaultValue: 'BranchName',
-        enums: ['BranchName', 'CardType', 'SKUType'],
+        defaultValue: '餐厅名称',
+        enums: ['餐厅名称', '餐卡类别', '菜品类别'],
       }),
     },
     fetchFavorBestCustomerReduce: {
@@ -253,8 +253,8 @@ export default {
     },
     measureGrowth: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     fetchTrendForGrowth: {
