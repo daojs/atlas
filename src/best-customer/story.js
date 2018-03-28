@@ -23,21 +23,21 @@ const metricsDictionary = {
 };
 
 const dimensionsDictionary = {
-  BranchName: {
+  餐厅名称: {
     branchName: { type: 'any' },
   },
-  CardType: {
+  餐卡类别: {
     cardType: { type: 'any' },
   },
-  SKUType: {
+  菜品类别: {
     skuType: { type: 'any' },
   },
 };
 
 const groupByDictionary = {
-  BranchName: 'branchName',
-  CardType: 'cardType',
-  SKUType: 'skuType',
+  餐厅名称: 'branchName',
+  餐卡类别: 'cardType',
+  菜品类别: 'skuType',
 };
 
 const simulation = client.call('simulate', {
@@ -152,8 +152,8 @@ export default {
     },
     dimensionFavor: {
       factory: () => Promise.resolve({
-        defaultValue: 'BranchName',
-        enums: ['BranchName', 'CardType', 'SKUType'],
+        defaultValue: '餐厅名称',
+        enums: ['餐厅名称', '餐卡类别', '菜品类别'],
       }),
     },
     fetchFavorBestCustomerReduce: {
