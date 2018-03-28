@@ -13,6 +13,7 @@ const {
   fetchFavorBestCustomerTrendFactory,
   fetchUsageMealCardReduceFactory,
   fetchUsageMealCardBucketFactory,
+  fetchTraffic,
   fetchTrendForGrowth,
 } = factories;
 
@@ -54,6 +55,7 @@ export default {
     granularityCustomer: { default: undefined },
     measureFavor: { default: undefined },
     dimensionFavor: { default: undefined },
+    measureActiveness: { default: undefined },
     measureGrowth: { default: undefined },
   },
   cells: {
@@ -250,6 +252,45 @@ export default {
       factory: (time, bestUser) => Promise.resolve({
         time, bestUser, measure: 'CardBalance',
       }),
+    },
+    fetchTraffic: {
+      dependencies: ['@time', '@measureActiveness', 'bestUser'],
+      factory: fetchTraffic(client, simulation, { metricsDictionary }),
+    },
+    measureActiveness: {
+      factory: () => Promise.resolve({
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
+      }),
+    },
+    activenessTraffic: {
+      dependencies: ['fetchTraffic', '@measureActiveness', 'bestUser'],
+      factory: (rawData, measure, bestUser) => {
+        if (_.some([rawData, measure, bestUser], _.isNil)) {
+          return undefined;
+        }
+
+        // sort the data to know start & end
+        const sorted = _.sortBy(rawData, 'timestamp');
+
+        const first = sorted[0].timestamp;
+        const end = _.last(sorted).timestamp;
+
+        const keyed = _.keyBy(sorted, 'timestamp');
+
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+
+        // fill 0 data in
+        const source = _.map(_.range(first, end + 1, 10 * 60 * 1000), time => ({
+          timestamp: (new Date(time)).toLocaleTimeString({}, { hour: '2-digit', minute: '2-digit', hour12: false }),
+          [measureKey]: keyed[time] ? keyed[time][measureKey] : 0,
+        }));
+
+        return Promise.resolve({
+          source,
+          axisDimensions: ['timestamp'],
+        });
+      },
     },
     measureGrowth: {
       factory: () => Promise.resolve({

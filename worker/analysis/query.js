@@ -71,6 +71,28 @@ function processBinGroupBy({ offset = 0, step }) {
   return value => (Math.floor((value - offset) / step) * step) + offset;
 }
 
+function processTimeBinGroupBy({ offset = 0, step }) {
+  const offsetUnix = +moment(offset);
+  const durationMs = moment.duration(step).as('milliseconds');
+
+  return (value) => {
+    const valueUnix = +moment(value);
+
+    return processBinGroupBy({ offset: offsetUnix, step: durationMs })(valueUnix);
+  };
+}
+
+function processTimePhaseGroupBy({ offset = 0, step }) {
+  const offsetUnix = +moment(offset);
+  const durationMs = moment.duration(step).as('milliseconds');
+
+  return (value) => {
+    const valueUnix = +moment(value);
+
+    return Math.floor((valueUnix - offsetUnix) % durationMs) + offsetUnix;
+  };
+}
+
 function processScalarGroupBy(groupBy) {
   if (groupBy === 'value') {
     return _.identity;
@@ -89,6 +111,12 @@ function processScalarGroupBy(groupBy) {
   }
   if (_.isObject(groupBy) && groupBy.type === 'bin') {
     return processBinGroupBy(groupBy);
+  }
+  if (_.isObject(groupBy) && groupBy.type === 'time-bin') {
+    return processTimeBinGroupBy(groupBy);
+  }
+  if (_.isObject(groupBy) && groupBy.type === 'time-phase') {
+    return processTimePhaseGroupBy(groupBy);
   }
   return _.constant('*');
 }
