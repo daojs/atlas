@@ -196,17 +196,17 @@ export default {
     fetchFavorBestCustomerTrend: {
       dependencies: ['@time', '@measureFavor', '@dimensionFavor', 'bestUser'],
       factory: fetchFavorBestCustomerTrendFactory(client, simulation, {
-        metricsDictionary, groupByDictionary,
+        metricsDictionary, groupByDictionary: groupByDictionaryMT,
       }),
     },
     favorBestCustomerTrend: {
       dependencies: ['fetchFavorBestCustomerTrend', '@measureFavor', '@dimensionFavor'],
-      factory: (rawData, measure, dimension) => {
+      factory: ({ data: rawData }, measure, dimension) => {
         if (_.some([rawData, measure, dimension], _.isNil)) {
           return undefined;
         }
 
-        const dimensionKey = _.keys(dimensionsDictionary[dimension])[0];
+        const dimensionKey = _.keys(dimensionsDictionaryMT[dimension])[0];
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
         const dataAggregated = _.chain(rawData)
