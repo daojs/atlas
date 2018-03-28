@@ -45,8 +45,8 @@ export default function () {
           </SectionCard>
           <SectionCard key="bestCustomerExpensePerUser" title="最佳客户的消费情况">
             <Cell input="granularityCustomer" output="@granularityCustomer" label="粒度" renderCell={WithComponent(SingleSelector)} />
-            <Cell input="customerExpensePerUserBucket" title="Best Customer Expense Per User Bucket" renderCell={WithComponent(Bar)} />
-            <Cell input="customerExpensePerUserRank" title="Best Customer Expense Per User TSAD" renderCell={WithComponent(HorizontalBar)} />
+            <Cell input="customerExpensePerUserBucket" title="单个客户的消费区间" renderCell={WithComponent(Bar)} />
+            <Cell input="customerExpensePerUserRank" title="单个客户的异常点分析" renderCell={WithComponent(HorizontalBar)} />
           </SectionCard>
           <SectionCard key="favor" title="最佳客户的喜好">
             <Cell input="measureFavor" output="@measureFavor" label="指标:" renderCell={WithComponent(SingleSelector)} />
@@ -54,9 +54,9 @@ export default function () {
             <Cell input="favorBestCustomerReduce" title="喜好的比例" renderCell={WithComponent(Donut)} />
             <Cell input="favorBestCustomerTrend" title="喜好的变化趋势" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
-          <SectionCard key="mealCard" title="Usage of Meal SectionCard">
-            <Cell input="usageMealCardReduce" subTitle="Usage of Meal SectionCard Reduce" renderCell={WithComponent(Donut)} />
-            <Cell input="usageMealCardBucketCRAP" title="Usage of Meal SectionCard Bucket CardRechargeAmountPerUU" renderCell={WithComponent(Bar)} />
+          <SectionCard key="mealCard" title="餐卡的使用情况">
+            <Cell input="usageMealCardReduce" subTitle="餐卡的使用比例" renderCell={WithComponent(Donut)} />
+            <Cell input="usageMealCardBucketCRAP" title="单个客户的餐卡充值金额" renderCell={WithComponent(Bar)} />
             <Cell input="usageMealCardQuery" title="Usage of Meal SectionCard Query" renderCell={WithComponent(PlainData)} />
             <Cell input="usageMealCardBucketCB" title="Usage of Meal SectionCard CardBalance" renderCell={WithComponent(PlainData)} />
           </SectionCard>
