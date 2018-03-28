@@ -66,8 +66,8 @@ export default function () {
             <Cell input="growthAbilityCumulative" subTitle="Growth Ability Cumulative" renderCell={WithComponent(LineWithDataZoom)} />
             <Cell input="growthAbilityGrowthRate" subTitle="Growth Ability Growth Rate" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
-          <SectionCard key="retension" title="留存率">
-            <Cell input="retension" renderCell={WithComponent(Heatmap)} />
+          <SectionCard key="retentionCard" title="留存率">
+            <Cell input="retention" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
         </SectionContainer>
       </Form>

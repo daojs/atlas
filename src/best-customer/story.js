@@ -14,6 +14,7 @@ const {
   fetchUsageMealCardReduceFactory,
   fetchUsageMealCardBucketFactory,
   fetchTrendForGrowth,
+  fetchRetention,
 } = dags;
 
 const metricsDictionary = {
@@ -325,6 +326,16 @@ export default {
           source,
           axisDimensions: ['timestamp'],
         });
+      },
+    },
+    fetchRetention: {
+      dependencies: ['timestamp', 'bestUser'],
+      factory: fetchRetention,
+    },
+    retention: {
+      dependencies: ['fetchRetention'],
+      factory: (data) => {
+        // process data
       },
     },
   },

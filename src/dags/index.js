@@ -6,6 +6,7 @@ import fetchFavorBestCustomerTrendFactory from './fetch-favor-best-customer-tren
 import fetchUsageMealCardReduceFactory from './fetch-usage-meal-card-reduce';
 import fetchUsageMealCardBucketFactory from './fetch-usage-meal-card-bucket';
 import fetchTrendForGrowth from './fetch-trend-for-growth';
+import fetchRetention from './fetch-retention';
 
 export default {
   fetchCustomerTSADFactory,
@@ -16,4 +17,5 @@ export default {
   fetchUsageMealCardReduceFactory,
   fetchUsageMealCardBucketFactory,
   fetchTrendForGrowth,
+  fetchRetention,
 };
