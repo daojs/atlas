@@ -42,7 +42,7 @@ const dimensionsDictionaryMT = {
     cardType: { type: 'any' },
   },
   菜品类别: {
-    skuType: { type: 'any' },
+    SKU: { type: 'any' },
   },
 };
 
@@ -55,7 +55,7 @@ const groupByDictionary = {
 const groupByDictionaryMT = {
   餐厅名称: 'Branch',
   餐卡类别: 'cardType',
-  菜品类别: 'skuType',
+  菜品类别: 'SKU',
 };
 
 const simulation = client.call('simulate', {
@@ -238,7 +238,7 @@ export default {
     },
     usageMealCardReduce: {
       dependencies: ['fetchUsageMealCardReduce'],
-      factory: data => Promise.resolve({
+      factory: ({ data }) => Promise.resolve({
         title: `共有${_.sum(_.map(data, 'customerId'))}人充值`,
         source: data,
         axisDimensions: ['cardType'],
@@ -281,7 +281,7 @@ export default {
     },
     fetchCumulativeTrend: {
       dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
-      factory: (trend, measure) => {
+      factory: ({ data: trend }, measure) => {
         if (_.some([trend, measure], _.isNil)) {
           return undefined;
         }
@@ -294,7 +294,7 @@ export default {
     },
     fetchGrowthRateTrend: {
       dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
-      factory: (trend, measure) => {
+      factory: ({ data: trend }, measure) => {
         if (_.some([trend, measure], _.isNil)) {
           return undefined;
         }

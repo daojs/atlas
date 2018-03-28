@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import axios from 'axios';
 
 export default function (client, simulation, { metricsDictionary }) {
   return (time, measure, bestUser) => {
@@ -8,21 +9,24 @@ export default function (client, simulation, { metricsDictionary }) {
 
     const aggregation = metricsDictionary[measure];
 
-    return simulation
-      .then(({ transaction }) => client.call('query', transaction, {
-        aggregation,
-        filter: {
-          timestamp: {
-            type: 'time-range',
-            from: time.start,
-            to: time.end,
+    return axios.post('./insight', {
+      '@proc': 'query',
+      '@args': [
+        'Transaction',
+        {
+          aggregation,
+          filter: {
+            timestamp: {
+              type: 'time-range',
+              from: time.start,
+              to: time.end,
+            },
           },
-          ...bestUser,
+          groupBy: {
+            timestamp: 'day',
+          },
         },
-        groupBy: {
-          timestamp: 'day',
-        },
-      }))
-      .then(id => client.call('read', id).finally(() => client.call('remove', id)));
+      ],
+    });
   };
 }
