@@ -6,11 +6,11 @@ import { validate } from '../utils';
 
 export default class Heatmap extends PureComponent {
   static propTypes = {
-    source: PropTypes.arrayOf(PropTypes.array).isRequired,
+    value: PropTypes.objectOf(PropTypes.any).isRequired,
   }
 
   render() {
-    const { source } = this.props;
+    const { source } = this.props.value;
     validate(source);
 
     const dimensions = _.first(source);

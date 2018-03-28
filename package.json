@@ -52,6 +52,7 @@
     "start": "node ./server.js",
     "data": "cd simulator-data && node generate-data",
     "build": "webpack",
-    "dev": "webpack --watch | node ./server.js"
+    "dev": "webpack --watch | node ./server.js",
+    "devserver": "webpack-dev-server"
   }
 }

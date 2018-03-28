@@ -67,6 +67,7 @@ export default function () {
             <Cell input="growthAbilityGrowthRate" subTitle="Growth Ability Growth Rate" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
           <SectionCard key="retentionCard" title="留存率">
+            <Cell input="measureGrowth" output="@measureGrowth" label="指标:" renderCell={WithComponent(SingleSelector)} />
             <Cell input="retention" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
         </SectionContainer>
