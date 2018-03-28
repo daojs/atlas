@@ -87,6 +87,10 @@ function processScalarGroupBy(groupBy) {
   if (groupBy === 'year') {
     return value => moment(value).format('YYYY');
   }
+  // TODO: a more generic groupBy clause?
+  if (groupBy === 'ten-minute') {
+    return value => `${moment(value).format('HH:mm').substr(0, 4)}0`;
+  }
   if (_.isObject(groupBy) && groupBy.type === 'bin') {
     return processBinGroupBy(groupBy);
   }
