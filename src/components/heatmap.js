@@ -21,9 +21,6 @@ export default class Heatmap extends PureComponent {
       tooltip: {
         position: 'top',
       },
-      dataset: {
-        source,
-      },
       xAxis: {
         type: 'category',
         splitArea: {
@@ -45,6 +42,7 @@ export default class Heatmap extends PureComponent {
       },
       series: [{
         name: _.last(dimensions),
+        data: source,
         type: 'heatmap',
         label: {
           normal: {

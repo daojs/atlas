@@ -9,8 +9,8 @@ export default (time, bestUser) => {
   return axios.post('/insight', {
     '@proc': 'retention',
     '@args': [
+      'EntityName',
       {
-        // aggregation,
         filter: {
           timestamp: {
             type: 'time-range',
@@ -19,9 +19,6 @@ export default (time, bestUser) => {
           },
           ...bestUser,
         },
-        // groupBy: {
-        //   timestamp: 'day',
-        // },
       },
       {
         granularity: 'day',
