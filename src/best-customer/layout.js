@@ -46,7 +46,7 @@ export default function () {
           <SectionCard key="bestCustomerExpensePerUser" title="最佳客户的消费情况">
             <Cell input="granularityCustomer" output="@granularityCustomer" label="粒度" renderCell={WithComponent(SingleSelector)} />
             <Cell input="customerExpensePerUserBucket" title="单个客户的消费区间" renderCell={WithComponent(Bar)} />
-            <Cell input="customerExpensePerUserRank" title="单个客户的异常点分析" renderCell={WithComponent(HorizontalBar)} />
+            <Cell input="customerExpensePerUserRank" title="单个客户的消费排名" renderCell={WithComponent(HorizontalBar)} />
           </SectionCard>
           <SectionCard key="favor" title="最佳客户的喜好">
             <Cell input="measureFavor" output="@measureFavor" label="指标:" renderCell={WithComponent(SingleSelector)} />

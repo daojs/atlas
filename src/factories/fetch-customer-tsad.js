@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function () {
   return (time, aggregation, bestUser) => {
     if (_.some([time, aggregation, bestUser], _.isNil)) {
-      return Promise.resolve([]);
+      return Promise.resolve({ data: [] });
     }
 
     return axios.post('/insight', {
@@ -25,6 +25,6 @@ export default function () {
           },
         },
       ],
-    }).then(({ data }) => data);
+    });
   };
 }

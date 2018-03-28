@@ -3,7 +3,7 @@ import _ from 'lodash';
 import client from '../mock/worker';
 
 // dags
-import dags from '../dags';
+import factories from '../factories';
 
 const {
   fetchCustomerTSADFactory,
@@ -15,7 +15,7 @@ const {
   fetchUsageMealCardBucketFactory,
   fetchTraffic,
   fetchTrendForGrowth,
-} = dags;
+} = factories;
 
 const metricsDictionary = {
   利润: { revenue: 'sum' },
@@ -25,20 +25,20 @@ const metricsDictionary = {
 
 const dimensionsDictionary = {
   餐厅名称: {
-    branchName: { type: 'any' },
+    Branch: { type: 'any' },
   },
   餐卡类别: {
     cardType: { type: 'any' },
   },
   菜品类别: {
-    skuType: { type: 'any' },
+    SKU: { type: 'any' },
   },
 };
 
 const groupByDictionary = {
-  餐厅名称: 'branchName',
+  餐厅名称: 'Branch',
   餐卡类别: 'cardType',
-  菜品类别: 'skuType',
+  菜品类别: 'SKU',
 };
 
 const simulation = client.call('simulate', {
@@ -93,7 +93,7 @@ export default {
     },
     bestCustomerTSAD: {
       dependencies: ['fetchCustomerTSAD', 'mapCustomerMetric', 'bestUser'],
-      factory: (data, metric, bestUser) => {
+      factory: ({ data }, metric, bestUser) => {
         if (_.some([data, metric, bestUser], _.isNil)) {
           return undefined;
         }
@@ -166,7 +166,7 @@ export default {
     },
     favorBestCustomerReduce: {
       dependencies: ['fetchFavorBestCustomerReduce', '@measureFavor', '@dimensionFavor'],
-      factory: (data, measure, dimension) => {
+      factory: ({ data }, measure, dimension) => {
         const dimensionKey = _.keys(dimensionsDictionary[dimension])[0];
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
@@ -185,7 +185,7 @@ export default {
     },
     favorBestCustomerTrend: {
       dependencies: ['fetchFavorBestCustomerTrend', '@measureFavor', '@dimensionFavor'],
-      factory: (rawData, measure, dimension) => {
+      factory: ({ data: rawData }, measure, dimension) => {
         if (_.some([rawData, measure, dimension], _.isNil)) {
           return undefined;
         }
@@ -222,7 +222,7 @@ export default {
     },
     usageMealCardReduce: {
       dependencies: ['fetchUsageMealCardReduce'],
-      factory: data => Promise.resolve({
+      factory: ({ data }) => Promise.resolve({
         title: `共有${_.sum(_.map(data, 'customerId'))}人充值`,
         source: data,
         axisDimensions: ['cardType'],
@@ -308,7 +308,7 @@ export default {
     },
     fetchCumulativeTrend: {
       dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
-      factory: (trend, measure) => {
+      factory: ({ data: trend }, measure) => {
         if (_.some([trend, measure], _.isNil)) {
           return undefined;
         }
@@ -321,7 +321,7 @@ export default {
     },
     fetchGrowthRateTrend: {
       dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
-      factory: (trend, measure) => {
+      factory: ({ data: trend }, measure) => {
         if (_.some([trend, measure], _.isNil)) {
           return undefined;
         }
