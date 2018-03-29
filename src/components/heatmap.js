@@ -58,6 +58,9 @@ export default class Heatmap extends BaseChart {
         calculable: true,
         left: 'left',
         top: 'bottom',
+        inRange: {
+          color: ['green', 'white', 'red'],
+        },
       },
       ...super.getOption(),
     };
