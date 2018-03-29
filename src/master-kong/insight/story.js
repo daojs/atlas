@@ -8,7 +8,6 @@ import branch from '../branch.json';
 import category from '../category.json';
 
 const {
-  fetchMasterKongRevenueGapPerBranchMonth,
   fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
 } = factories;
@@ -24,22 +23,6 @@ export default {
     category: { default: undefined },
   },
   cells: {
-    fetchMasterKongRevenueGapPerBranchMonth: {
-      factory: fetchMasterKongRevenueGapPerBranchMonth(),
-    },
-    masterKongRevenueGapPerBranchMonth: {
-      dependencies: ['fetchMasterKongRevenueGapPerBranchMonth'],
-      factory: (rawData) => {
-        if (_.some([rawData], _.isNil)) {
-          return undefined;
-        }
-
-        return Promise.resolve({
-          source: rawData,
-          metricDimensions: ['gap'],
-        });
-      },
-    },
     branch: {
       factory: () => Promise.resolve({
         defaultValue: '江西',
