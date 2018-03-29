@@ -66,12 +66,10 @@ export default function () {
             <Cell input="usageMealCardQuery" title="Usage of Meal SectionCard Query" renderCell={WithComponent(PlainData)} />
             <Cell input="usageMealCardBucketCB" title="Usage of Meal SectionCard CardBalance" renderCell={WithComponent(PlainData)} />
           </SectionCard>
-          <SectionCard key="activeness" title="活跃度">
-            <Cell input="measureActiveness" output="@measureActiveness" label="指标:" renderCell={WithComponent(SingleSelector)} />
+          <SectionCard key="activeness" title="活跃度" extra={<Cell input="measureActiveness" output="@measureActiveness" label="指标:" renderCell={WithComponent(SingleSelector)} />}>
             <Cell input="activenessTraffic" subTitle="Activeness Traffic" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
           <SectionCard key="growthAbility" title="增长能力" extra={<Cell input="measureGrowth" output="@measureGrowth" label="指标:" renderCell={WithComponent(SingleSelector)} />}>
-            <Cell input="measureGrowth" output="@measureGrowth" label="指标:" renderCell={WithComponent(SingleSelector)} />
             <Cell input="growthAbilityCumulative" subTitle="Growth Ability Cumulative" renderCell={WithComponent(LineWithDataZoom)} />
             <Cell input="growthAbilityGrowthRate" subTitle="Growth Ability Growth Rate" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
