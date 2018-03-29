@@ -53,7 +53,7 @@
   },
   "scripts": {
     "start": "node ./server.js",
-    "data": "cd simulator-data && node generate-data",
+    "data": "cd simulator-data && cd master-kong && node generate-forcast-data",
     "build": "webpack",
     "dev": "webpack --watch | node ./server.js",
     "watch": "webpack --watch"

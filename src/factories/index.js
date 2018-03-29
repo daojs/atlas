@@ -1,5 +1,5 @@
 import fetchMasterKongRevenueAndVolumnTrend from './fetch-master-kong-revenue-and-volumn-trend';
-import fetchMasterKongRevenueGapPerBranchMonth from './fetch-master-kong-revenue-gap-per-branch-month';
+import fetchMasterKongRevenueGap from './fetch-master-kong-revenue-gap';
 import fetchCustomerTSADFactory from './fetch-customer-tsad';
 import fetchCustomerExpensePerUserBucketFactory from './fetch-customer-expense-per-user-bucket';
 import fetchCustomerExpensePerUserRankFactory from './fetch-customer-expense-per-user-rank';
@@ -12,10 +12,12 @@ import fetchTrendForGrowth from './fetch-trend-for-growth';
 import fetchMetricTrend from './fetch-metric-trend';
 import fetchGoalBreakDown from './fetch-goal-breakdown';
 import fetchGoalAchieve from './fetch-goal-achieve';
+import fetchMasterKongRevenueBreakDownByTime from './fetch-master-kong-revenue-break-down-by-time';
+import fetchRevenueForecast from './fetch-revenue-forecast';
 
 export default {
   fetchMasterKongRevenueAndVolumnTrend,
-  fetchMasterKongRevenueGapPerBranchMonth,
+  fetchMasterKongRevenueGap,
   fetchCustomerTSADFactory,
   fetchCustomerExpensePerUserBucketFactory,
   fetchCustomerExpensePerUserRankFactory,
@@ -23,9 +25,9 @@ export default {
   fetchFavorBestCustomerTrendFactory,
   fetchUsageMealCardReduceFactory,
   fetchUsageMealCardBucketFactory,
+  fetchMasterKongRevenueBreakDownByTime,
   fetchTraffic,
   fetchTrendForGrowth,
   fetchMetricTrend,
-  fetchGoalBreakDown,
-  fetchGoalAchieve,
+  fetchRevenueForecast,
 };

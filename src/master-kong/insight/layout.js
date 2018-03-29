@@ -9,22 +9,24 @@ import components from '../../components';
 
 const {
   // Bar,
-  Compare,
+  // Compare,
   Cell,
   Heatmap,
   TimeRange,
-  // SingleSelector,
+  SingleSelector,
   // PlainData,
   SectionContainer,
   // Donut,
   // LineWithDataZoom,
   SectionCard,
-  // HorizontalBar,
+  StackBar,
 } = components;
 
 function WithComponent(Control) {
   return props => <Control {...props} />;
 }
+
+const DropdownSelector = props => <SingleSelector selectType="select" {...props} />;
 
 export default function () {
   return (<StoryBoard
@@ -33,16 +35,37 @@ export default function () {
     renderComponent={() => (
       <Form>
         <h2 className="master-kong-header">康师傅预测报表</h2>
-        <SectionContainer id={storyConfig.id}>
+        <SectionContainer id="20000">
           <div key="slicer">
             <Cell output="@time" label="" renderCell={WithComponent(TimeRange)} />
           </div>
           <SectionCard
             className="overall-analysis"
-            key="overallAnalysis"
-            title="各地区每月差距"
+            key="given-branch"
+            title="指定行销部门"
+            extra={<Cell input="branch" output="@branch" renderCell={WithComponent(DropdownSelector)} />}
           >
-            <Cell input="masterKongRevenueGapPerBranchMonth" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+            <Cell input="revenueGapPerCategory" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+          </SectionCard>
+          <SectionCard
+            className="overall-analysis"
+            key="given-category"
+            title="指定大类"
+            extra={<Cell input="category" output="@category" renderCell={WithComponent(DropdownSelector)} />}
+          >
+            <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+          </SectionCard>
+          <SectionCard key="goalBreakDown" title="你可以这么做">
+            <Cell input="revenueBreakDownByTime" title="按营业额分解目标" renderCell={WithComponent(StackBar)} />
+            <Cell input="amountBreakDownByTime" title="按销量分解目标" renderCell={WithComponent(StackBar)} />
+          </SectionCard>
+          <SectionCard
+            className="overall-analysis"
+            key="given-category-bar"
+            title="指定大类"
+            extra={<Cell input="category" output="@category" label="大类:" renderCell={WithComponent(SingleSelector)} />}
+          >
+            <Cell input="revenueBreakDownByCategory" subTitle="差距" renderCell={WithComponent(StackBar)} />
           </SectionCard>
         </SectionContainer>
       </Form>

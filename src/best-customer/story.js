@@ -23,6 +23,12 @@ const metricsDictionary = {
   交易笔数: { transactionId: 'count' },
 };
 
+const metricReverseDictionary = {
+  revenue: '利润',
+  customerId: '独立用户数',
+  transactionId: '交易笔数',
+};
+
 const dimensionsDictionary = {
   餐厅名称: {
     Branch: { type: 'any' },
@@ -92,8 +98,8 @@ export default {
       factory: fetchCustomerTSADFactory(client, simulation),
     },
     bestCustomerTSAD: {
-      dependencies: ['fetchCustomerTSAD', 'mapCustomerMetric', 'bestUser'],
-      factory: ({ data }, metric, bestUser) => {
+      dependencies: ['fetchCustomerTSAD', 'mapCustomerMetric', 'bestUser', '@measureCustomer'],
+      factory: ({ data }, metric, bestUser, metricName) => {
         if (_.some([data, metric, bestUser], _.isNil)) {
           return undefined;
         }
@@ -101,6 +107,8 @@ export default {
           source: data,
           axisDimensions: ['timestamp'],
           metricDimensions: _.keys(metric),
+          title: `${metricName}的变化趋势`,
+          key2name: metricReverseDictionary,
         };
       },
     },
@@ -130,6 +138,9 @@ export default {
           source: data,
           axisDimensions: ['销售额'],
           metricDimensions: ['用户数'],
+          // axisDimensions: ['revenue'],
+          // metricDimensions: ['customerId'],
+          key2name: metricReverseDictionary,
         };
       },
     },
@@ -148,6 +159,7 @@ export default {
           source: data,
           axisDimensions: ['customerId'],
           metricDimensions: ['revenue'],
+          key2name: metricReverseDictionary,
         };
       },
     },
@@ -216,6 +228,7 @@ export default {
         return Promise.resolve({
           source,
           axisDimensions: ['timestamp'],
+          key2name: metricReverseDictionary,
         });
       },
     },
@@ -244,6 +257,7 @@ export default {
         source: data,
         axisDimensions: ['rechargeAmount'],
         metricDimensions: ['customerId'],
+        key2name: metricReverseDictionary,
       }),
     },
     usageMealCardQuery: {
@@ -294,6 +308,7 @@ export default {
         return Promise.resolve({
           source,
           axisDimensions: ['timestamp'],
+          key2name: metricReverseDictionary,
         });
       },
     },
@@ -348,8 +363,10 @@ export default {
         }));
 
         return Promise.resolve({
+          title: '累计的变化趋势',
           source,
           axisDimensions: ['timestamp'],
+          key2name: metricReverseDictionary,
         });
       },
     },
@@ -368,8 +385,10 @@ export default {
         }));
 
         return Promise.resolve({
+          title: '增长率的变化趋势',
           source,
           axisDimensions: ['timestamp'],
+          key2name: metricReverseDictionary,
         });
       },
     },

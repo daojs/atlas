@@ -61,7 +61,7 @@ export default class BaseChart extends PureComponent {
 
   getTitleOption() {
     return {
-      text: this.props.title,
+      text: this.props.value.title || this.props.title,
     };
   }
 
@@ -77,6 +77,9 @@ export default class BaseChart extends PureComponent {
   }
 
   render() {
+    if (_.isEmpty(this.getSource())) {
+      return null;
+    }
     return (
       <ReactEcharts
         option={this.getOption()}

@@ -31,7 +31,7 @@ export default class Line extends BaseChart {
     return _.chain(this.getMetricDimensions())
       .map(dim => ({
         type: 'line',
-        name: dim,
+        name: _.get(this.props.value, `key2name[${dim}]`, dim),
         data: _.map(source, row => row[dim]),
       }))
       .value();

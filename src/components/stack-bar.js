@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import BaseChart from './base';
 
-export default class Bar extends BaseChart {
+export default class StackBar extends BaseChart {
   getAxisOption() {
     return {
       data: this.getAxisData(),
@@ -14,8 +14,9 @@ export default class Bar extends BaseChart {
     return _.chain(this.getMetricDimensions())
       .map(dim => ({
         type: 'bar',
-        name: _.get(this.props.value, `key2name[${dim}]`, dim),
+        name: dim,
         data: _.map(source, row => row[dim]),
+        stack: 'total',
       }))
       .value();
   }
