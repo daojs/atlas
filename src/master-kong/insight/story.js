@@ -20,7 +20,7 @@ export default {
   parameters: {
     time: { default: { start: '2018-01-01', end: '2018-02-01' } },
     branch: { default: undefined },
-    category: { default: undefined },
+    category: { default: '冰茶' },
   },
   cells: {
     branch: {
