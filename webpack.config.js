@@ -4,7 +4,7 @@ module.exports = {
   mode: 'development',
   entry: {
     index: [
-      './src/index.js',
+      './src/index-test.js',
       'react-hot-loader/patch',
     ],
     worker: [

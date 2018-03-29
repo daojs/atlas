@@ -8,7 +8,7 @@ const { RangePicker } = DatePicker;
 
 const dateFormat = 'YYYY-MM-DD';
 
-export default class TimeRangePicker extends PureComponent {
+export default class TimeRangePickerTest extends PureComponent {
   componentDidMount() {
     this.onChange([
       moment(this.props.value.start, dateFormat),
@@ -36,13 +36,13 @@ export default class TimeRangePicker extends PureComponent {
   }
 }
 
-TimeRangePicker.propTypes = {
+TimeRangePickerTest.propTypes = {
   value: PropTypes.objectOf(PropTypes.any),
   label: PropTypes.string,
   update: PropTypes.func,
 };
 
-TimeRangePicker.defaultProps = {
+TimeRangePickerTest.defaultProps = {
   label: '',
   update: _.noop,
   value: {},

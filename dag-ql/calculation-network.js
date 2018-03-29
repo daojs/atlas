@@ -52,7 +52,7 @@ export default class CalculationNetwork {
   get(key) {
     if (!_.has(this.cache, key)) {
       const deps = this.dependencies[key];
-      const factory = this.factories[key] || (() => this.cache[key]);
+      const factory = this.factories[key] || (() => {});
 
       this.cache[key] = Promise
         .all(_.map(deps, dep => this.get(dep)))
@@ -66,5 +66,10 @@ export default class CalculationNetwork {
       delete this.cache[key];
       _.forEach(this.dependent[key], dep => this.invalidate(dep));
     }
+  }
+
+  getInvalidateList(key) {
+    return _.uniq(_.reduce(this.dependent[key], (memo, dep) =>
+      ([...memo, ...this.getInvalidateList(dep), dep]), []));
   }
 }

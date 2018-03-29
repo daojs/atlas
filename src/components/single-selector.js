@@ -6,7 +6,7 @@ import _ from 'lodash';
 const { Option } = Select;
 
 export default class SingleSelector extends Component {
-  componentDidUpdate() {
+  componentDidMount() {
     const {
       value: {
         defaultValue,

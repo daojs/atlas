@@ -6,7 +6,9 @@ import HorizontalBar from './horizontal-bar';
 import MultiSelector from './multi-selector';
 import SingleSelector from './single-selector';
 import Cell from './cell';
+import CellTest from './cell-test';
 import TimeRange from './time-range';
+import TimeRangePickerTest from './time-range-test';
 import PlainData from './plain-data';
 import SectionContainer from './section-container';
 import Donut from './donut';
@@ -24,10 +26,12 @@ export default {
   MultiSelector,
   SingleSelector,
   TimeRange,
+  TimeRangePickerTest,
   PlainData,
   SectionContainer,
   Donut,
   LineWithDataZoom,
   Line,
   SectionCard,
+  CellTest,
 };
