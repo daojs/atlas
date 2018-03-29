@@ -9,7 +9,6 @@ import components from '../components';
 
 const {
   Cell,
-  TimeRange,
   SingleSelector,
   SectionContainer,
   LineWithDataZoom,
@@ -28,19 +27,14 @@ export default function () {
     renderComponent={() => (
       <Form>
         <SectionContainer id={storyConfig.id}>
-          <SectionCard key="slicer">
-            <Cell output="@time" label="时间: " renderCell={WithComponent(TimeRange)} />
-            <Cell input="metric" output="@metric" label="指标: " renderCell={WithComponent(SingleSelector)} />
-            <Cell input="dimension" output="@dimension" label="维度: " renderCell={WithComponent(SingleSelector)} />
-            <Cell input="granularity" output="@granularity" label="Granularity: " renderCell={WithComponent(SingleSelector)} />
-          </SectionCard>
           <SectionCard key="metricTrend" title="指标情况及预测">
-            {/* <Cell input="usageMetricTrend" renderCell={WithComponent(LineWithDataZoom)} />
-            <Cell input="cumulativeMetricTrend" renderCell={WithComponent(LineWithDataZoom)} /> */}
+            <Cell input="usageMetricTrend" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
-          <SectionCard key="goalBreakDown" title="你可以这么做">
-            {/* <Cell input="usageGoalBreakDown" title="分解目标" renderCell={WithComponent(HorizontalBar)} />
-            <Cell input="usageGoalAchieve" title="实现目标" renderCell={WithComponent(LineWithDataZoom)} /> */}
+          <SectionCard key="mealName" title="餐点销售额预测" extra={<Cell input="mealName" output="@mealName" label="Meal Name" renderCell={WithComponent(SingleSelector)} />}>
+            <Cell input="usageRevenueForecastByMeal" title="分解目标" renderCell={WithComponent(HorizontalBar)} />
+          </SectionCard>
+          <SectionCard key="branchName" title="餐厅销售额预测" extra={<Cell input="branch" output="@branch" label="Branch Name" renderCell={WithComponent(SingleSelector)} />}>
+            <Cell input="usageRevenueForecastByBranch" title="分解目标" renderCell={WithComponent(HorizontalBar)} />
           </SectionCard>
         </SectionContainer>
       </Form>
