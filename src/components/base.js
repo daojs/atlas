@@ -56,7 +56,7 @@ export default class BaseChart extends PureComponent {
 
   getTitleOption() {
     return {
-      text: this.props.title,
+      text: this.props.value.title || this.props.title,
     };
   }
 
