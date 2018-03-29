@@ -47,7 +47,7 @@ export default function () {
           <SectionCard
             className="overall-analysis"
             key="given-category"
-            title="指定产品类"
+            title="指定产品"
             extra={<Cell input="category" output="@category" renderCell={WithComponent(DropdownSelector)} />}
           >
             <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
