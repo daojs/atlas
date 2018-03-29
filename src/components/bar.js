@@ -14,7 +14,7 @@ export default class Bar extends BaseChart {
     return _.chain(this.getMetricDimensions())
       .map(dim => ({
         type: 'bar',
-        name: dim,
+        name: _.get(this.props.value, `key2name[${dim}]`, dim),
         data: _.map(source, row => row[dim]),
       }))
       .value();

@@ -9,10 +9,11 @@ import components from '../../components';
 
 const {
   // Bar,
-  Compare,
+  // Compare,
   Cell,
+  Heatmap,
   TimeRange,
-  // SingleSelector,
+  SingleSelector,
   // PlainData,
   SectionContainer,
   // Donut,
@@ -38,11 +39,19 @@ export default function () {
           </div>
           <SectionCard
             className="overall-analysis"
-            key="overallAnalysis"
-            title="整体分析"
+            key="given-branch"
+            title="指定行销部门"
+            extra={<Cell input="branch" output="@branch" label="行销部门:" renderCell={WithComponent(SingleSelector)} />}
           >
-            整体分析
-            <Cell input="masterKongOverallRevenueAndVolumn" subTitle="整体销售额和销量" renderCell={WithComponent(Compare)} />
+            <Cell input="masterKongRevenueGapPerBranchMonth" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+          </SectionCard>
+          <SectionCard
+            className="overall-analysis"
+            key="given-category"
+            title="指定大类"
+            extra={<Cell input="category" output="@category" label="大类:" renderCell={WithComponent(SingleSelector)} />}
+          >
+            <Cell input="masterKongRevenueGapPerBranchMonth" subTitle="差距" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
           <SectionCard key="goalBreakDown" title="你可以这么做">
             <Cell input="revenueBreakDownByTime" title="按营业额分解目标" renderCell={WithComponent(StackBar)} />

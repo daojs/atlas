@@ -1,12 +1,19 @@
 // import Promise from 'bluebird';
+<<<<<<< HEAD
 // import _ from 'lodash';
 import client from '../../mock/worker';
+=======
+import _ from 'lodash';
+// import client from '../mock/worker';
+>>>>>>> e144d202c3ef3dac2e03345f525d2ec2483a3908
 
 // dags
 import factories from '../../factories';
+import branch from '../branch.json';
+import category from '../category.json';
 
 const {
-  fetchMasterKongRevenueAndVolumnTrend,
+  fetchMasterKongRevenueGapPerBranchMonth,
 } = factories;
 
 const simulation = client.call('masterKongSimulate');
@@ -16,6 +23,7 @@ export default {
     time: { default: { start: '2018-01-01', end: '2018-02-01' } },
   },
   cells: {
+<<<<<<< HEAD
     catory: {
       factory: () => Promise.resolve({
         defaultValue: '冰茶',
@@ -59,6 +67,35 @@ export default {
     },
     masterKongOverallRevenueAndVolumnTrend: {
       factory: fetchMasterKongRevenueAndVolumnTrend(),
+=======
+    fetchMasterKongRevenueGapPerBranchMonth: {
+      factory: fetchMasterKongRevenueGapPerBranchMonth(),
+    },
+    masterKongRevenueGapPerBranchMonth: {
+      dependencies: ['fetchMasterKongRevenueGapPerBranchMonth'],
+      factory: (rawData) => {
+        if (_.some([rawData], _.isNil)) {
+          return undefined;
+        }
+
+        return Promise.resolve({
+          source: rawData,
+          metricDimensions: ['gap'],
+        });
+      },
+    },
+    branch: {
+      factory: () => Promise.resolve({
+        defaultValue: '江西',
+        enums: branch,
+      }),
+    },
+    category: {
+      factory: () => Promise.resolve({
+        defaultValue: '冰茶',
+        enums: category,
+      }),
+>>>>>>> e144d202c3ef3dac2e03345f525d2ec2483a3908
     },
     revenueBreakDownByTime: {
       dependencies: ['@catory', '@branch'],
