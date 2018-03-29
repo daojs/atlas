@@ -5,6 +5,8 @@ extends: airbnb
 env:
   node: true
 
+parser: babel-eslint
+
 rules:
   linebreak-style: off
 

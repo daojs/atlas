@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes, { any } from 'prop-types';
 import { Card } from 'antd';
-import _ from 'lodash';
 
 export default class SectionCard extends PureComponent {
   render() {
@@ -11,6 +10,7 @@ export default class SectionCard extends PureComponent {
       >
         <Card
           title={this.props.title}
+          extra={this.props.extra || this.props.extras}
           style={{
             height: '100%',
             display: 'flex',
@@ -41,14 +41,16 @@ export default class SectionCard extends PureComponent {
 }
 
 SectionCard.propTypes = {
-  children: PropTypes.arrayOf(any),
+  children: PropTypes.node,
   title: PropTypes.string,
+  extra: PropTypes.node,
   className: PropTypes.string,
   style: PropTypes.objectOf(any),
 };
 
 SectionCard.defaultProps = {
   children: [],
+  extra: null,
   title: '',
   className: '',
   style: {},

@@ -2,6 +2,8 @@ import React from 'react';
 import { Form } from 'antd';
 import 'antd/dist/antd.css';
 
+// import BestDescription from './best-description';
+import './index.css';
 import StoryBoard from '../story-board';
 import storyConfig from './story';
 import components from '../components';
@@ -29,39 +31,42 @@ export default function () {
     story={storyConfig}
     renderComponent={() => (
       <Form>
-        <h2>Best User Analysis</h2>
+        <h2 className="best-customer-header">客户分析</h2>
         <SectionContainer id={storyConfig.id}>
           <div key="slicer">
-            <Cell output="@time" label="Time Range" renderCell={WithComponent(TimeRange)} />
+            <Cell output="@time" label="" renderCell={WithComponent(TimeRange)} />
           </div>
-          <SectionCard key="bestUser" title="Best User Analysis of xxx">
-            <Cell input="measureUser" output="@measureUser" label="Measure" renderCell={WithComponent(SingleSelector)} />
-            <Cell input="bestUser" title="Best User SectionCard" renderCell={WithComponent(PlainData)} />
-          </SectionCard>
-          <SectionCard key="bestCustomer" title="Best Customer Overview">
-            <Cell input="measureCustomer" output="@measureCustomer" label="Measure" renderCell={WithComponent(SingleSelector)} />
+          <SectionCard key="bestCustomer" title="概况" extra={<Cell input="measureCustomer" output="@measureCustomer" label="Measure" renderCell={WithComponent(SingleSelector)} />}>
             <Cell input="bestCustomerQuery" title="Best Customer Query" renderCell={WithComponent(PlainData)} />
-            <Cell input="bestCustomerTSAD" title="Best Customer TSAD" renderCell={WithComponent(LineWithDataZoom)} />
+            <Cell input="bestCustomerTSAD" title="基于时间片的异常点分析" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
-          <SectionCard key="bestCustomerExpensePerUser" title="Best Customer Expense Per User">
-            <Cell input="granularityCustomer" output="@granularityCustomer" label="Granularity" renderCell={WithComponent(SingleSelector)} />
-            <Cell input="customerExpensePerUserBucket" title="Best Customer Expense Per User Bucket" renderCell={WithComponent(Bar)} />
-            <Cell input="customerExpensePerUserRank" title="Best Customer Expense Per User TSAD" renderCell={WithComponent(HorizontalBar)} />
+          <SectionCard key="bestCustomerExpensePerUser" title="消费情况分析" extra={<Cell input="granularityCustomer" output="@granularityCustomer" label="Granularity" renderCell={WithComponent(SingleSelector)} />}>
+            <Cell input="customerExpensePerUserBucket" title="单个客户的消费区间" renderCell={WithComponent(Bar)} />
+            <Cell input="customerExpensePerUserRank" title="单个客户的消费排名" renderCell={WithComponent(HorizontalBar)} />
           </SectionCard>
-          <SectionCard key="favor" title="Favor XXX of Best Customers">
-            <Cell input="measureFavor" output="@measureFavor" label="Measure" renderCell={WithComponent(SingleSelector)} />
-            <Cell input="dimensionFavor" output="@dimensionFavor" label="Dimension" renderCell={WithComponent(SingleSelector)} />
-            <Cell input="favorBestCustomerReduce" title="Favor Best Customer Reduce" renderCell={WithComponent(Donut)} />
-            <Cell input="favorBestCustomerTrend" title="Favor Customer Trend" renderCell={WithComponent(LineWithDataZoom)} />
+          <SectionCard
+            className="favor-best-customer"
+            key="favor"
+            title="偏好分析"
+            extra={
+              <span className="radio-selector">
+                <Cell style={{ display: 'inline-block' }} input="measureFavor" output="@measureFavor" label="Measure" renderCell={WithComponent(SingleSelector)} />
+                <Cell style={{ display: 'inline-block' }} input="dimensionFavor" output="@dimensionFavor" label="Dimension" renderCell={WithComponent(SingleSelector)} />
+              </span>}
+          >
+            <Cell input="favorBestCustomerReduce" title="喜好的比例" renderCell={WithComponent(Donut)} />
+            <Cell input="favorBestCustomerTrend" title="喜好的变化趋势" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
-          <SectionCard key="mealCard" title="Usage of Meal SectionCard">
-            <Cell input="usageMealCardReduce" subTitle="Usage of Meal SectionCard Reduce" renderCell={WithComponent(Donut)} />
-            <Cell input="usageMealCardBucketCRAP" title="Usage of Meal SectionCard Bucket CardRechargeAmountPerUU" renderCell={WithComponent(Bar)} />
+          <SectionCard key="mealCard" title="餐卡的使用情况">
+            <Cell input="usageMealCardReduce" subTitle="餐卡的使用比例" renderCell={WithComponent(Donut)} />
+            <Cell input="usageMealCardBucketCRAP" title="单个客户的餐卡充值金额" renderCell={WithComponent(Bar)} />
             <Cell input="usageMealCardQuery" title="Usage of Meal SectionCard Query" renderCell={WithComponent(PlainData)} />
             <Cell input="usageMealCardBucketCB" title="Usage of Meal SectionCard CardBalance" renderCell={WithComponent(PlainData)} />
           </SectionCard>
-          <SectionCard key="growthAbility" title="Growth Ability">
-            <Cell input="measureGrowth" output="@measureGrowth" label="Measure" renderCell={WithComponent(SingleSelector)} />
+          <SectionCard key="activeness" title="活跃度" extra={<Cell input="measureActiveness" output="@measureActiveness" label="指标:" renderCell={WithComponent(SingleSelector)} />}>
+            <Cell input="activenessTraffic" subTitle="Activeness Traffic" renderCell={WithComponent(LineWithDataZoom)} />
+          </SectionCard>
+          <SectionCard key="growthAbility" title="增长能力" extra={<Cell input="measureGrowth" output="@measureGrowth" label="指标:" renderCell={WithComponent(SingleSelector)} />}>
             <Cell input="growthAbilityCumulative" subTitle="Growth Ability Cumulative" renderCell={WithComponent(LineWithDataZoom)} />
             <Cell input="growthAbilityGrowthRate" subTitle="Growth Ability Growth Rate" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>

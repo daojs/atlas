@@ -1,4 +1,5 @@
 import Bar from './bar';
+import Compare from './compare';
 import TimeSeries from './time-series';
 import FormInput from './form-input';
 import FormField from './form-field';
@@ -18,6 +19,7 @@ import SectionCard from './section-card';
 
 export default {
   Bar,
+  Compare,
   TimeSeries,
   FormInput,
   FormField,

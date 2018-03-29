@@ -4,9 +4,15 @@ import PropTypes from 'prop-types';
 export default class PlainData extends PureComponent {
   render() {
     return (
-      <div style={{ display: 'none' }}>
-        {JSON.stringify(this.props.value)}
-      </div>);
+      <div>
+        <h3>
+          The best department is: {this.props.value.department}
+        </h3>
+        <h3>
+          The best discipline is: {this.props.value.discipline}
+        </h3>
+      </div>
+    );
   }
 }
 

@@ -24,7 +24,7 @@ export default class Line extends BaseChart {
   getSeriesOption() {
     const source = this.getSource();
     return _.chain(this.getMetricDimensions())
-      .map(dim => _.defaults({
+      .map(dim => ({
         type: 'line',
         name: dim,
         data: _.map(source, row => row[dim]),
@@ -33,10 +33,7 @@ export default class Line extends BaseChart {
   }
 
   getOption() {
-    return _.defaultsDeep({
-      title: {
-        text: this.props.title,
-      },
+    return {
       legend: {},
       tooltip: {
         trigger: 'axis',
@@ -45,8 +42,8 @@ export default class Line extends BaseChart {
         type: 'value',
       },
       xAxis: this.getAxisOption(),
-      series: this.getSeriesOption(),
-    });
+      ...super.getOption(),
+    };
   }
 
   getEvents() {
@@ -61,11 +58,9 @@ export default class Line extends BaseChart {
 }
 
 Line.propTypes = {
-  title: PropTypes.string,
   onSlicerChange: PropTypes.func,
 };
 
 Line.defaultProps = {
   onSlicerChange: _.noop,
-  title: '',
 };

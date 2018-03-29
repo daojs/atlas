@@ -3,7 +3,7 @@ import _ from 'lodash';
 import client from '../mock/worker';
 
 // dags
-import dags from '../dags';
+import factories from '../factories';
 
 const {
   fetchCustomerTSADFactory,
@@ -13,31 +13,32 @@ const {
   fetchFavorBestCustomerTrendFactory,
   fetchUsageMealCardReduceFactory,
   fetchUsageMealCardBucketFactory,
+  fetchTraffic,
   fetchTrendForGrowth,
-} = dags;
+} = factories;
 
 const metricsDictionary = {
-  Revenue: { revenue: 'sum' },
-  UU: { customerId: 'count' },
-  TransactionCount: { transactionId: 'count' },
+  利润: { revenue: 'sum' },
+  独立用户数: { customerId: 'count' },
+  交易笔数: { transactionId: 'count' },
 };
 
 const dimensionsDictionary = {
-  BranchName: {
-    branchName: { type: 'any' },
+  餐厅名称: {
+    Branch: { type: 'any' },
   },
-  CardType: {
+  餐卡类别: {
     cardType: { type: 'any' },
   },
-  SKUType: {
-    skuType: { type: 'any' },
+  菜品类别: {
+    SKU: { type: 'any' },
   },
 };
 
 const groupByDictionary = {
-  BranchName: 'branchName',
-  CardType: 'cardType',
-  SKUType: 'skuType',
+  餐厅名称: 'Branch',
+  餐卡类别: 'cardType',
+  菜品类别: 'SKU',
 };
 
 const simulation = client.call('simulate', {
@@ -54,13 +55,14 @@ export default {
     granularityCustomer: { default: undefined },
     measureFavor: { default: undefined },
     dimensionFavor: { default: undefined },
+    measureActiveness: { default: undefined },
     measureGrowth: { default: undefined },
   },
   cells: {
     measureUser: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     bestUser: {
@@ -69,8 +71,8 @@ export default {
     },
     measureCustomer: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     bestCustomerQuery: {
@@ -80,9 +82,9 @@ export default {
     mapCustomerMetric: {
       dependencies: ['@measureCustomer'],
       factory: measure => ({
-        Revenue: { revenue: 'sum' },
-        UU: { customerId: 'count' },
-        TransactionCount: { transactionId: 'count' },
+        利润: { revenue: 'sum' },
+        独立用户数: { customerId: 'count' },
+        交易笔数: { transactionId: 'count' },
       }[measure]),
     },
     fetchCustomerTSAD: {
@@ -91,7 +93,7 @@ export default {
     },
     bestCustomerTSAD: {
       dependencies: ['fetchCustomerTSAD', 'mapCustomerMetric', 'bestUser'],
-      factory: (data, metric, bestUser) => {
+      factory: ({ data }, metric, bestUser) => {
         if (_.some([data, metric, bestUser], _.isNil)) {
           return undefined;
         }
@@ -146,14 +148,14 @@ export default {
     },
     measureFavor: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     dimensionFavor: {
       factory: () => Promise.resolve({
-        defaultValue: 'BranchName',
-        enums: ['BranchName', 'CardType', 'SKUType'],
+        defaultValue: '餐厅名称',
+        enums: ['餐厅名称', '餐卡类别', '菜品类别'],
       }),
     },
     fetchFavorBestCustomerReduce: {
@@ -164,12 +166,14 @@ export default {
     },
     favorBestCustomerReduce: {
       dependencies: ['fetchFavorBestCustomerReduce', '@measureFavor', '@dimensionFavor'],
-      factory: (data, measure, dimension) => {
+      factory: ({ data }, measure, dimension) => {
         const dimensionKey = _.keys(dimensionsDictionary[dimension])[0];
         const measureKey = _.keys(metricsDictionary[measure])[0];
 
         return Promise.resolve({
-          source: [['name', 'value']].concat(_.map(data, item => [item[dimensionKey], item[measureKey]])),
+          source: data,
+          axisDimensions: [dimensionKey],
+          metricDimensions: [measureKey],
         });
       },
     },
@@ -181,7 +185,7 @@ export default {
     },
     favorBestCustomerTrend: {
       dependencies: ['fetchFavorBestCustomerTrend', '@measureFavor', '@dimensionFavor'],
-      factory: (rawData, measure, dimension) => {
+      factory: ({ data: rawData }, measure, dimension) => {
         if (_.some([rawData, measure, dimension], _.isNil)) {
           return undefined;
         }
@@ -218,9 +222,11 @@ export default {
     },
     usageMealCardReduce: {
       dependencies: ['fetchUsageMealCardReduce'],
-      factory: data => Promise.resolve({
+      factory: ({ data }) => Promise.resolve({
         title: `共有${_.sum(_.map(data, 'customerId'))}人充值`,
-        source: [['name', 'value']].concat(_.map(data, item => [item.cardType, item.customerId])),
+        source: data,
+        axisDimensions: ['cardType'],
+        metricDimensions: ['customerId'],
       }),
     },
     fetchUsageMealCardBucketCRAP: {
@@ -247,10 +253,49 @@ export default {
         time, bestUser, measure: 'CardBalance',
       }),
     },
+    fetchTraffic: {
+      dependencies: ['@time', '@measureActiveness', 'bestUser'],
+      factory: fetchTraffic(client, simulation, { metricsDictionary }),
+    },
+    measureActiveness: {
+      factory: () => Promise.resolve({
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
+      }),
+    },
+    activenessTraffic: {
+      dependencies: ['fetchTraffic', '@measureActiveness', 'bestUser'],
+      factory: (rawData, measure, bestUser) => {
+        if (_.some([rawData, measure, bestUser], _.isNil)) {
+          return undefined;
+        }
+
+        // sort the data to know start & end
+        const sorted = _.sortBy(rawData, 'timestamp');
+
+        const first = sorted[0].timestamp;
+        const end = _.last(sorted).timestamp;
+
+        const keyed = _.keyBy(sorted, 'timestamp');
+
+        const measureKey = _.keys(metricsDictionary[measure])[0];
+
+        // fill 0 data in
+        const source = _.map(_.range(first, end + 1, 10 * 60 * 1000), time => ({
+          timestamp: (new Date(time)).toLocaleTimeString({}, { hour: '2-digit', minute: '2-digit', hour12: false }),
+          [measureKey]: keyed[time] ? keyed[time][measureKey] : 0,
+        }));
+
+        return Promise.resolve({
+          source,
+          axisDimensions: ['timestamp'],
+        });
+      },
+    },
     measureGrowth: {
       factory: () => Promise.resolve({
-        defaultValue: 'UU',
-        enums: ['Revenue', 'UU', 'TransactionCount'],
+        defaultValue: '独立用户数',
+        enums: ['利润', '独立用户数', '交易笔数'],
       }),
     },
     fetchTrendForGrowth: {
@@ -259,7 +304,7 @@ export default {
     },
     fetchCumulativeTrend: {
       dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
-      factory: (trend, measure) => {
+      factory: ({ data: trend }, measure) => {
         if (_.some([trend, measure], _.isNil)) {
           return undefined;
         }
@@ -272,7 +317,7 @@ export default {
     },
     fetchGrowthRateTrend: {
       dependencies: ['fetchTrendForGrowth', '@measureGrowth'],
-      factory: (trend, measure) => {
+      factory: ({ data: trend }, measure) => {
         if (_.some([trend, measure], _.isNil)) {
           return undefined;
         }

@@ -29,10 +29,15 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "bluebird": "^3.5.1",
+    "calculation-network": "^0.0.2",
     "echarts": "^4.0.4",
     "echarts-for-react": "^2.0.8",
     "graphql-request": "^1.5.1",
     "immutable": "^3.8.2",
+    "koa": "^2.5.0",
+    "koa-body": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2",
     "lodash": "^4.17.5",
     "moment": "^2.21.0",
     "prop-types": "^15.6.1",
@@ -40,12 +45,19 @@
     "react-dom": "^16.2.0",
     "react-grid-layout": "^0.16.6",
     "react-resizable": "^1.7.5",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
     "uuid": "^3.2.1",
     "wolfy87-eventemitter": "^5.2.4",
     "yamljs": "^0.3.0"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "data": "cd simulator-data && node generate-data"
+    "start": "node ./server.js",
+    "data": "cd simulator-data && node generate-data",
+    "build": "webpack",
+    "dev": "webpack --watch | node ./server.js",
+    "watch": "webpack --watch"
   }
 }

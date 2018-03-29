@@ -20,7 +20,7 @@ module.exports = {
   devServer: {
     contentBase: './',
     port: 9001,
-    publicPath: '/dist/',
+    publicPath: './dist/',
   },
   module: {
     rules: [
