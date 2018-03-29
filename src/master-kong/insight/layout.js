@@ -26,6 +26,8 @@ function WithComponent(Control) {
   return props => <Control {...props} />;
 }
 
+const DropdownSelector = props => <SingleSelector selectType="select" {...props} />;
+
 export default function () {
   return (<StoryBoard
     components={components}
@@ -41,7 +43,7 @@ export default function () {
             className="overall-analysis"
             key="given-branch"
             title="指定行销部门"
-            extra={<Cell input="branch" output="@branch" label="行销部门:" renderCell={WithComponent(SingleSelector)} />}
+            extra={<Cell input="branch" output="@branch" renderCell={WithComponent(DropdownSelector)} />}
           >
             <Cell input="revenueGapPerCategory" subTitle="差距" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
@@ -49,7 +51,7 @@ export default function () {
             className="overall-analysis"
             key="given-category"
             title="指定大类"
-            extra={<Cell input="category" output="@category" label="大类:" renderCell={WithComponent(SingleSelector)} />}
+            extra={<Cell input="category" output="@category" renderCell={WithComponent(DropdownSelector)} />}
           >
             <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
