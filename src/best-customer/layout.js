@@ -2,7 +2,7 @@ import React from 'react';
 import { Form } from 'antd';
 import 'antd/dist/antd.css';
 
-import BestDescription from './best-description';
+// import BestDescription from './best-description';
 import './index.css';
 import StoryBoard from '../story-board';
 import storyConfig from './story';
