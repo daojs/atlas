@@ -1,12 +1,12 @@
 // import Promise from 'bluebird';
-// import _ from 'lodash';
+import _ from 'lodash';
 // import client from '../mock/worker';
 
 // dags
 import factories from '../../factories';
 
 const {
-  fetchMasterKongRevenueAndVolumnTrend,
+  fetchMasterKongRevenueGapPerBranchMonth,
 } = factories;
 
 export default {
@@ -14,8 +14,21 @@ export default {
     time: { default: { start: '2018-01-01', end: '2018-02-01' } },
   },
   cells: {
-    masterKongOverallRevenueAndVolumnTrend: {
-      factory: fetchMasterKongRevenueAndVolumnTrend(),
+    fetchMasterKongRevenueGapPerBranchMonth: {
+      factory: fetchMasterKongRevenueGapPerBranchMonth(),
+    },
+    masterKongRevenueGapPerBranchMonth: {
+      dependencies: ['fetchMasterKongRevenueGapPerBranchMonth'],
+      factory: (rawData) => {
+        if (_.some([rawData], _.isNil)) {
+          return undefined;
+        }
+
+        return Promise.resolve({
+          source: rawData,
+          metricDimensions: ['gap'],
+        });
+      },
     },
   },
   id: '10000',

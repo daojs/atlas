@@ -11,6 +11,7 @@ const {
   // Bar,
   Compare,
   Cell,
+  Heatmap,
   TimeRange,
   // SingleSelector,
   // PlainData,
@@ -39,10 +40,9 @@ export default function () {
           <SectionCard
             className="overall-analysis"
             key="overallAnalysis"
-            title="整体分析"
+            title="各地区每月差距"
           >
-            整体分析
-            <Cell input="masterKongOverallRevenueAndVolumn" subTitle="整体销售额和销量" renderCell={WithComponent(Compare)} />
+            <Cell input="masterKongRevenueGapPerBranchMonth" subTitle="差距" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
         </SectionContainer>
       </Form>
