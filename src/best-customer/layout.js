@@ -2,7 +2,7 @@ import React from 'react';
 import { Form } from 'antd';
 import 'antd/dist/antd.css';
 
-import BestDescription from './best-description';
+// import BestDescription from './best-description';
 import './index.css';
 import StoryBoard from '../story-board';
 import storyConfig from './story';
@@ -31,7 +31,7 @@ export default function () {
     story={storyConfig}
     renderComponent={() => (
       <Form>
-        <h2 className="best-customer-header">最佳客户分析</h2>
+        <h2 className="best-customer-header">客户分析</h2>
         <SectionContainer id={storyConfig.id}>
           <div key="slicer">
             <Cell output="@time" label="" renderCell={WithComponent(TimeRange)} />
