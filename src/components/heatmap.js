@@ -28,9 +28,9 @@ export default class Heatmap extends BaseChart {
 
   getOption() {
     const source = this.getSource();
-    const metrics = this.getMetricDimensions();
+    // const metrics = this.getMetricDimensions();
 
-    const data = _.map(source, row => row[metrics[0]]);
+    const data = _.map(source, row => row[2]);
 
     return {
       legend: {},
