@@ -8,8 +8,22 @@ export default class Donut extends BaseChart {
     return _.slice(super.getMetricDimensions(), 0, 1);
   }
 
+  getSourceAndAggregateRest() {
+    const rawSource = this.getSource();
+    const axisDim = this.getAxisDimension();
+
+    const sortedSource = _.reverse(_.sortBy(rawSource, this.getMetricDimensions()));
+
+    const metricKey = _.first(this.getMetricDimensions()) || 'customerId';
+
+    return [..._.slice(sortedSource, 0, 4), {
+      [axisDim]: '其他',
+      [metricKey]: _.sum(_.map(_.slice(sortedSource, 4), metricKey)),
+    }];
+  }
+
   getSeriesOption() {
-    const source = this.getSource();
+    const source = this.getSourceAndAggregateRest();
     const axisDim = this.getAxisDimension();
 
     return _.chain(this.getMetricDimensions())
@@ -37,7 +51,7 @@ export default class Donut extends BaseChart {
   }
 
   getLegendOption() {
-    const source = this.getSource();
+    const source = this.getSourceAndAggregateRest();
     const axisDim = this.getAxisDimension();
     const metricDim = this.getMetricDimensions()[0];
 
