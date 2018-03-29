@@ -3,6 +3,7 @@ import Compare from './compare';
 import TimeSeries from './time-series';
 import FormInput from './form-input';
 import FormField from './form-field';
+import Heatmap from './heatmap';
 import HorizontalBar from './horizontal-bar';
 import MultiSelector from './multi-selector';
 import SingleSelector from './single-selector';
@@ -21,6 +22,7 @@ export default {
   TimeSeries,
   FormInput,
   FormField,
+  Heatmap,
   HorizontalBar,
   Cell,
   MultiSelector,
