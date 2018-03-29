@@ -1350,6 +1350,13 @@ cacheable-request@^2.1.1:
     normalize-url "2.0.1"
     responselike "1.0.2"
 
+calculation-network@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/calculation-network/-/calculation-network-0.0.2.tgz#503ca875090c8e827926e1943153762da0880201"
+  dependencies:
+    bluebird "^3.5.1"
+    lodash "^4.17.5"
+
 caller-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-0.1.0.tgz#94085ef63581ecd3daa92444a8fe94e82577751f"
