@@ -22,7 +22,12 @@ import BaseChart from './base';
 */
 export default class Line extends BaseChart {
   getSeriesOption() {
-    const source = this.getSource();
+    const rawSource = this.getSource();
+
+    const source = _.map(rawSource, s => _.defaults({}, {
+      timestamp: s.timestamp.replace('T00:00:00Z', ''),
+    }, s));
+
     return _.chain(this.getMetricDimensions())
       .map(dim => ({
         type: 'line',

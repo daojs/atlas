@@ -14,7 +14,12 @@ export default class BaseChart extends PureComponent {
     if (_.isNil(source)) {
       throw new Error('Chart source is nil');
     }
-    return source;
+
+    return _.map(source, s => _.defaults(
+      {},
+      _.isString(s.timestamp) ? { timestamp: s.timestamp.replace('T00:00:00Z', '') } : {},
+      s,
+    ));
   }
 
   getDimensions() {
