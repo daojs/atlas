@@ -45,7 +45,7 @@ export default function () {
           </SectionCard>
           <SectionCard key="bestCustomerExpensePerUser" title="最佳客户的消费情况" extra={<Cell input="granularityCustomer" output="@granularityCustomer" label="Granularity" renderCell={WithComponent(SingleSelector)} />}>
             <Cell input="customerExpensePerUserBucket" title="单个客户的消费区间" renderCell={WithComponent(Bar)} />
-            <Cell input="customerExpensePerUserRank" title="单个客户的异常点分析" renderCell={WithComponent(HorizontalBar)} />
+            <Cell input="customerExpensePerUserRank" title="单个客户的消费排名" renderCell={WithComponent(HorizontalBar)} />
           </SectionCard>
           <SectionCard
             className="favor-best-customer"
@@ -66,7 +66,16 @@ export default function () {
             <Cell input="usageMealCardQuery" title="Usage of Meal SectionCard Query" renderCell={WithComponent(PlainData)} />
             <Cell input="usageMealCardBucketCB" title="Usage of Meal SectionCard CardBalance" renderCell={WithComponent(PlainData)} />
           </SectionCard>
+<<<<<<< HEAD
           <SectionCard key="growthAbility" title="增长能力" extra={<Cell input="measureGrowth" output="@measureGrowth" label="指标:" renderCell={WithComponent(SingleSelector)} />}>
+=======
+          <SectionCard key="activeness" title="活跃度">
+            <Cell input="measureActiveness" output="@measureActiveness" label="指标:" renderCell={WithComponent(SingleSelector)} />
+            <Cell input="activenessTraffic" subTitle="Activeness Traffic" renderCell={WithComponent(LineWithDataZoom)} />
+          </SectionCard>
+          <SectionCard key="growthAbility" title="增长能力">
+            <Cell input="measureGrowth" output="@measureGrowth" label="指标:" renderCell={WithComponent(SingleSelector)} />
+>>>>>>> c696ea5ea85a100b5ba1cfc53ad597589eadc1af
             <Cell input="growthAbilityCumulative" subTitle="Growth Ability Cumulative" renderCell={WithComponent(LineWithDataZoom)} />
             <Cell input="growthAbilityGrowthRate" subTitle="Growth Ability Growth Rate" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
