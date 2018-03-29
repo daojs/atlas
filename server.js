@@ -4,17 +4,23 @@ const Router = require('koa-router');
 const koaBody = require('koa-body');
 const rp = require('request-promise');
 
+const mock = require('./mock');
+
 const app = new Koa();
 const router = new Router();
 
 router.post('/insight', koaBody(), async (ctx, next) => {
   const { body } = ctx.request;
 
-  ctx.body = await rp.post({
-    uri: 'http://13.92.89.95:8080/insight',
-    json: true,
-    body,
-  });
+  if (body['@target'] === 'master-kong') {
+    ctx.body = await mock(body);
+  } else {
+    ctx.body = await rp.post({
+      uri: 'http://13.92.89.95:8080/insight',
+      json: true,
+      body,
+    });
+  }
 
   await next();
 });
