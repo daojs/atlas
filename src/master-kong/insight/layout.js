@@ -43,7 +43,7 @@ export default function () {
             title="指定行销部门"
             extra={<Cell input="branch" output="@branch" label="行销部门:" renderCell={WithComponent(SingleSelector)} />}
           >
-            <Cell input="masterKongRevenueGapPerBranchMonth" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+            <Cell input="revenueGapPerCategory" subTitle="差距" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
           <SectionCard
             className="overall-analysis"
@@ -51,7 +51,7 @@ export default function () {
             title="指定大类"
             extra={<Cell input="category" output="@category" label="大类:" renderCell={WithComponent(SingleSelector)} />}
           >
-            <Cell input="masterKongRevenueGapPerBranchMonth" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+            <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
         </SectionContainer>
       </Form>
