@@ -14,7 +14,7 @@ function _path(key) {
 function WriteToCache(key, data) {
   if (data === undefined || data === null) return;
 
-  var path = _path(key);
+  var path = _path(JSON.stringify(key));
 
   console.log('WriteToCache'.concat(path));
 
