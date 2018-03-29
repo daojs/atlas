@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import 'antd/dist/antd.css';
@@ -45,10 +45,11 @@ const KsfLayout = () => (
 ReactDOM.render(
   (
     <HashRouter >
-      <div>
+      <Switch>
         <Route path="/sodexo" component={SodexoLayout} />
         <Route path="/ksf" component={KsfLayout} />
-      </div>
+        <Route component={SodexoLayout} />
+      </Switch>
     </HashRouter >
   ), document.getElementById('bestcustomer'),
 );
