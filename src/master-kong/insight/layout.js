@@ -8,7 +8,7 @@ import storyConfig from './story';
 import components from '../../components';
 
 const {
-  // Bar,
+  Bar,
   // Compare,
   Cell,
   Heatmap,
@@ -19,7 +19,7 @@ const {
   // Donut,
   // LineWithDataZoom,
   SectionCard,
-  StackBar,
+  // StackBar,
 } = components;
 
 function WithComponent(Control) {
@@ -46,8 +46,8 @@ export default function () {
             extra={<Cell input="branch" output="@branch" renderCell={WithComponent(DropdownSelector)} />}
           >
             <Cell input="revenueGapPerCategory" subTitle="差距" renderCell={WithComponent(Heatmap)} />
-            <Cell input="revenueBreakDownByBranch" subTitle="差距" renderCell={WithComponent(StackBar)} />
-            <Cell input="volumeBreakDownByBranch" subTitle="差距" renderCell={WithComponent(StackBar)} />
+            <Cell input="revenueBreakDownByBranch" subTitle="差距" renderCell={WithComponent(Bar)} />
+            <Cell input="volumeBreakDownByBranch" subTitle="差距" renderCell={WithComponent(Bar)} />
           </SectionCard>
           <SectionCard
             className="overall-analysis"
@@ -56,8 +56,8 @@ export default function () {
             extra={<Cell input="category" output="@category" renderCell={WithComponent(DropdownSelector)} />}
           >
             <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
-            <Cell input="revenueBreakDownByCategory" subTitle="差距" renderCell={WithComponent(StackBar)} />
-            <Cell input="volumeBreakDownByCategory" subTitle="差距" renderCell={WithComponent(StackBar)} />
+            <Cell input="revenueBreakDownByCategory" subTitle="差距" renderCell={WithComponent(Bar)} />
+            <Cell input="volumeBreakDownByCategory" subTitle="差距" renderCell={WithComponent(Bar)} />
           </SectionCard>
         </SectionContainer>
       </Form>
