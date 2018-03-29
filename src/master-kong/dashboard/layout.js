@@ -3,9 +3,9 @@ import { Form } from 'antd';
 import 'antd/dist/antd.css';
 
 import './index.css';
-import StoryBoard from '../story-board';
+import StoryBoard from '../../story-board';
 import storyConfig from './story';
-import components from '../components';
+import components from '../../components';
 
 const {
   // Bar,

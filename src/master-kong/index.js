@@ -1,9 +1,8 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
-import 'antd/dist/antd.css';
-import './index.css';
-import BestCustomer from './best-customer/layout';
-import SodexoInsight from './best-customer/insight';
+
+import MasterKongDashBoard from './dashboard/layout';
+import MasterKongInsight from './insight/layout';
 
 const { Content, Sider } = Layout;
 const contentStyle = {
@@ -11,25 +10,29 @@ const contentStyle = {
   padding: 24,
 };
 
-const SodexContent = {
-  dashboard: BestCustomer,
-  insight: SodexoInsight,
+const MasterKongContent = {
+  dashboard: MasterKongDashBoard,
+  insight: MasterKongInsight,
 };
 
-export class SodexoLayout extends React.Component {
+export default class MasterKongLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selected: 'dashboard',
     };
   }
+
+  onSelectMenu = ({ key }) => { this.setState({ selected: key }); }
+
   render() {
-    const Control = SodexContent[this.state.selected] || BestCustomer;
+    const Control = MasterKongContent[this.state.selected] || MasterKongDashBoard;
+
     return (
       <Layout>
         <Layout>
           <Sider>
-            <Menu theme="dark" defaultSelectedKeys={['dashboard']} mode="inline" onSelect={({ key }) => { this.setState({ selected: key }); }}>
+            <Menu theme="dark" defaultSelectedKeys={['dashboard']} mode="inline" onSelect={this.onSelectMenu}>
               <Menu.Item key="dashboard">
                 <Icon type="user" />
                 <span className="nav-text">仪表盘</span>
