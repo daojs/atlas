@@ -122,13 +122,13 @@ export default {
         }
 
         const data = _.map(rawData, d => ({
-          revenue: `${d.revenue} ~ ${d.revenue + 10}`,
+          销售额: `${d.revenue} ~ ${d.revenue + 10}`,
           用户数: d.customerId,
         }));
 
         return {
           source: data,
-          axisDimensions: ['revenue'],
+          axisDimensions: ['销售额'],
           metricDimensions: ['用户数'],
         };
       },
