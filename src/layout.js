@@ -52,8 +52,6 @@ export class SodexoLayout extends React.Component {
   }
 }
 
-
-
 export const MasterKongLayout = () => (
   <Layout>
     <Layout>

@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 
 import './index.css';
 import StoryBoard from '../story-board';
-import storyConfig from './story';
+import storyConfig from './insight.config';
 import components from '../components';
 
 const {
@@ -33,15 +33,14 @@ export default function () {
             <Cell input="metric" output="@metric" label="指标: " renderCell={WithComponent(SingleSelector)} />
             <Cell input="dimension" output="@dimension" label="维度: " renderCell={WithComponent(SingleSelector)} />
             <Cell input="granularity" output="@granularity" label="Granularity: " renderCell={WithComponent(SingleSelector)} />
-            <Cell input="branch" output="@branch" label="Branch Name:" renderCell={WithComponent(SingleSelector)} />
           </SectionCard>
           <SectionCard key="metricTrend" title="指标情况及预测">
-            <Cell input="fetchMetricTrend" renderCell={WithComponent(LineWithDataZoom)} />
-            <Cell input="metricCumulative" renderCell={WithComponent(LineWithDataZoom)} />
+            {/* <Cell input="usageMetricTrend" renderCell={WithComponent(LineWithDataZoom)} />
+            <Cell input="cumulativeMetricTrend" renderCell={WithComponent(LineWithDataZoom)} /> */}
           </SectionCard>
           <SectionCard key="goalBreakDown" title="你可以这么做">
-            <Cell input="usageGoalBreakDown" title="分解目标" renderCell={WithComponent(HorizontalBar)} />
-            <Cell input="usageGoalAchieve" title="实现目标" renderCell={WithComponent(LineWithDataZoom)} />
+            {/* <Cell input="usageGoalBreakDown" title="分解目标" renderCell={WithComponent(HorizontalBar)} />
+            <Cell input="usageGoalAchieve" title="实现目标" renderCell={WithComponent(LineWithDataZoom)} /> */}
           </SectionCard>
         </SectionContainer>
       </Form>
