@@ -36,9 +36,6 @@ export default function () {
       <Form>
         <h2 className="master-kong-header">康师傅预测报表</h2>
         <SectionContainer id="20000">
-          <div key="slicer">
-            <Cell output="@time" label="" renderCell={WithComponent(TimeRange)} />
-          </div>
           <SectionCard
             className="overall-analysis"
             key="given-branch"
