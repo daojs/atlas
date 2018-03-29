@@ -55,7 +55,7 @@ export default class SingleSelector extends Component {
     const opts = _.map(enums, item => ({ value: item.value || item, text: item.text || item }));
     const select = enums.length > 0 ? (
       <Select
-        style={{ width: '100%' }}
+        style={{ width: '100%', minWidth: '100px' }}
         defaultValue={defaultValue}
         onChange={args => this.onSelectChange(args)}
       >
