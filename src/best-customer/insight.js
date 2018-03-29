@@ -26,7 +26,7 @@ export default function () {
     story={storyConfig}
     renderComponent={() => (
       <Form>
-        <SectionContainer id={storyConfig.id}>
+        <SectionContainer id="30000">
           <SectionCard key="metricTrend" title="指标情况及预测">
             <Cell input="usageMetricTrend" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
