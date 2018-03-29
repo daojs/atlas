@@ -116,15 +116,20 @@ export default {
     },
     customerExpensePerUserBucket: {
       dependencies: ['fetchCustomerExpencePerUserBucket'],
-      factory: (data) => {
-        if (!data) {
+      factory: (rawData) => {
+        if (_.isEmpty(rawData)) {
           return undefined;
         }
+
+        const data = _.map(rawData, d => ({
+          revenue: `${d.revenue} ~ ${d.revenue + 10}`,
+          用户数: d.customerId,
+        }));
 
         return {
           source: data,
           axisDimensions: ['revenue'],
-          metricDimensions: ['customerId'],
+          metricDimensions: ['用户数'],
         };
       },
     },
