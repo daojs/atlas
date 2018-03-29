@@ -17,7 +17,7 @@ export default class BaseChart extends PureComponent {
 
     return _.map(source, s => _.defaults(
       {},
-      _.isString(s.timestamp) ? { timestamp: s.timestamp.replace('T00:00:00Z', '') } : {},
+      _.isString(s.timestamp) ? { timestamp: s.timestamp.replace('T00:00:00Z', '').replace('T00:00:00.000Z', '') } : {},
       s,
     ));
   }
