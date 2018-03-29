@@ -50,7 +50,7 @@ export default {
         }
 
         return Promise.resolve({
-          source: rawData,
+          source: _.map(rawData, item => [item.category, item.month, item.gap]),
           metricDimensions: ['gap'],
         });
       },
@@ -70,7 +70,7 @@ export default {
         }
 
         return Promise.resolve({
-          source: rawData,
+          source: _.map(rawData, item => [item.branch, item.month, item.gap]),
           metricDimensions: ['gap'],
         });
       },
