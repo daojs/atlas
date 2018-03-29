@@ -8,13 +8,13 @@ function _path(key) {
     fs.mkdirSync(dir);
   }
 
-  return dir + md5(key);
+  return dir + md5(JSON.stringify(key));
 }
 
 function WriteToCache(key, data) {
   if (data === undefined || data === null) return;
 
-  var path = _path(JSON.stringify(key));
+  var path = _path(key);
 
   console.log('WriteToCache'.concat(path));
 
