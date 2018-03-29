@@ -16,29 +16,21 @@ router.post('/insight', koaBody(), async (ctx, next) => {
 
   if (body['@target'] === 'master-kong') {
     ctx.body = await mock(body);
-
-    await next();
+  } else if (cacheManager.isInCache(body)) {
+    ctx.body = cacheManager.readFromCache(body);
   } else {
-    try {
-      const result = await rp.post({
-        uri: 'http://13.92.89.95:8080/insight',
-        json: true,
-        body,
-      });
+    const result = await rp.post({
+      uri: 'http://13.92.89.95:8080/insight',
+      json: true,
+      body,
+    });
 
-      cacheManager.writeToCache(body, result);
+    cacheManager.writeToCache(body, result);
 
-      ctx.body = result;
-    } catch (error) {
-      if (cacheManager.isInCache(body)) {
-        ctx.body = cacheManager.readFromCache(body);
-      } else {
-        ctx.body = { data: [] };
-      }
-    } finally {
-      await next();
-    }
+    ctx.body = result;
   }
+
+  await next();
 });
 
 app.use(router.routes()).use(router.allowedMethods());

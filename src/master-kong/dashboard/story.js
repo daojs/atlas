@@ -3,7 +3,7 @@
 // import client from '../mock/worker';
 
 // dags
-import factories from '../factories';
+import factories from '../../factories';
 
 const {
   fetchMasterKongRevenueAndVolumnTrend,

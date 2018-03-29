@@ -32,6 +32,8 @@ function ReadFromCache(key) {
 function IsInCache(key) {
   var path = _path(key);
 
+  console.log(path);
+
   return fs.existsSync(path);
 }
 
