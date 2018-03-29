@@ -38,7 +38,7 @@ const SodexoLayout = () => (
   </Layout>
 );
 
-const KsfLayout = () => (
+const MasterKongLayout = () => (
   <div>图片仅供参考</div>
 );
 
@@ -47,7 +47,7 @@ ReactDOM.render(
     <HashRouter >
       <Switch>
         <Route path="/sodexo" component={SodexoLayout} />
-        <Route path="/ksf" component={KsfLayout} />
+        <Route path="/masterkong" component={MasterKongLayout} />
         <Route component={SodexoLayout} />
       </Switch>
     </HashRouter >

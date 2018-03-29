@@ -36,21 +36,18 @@ export default function () {
           <div key="slicer">
             <Cell output="@time" label="" renderCell={WithComponent(TimeRange)} />
           </div>
-          <SectionCard key="bestUser" title="谁是您的最佳客户" extra={<Cell input="measureUser" output="@measureUser" label="Measure" renderCell={WithComponent(SingleSelector)} />} >
-            <Cell input="bestUser" title="Best User SectionCard" renderCell={WithComponent(BestDescription)} />
-          </SectionCard>
-          <SectionCard key="bestCustomer" title="最佳客户的概况" extra={<Cell input="measureCustomer" output="@measureCustomer" label="Measure" renderCell={WithComponent(SingleSelector)} />}>
+          <SectionCard key="bestCustomer" title="概况" extra={<Cell input="measureCustomer" output="@measureCustomer" label="Measure" renderCell={WithComponent(SingleSelector)} />}>
             <Cell input="bestCustomerQuery" title="Best Customer Query" renderCell={WithComponent(PlainData)} />
             <Cell input="bestCustomerTSAD" title="基于时间片的异常点分析" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
-          <SectionCard key="bestCustomerExpensePerUser" title="最佳客户的消费情况" extra={<Cell input="granularityCustomer" output="@granularityCustomer" label="Granularity" renderCell={WithComponent(SingleSelector)} />}>
+          <SectionCard key="bestCustomerExpensePerUser" title="消费情况分析" extra={<Cell input="granularityCustomer" output="@granularityCustomer" label="Granularity" renderCell={WithComponent(SingleSelector)} />}>
             <Cell input="customerExpensePerUserBucket" title="单个客户的消费区间" renderCell={WithComponent(Bar)} />
             <Cell input="customerExpensePerUserRank" title="单个客户的消费排名" renderCell={WithComponent(HorizontalBar)} />
           </SectionCard>
           <SectionCard
             className="favor-best-customer"
             key="favor"
-            title="最佳客户的喜好"
+            title="偏好分析"
             extra={
               <span className="radio-selector">
                 <Cell style={{ display: 'inline-block' }} input="measureFavor" output="@measureFavor" label="Measure" renderCell={WithComponent(SingleSelector)} />
