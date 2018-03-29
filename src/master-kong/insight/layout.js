@@ -36,9 +36,6 @@ export default function () {
       <Form>
         <h2 className="master-kong-header">康师傅预测报表</h2>
         <SectionContainer id="20000">
-          <div key="slicer">
-            <Cell output="@time" label="" renderCell={WithComponent(TimeRange)} />
-          </div>
           <SectionCard
             className="overall-analysis"
             key="given-branch"
@@ -52,7 +49,7 @@ export default function () {
           <SectionCard
             className="overall-analysis"
             key="given-category"
-            title="指定大类"
+            title="指定产品"
             extra={<Cell input="category" output="@category" renderCell={WithComponent(DropdownSelector)} />}
           >
             <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
