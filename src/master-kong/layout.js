@@ -9,6 +9,7 @@ import components from '../components';
 
 const {
   // Bar,
+  Compare,
   Cell,
   TimeRange,
   // SingleSelector,
@@ -41,6 +42,7 @@ export default function () {
             title="整体分析"
           >
             整体分析
+            <Cell input="masterKongOverallRevenueAndVolumn" subTitle="整体销售额和销量" renderCell={WithComponent(Compare)} />
           </SectionCard>
           <SectionCard
             className="category-analysis"
