@@ -47,7 +47,6 @@ export default {
     metric: { default: undefined },
     granularity: { default: undefined },
     dimension: { default: undefined },
-    branch: { default: undefined },
   },
   cells: {
     metric: {
@@ -80,11 +79,17 @@ export default {
         },
       ),
     },
-    metricCumulative: {
+    usageMetricTrend: {
+      dependencies: ['fetchMetricTrend'],
+      factory: ({ data }) => Promise.resolve({
+        source: data,
+      }),
+    },
+    cumulativeMetricTrend: {
       dependencies: ['fetchMetricTrend', '@metric'],
       factory: (rawData, metric) => {
         if (_.some([rawData], _.isNil)) {
-          return undefined;
+          return { source: [] };
         }
         return Promise.resolve({
           source: [],
@@ -108,7 +113,7 @@ export default {
     },
     usageGoalBreakDown: {
       dependencies: ['fetchGoalBreakDown'],
-      factory: data => Promise.resolve({
+      factory: ({ data }) => Promise.resolve({
         source: data,
       }),
     },
@@ -127,7 +132,7 @@ export default {
     },
     usageGoalAchieve: {
       dependencies: ['fetchGoalAchieve'],
-      factory: data => Promise.resolve({
+      factory: ({ data }) => Promise.resolve({
         source: data,
       }),
     },
