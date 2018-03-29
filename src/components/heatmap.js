@@ -26,19 +26,22 @@ export default class Heatmap extends PureComponent {
         splitArea: {
           show: true,
         },
+        position: 'top',
       },
       yAxis: {
         type: 'category',
         splitArea: {
           show: true,
         },
+        inverse: true,
       },
       visualMap: {
         min: _.min(data),
         max: _.max(data),
         calculable: true,
-        left: 'left',
+        left: 'center',
         top: 'bottom',
+        orient: 'horizontal',
       },
       series: [{
         name: _.last(dimensions),
