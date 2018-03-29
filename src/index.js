@@ -21,11 +21,11 @@ const SodexoLayout = () => (
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1">
             <Icon type="user" />
-            <span className="nav-text">最佳客户分析</span>
+            <span className="nav-text">仪表盘</span>
           </Menu.Item>
           <Menu.Item key="2">
             <Icon type="video-camera" />
-            <span className="nav-text">最佳菜品分析</span>
+            <span className="nav-text">销售额预测</span>
           </Menu.Item>
         </Menu>
       </Sider>
