@@ -41,7 +41,7 @@ export default function () {
             <Cell input="bestCustomerTSAD" title="基于时间片的异常点分析" renderCell={WithComponent(LineWithDataZoom)} />
           </SectionCard>
           <SectionCard key="bestCustomerExpensePerUser" title="消费情况分析" extra={<Cell input="granularityCustomer" output="@granularityCustomer" label="Granularity" renderCell={WithComponent(SingleSelector)} />}>
-            <Cell input="customerExpensePerUserBucket" title="单个客户的消费区间" renderCell={WithComponent(Bar)} />
+            <Cell input="customerExpensePerUserBucket" title="平均消费分布" renderCell={WithComponent(Bar)} />
             <Cell input="customerExpensePerUserRank" title="单个客户的消费排名" renderCell={WithComponent(HorizontalBar)} />
           </SectionCard>
           <SectionCard
