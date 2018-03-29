@@ -5,10 +5,12 @@ import * as analysis from './analysis';
 import storage from './storage';
 import * as dagQL from './dag-ql';
 import * as growth from './growth';
+import * as masterKongSimulate from './master-kong-simulator';
 
 register(procedures);
 register(simulator);
 register(analysis);
+register(masterKongSimulate);
 register({
   write: data => storage.write(data),
   read: id => storage.read(id),

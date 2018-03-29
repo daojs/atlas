@@ -18,7 +18,7 @@ const {
   // Donut,
   // LineWithDataZoom,
   SectionCard,
-  // HorizontalBar,
+  StackBar,
 } = components;
 
 function WithComponent(Control) {
@@ -44,6 +44,11 @@ export default function () {
             整体分析
             <Cell input="masterKongOverallRevenueAndVolumn" subTitle="整体销售额和销量" renderCell={WithComponent(Compare)} />
           </SectionCard>
+          <SectionCard key="goalBreakDown" title="你可以这么做">
+            <Cell input="revenueBreakDownByTime" title="按营业额分解目标" renderCell={WithComponent(StackBar)} />
+            <Cell input="amountBreakDownByTime" title="按销量分解目标" renderCell={WithComponent(StackBar)} />
+          </SectionCard>
+
         </SectionContainer>
       </Form>
     )}
