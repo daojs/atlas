@@ -77,6 +77,9 @@ export default class BaseChart extends PureComponent {
   }
 
   render() {
+    if (_.isEmpty(this.getSource())) {
+      return null;
+    }
     return (
       <ReactEcharts
         option={this.getOption()}

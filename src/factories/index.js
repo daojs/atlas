@@ -13,6 +13,7 @@ import fetchMetricTrend from './fetch-metric-trend';
 import fetchGoalBreakDown from './fetch-goal-breakdown';
 import fetchGoalAchieve from './fetch-goal-achieve';
 import fetchMasterKongRevenueBreakDownByTime from './fetch-master-kong-revenue-break-down-by-time';
+import fetchRevenueForecast from './fetch-revenue-forecast';
 
 export default {
   fetchMasterKongRevenueAndVolumnTrend,
@@ -28,6 +29,5 @@ export default {
   fetchTraffic,
   fetchTrendForGrowth,
   fetchMetricTrend,
-  fetchGoalBreakDown,
-  fetchGoalAchieve,
+  fetchRevenueForecast,
 };
