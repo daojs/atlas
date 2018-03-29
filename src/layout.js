@@ -2,8 +2,9 @@ import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
-import BestCustomer from './best-customer/layout';
 import MasterKongDashBoard from './master-kong/layout';
+import BestCustomer from './best-customer/layout';
+import SodexoInsight from './best-customer/insight';
 
 const { Content, Sider } = Layout;
 const contentStyle = {
@@ -11,29 +12,47 @@ const contentStyle = {
   padding: 24,
 };
 
-export const SodexoLayout = () => (
-  <Layout>
-    <Layout>
-      <Sider>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1">
-            <Icon type="user" />
-            <span className="nav-text">仪表盘</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Icon type="video-camera" />
-            <span className="nav-text">销售额预测</span>
-          </Menu.Item>
-        </Menu>
-      </Sider>
-      <Layout style={{ backgroundColor: 'rgb(240, 242, 245)' }}>
-        <Content style={contentStyle}>
-          <BestCustomer />,
-        </Content>
+const SodexContent = {
+  dashboard: BestCustomer,
+  insight: SodexoInsight,
+};
+
+export class SodexoLayout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: 'dashboard',
+    };
+  }
+  render() {
+    const Control = SodexContent[this.state.selected] || BestCustomer;
+    return (
+      <Layout>
+        <Layout>
+          <Sider>
+            <Menu theme="dark" defaultSelectedKeys={['dashboard']} mode="inline" onSelect={({ key }) => { this.setState({ selected: key }); }}>
+              <Menu.Item key="dashboard">
+                <Icon type="user" />
+                <span className="nav-text">仪表盘</span>
+              </Menu.Item>
+              <Menu.Item key="insight">
+                <Icon type="video-camera" />
+                <span className="nav-text">销售额预测</span>
+              </Menu.Item>
+            </Menu>
+          </Sider>
+          <Layout style={{ backgroundColor: 'rgb(240, 242, 245)' }}>
+            <Content style={contentStyle}>
+              <Control />,
+            </Content>
+          </Layout>
+        </Layout>
       </Layout>
-    </Layout>
-  </Layout>
-);
+    );
+  }
+}
+
+
 
 export const MasterKongLayout = () => (
   <Layout>
