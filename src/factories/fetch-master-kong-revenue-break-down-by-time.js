@@ -7,17 +7,18 @@ export default function (client, simulation) {
     }
 
     return simulation
-      .then(data => client.call('dag', {
-        transactionData: {
+
+      .then(({ forcast }) => client.call('dag', {
+        forcastData: {
           '@proc': 'read',
           '@args': [
-            data,
+            forcast,
           ],
         },
         result: {
           '@proc': 'query2',
           '@args': [{
-            '@ref': 'transactionData',
+            '@ref': 'forcastData',
           }, {
             aggregation: {
               targetRevenue: 'sum',
@@ -31,6 +32,6 @@ export default function (client, simulation) {
             },
           }],
         },
-      }, 'result')).then(_.tap(window.console.log));
+      }, 'result'));
   };
 }

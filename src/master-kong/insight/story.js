@@ -75,10 +75,16 @@ export default {
         });
       },
     },
-    revenueBreakDownByCategory: {
+    fetchRevenueBreakDownByCategory: {
       dependencies: ['@category'],
       factory: fetchMasterKongRevenueBreakDownByTime(client, simulation),
     },
+    revenueBreakDownByCategory: {
+      dependencies: ['fetchRevenueBreakDownByCategory'],
+      factory: data => ({
+        source: data,
+      }),
+    }
   },
   id: '100000',
 };

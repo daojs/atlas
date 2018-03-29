@@ -3,7 +3,9 @@ import revenueGapData from '../../simulator-data/data/revenue-gap.json';
 import storage from '../storage';
 
 export function masterKongSimulate() {
-  return storage.write(data);
+  return {
+    forcast: storage.write(data),
+  };
 }
 
 export function simulateMasterKong() {
