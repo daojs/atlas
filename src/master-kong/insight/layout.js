@@ -9,7 +9,7 @@ import components from '../../components';
 import Usage from './usage-metric-trend-chart';
 
 const {
-  // Bar,
+  Bar,
   // Compare,
   Cell,
   Heatmap,
@@ -21,7 +21,7 @@ const {
   // LineWithDataZoom,
   // Line,
   SectionCard,
-  StackBar,
+  // StackBar,
 } = components;
 
 function WithComponent(Control) {
@@ -38,9 +38,6 @@ export default function () {
       <Form>
         <h2 className="master-kong-header">康师傅预测报表</h2>
         <SectionContainer id="20000">
-          <div key="slicer">
-            <Cell output="@time" label="" renderCell={WithComponent(TimeRange)} />
-          </div>
           <SectionCard
             key="revenue-predicate"
             title="总体销售额预测"
@@ -54,16 +51,19 @@ export default function () {
             title="指定行销部门"
             extra={<Cell input="branch" output="@branch" renderCell={WithComponent(DropdownSelector)} />}
           >
-            <Cell input="revenueGapPerCategory" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+            <Cell input="revenueBreakDownByBranch" title="预测销售额与目标销售额对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+            <Cell input="volumeBreakDownByBranch" title="预测销量与目标销量对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+            <Cell input="revenueGapPerCategory" title="各类商品销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
           <SectionCard
             className="overall-analysis"
             key="given-category"
-            title="指定大类"
+            title="指定产品"
             extra={<Cell input="category" output="@category" renderCell={WithComponent(DropdownSelector)} />}
           >
-            <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
-            <Cell input="revenueBreakDownByCategory" subTitle="差距" renderCell={WithComponent(StackBar)} />
+            <Cell input="revenueBreakDownByCategory" title="预测销售额与目标销售额对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+            <Cell input="volumeBreakDownByCategory" title="预测销量与目标销量对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+            <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
           </SectionCard>
         </SectionContainer>
       </Form>

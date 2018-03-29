@@ -10,6 +10,7 @@ import category from '../category.json';
 const {
   fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
+  fetchMasterKongVolumeBreakDown,
 } = factories;
 
 const simulation = client.call('masterKongSimulate');
@@ -18,7 +19,6 @@ const simulationGap = client.call('simulateMasterKong');
 
 export default {
   parameters: {
-    time: { default: { start: '2018-01-01', end: '2018-02-01' } },
     branch: { default: undefined },
     category: { default: '冰茶' },
   },
@@ -77,14 +77,47 @@ export default {
     },
     fetchRevenueBreakDownByCategory: {
       dependencies: ['@category'],
-      factory: fetchMasterKongRevenueBreakDownByTime(client, simulation),
+      factory: fetchMasterKongRevenueBreakDownByTime(client, simulation, 'category'),
     },
     revenueBreakDownByCategory: {
       dependencies: ['fetchRevenueBreakDownByCategory'],
       factory: data => ({
         source: data,
       }),
-    }
+    },
+    fetchRevenueBreakDownByBranch: {
+      dependencies: ['@branch'],
+      factory: fetchMasterKongRevenueBreakDownByTime(client, simulation, 'branch'),
+    },
+    revenueBreakDownByBranch: {
+      dependencies: ['fetchRevenueBreakDownByCategory'],
+      factory: data => ({
+        source: data,
+      }),
+    },
+
+
+    fetchVolumeBreakDownByCategory: {
+      dependencies: ['@category'],
+      factory: fetchMasterKongVolumeBreakDown(client, simulation, 'category'),
+    },
+    volumeBreakDownByCategory: {
+      dependencies: ['fetchVolumeBreakDownByCategory'],
+      factory: data => ({
+        source: data,
+      }),
+    },
+    fetchvolumeBreakDownByBranch: {
+      dependencies: ['@branch'],
+      factory: fetchMasterKongVolumeBreakDown(client, simulation, 'branch'),
+    },
+    volumeBreakDownByBranch: {
+      dependencies: ['fetchvolumeBreakDownByBranch'],
+      factory: data => ({
+        source: data,
+      }),
+    },
+
   },
   id: '100000',
 };

@@ -10,7 +10,7 @@ function generateRevenue() {
 const data = _.flattenDeep(_.map(_.range(3), month => _.map(branches, branch => _.map(categories, category => ({
   category,
   branch,
-  month: `2015-${month + 4}`,
+  month: `2018-${month + 4}`,
   gap: generateRevenue() - generateRevenue(),
 })))));
 
