@@ -21,8 +21,8 @@ export default function (client, simulation, key) {
             '@ref': 'forcastData',
           }, {
             aggregation: {
-              targetRevenue: 'sum',
-              forcastRevenue: 'sum',
+              targetVolume: 'sum',
+              forcastVolume: 'sum',
             },
             filter: {
               [key]: keyValue,

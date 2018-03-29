@@ -46,6 +46,8 @@ export default function () {
             extra={<Cell input="branch" output="@branch" renderCell={WithComponent(DropdownSelector)} />}
           >
             <Cell input="revenueGapPerCategory" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+            <Cell input="revenueBreakDownByBranch" subTitle="差距" renderCell={WithComponent(StackBar)} />
+            <Cell input="volumeBreakDownByBranch" subTitle="差距" renderCell={WithComponent(StackBar)} />
           </SectionCard>
           <SectionCard
             className="overall-analysis"
@@ -55,6 +57,7 @@ export default function () {
           >
             <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
             <Cell input="revenueBreakDownByCategory" subTitle="差距" renderCell={WithComponent(StackBar)} />
+            <Cell input="volumeBreakDownByCategory" subTitle="差距" renderCell={WithComponent(StackBar)} />
           </SectionCard>
         </SectionContainer>
       </Form>
