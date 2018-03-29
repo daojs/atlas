@@ -26,12 +26,12 @@ router.post('/insight', koaBody(), async (ctx, next) => {
         body,
       });
 
-      cacheManager.WriteToCache(body, result);
+      cacheManager.writeToCache(body, result);
 
       ctx.body = result;
     } catch (error) {
-      if (cacheManager.IsInCache(body)) {
-        ctx.body = cacheManager.ReadFromCache(body);
+      if (cacheManager.isInCache(body)) {
+        ctx.body = cacheManager.readFromCache(body);
       } else {
         ctx.body = { data: [] };
       }
