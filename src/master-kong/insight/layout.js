@@ -19,7 +19,7 @@ const {
   // Donut,
   // LineWithDataZoom,
   SectionCard,
-  // HorizontalBar,
+  StackBar,
 } = components;
 
 function WithComponent(Control) {
@@ -52,6 +52,18 @@ export default function () {
             extra={<Cell input="category" output="@category" label="大类:" renderCell={WithComponent(SingleSelector)} />}
           >
             <Cell input="revenueGapPerBranch" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+          </SectionCard>
+          <SectionCard key="goalBreakDown" title="你可以这么做">
+            <Cell input="revenueBreakDownByTime" title="按营业额分解目标" renderCell={WithComponent(StackBar)} />
+            <Cell input="amountBreakDownByTime" title="按销量分解目标" renderCell={WithComponent(StackBar)} />
+          </SectionCard>
+          <SectionCard
+            className="overall-analysis"
+            key="given-category-bar"
+            title="指定大类"
+            extra={<Cell input="category" output="@category" label="大类:" renderCell={WithComponent(SingleSelector)} />}
+          >
+            <Cell input="revenueBreakDownByCategory" subTitle="差距" renderCell={WithComponent(StackBar)} />
           </SectionCard>
         </SectionContainer>
       </Form>

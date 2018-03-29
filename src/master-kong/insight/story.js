@@ -8,10 +8,14 @@ import branch from '../branch.json';
 import category from '../category.json';
 
 const {
+  fetchMasterKongRevenueGapPerBranchMonth,
+  fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
 } = factories;
 
-const simulation = client.call('simulateMasterKong');
+const simulation = client.call('masterKongSimulate');
+
+const simulationGap = client.call('simulateMasterKong');
 
 export default {
   parameters: {
@@ -20,22 +24,22 @@ export default {
     category: { default: undefined },
   },
   cells: {
-    // fetchMasterKongRevenueGapPerBranchMonth: {
-    //   factory: fetchMasterKongRevenueGapPerBranchMonth(),
-    // },
-    // masterKongRevenueGapPerBranchMonth: {
-    //   dependencies: ['fetchMasterKongRevenueGapPerBranchMonth'],
-    //   factory: (rawData) => {
-    //     if (_.some([rawData], _.isNil)) {
-    //       return undefined;
-    //     }
+    fetchMasterKongRevenueGapPerBranchMonth: {
+      factory: fetchMasterKongRevenueGapPerBranchMonth(),
+    },
+    masterKongRevenueGapPerBranchMonth: {
+      dependencies: ['fetchMasterKongRevenueGapPerBranchMonth'],
+      factory: (rawData) => {
+        if (_.some([rawData], _.isNil)) {
+          return undefined;
+        }
 
-    //     return Promise.resolve({
-    //       source: rawData,
-    //       metricDimensions: ['gap'],
-    //     });
-    //   },
-    // },
+        return Promise.resolve({
+          source: rawData,
+          metricDimensions: ['gap'],
+        });
+      },
+    },
     branch: {
       factory: () => Promise.resolve({
         defaultValue: '江西',
@@ -50,7 +54,7 @@ export default {
     },
     fetchRevenueGapPerCategory: {
       dependencies: ['@branch'],
-      factory: fetchMasterKongRevenueGap(client, simulation, {
+      factory: fetchMasterKongRevenueGap(client, simulationGap, {
         metric: 'branch',
         otherMetric: 'category',
       }),
@@ -70,7 +74,7 @@ export default {
     },
     fetchRevenueGapPerBranch: {
       dependencies: ['@category'],
-      factory: fetchMasterKongRevenueGap(client, simulation, {
+      factory: fetchMasterKongRevenueGap(client, simulationGap, {
         metric: 'category',
         otherMetric: 'branch',
       }),
@@ -88,6 +92,10 @@ export default {
         });
       },
     },
+    revenueBreakDownByCategory: {
+      dependencies: ['@category'],
+      factory: fetchMasterKongRevenueBreakDownByTime(client, simulation),
+    },
   },
-  id: '10000',
+  id: '100000',
 };

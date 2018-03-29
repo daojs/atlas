@@ -10,6 +10,9 @@ import fetchUsageMealCardBucketFactory from './fetch-usage-meal-card-bucket';
 import fetchTraffic from './fetch-traffic';
 import fetchTrendForGrowth from './fetch-trend-for-growth';
 import fetchMetricTrend from './fetch-metric-trend';
+import fetchGoalBreakDown from './fetch-goal-breakdown';
+import fetchGoalAchieve from './fetch-goal-achieve';
+import fetchMasterKongRevenueBreakDownByTime from './fetch-master-kong-revenue-break-down-by-time';
 import fetchRevenueForecast from './fetch-revenue-forecast';
 
 export default {
@@ -22,6 +25,7 @@ export default {
   fetchFavorBestCustomerTrendFactory,
   fetchUsageMealCardReduceFactory,
   fetchUsageMealCardBucketFactory,
+  fetchMasterKongRevenueBreakDownByTime,
   fetchTraffic,
   fetchTrendForGrowth,
   fetchMetricTrend,
