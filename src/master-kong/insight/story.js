@@ -126,25 +126,15 @@ export default {
             target: '实际销量',
             forecast: '预测销量',
           },
-          markArea: [
-            [
-              {
-                name: '春节促销活动',
-                xAxis: 2,
-              },
-              {
-                xAxis: 3,
-              },
-            ],
-            [
-              {
-                name: '暑期促销活动',
-                xAxis: 6,
-              },
-              {
-                xAxis: 7,
-              },
-            ],
+          markLine: [
+            {
+              name: '春节促销活动',
+              xAxis: 3,
+            },
+            {
+              name: '暑期促销活动',
+              xAxis: 9,
+            },
           ],
         })
       ,
