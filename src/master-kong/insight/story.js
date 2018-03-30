@@ -86,8 +86,7 @@ export default {
       },
     },
     preMasterKongRevenueForecast: {
-      dependencies: ['@category'],
-      factory: fetchMasterKongRevenueForecast(client, simulation),
+      factory: fetchMasterKongRevenueForecast(),
     },
     masterKongRevenueForecast: {
       dependencies: ['preMasterKongRevenueForecast'],

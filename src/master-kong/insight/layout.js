@@ -69,7 +69,6 @@ export default function () {
           >
             <Row>
               <Col>
-                <Cell input="masterKongRevenueForecast" renderCell={WithComponent()} />
                 <Cell input="masterKongRevenueForecast" title="销售额趋势预测" renderCell={WithComponent(LineWithMarkArea)} />
               </Col>
             </Row>
