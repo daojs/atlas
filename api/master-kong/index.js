@@ -20,9 +20,39 @@ module.exports = function getData(body) {
 
   const data = _.chain(rawData[`${entity}By${filterKey}`])
     .filter({
-      [dictionary[filterKey]]: filterValue,
+      [dictionary[filterKey] || filterKey]: filterValue,
     })
-    .map(item => _.mapKeys(item, (value, key) => _.invert(dictionary)[key] || key))
+    .map((item) => {
+      const [, month, day] = item.Timestamp.match(/(\D+)-(\d+)/);
+
+      return {
+        ape: item.APE,
+        mape: item.MAPE,
+        timestamp: item.Timestamp,
+        target: parseFloat(item.Value),
+        forecast: parseFloat(item['Predicted value'] || item['Predicted Value']),
+        category: item.Category,
+        branch: item.Province,
+        month,
+        day,
+      };
+    })
+    .thru((value) => {
+      if (groupBy.timestamp === 'month') {
+        return _.chain(value)
+          .groupBy(_.property('month'))
+          .values()
+          .map(monthValue => ({
+            target: _.chain(monthValue).map('target').compact().sum().value(),
+            forecast: _.chain(monthValue).map('forecast').compact().sum().value(),
+            branch: filter.Branch,
+            category: filter.Category,
+          }))
+          .value();
+      }
+
+      return value;
+    })
     .value();
 
   return {

@@ -1,7 +1,10 @@
 import _ from 'lodash';
+import string2GranularityMap from './enum';
 
 export default function (client, simulation) {
-  return (time, granularity, bestUser) => {
+  return (time, granularityString, bestUser) => {
+    const granularity = string2GranularityMap[granularityString];
+
     if (_.some([time, granularity, bestUser], _.isNil)) {
       return Promise.resolve([]);
     }

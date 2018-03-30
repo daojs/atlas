@@ -17,6 +17,7 @@ const {
   fetchTrendForGrowth,
 } = factories;
 
+const metricEnum = ['独立用户数', '利润', '交易笔数'];
 const metricsDictionary = {
   利润: { revenue: 'sum' },
   独立用户数: { customerId: 'count' },
@@ -68,7 +69,7 @@ export default {
     measureUser: {
       factory: () => Promise.resolve({
         defaultValue: '独立用户数',
-        enums: ['利润', '独立用户数', '交易笔数'],
+        enums: metricEnum,
       }),
     },
     bestUser: {
@@ -78,7 +79,7 @@ export default {
     measureCustomer: {
       factory: () => Promise.resolve({
         defaultValue: '独立用户数',
-        enums: ['利润', '独立用户数', '交易笔数'],
+        enums: metricEnum,
       }),
     },
     bestCustomerQuery: {
@@ -114,8 +115,8 @@ export default {
     },
     granularityCustomer: {
       factory: () => Promise.resolve({
-        defaultValue: 'day',
-        enums: ['day', 'week', 'month'],
+        defaultValue: '日',
+        enums: ['日', '周', '月'],
       }),
     },
     fetchCustomerExpencePerUserBucket: {
@@ -166,7 +167,7 @@ export default {
     measureFavor: {
       factory: () => Promise.resolve({
         defaultValue: '独立用户数',
-        enums: ['利润', '独立用户数', '交易笔数'],
+        enums: metricEnum,
       }),
     },
     dimensionFavor: {
@@ -279,7 +280,7 @@ export default {
     measureActiveness: {
       factory: () => Promise.resolve({
         defaultValue: '独立用户数',
-        enums: ['利润', '独立用户数', '交易笔数'],
+        enums: metricEnum,
       }),
     },
     activenessTraffic: {
@@ -315,7 +316,7 @@ export default {
     measureGrowth: {
       factory: () => Promise.resolve({
         defaultValue: '独立用户数',
-        enums: ['利润', '独立用户数', '交易笔数'],
+        enums: metricEnum,
       }),
     },
     fetchTrendForGrowth: {
