@@ -113,13 +113,11 @@ export default function () {
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col span={16}>
                 {/* TODO: @Zhibin */}
                 <Cell input="revenueGapPerCategory" title="各类商品销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
               </Col>
-            </Row>
-            <Row>
-              <Col>
+              <Col span={8}>
                 <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
               </Col>
             </Row>

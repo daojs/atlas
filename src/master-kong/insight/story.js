@@ -19,6 +19,14 @@ const {
   mergeMonthAndYearData,
 } = factories;
 
+function findLastYearItem(rawData, item) {
+  return _.find(rawData, previous => previous.month === item.month
+    && previous.year == item.year - 1
+    && previous.category === item.category
+    && previous.branch === item.branch,
+  );
+}
+
 const simulation = client.call('masterKongSimulate');
 
 export default {
@@ -54,11 +62,7 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [
-            item.category,
-            `${item.month} ${item.year}`,
-            Number(item.forecast) - Number(item.target),
-          ]),
+          source: rawData,
         });
       },
     },
@@ -77,11 +81,7 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [
-            item.branch,
-            `${item.month} ${item.year}`,
-            Number(item.forecast) - Number(item.target),
-          ]),
+          source: rawData,
         });
       },
     },
