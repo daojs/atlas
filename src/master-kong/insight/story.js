@@ -15,8 +15,6 @@ const {
 
 const simulation = client.call('masterKongSimulate');
 
-const simulationGap = client.call('simulateMasterKong');
-
 export default {
   parameters: {
     branch: { default: undefined },
@@ -37,7 +35,7 @@ export default {
     },
     fetchRevenueGapPerCategory: {
       dependencies: ['@branch'],
-      factory: fetchMasterKongRevenueGap(client, simulationGap, {
+      factory: fetchMasterKongRevenueGap(client, simulation, {
         metric: 'branch',
         otherMetric: 'category',
       }),
@@ -50,14 +48,14 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.category, item.month, item.gap]),
-          metricDimensions: ['gap'],
+          source: _.map(rawData, item => [item.category, item.month, item.revenueGap]),
+          metricDimensions: ['revenueGap'],
         });
       },
     },
     fetchRevenueGapPerBranch: {
       dependencies: ['@category'],
-      factory: fetchMasterKongRevenueGap(client, simulationGap, {
+      factory: fetchMasterKongRevenueGap(client, simulation, {
         metric: 'category',
         otherMetric: 'branch',
       }),
@@ -70,8 +68,8 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.branch, item.month, item.gap]),
-          metricDimensions: ['gap'],
+          source: _.map(rawData, item => [item.branch, item.month, item.revenueGap]),
+          metricDimensions: ['revenueGap'],
         });
       },
     },
