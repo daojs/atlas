@@ -7,11 +7,11 @@ export default function (client, simulation, { metric, otherMetric }) {
     }
 
     return simulation
-      .then(({ revenueGap }) => client.call('dag', {
+      .then(({ forcast }) => client.call('dag', {
         revenueGapData: {
           '@proc': 'read',
           '@args': [
-            revenueGap,
+            forcast,
           ],
         },
         result: {
@@ -20,7 +20,7 @@ export default function (client, simulation, { metric, otherMetric }) {
             '@ref': 'revenueGapData',
           }, {
             aggregation: {
-              gap: 'sum',
+              revenueGap: 'sum',
             },
             filter: {
               [metric]: filter,
