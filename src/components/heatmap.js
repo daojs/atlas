@@ -10,7 +10,7 @@ export default class Heatmap extends BaseChart {
       type: 'heatmap',
       label: {
         normal: {
-          show: true,
+          show: false,
         },
       },
       itemStyle: {
@@ -29,7 +29,9 @@ export default class Heatmap extends BaseChart {
     const data = _.map(source, row => row[2]);
 
     return {
-      legend: {},
+      legend: {
+        show: false,
+      },
       tooltip: {
         position: 'top',
         formatter: ({ data: itemData }) => `${itemData[0]}: ${itemData[2]}`,
@@ -58,6 +60,7 @@ export default class Heatmap extends BaseChart {
         inRange: {
           color: ['green', 'white', 'red'],
         },
+        show: false,
       },
       ...super.getOption(),
     };
