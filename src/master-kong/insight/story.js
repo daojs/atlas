@@ -106,36 +106,35 @@ export default {
       },
     },
     fetchMasterKongSalesLastYear: {
-      factory: fetchMasterKongSalesLastYear(),
+      factory: fetchMasterKongSalesLastYear(client, simulation),
     },
     salesLastYear: {
       dependencies: ['fetchMasterKongSalesLastYear'],
-      factory: data =>
-        // const data = _.map(_.range(365), i => ({
-        //   time: i,
-        //   sales: _.random(100, 500),
-        //   predicate: _.random(100, 500),
-        // }));
-        ({
+      factory: (data) => {
+        console.log(data);
+        if (_.some([data], _.isNil)) {
+          return undefined;
+        }
+        return ({
           source: data,
-          axisDimensions: ['month'],
-          metricDimensions: ['target', 'forecast'],
+          axisDimensions: ['Timetamp'],
+          metricDimensions: ['Value', 'ExpectedValue'],
           key2name: {
-            target: '实际销量',
-            forecast: '预测销量',
+            Value: '实际销量',
+            ExpectedValue: '预测销量',
           },
           markLine: [
             {
-              name: '春节促销活动',
+              value: '春节促销活动',
               xAxis: 3,
             },
             {
-              name: '暑期促销活动',
+              value: '暑期促销活动',
               xAxis: 9,
             },
           ],
-        })
-      ,
+        });
+      },
     },
     fetchAnnualRevenueGoalRisk: {
       factory: fetchMasterKongAnnualGoalCompRisk({
