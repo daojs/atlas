@@ -5,6 +5,8 @@ rawData.RevenueByBranch = require('../../data/revenue_province.json');
 rawData.RevenueByCategory = require('../../data/revenue_category.json');
 rawData.VolumeByCategory = require('../../data/salescount_category.json');
 rawData.VolumeByBranch = require('../../data/salescount_province.json');
+rawData.VolumeAll = require('../../data/salescount_all.json');
+rawData.RevenueAll = require('../../data/revenue_all.json');
 
 const dictionary = {
   Branch: 'Province',
@@ -19,44 +21,45 @@ function capitalizeFirstLetter(string) {
 module.exports = function getData(body) {
   const args = body['@args'];
   const [entity, { aggregation, filter, groupBy }] = args;
-  const filterKey = capitalizeFirstLetter(_.first(_.keys(filter)));
-  const filterValue = _.first(_.values(filter));
+  const pureFilter = _.omit(filter, ['year']);
+  const isAll = _.isEmpty(pureFilter);
+  const filterKey = isAll ? '' : capitalizeFirstLetter(_.first(_.keys(pureFilter)));
+  const initData = isAll ? rawData[`${entity}All`] : rawData[`${entity}By${filterKey}`];
 
-  const data = _.chain(rawData[`${entity}By${filterKey}`])
-    .filter({
-      [dictionary[filterKey] || filterKey]: filterValue,
-    })
+
+  const data = _.chain(initData)
     .map((item) => {
-      const [, month, day] = item.Timestamp.match(/(\D+)-(\d+)/);
+      const [, month, year] = item.Timestamp.match(/(\D+)-(\d+)/);
 
       return {
         ape: item.APE,
         mape: item.MAPE,
-        timestamp: item.Timestamp,
         target: parseFloat(item.Value),
         forecast: parseFloat(item['Predicted value'] || item['Predicted Value']),
         category: item.Category,
         branch: item.Province,
         month,
-        day,
+        year,
+        timestamp: new Date(`20${year}-${month}`).toISOString(),
       };
     })
-    .thru((value) => {
-      if (groupBy.timestamp === 'month') {
-        return _.chain(value)
-          .groupBy(_.property('month'))
-          .values()
-          .map(monthValue => ({
-            target: _.chain(monthValue).map('target').compact().sum().value(),
-            forecast: _.chain(monthValue).map('forecast').compact().sum().value(),
-            branch: filter.branch,
-            category: filter.category,
-          }))
-          .value();
-      }
+    .filter(filter)
+    // .thru((value) => {
+    //   if (groupBy.timestamp === 'month') {
+    //     return _.chain(value)
+    //       .groupBy(_.property('month'))
+    //       .values()
+    //       .map(monthValue => ({
+    //         target: _.chain(monthValue).map('target').compact().sum().value(),
+    //         forecast: _.chain(monthValue).map('forecast').compact().sum().value(),
+    //         branch: filter.branch,
+    //         category: filter.category,
+    //       }))
+    //       .value();
+    //   }
 
-      return value;
-    })
+    //   return value;
+    // })
     .value();
 
   return {
