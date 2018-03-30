@@ -19,7 +19,22 @@ export default function (client, simulation, { otherMetric }) {
           },
         },
       ],
-    }).then(({ data: { data } }) => _.filter(data, 'ape'));
+    }).then(({ data: { data } }) => data).then((data) => {
+      const filtered = _.filter(data, item => !item.target && item.year == 18);
+      const indexed = _.mapValues(_.groupBy(data, item => item[otherMetric]), subArr => _.keyBy(subArr, subItem => `${subItem.month} ${subItem.year}`));
+
+      return _.map(filtered, (item) => {
+        const monthLastYear = `${item.month} ${item.year - 1}`;
+
+        const target = indexed[item[otherMetric]][monthLastYear].forecast * 1.05;
+
+        return [
+          item[otherMetric],
+          `${item.month} ${item.year}`,
+          (item.forecast - target) / target,
+        ];
+      });
+    });
     // return simulation
     //   .then(({ forecast }) => client.call('dag', {
     //     revenueGapData: {
