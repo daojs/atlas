@@ -13,9 +13,7 @@ import promotionRecommendation from './content/promotion-recommendation.md';
 
 const {
   fetchMasterKongRevenueForecast,
-  fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
-  fetchMasterKongVolumeBreakDown,
   fetchMasterKongAnnualGoalCompRisk,
 } = factories;
 
@@ -81,46 +79,6 @@ export default {
           metricDimensions: ['销售指标差距'],
         });
       },
-    },
-    fetchRevenueBreakDownByCategory: {
-      dependencies: ['@category'],
-      factory: fetchMasterKongRevenueBreakDownByTime(client, simulation, 'category'),
-    },
-    revenueBreakDownByCategory: {
-      dependencies: ['fetchRevenueBreakDownByCategory'],
-      factory: data => ({
-        source: data,
-      }),
-    },
-    fetchRevenueBreakDownByBranch: {
-      dependencies: ['@branch'],
-      factory: fetchMasterKongRevenueBreakDownByTime(client, simulation, 'branch'),
-    },
-    revenueBreakDownByBranch: {
-      dependencies: ['fetchRevenueBreakDownByBranch'],
-      factory: data => ({
-        source: data,
-      }),
-    },
-    fetchVolumeBreakDownByCategory: {
-      dependencies: ['@category'],
-      factory: fetchMasterKongVolumeBreakDown(client, simulation, 'category'),
-    },
-    volumeBreakDownByCategory: {
-      dependencies: ['fetchVolumeBreakDownByCategory'],
-      factory: data => ({
-        source: data,
-      }),
-    },
-    fetchvolumeBreakDownByBranch: {
-      dependencies: ['@branch'],
-      factory: fetchMasterKongVolumeBreakDown(client, simulation, 'branch'),
-    },
-    volumeBreakDownByBranch: {
-      dependencies: ['fetchvolumeBreakDownByBranch'],
-      factory: data => ({
-        source: data,
-      }),
     },
     preMasterKongRevenueForecast: {
       dependencies: ['@category'],
