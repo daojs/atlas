@@ -22,18 +22,32 @@ module.exports = function getData(body) {
     .filter({
       [dictionary[filterKey] || filterKey]: filterValue,
     })
-    .map(item => ({
-      ape: item.APE,
-      mape: item.MAPE,
-      timestamp: item.Timestamp,
-      target: parseFloat(item.Value),
-      forecast: parseFloat(item['Predicted Value']),
-      category: item.Category,
-      branch: item.Province,
-    }))
+    .map((item) => {
+      const [, month, day] = item.Timestamp.match(/(\D+)-(\d+)/);
+
+      return {
+        ape: item.APE,
+        mape: item.MAPE,
+        timestamp: item.Timestamp,
+        target: parseFloat(item.Value),
+        forecast: parseFloat(item['Predicted value'] || item['Predicted Value']),
+        category: item.Category,
+        branch: item.Province,
+        month,
+        day,
+      };
+    })
     .thru((value) => {
       if (groupBy.timestamp === 'month') {
-        return _.groupBy(value, v => v.timestamp);
+        return _.chain(value)
+          .groupBy(_.property('month'))
+          .values()
+          .map(monthValue => ({
+            target: _.chain(monthValue).map('target').compact().sum().value(),
+            forecast: _.chain(monthValue).map('forecast').compact().sum().value(),
+            ...filter,
+          }))
+          .value();
       }
 
       return value;
