@@ -33,7 +33,7 @@ module.exports = function getData(body) {
       return {
         ape: item.APE,
         mape: item.MAPE,
-        target: parseFloat(item.Value),
+        target: parseFloat(item.Value || item.value),
         forecast: parseFloat(item['Predicted value'] || item['Predicted Value']),
         category: item.Category,
         branch: item.Province,
