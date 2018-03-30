@@ -4,7 +4,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import _ from 'lodash';
 import './index.css';
-import { SodexoLayout } from './layout';
+import SodexoLayout from './layout';
 import MasterKongLayout from './master-kong';
 
 _.templateSettings.interpolate = /{{([\s\S]+?)}}/g; // eslint-disable-line
