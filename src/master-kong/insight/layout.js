@@ -111,7 +111,7 @@ export default function () {
             <Row>
               <Col span={16}>
                 {/* TODO: @Yu */}
-                <Cell renderCell={WithComponent(Usage)} />
+                <Cell input="salesLastYear" title="去年的销售趋势" renderCell={WithComponent(Line)} />
               </Col>
               <Col span={8}>
                 {/* TODO: @Wei */}
@@ -123,13 +123,6 @@ export default function () {
                 <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
               </Col>
             </Row>
-          </SectionCard>
-          <SectionCard
-            className="overall-analysis"
-            key="sales-advice"
-            title="2018年销售建议"
-          >
-            <Cell input="salesLastYear" title="去年的销售趋势" renderCell={WithComponent(Line)} />
           </SectionCard>
         </SectionContainer>
       </Form>
