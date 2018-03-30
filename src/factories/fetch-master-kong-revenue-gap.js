@@ -20,7 +20,7 @@ export default function (client, simulation, { metric, otherMetric }) {
             '@ref': 'revenueGapData',
           }, {
             aggregation: {
-              revenueGap: 'sum',
+              销售指标差距: 'sum',
             },
             filter: {
               [metric]: filter,

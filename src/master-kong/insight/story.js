@@ -48,8 +48,8 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.category, item.month, item.revenueGap]),
-          metricDimensions: ['revenueGap'],
+          source: _.map(rawData, item => [item.category, item.month, item['销售指标差距']]),
+          metricDimensions: ['销售指标差距'],
         });
       },
     },
@@ -68,8 +68,8 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.branch, item.month, item.revenueGap]),
-          metricDimensions: ['revenueGap'],
+          source: _.map(rawData, item => [item.branch, item.month, item['销售指标差距']]),
+          metricDimensions: ['销售指标差距'],
         });
       },
     },
@@ -113,7 +113,6 @@ export default {
         source: data,
       }),
     },
-
   },
   id: '100000',
 };

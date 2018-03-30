@@ -27,11 +27,11 @@ _.forEach(branches, (branch) => {
         month,
         category,
         branch,
-        targetRevenue,
-        forecastRevenue,
-        revenueGap: targetRevenue - forecastRevenue,
-        targetVolume: generateVolume(),
-        forecastVolume: generateVolume(),
+        目标销售额: targetRevenue,
+        预测销售额: forecastRevenue,
+        销售指标差距: targetRevenue - forecastRevenue,
+        目标销量: generateVolume(),
+        预测销量: generateVolume(),
       });
     });
   });
