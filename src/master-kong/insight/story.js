@@ -127,6 +127,16 @@ export default {
             sales: '销售量',
             predicate: '预测值',
           },
+          markArea: [
+            [
+              {
+                xAxis: 10,
+              },
+              {
+                xAxis: 20,
+              },
+            ],
+          ],
         };
       },
     },

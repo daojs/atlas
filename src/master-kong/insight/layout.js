@@ -13,13 +13,13 @@ const {
   // Compare,
   Cell,
   Heatmap,
-  TimeRange,
-  SingleSelector,
+  // TimeRange,
+  // SingleSelector,
   // PlainData,
   SectionContainer,
   // Donut,
   // LineWithDataZoom,
-  Line,
+  LineWithMarkArea,
   SectionCard,
   // StackBar,
 } = components;
@@ -111,7 +111,7 @@ export default function () {
             <Row>
               <Col span={16}>
                 {/* TODO: @Yu */}
-                <Cell input="salesLastYear" title="去年的销售趋势" renderCell={WithComponent(Line)} />
+                <Cell input="salesLastYear" title="去年的销售趋势" renderCell={WithComponent(LineWithMarkArea)} />
               </Col>
               <Col span={8}>
                 {/* TODO: @Wei */}
