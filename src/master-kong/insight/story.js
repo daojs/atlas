@@ -55,8 +55,11 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.category, item.month, item['销售指标差距']]),
-          metricDimensions: ['销售指标差距'],
+          source: _.map(rawData, item => [
+            item.category,
+            `${item.month} ${item.year}`,
+            Number(item.forecast) - Number(item.target),
+          ]),
         });
       },
     },
@@ -75,8 +78,11 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.branch, item.month, item['销售指标差距']]),
-          metricDimensions: ['销售指标差距'],
+          source: _.map(rawData, item => [
+            item.branch,
+            `${item.month} ${item.year}`,
+            Number(item.forecast) - Number(item.target),
+          ]),
         });
       },
     },

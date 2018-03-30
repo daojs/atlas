@@ -5,8 +5,8 @@ rawData.RevenueByBranch = require('../../data/revenue_province.json');
 rawData.RevenueByCategory = require('../../data/revenue_category.json');
 rawData.VolumeByCategory = require('../../data/salescount_category.json');
 rawData.VolumeByBranch = require('../../data/salescount_province.json');
-rawData.VolumeAll = require('../../data/salescount_all.json');
-rawData.RevenueAll = require('../../data/revenue_all.json');
+rawData.VolumeByAll = require('../../data/salescount_all.json');
+rawData.RevenueByAll = require('../../data/revenue_all.json');
 
 const dictionary = {
   Branch: 'Province',
@@ -24,7 +24,7 @@ module.exports = function getData(body) {
   const fileKey = capitalizeFirstLetter(_.chain(groupBy).keys().intersection(['branch', 'category']).first().value() || 'all');
   const initData = rawData[`${entity}By${fileKey}`];
 
-  console.log(fileKey);
+  console.log(`${entity}By${fileKey}`);
 
   const data = _.chain(initData)
     .map((item) => {
@@ -33,7 +33,7 @@ module.exports = function getData(body) {
       return {
         ape: item.APE,
         mape: item.MAPE,
-        target: parseFloat(item.Value),
+        target: parseFloat(item.Value || item.value),
         forecast: parseFloat(item['Predicted value'] || item['Predicted Value']),
         category: item.Category,
         branch: item.Province,
