@@ -19,7 +19,7 @@ const {
   SectionContainer,
   // Donut,
   // LineWithDataZoom,
-  // Line,
+  Line,
   SectionCard,
   // StackBar,
 } = components;
@@ -64,6 +64,13 @@ export default function () {
             <Cell input="revenueBreakDownByCategory" title="预测销售额与目标销售额对比" subTitle="差距" renderCell={WithComponent(Bar)} />
             <Cell input="volumeBreakDownByCategory" title="预测销量与目标销量对比" subTitle="差距" renderCell={WithComponent(Bar)} />
             <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+          </SectionCard>
+          <SectionCard
+            className="overall-analysis"
+            key="sales-advice"
+            title="2018年销售建议"
+          >
+            <Cell input="salesLastYear" title="去年的销售趋势" renderCell={WithComponent(Line)} />
           </SectionCard>
         </SectionContainer>
       </Form>
