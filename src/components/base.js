@@ -15,11 +15,7 @@ export default class BaseChart extends PureComponent {
       throw new Error('Chart source is nil');
     }
 
-    return _.map(source, s => _.defaults(
-      {},
-      _.isString(s.timestamp) ? { timestamp: s.timestamp.replace('T00:00:00Z', '').replace('T00:00:00.000Z', '') } : {},
-      s,
-    ));
+    return source;
   }
 
   getDimensions() {
@@ -37,7 +33,13 @@ export default class BaseChart extends PureComponent {
   getAxisData() {
     const axisDim = this.getAxisDimension();
     return _.chain(this.getSource())
-      .map(row => row[axisDim])
+      .map((row) => {
+        const rawData = row[axisDim];
+        if (axisDim === 'timestamp' && _.isString(rawData)) {
+          return rawData.replace('T00:00:00Z', '').replace('T00:00:00.000Z', '');
+        }
+        return rawData;
+      })
       .value();
   }
 

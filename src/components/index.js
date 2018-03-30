@@ -14,8 +14,10 @@ import SectionContainer from './section-container';
 import Donut from './donut';
 import StackBar from './stack-bar';
 import LineWithDataZoom from './line-datazoom';
+import LineWithMarkArea from './line-markarea';
 import Line from './line';
 import SectionCard from './section-card';
+import Markdown from './markdown';
 
 export default {
   Bar,
@@ -33,7 +35,9 @@ export default {
   SectionContainer,
   Donut,
   LineWithDataZoom,
+  LineWithMarkArea,
   Line,
   SectionCard,
   StackBar,
+  Markdown,
 };
