@@ -15,6 +15,7 @@ import fetchRevenueForecast from './fetch-revenue-forecast';
 import fetchMasterKongSalesLastYear from './fetch-master-kong-sales-last-year';
 import fetchMasterKongAnnualGoalCompRisk from './fetch-master-kong-annual-goal-comp-risk';
 import fetchMasterKongRevenueForecast from './fetch-master-kong-revenue-forecast';
+import fetchMasterKongVolumeForecast from './fetch-master-kong-volume-forecast';
 
 export default {
   fetchMasterKongRevenueAndVolumnTrend,
@@ -34,4 +35,5 @@ export default {
   fetchMasterKongSalesLastYear,
   fetchMasterKongAnnualGoalCompRisk,
   fetchMasterKongRevenueForecast,
+  fetchMasterKongVolumeForecast,
 };

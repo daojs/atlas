@@ -74,7 +74,7 @@ export default function () {
             </Row>
             <Row>
               <Col span={16}>
-                {/* <Cell input="annualRevenueGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} /> */}
+                <Cell input="annualRevenueGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
                 <Cell input="revenueExplanation" renderCell={WithComponent(Markdown)} />
@@ -87,12 +87,12 @@ export default function () {
           >
             <Row>
               <Col>
-                <Cell input="masterKongRevenueForecast" title="销量趋势预测" renderCell={WithComponent(Line)} />
+                <Cell input="masterKongVolumeForecast" title="销量趋势预测" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
               <Col span={16}>
-                {/* <Cell input="annualVolumeGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} /> */}
+                <Cell input="annualVolumeGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
                 <Cell input="volumeExplanation" renderCell={WithComponent(Markdown)} />
@@ -113,13 +113,11 @@ export default function () {
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col span={16}>
                 {/* TODO: @Zhibin */}
                 <Cell input="revenueGapPerCategory" title="各类商品销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
               </Col>
-            </Row>
-            <Row>
-              <Col>
+              <Col span={8}>
                 <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
               </Col>
             </Row>

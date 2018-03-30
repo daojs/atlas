@@ -12,7 +12,7 @@ export default function () {
       '@target': 'master-kong',
       '@proc': 'query',
       '@args': [
-        'Revenue',
+        'Volume',
         {
           aggregation: {
             target: 'sum',
@@ -30,3 +30,4 @@ export default function () {
     })));
   };
 }
+

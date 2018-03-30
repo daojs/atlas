@@ -1,4 +1,6 @@
+import React from 'react';
 import _ from 'lodash';
+import ReactEcharts from 'echarts-for-react';
 import BaseChart from './base';
 
 export default class Heatmap extends BaseChart {
@@ -26,15 +28,15 @@ export default class Heatmap extends BaseChart {
     const source = this.getSource();
     // const metrics = this.getMetricDimensions();
 
-    const data = _.map(source, row => row[2]);
-
+    const maxAbs = _.max(_.map(source, row => Math.abs(row[2])));
+    
     return {
       legend: {
         show: false,
       },
       tooltip: {
         position: 'top',
-        formatter: ({ data: itemData }) => `${itemData[0]}: ${itemData[2]}`,
+        formatter: ({ data: itemData }) => `${itemData[0]}: ${itemData[2].toFixed(2)}`,
       },
       dataset: {
         source,
@@ -52,17 +54,32 @@ export default class Heatmap extends BaseChart {
         },
       },
       visualMap: {
-        min: _.min(data),
-        max: _.max(data),
+        min: -maxAbs,
+        max: maxAbs,
         calculable: true,
         left: 'left',
         top: 'bottom',
         inRange: {
-          color: ['green', 'white', 'red'],
+          color: ['red', 'white', 'green'],
         },
         show: false,
       },
       ...super.getOption(),
     };
+  }
+
+  render() {
+    if (_.isEmpty(this.getSource())) {
+      return null;
+    }
+    return (
+      <ReactEcharts
+        style={{ height: 600 }}
+        option={this.getOption()}
+        notMerge={true} //eslint-disable-line
+        onEvents={this.getEvents()}
+        {...this.props}
+      />
+    );
   }
 }

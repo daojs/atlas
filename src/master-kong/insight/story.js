@@ -14,10 +14,20 @@ import promotionRecommendation from './content/promotion-recommendation.md';
 const {
   fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueGap,
+  fetchMasterKongVolumeForecast,
+  fetchMasterKongVolumeBreakDown,
   fetchMasterKongSalesLastYear,
   fetchMasterKongAnnualGoalCompRisk,
   mergeMonthAndYearData,
 } = factories;
+
+function findLastYearItem(rawData, item) {
+  return _.find(rawData, previous => previous.month === item.month
+    && previous.year == item.year - 1
+    && previous.category === item.category
+    && previous.branch === item.branch,
+  );
+}
 
 const simulation = client.call('masterKongSimulate');
 
@@ -54,11 +64,7 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [
-            item.category,
-            `${item.month} ${item.year}`,
-            Number(item.forecast) - Number(item.target),
-          ]),
+          source: rawData,
         });
       },
     },
@@ -77,11 +83,7 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [
-            item.branch,
-            `${item.month} ${item.year}`,
-            Number(item.forecast) - Number(item.target),
-          ]),
+          source: rawData,
         });
       },
     },
@@ -91,6 +93,26 @@ export default {
     },
     masterKongRevenueForecast: {
       dependencies: ['preMasterKongRevenueForecast'],
+      factory: (data) => {
+        const ret = data;
+        return {
+          source: ret,
+          axisDimensions: ['timestamp'],
+          key2name: {
+            forecast: '预测值',
+            target: '成交值',
+            mape: '平均绝对百分比误差',
+            ape: '平均绝对误差',
+          },
+        };
+      },
+    },
+    preMasterKongVolumeForecast: {
+      dependencies: ['@category'],
+      factory: fetchMasterKongVolumeForecast(),
+    },
+    masterKongVolumeForecast: {
+      dependencies: ['preMasterKongVolumeForecast'],
       factory: (data) => {
         const ret = data;
         return {
@@ -148,7 +170,7 @@ export default {
     },
     fetchAnnualRevenueCumulativeGoal: {
       dependencies: ['fetchAnnualRevenueGoalRisk'],
-      factory: ({ data }) => {
+      factory: (data) => {
         if (_.some([data], _.isNil)) {
           return undefined;
         }
@@ -160,7 +182,7 @@ export default {
     },
     fetchAnnualVolumeCumulativeGoal: {
       dependencies: ['fetchAnnualVolumeGoalRisk'],
-      factory: ({ data }) => {
+      factory: (data) => {
         if (_.some([data], _.isNil)) {
           return undefined;
         }
@@ -172,11 +194,11 @@ export default {
     },
     annualRevenueGoalRisk: {
       dependencies: ['fetchAnnualRevenueGoalRisk', 'fetchAnnualRevenueCumulativeGoal'],
-      factory: mergeMonthAndYearData(),
+      factory: mergeMonthAndYearData('Revenue'),
     },
     annualVolumeGoalRisk: {
       dependencies: ['fetchAnnualVolumeGoalRisk', 'fetchAnnualVolumeCumulativeGoal'],
-      factory: mergeMonthAndYearData(),
+      factory: mergeMonthAndYearData('Volume'),
     },
     revenueExplanation: {
       factory: _.constant(revenueExplanation),
