@@ -6,11 +6,8 @@ import './index.css';
 import StoryBoard from '../../story-board';
 import storyConfig from './story';
 import components from '../../components';
-import Usage from './usage-metric-trend-chart';
 
 const {
-  Bar,
-  // Compare,
   Cell,
   Heatmap,
   // TimeRange,
@@ -22,7 +19,8 @@ const {
   // LineWithDataZoom,
   LineWithMarkArea,
   SectionCard,
-  // StackBar,
+  LineBarChart,
+  Line,
 } = components;
 
 function WithComponent(Control) {
@@ -71,14 +69,13 @@ export default function () {
           >
             <Row>
               <Col>
-                {/* TODO: @Teng  */}
-                <Cell renderCell={WithComponent(Usage)} />
+                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
               <Col span={16}>
                 {/* TODO: @Ling  */}
-                <Cell input="revenueBreakDownByCategory" title="年度销售目标风险分析" subTitle="差距" renderCell={WithComponent(Bar)} />
+                <Cell input="annualRevenueGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
                 <Cell input="revenueExplanation" renderCell={WithComponent(Markdown)} />
@@ -91,14 +88,13 @@ export default function () {
           >
             <Row>
               <Col>
-                {/* TODO: @Teng  */}
-                <Cell renderCell={WithComponent(Usage)} />
+                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
               <Col span={16}>
                 {/* TODO: @Ling  */}
-                <Cell input="volumeBreakDownByCategory" title="年度销售目标风险分析" subTitle="差距" renderCell={WithComponent(Bar)} />
+                <Cell input="annualVolumeGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
                 <Cell input="volumeExplanation" renderCell={WithComponent(Markdown)} />

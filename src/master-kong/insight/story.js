@@ -12,12 +12,17 @@ import volumeExplanation from './content/volume-explanation.md';
 import promotionRecommendation from './content/promotion-recommendation.md';
 
 const {
+  fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
   fetchMasterKongVolumeBreakDown,
+  fetchMasterKongAnnualGoalCompRisk,
 } = factories;
 
 const simulation = client.call('masterKongSimulate');
+function customizer(objValue, srcValue) {
+  return _.merge(objValue[0], srcValue[0]);
+}
 
 export default {
   parameters: {
@@ -117,6 +122,26 @@ export default {
         source: data,
       }),
     },
+    preMasterKongRevenueForecast: {
+      dependencies: ['@category'],
+      factory: fetchMasterKongRevenueForecast(client, simulation),
+    },
+    masterKongRevenueForecast: {
+      dependencies: ['preMasterKongRevenueForecast'],
+      factory: (data) => {
+        const ret = data;
+        return {
+          source: ret,
+          axisDimensions: ['timestamp'],
+          key2name: {
+            forecast: '预测值',
+            target: '成交值',
+            mape: '平均绝对百分比误差',
+            ape: '平均绝对误差',
+          },
+        };
+      },
+    },
     salesLastYear: {
       factory: () => {
         const data = _.map(_.range(365), i => ({
@@ -142,6 +167,96 @@ export default {
               },
             ],
           ],
+        };
+      },
+    },
+    fetchAnnualRevenueGoalRisk: {
+      factory: fetchMasterKongAnnualGoalCompRisk(client, simulation, {
+        aggregation: {
+          目标销售额: 'sum',
+          预测销售额: 'sum',
+        },
+      }),
+    },
+    fetchAnnualVolumeGoalRisk: {
+      factory: fetchMasterKongAnnualGoalCompRisk(client, simulation, {
+        aggregation: {
+          目标销量: 'sum',
+          预测销量: 'sum',
+        },
+      }),
+    },
+    fetchAnnualRevenueCumulativeGoal: {
+      dependencies: ['fetchAnnualRevenueGoalRisk'],
+      factory: (data) => {
+        if (_.some([data], _.isNil)) {
+          return undefined;
+        }
+        return client.call('cumulativeKeys', data, {
+          measureKeys: ['目标销售额', '预测销售额'],
+          timestampKey: 'month',
+        });
+      },
+    },
+    fetchAnnualVolumeCumulativeGoal: {
+      dependencies: ['fetchAnnualVolumeGoalRisk'],
+      factory: (data) => {
+        if (_.some([data], _.isNil)) {
+          return undefined;
+        }
+        return client.call('cumulativeKeys', data, {
+          measureKeys: ['目标销量', '预测销量'],
+          timestampKey: 'month',
+        });
+      },
+    },
+    annualRevenueGoalRisk: {
+      dependencies: ['fetchAnnualRevenueGoalRisk', 'fetchAnnualRevenueCumulativeGoal'],
+      factory: (gapData, cumulativeData) => {
+        const transformCumulative = _.map(cumulativeData, ({ month, 目标销售额: targetCumulative, 预测销售额: forecastCumulative }) => (
+          {
+            month,
+            目标销售额累积: targetCumulative,
+            预测销售额累积: forecastCumulative,
+          }
+        ));
+        const mergedData = _.mergeWith(_.groupBy(gapData, 'month'), _.groupBy(transformCumulative, 'month'), customizer);
+
+        return {
+          xAxisMetric: 'month',
+          yAxisMetrics: [{
+            metrics: ['目标销售额', '预测销售额'],
+            type: 'bar',
+          }, {
+            metrics: ['目标销售额累积', '预测销售额累积'],
+            type: 'line',
+          }],
+          source: _.values(mergedData),
+        };
+      },
+    },
+    annualVolumeGoalRisk: {
+      dependencies: ['fetchAnnualVolumeGoalRisk', 'fetchAnnualVolumeCumulativeGoal'],
+      factory: (gapData, cumulativeData) => {
+        const transformCumulative = _.map(cumulativeData, ({ month, 目标销量: targetCumulative, 预测销量: forecastCumulative }) => (
+          {
+            month,
+            目标销量累积: targetCumulative,
+            预测销量累积: forecastCumulative,
+          }
+        ));
+        const mergedData = _.mergeWith(_.groupBy(gapData, 'month'), _.groupBy(transformCumulative, 'month'), customizer);
+
+        return {
+          xAxisMetric: 'month',
+          yAxisMetrics: [{
+            metrics: ['目标销量', '预测销量'],
+            type: 'bar',
+          }, {
+            metrics: ['目标销量累积', '预测销量累积'],
+            type: 'line',
+          }],
+          source: _.values(mergedData),
         };
       },
     },

@@ -17,7 +17,9 @@ import LineWithDataZoom from './line-datazoom';
 import LineWithMarkArea from './line-markarea';
 import Line from './line';
 import SectionCard from './section-card';
+import LineBarChart from './line-bar';
 import Markdown from './markdown';
+
 
 export default {
   Bar,
@@ -39,5 +41,6 @@ export default {
   Line,
   SectionCard,
   StackBar,
+  LineBarChart,
   Markdown,
 };
