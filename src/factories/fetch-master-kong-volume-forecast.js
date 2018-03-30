@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import moment from 'moment';
 import axios from 'axios';
 
 export default function () {
@@ -7,7 +8,7 @@ export default function () {
       return Promise.resolve();
     }
 
-    return axios.post('./insight', {
+    return axios.post('/insight', {
       '@target': 'master-kong',
       '@proc': 'query',
       '@args': [
@@ -20,11 +21,13 @@ export default function () {
             ape: 'average',
           },
           groupBy: {
-            timestamp: 'value',
+            timestamp: 'month',
           },
         },
       ],
-    });
+    }).then(({ data }) => _.map(data.data, item => _.extend(item, {
+      timestamp: moment(item.timestamp).format('YYYY-MM'),
+    })));
   };
 }
 

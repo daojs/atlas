@@ -1,40 +1,32 @@
 import _ from 'lodash';
+import moment from 'moment';
+import axios from 'axios';
 
-export default function (client, simulation) {
+export default function () {
   return (filter) => {
     if (_.some([filter], _.isNil)) {
       return Promise.resolve();
     }
 
-    return simulation
-      .then(({ forecastv2 }) => {
-        const ret = client.call('dag', {
-          revenueForecast: {
-            '@proc': 'read',
-            '@args': [
-              forecastv2,
-            ],
+    return axios.post('/insight', {
+      '@target': 'master-kong',
+      '@proc': 'query',
+      '@args': [
+        'Revenue',
+        {
+          aggregation: {
+            target: 'sum',
+            forecast: 'sum',
+            mape: 'average',
+            ape: 'average',
           },
-          result: {
-            '@proc': 'query2',
-            '@args': [{
-              '@ref': 'revenueForecast',
-            }, {
-              aggregation: {
-                target: 'sum',
-                forecast: 'sum',
-                mape: 'average',
-                ape: 'average',
-              },
-              groupBy: {
-                timestamp: 'value',
-              },
-            }],
+          groupBy: {
+            timestamp: 'month',
           },
-        }, 'result');
-
-        return ret;
-      });
+        },
+      ],
+    }).then(({ data }) => _.map(data.data, item => _.extend(item, {
+      timestamp: moment(item.timestamp).format('YYYY-MM'),
+    })));
   };
 }
-
