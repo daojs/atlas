@@ -14,6 +14,7 @@ export default class LineWithMarkArea extends Line {
     return [
       _.defaults({
         markLine: {
+          symbolSize: 0,
           data: markLine || [],
         },
         markArea: {
