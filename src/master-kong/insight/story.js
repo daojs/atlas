@@ -25,8 +25,7 @@ function findLastYearItem(rawData, item) {
   return _.find(rawData, previous => previous.month === item.month
     && previous.year == item.year - 1
     && previous.category === item.category
-    && previous.branch === item.branch,
-  );
+    && previous.branch === item.branch);
 }
 
 const simulation = client.call('masterKongSimulate');
@@ -145,15 +144,31 @@ export default {
             Value: '实际销量',
             ExpectedValue: '预测销量',
           },
-          markLine: [
-            {
-              value: '春节促销活动',
-              xAxis: 3,
-            },
-            {
-              value: '暑期促销活动',
-              xAxis: 9,
-            },
+          markArea: [
+            [
+              {
+                name: '暑期广告活动',
+                xAxis: 31,
+              }, {
+                xAxis: 34,
+              },
+            ],
+            [
+              {
+                name: '春季广告',
+                xAxis: 15,
+              }, {
+                xAxis: 17,
+              },
+            ],
+            [
+              {
+                name: '儿童节促销',
+                xAxis: 21,
+              }, {
+                xAxis: 22,
+              },
+            ],
           ],
         });
       },
