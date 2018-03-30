@@ -7,6 +7,10 @@ import factories from '../../factories';
 import branch from '../branch.json';
 import category from '../category.json';
 
+import revenueExplanation from './content/revenue-explanation.md';
+import volumeExplanation from './content/volume-explanation.md';
+import promotionRecommendation from './content/promotion-recommendation.md';
+
 const {
   fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
@@ -131,12 +135,20 @@ export default {
             sales: '销售量',
             predicate: '预测值',
           },
+          markArea: [
+            [
+              {
+                name: '第一次活动',
+                xAxis: 10,
+              },
+              {
+                xAxis: 20,
+              },
+            ],
+          ],
         };
       },
     },
-
-
-    // ling annualGoalCompletionRisk
     fetchAnnualRevenueGoalRisk: {
       factory: fetchMasterKongAnnualGoalCompRisk(client, simulation, {
         aggregation: {
@@ -226,6 +238,15 @@ export default {
           source: _.values(mergedData),
         };
       },
+    },
+    revenueExplanation: {
+      factory: _.constant(revenueExplanation),
+    },
+    volumeExplanation: {
+      factory: _.constant(volumeExplanation),
+    },
+    promotionRecommendation: {
+      factory: _.constant(promotionRecommendation),
     },
   },
   id: '20002',

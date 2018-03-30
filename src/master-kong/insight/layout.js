@@ -11,9 +11,20 @@ import Usage from './usage-metric-trend-chart';
 const {
   Cell,
   Heatmap,
+<<<<<<< HEAD
   LineBarChart,
   SectionContainer,
   Line,
+=======
+  // TimeRange,
+  // SingleSelector,
+  // PlainData,
+  SectionContainer,
+  Markdown,
+  // Donut,
+  // LineWithDataZoom,
+  LineWithMarkArea,
+>>>>>>> 749f8ee055e1673d4b374e44cd30da1299f09e04
   SectionCard,
 } = components;
 
@@ -73,7 +84,7 @@ export default function () {
                 <Cell input="annualRevenueGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
-                {/* TODO: @Wei */}
+                <Cell input="revenueExplanation" renderCell={WithComponent(Markdown)} />
               </Col>
             </Row>
           </SectionCard>
@@ -93,7 +104,7 @@ export default function () {
                 <Cell input="annualVolumeGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
-                {/* TODO: @Wei */}
+                <Cell input="volumeExplanation" renderCell={WithComponent(Markdown)} />
               </Col>
             </Row>
           </SectionCard>
@@ -104,16 +115,16 @@ export default function () {
             <Row>
               <Col span={16}>
                 {/* TODO: @Yu */}
-                <Cell input="salesLastYear" title="去年的销售趋势" renderCell={WithComponent(Line)} />
+                <Cell input="salesLastYear" title="历史促销互动分析(2017年度)" renderCell={WithComponent(LineWithMarkArea)} />
               </Col>
               <Col span={8}>
-                {/* TODO: @Wei */}
+                <Cell input="promotionRecommendation" renderCell={WithComponent(Markdown)} />
               </Col>
             </Row>
             <Row>
               <Col>
                 {/* TODO: @Zhibin */}
-                <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+                <Cell input="revenueGapPerBranch" title="销售目标风险提示" subTitle="差距" renderCell={WithComponent(Heatmap)} />
               </Col>
             </Row>
           </SectionCard>
