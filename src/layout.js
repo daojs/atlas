@@ -16,7 +16,7 @@ const SodexContent = {
   insight: SodexoInsight,
 };
 
-export class SodexoLayout extends React.Component {
+export default class SodexoLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -7,11 +7,11 @@ export default function (client, simulation, { metric, otherMetric }) {
     }
 
     return simulation
-      .then(({ forcast }) => client.call('dag', {
+      .then(({ forecast }) => client.call('dag', {
         revenueGapData: {
           '@proc': 'read',
           '@args': [
-            forcast,
+            forecast,
           ],
         },
         result: {

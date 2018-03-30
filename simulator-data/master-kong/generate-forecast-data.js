@@ -22,19 +22,19 @@ _.forEach(branches, (branch) => {
   _.forEach(categories, (category) => {
     _.forEach(months, (month) => {
       const targetRevenue = generateRevenue();
-      const forcastRevenue = generateRevenue();
+      const forecastRevenue = generateRevenue();
       data.push({
         month,
         category,
         branch,
         targetRevenue,
-        forcastRevenue,
-        revenueGap: targetRevenue - forcastRevenue,
+        forecastRevenue,
+        revenueGap: targetRevenue - forecastRevenue,
         targetVolume: generateVolume(),
-        forcastVolume: generateVolume(),
+        forecastVolume: generateVolume(),
       });
     });
   });
 });
 
-fs.writeFile('./data/forcast.json', JSON.stringify(data));
+fs.writeFile('./data/forecast.json', JSON.stringify(data));
