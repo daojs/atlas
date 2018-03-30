@@ -21,16 +21,13 @@ function capitalizeFirstLetter(string) {
 module.exports = function getData(body) {
   const args = body['@args'];
   const [entity, { aggregation, filter, groupBy }] = args;
-  const isAll = _.isEmpty(filter);
-  const filterKey = isAll ? '' : capitalizeFirstLetter(_.first(_.keys(filter)));
-  const filterValue = isAll ? '' : _.first(_.values(filter));
+  const pureFilter = _.omit(filter, ['year']);
+  const isAll = _.isEmpty(pureFilter);
+  const filterKey = isAll ? '' : capitalizeFirstLetter(_.first(_.keys(pureFilter)));
   const initData = isAll ? rawData[`${entity}All`] : rawData[`${entity}By${filterKey}`];
 
 
   const data = _.chain(initData)
-    .filter(isAll ? {} : {
-      [dictionary[filterKey] || filterKey]: filterValue,
-    })
     .map((item) => {
       const [, month, year] = item.Timestamp.match(/(\D+)-(\d+)/);
 
@@ -46,6 +43,7 @@ module.exports = function getData(body) {
         timestamp: new Date(`20${year}-${month}`).toISOString(),
       };
     })
+    .filter(filter)
     // .thru((value) => {
     //   if (groupBy.timestamp === 'month') {
     //     return _.chain(value)
