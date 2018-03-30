@@ -130,6 +130,7 @@ export default {
           markArea: [
             [
               {
+                name: '第一次活动',
                 xAxis: 10,
               },
               {
