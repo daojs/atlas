@@ -6,16 +6,10 @@ import './index.css';
 import StoryBoard from '../../story-board';
 import storyConfig from './story';
 import components from '../../components';
-import Usage from './usage-metric-trend-chart';
 
 const {
   Cell,
   Heatmap,
-<<<<<<< HEAD
-  LineBarChart,
-  SectionContainer,
-  Line,
-=======
   // TimeRange,
   // SingleSelector,
   // PlainData,
@@ -24,8 +18,9 @@ const {
   // Donut,
   // LineWithDataZoom,
   LineWithMarkArea,
->>>>>>> 749f8ee055e1673d4b374e44cd30da1299f09e04
   SectionCard,
+  LineBarChart,
+  Line,
 } = components;
 
 function WithComponent(Control) {
@@ -74,8 +69,7 @@ export default function () {
           >
             <Row>
               <Col>
-                {/* TODO: @Teng  */}
-                <Cell renderCell={WithComponent(Usage)} />
+                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
@@ -94,8 +88,7 @@ export default function () {
           >
             <Row>
               <Col>
-                {/* TODO: @Teng  */}
-                <Cell renderCell={WithComponent(Usage)} />
+                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
