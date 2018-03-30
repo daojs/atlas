@@ -15,12 +15,10 @@ const {
   fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueGap,
   fetchMasterKongAnnualGoalCompRisk,
+  mergeMonthAndYearData,
 } = factories;
 
 const simulation = client.call('masterKongSimulate');
-function customizer(objValue, srcValue) {
-  return _.merge(objValue[0], srcValue[0]);
-}
 
 export default {
   parameters: {
@@ -137,98 +135,44 @@ export default {
     fetchAnnualRevenueGoalRisk: {
       factory: fetchMasterKongAnnualGoalCompRisk({
         metricKey: 'Revenue',
-        aggregation: {
-          target: 'sum',
-          forecast: 'sum',
-        },
       }),
     },
     fetchAnnualVolumeGoalRisk: {
       factory: fetchMasterKongAnnualGoalCompRisk({
         metricKey: 'Volume',
-        aggregation: {
-          target: 'sum',
-          forecast: 'sum',
-        },
       }),
     },
     fetchAnnualRevenueCumulativeGoal: {
       dependencies: ['fetchAnnualRevenueGoalRisk'],
-      factory: (data) => {
+      factory: ({ data }) => {
         if (_.some([data], _.isNil)) {
           return undefined;
         }
         return client.call('cumulativeKeys', data, {
-          measureKeys: ['目标销售额', '预测销售额'],
+          measureKeys: ['target', 'forecast'],
           timestampKey: 'month',
         });
       },
     },
     fetchAnnualVolumeCumulativeGoal: {
       dependencies: ['fetchAnnualVolumeGoalRisk'],
-      factory: (data) => {
+      factory: ({ data }) => {
         if (_.some([data], _.isNil)) {
           return undefined;
         }
         return client.call('cumulativeKeys', data, {
-          measureKeys: ['目标销量', '预测销量'],
+          measureKeys: ['target', 'forecast'],
           timestampKey: 'month',
         });
       },
     },
     annualRevenueGoalRisk: {
       dependencies: ['fetchAnnualRevenueGoalRisk', 'fetchAnnualRevenueCumulativeGoal'],
-      factory: (gapData, cumulativeData) => {
-        const transformCumulative = _.map(cumulativeData, ({ month, 目标销售额: targetCumulative, 预测销售额: forecastCumulative }) => (
-          {
-            month,
-            目标销售额累积: targetCumulative,
-            预测销售额累积: forecastCumulative,
-          }
-        ));
-        const mergedData = _.mergeWith(_.groupBy(gapData, 'month'), _.groupBy(transformCumulative, 'month'), customizer);
-
-        return {
-          xAxisMetric: 'month',
-          yAxisMetrics: [{
-            metrics: ['目标销售额', '预测销售额'],
-            type: 'bar',
-            name: '月销售额',
-          }, {
-            metrics: ['目标销售额累积', '预测销售额累积'],
-            type: 'line',
-            name: '年销售额',
-          }],
-          source: _.values(mergedData),
-        };
-      },
+      factory: mergeMonthAndYearData(),
     },
     annualVolumeGoalRisk: {
       dependencies: ['fetchAnnualVolumeGoalRisk', 'fetchAnnualVolumeCumulativeGoal'],
-      factory: (gapData, cumulativeData) => {
-        const transformCumulative = _.map(cumulativeData, ({ month, 目标销量: targetCumulative, 预测销量: forecastCumulative }) => (
-          {
-            month,
-            目标销量累积: targetCumulative,
-            预测销量累积: forecastCumulative,
-          }
-        ));
-        const mergedData = _.mergeWith(_.groupBy(gapData, 'month'), _.groupBy(transformCumulative, 'month'), customizer);
-
-        return {
-          xAxisMetric: 'month',
-          yAxisMetrics: [{
-            metrics: ['目标销量', '预测销量'],
-            type: 'bar',
-            name: '月销量',
-          }, {
-            metrics: ['目标销量累积', '预测销量累积'],
-            type: 'line',
-            name: '年销量',
-          }],
-          source: _.values(mergedData),
-        };
-      },
+      factory: mergeMonthAndYearData(),
     },
     revenueExplanation: {
       factory: _.constant(revenueExplanation),

@@ -1,12 +1,15 @@
 import axios from 'axios';
 
-export default function ({ aggregation, metricKey }) {
+export default function ({ metricKey }) {
   return () => axios.post('./insight', {
     '@target': 'master-kong',
     '@proc': 'query',
     '@args': [
       metricKey, {
-        aggregation,
+        aggregation: {
+          target: 'sum',
+          forecast: 'sum',
+        },
         filter: {
           year: '17',
         },
@@ -14,5 +17,5 @@ export default function ({ aggregation, metricKey }) {
           timestamp: 'month',
         },
       }],
-  });
+  }).then(result => result.data);
 }

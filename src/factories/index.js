@@ -1,6 +1,7 @@
 import fetchMasterKongRevenueAndVolumnTrend from './fetch-master-kong-revenue-and-volumn-trend';
 import fetchMasterKongRevenueGap from './fetch-master-kong-revenue-gap';
 import fetchCustomerTSADFactory from './fetch-customer-tsad';
+import mergeMonthAndYearData from './merge-gap-cumulative';
 import fetchCustomerExpensePerUserBucketFactory from './fetch-customer-expense-per-user-bucket';
 import fetchCustomerExpensePerUserRankFactory from './fetch-customer-expense-per-user-rank';
 import fetchFavorBestCustomerReduceFactory from './fetch-favor-best-customer-reduce';
@@ -16,6 +17,7 @@ import fetchMasterKongRevenueForecast from './fetch-master-kong-revenue-forecast
 
 export default {
   fetchMasterKongRevenueAndVolumnTrend,
+  mergeMonthAndYearData,
   fetchMasterKongRevenueGap,
   fetchCustomerTSADFactory,
   fetchCustomerExpensePerUserBucketFactory,
