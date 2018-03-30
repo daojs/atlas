@@ -6,19 +6,21 @@ export default class LineWithMarkArea extends Line {
   getSeriesOption() {
     const rawOption = super.getSeriesOption();
     const {
+      markLine,
       markArea,
     } = this.props.value;
 
-    if (markArea) {
-      return [
-        _.defaults({
-          markArea: {
-            data: markArea,
-          },
-        }, rawOption[0]),
-        ...rawOption.slice(1),
-      ];
-    }
-    return rawOption;
+
+    return [
+      _.defaults({
+        markLine: {
+          data: markLine || [],
+        },
+        markArea: {
+          data: markArea || [],
+        },
+      }, rawOption[0]),
+      ...rawOption.slice(1),
+    ];
   }
 }
