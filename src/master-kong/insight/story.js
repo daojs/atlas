@@ -134,6 +134,17 @@ export default {
             sales: '销售量',
             predicate: '预测值',
           },
+          markArea: [
+            [
+              {
+                name: '第一次活动',
+                xAxis: 10,
+              },
+              {
+                xAxis: 20,
+              },
+            ],
+          ],
         };
       },
     },
