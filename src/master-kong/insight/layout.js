@@ -34,7 +34,7 @@ export default function () {
     story={storyConfig}
     renderComponent={() => (
       <Form>
-        <h2 className="master-kong-header">康师傅预测报表</h2>
+        <h2 className="master-kong-header">2018年销售额预测</h2>
         <SectionContainer id="20002" >
           {/* <SectionCard
             key="revenue-predicate"
