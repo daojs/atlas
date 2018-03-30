@@ -27,36 +27,36 @@ module.exports = function getData(body) {
       [dictionary[filterKey] || filterKey]: filterValue,
     })
     .map((item) => {
-      const [, month, day] = item.Timestamp.match(/(\D+)-(\d+)/);
+      const [, month, year] = item.Timestamp.match(/(\D+)-(\d+)/);
 
       return {
         ape: item.APE,
         mape: item.MAPE,
-        timestamp: item.Timestamp,
         target: parseFloat(item.Value),
         forecast: parseFloat(item['Predicted value'] || item['Predicted Value']),
         category: item.Category,
         branch: item.Province,
         month,
-        day,
+        year,
+        timestamp: new Date(`20${year}-${month}`).toISOString(),
       };
     })
-    .thru((value) => {
-      if (groupBy.timestamp === 'month') {
-        return _.chain(value)
-          .groupBy(_.property('month'))
-          .values()
-          .map(monthValue => ({
-            target: _.chain(monthValue).map('target').compact().sum().value(),
-            forecast: _.chain(monthValue).map('forecast').compact().sum().value(),
-            branch: filter.branch,
-            category: filter.category,
-          }))
-          .value();
-      }
+    // .thru((value) => {
+    //   if (groupBy.timestamp === 'month') {
+    //     return _.chain(value)
+    //       .groupBy(_.property('month'))
+    //       .values()
+    //       .map(monthValue => ({
+    //         target: _.chain(monthValue).map('target').compact().sum().value(),
+    //         forecast: _.chain(monthValue).map('forecast').compact().sum().value(),
+    //         branch: filter.branch,
+    //         category: filter.category,
+    //       }))
+    //       .value();
+    //   }
 
-      return value;
-    })
+    //   return value;
+    // })
     .value();
 
   return {
