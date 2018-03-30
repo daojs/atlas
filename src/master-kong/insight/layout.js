@@ -69,12 +69,11 @@ export default function () {
           >
             <Row>
               <Col>
-                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
+                <Cell input="masterKongRevenueForecast" title="销售额趋势预测" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
               <Col span={16}>
-                {/* TODO: @Ling  */}
                 <Cell input="annualRevenueGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
@@ -88,12 +87,11 @@ export default function () {
           >
             <Row>
               <Col>
-                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
+                <Cell input="masterKongRevenueForecast" title="销量趋势预测" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
               <Col span={16}>
-                {/* TODO: @Ling  */}
                 <Cell input="annualVolumeGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
