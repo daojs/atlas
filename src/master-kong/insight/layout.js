@@ -37,7 +37,7 @@ export default function () {
     renderComponent={() => (
       <Form>
         <h2 className="master-kong-header">康师傅预测报表</h2>
-        <SectionContainer id="20000">
+        <SectionContainer id="20002" >
           <SectionCard
             key="revenue-predicate"
             title="总体销售额预测"
