@@ -65,7 +65,7 @@ export default function () {
           </SectionCard> */}
 
           <SectionCard
-            key="revenue-predicate"
+            key="revenue-forecast"
             title="2018年销售额预测"
           >
             Placeholder
