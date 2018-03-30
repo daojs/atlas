@@ -20,7 +20,7 @@ export default function () {
       },
     ],
   }).then((response) => {
-    console.log(data);
+    console.log(response);
     return response.data.data;
   });
 }
