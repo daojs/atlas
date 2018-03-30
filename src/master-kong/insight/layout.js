@@ -20,7 +20,6 @@ const {
   LineWithMarkArea,
   SectionCard,
   LineBarChart,
-  Line,
 } = components;
 
 function WithComponent(Control) {
@@ -87,7 +86,7 @@ export default function () {
           >
             <Row>
               <Col>
-                <Cell input="masterKongVolumeForecast" title="销量趋势预测" renderCell={WithComponent(Line)} />
+                <Cell input="masterKongVolumeForecast" title="销量趋势预测" renderCell={WithComponent(LineWithMarkArea)} />
               </Col>
             </Row>
             <Row>

@@ -102,8 +102,8 @@ export default {
           },
           axisDimensions: ['timestamp'],
           key2name: {
-            forecast: '预测值',
-            target: '成交值',
+            forecast: '测值销售额',
+            target: '实际销售额',
             mape: '平均绝对百分比误差',
             ape: '平均绝对误差',
           },
@@ -122,22 +122,38 @@ export default {
       },
     },
     preMasterKongVolumeForecast: {
-      dependencies: ['@category'],
       factory: fetchMasterKongVolumeForecast(),
     },
     masterKongVolumeForecast: {
       dependencies: ['preMasterKongVolumeForecast'],
       factory: (data) => {
-        const ret = data;
+        const markStart = _.findIndex(data, item => !_.isNull(item.forecast));
+        const markEnd = _.findIndex(data, item => _.isNull(item.target)) - 1;
+
         return {
-          source: ret,
+          source: data,
+          lineStyle: {
+            forecast: 'dashed',
+          },
           axisDimensions: ['timestamp'],
           key2name: {
-            forecast: '预测值',
-            target: '成交值',
+            forecast: '测值销量',
+            target: '实际销量',
             mape: '平均绝对百分比误差',
             ape: '平均绝对误差',
           },
+          markArea: [
+            [
+              {
+                name: '预测对照区间',
+                xAxis: markStart,
+              },
+              {
+                xAxis: markEnd,
+              },
+            ],
+          ],
+
         };
       },
     },
