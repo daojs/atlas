@@ -5,10 +5,6 @@ export default class Heatmap extends BaseChart {
   getSeriesOption() {
     const metrics = this.getMetricDimensions();
 
-    if (metrics.length !== 1) {
-      throw new Error('Heatmap only accepts one metric option');
-    }
-
     return [{
       name: metrics[0],
       type: 'heatmap',
