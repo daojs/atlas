@@ -56,7 +56,6 @@
     "data": "cd simulator-data && cd master-kong && node generate-forcast-data",
     "build": "webpack",
     "dev": "webpack-dev-server",
-    "watch": "webpack --watch",
-    "deploy": "yarn | yarn run build | forever restartall"
+    "watch": "webpack --watch"
   }
 }
