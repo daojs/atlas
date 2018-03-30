@@ -7,6 +7,10 @@ import factories from '../../factories';
 import branch from '../branch.json';
 import category from '../category.json';
 
+import revenueExplanation from './content/revenue-explanation.md';
+import volumeExplanation from './content/volume-explanation.md';
+import promotionRecommendation from './content/promotion-recommendation.md';
+
 const {
   fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueBreakDownByTime,
@@ -151,6 +155,7 @@ export default {
           markArea: [
             [
               {
+                name: '第一次活动',
                 xAxis: 10,
               },
               {
@@ -160,6 +165,15 @@ export default {
           ],
         };
       },
+    },
+    revenueExplanation: {
+      factory: _.constant(revenueExplanation),
+    },
+    volumeExplanation: {
+      factory: _.constant(volumeExplanation),
+    },
+    promotionRecommendation: {
+      factory: _.constant(promotionRecommendation),
     },
   },
   id: '20002',
