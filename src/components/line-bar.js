@@ -72,16 +72,20 @@ export default class LineBarChart extends PureComponent { //eslint-disable-line
           type: 'cross',
         },
       },
+      legend: {},
       xAxis: [{
         type: 'category',
         data: _.map(source, row => _.result(row, xAxisMetric)),
+        axisTick: {
+          alignWithLabel: true,
+        },
         axisPointer: {
           type: 'shadow',
         },
       }],
       yAxis: _.map(yAxisMetrics, metric => ({
         type: 'value',
-        name: metric,
+        name: metric.name,
       })),
       series: _.map(this.getMetricDimensions(), series => ({
         name: series,
