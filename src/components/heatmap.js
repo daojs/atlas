@@ -36,6 +36,7 @@ export default class Heatmap extends BaseChart {
       legend: {},
       tooltip: {
         position: 'top',
+        formatter: ({ data: itemData }) => `${itemData[0]}: ${itemData[2]}`,
       },
       dataset: {
         source,
