@@ -22,7 +22,15 @@ module.exports = function getData(body) {
     .filter({
       [dictionary[filterKey] || filterKey]: filterValue,
     })
-    .map(item => _.mapKeys(item, (value, key) => _.invert(dictionary)[key] || key))
+    .map(item => ({
+      ape: item.APE,
+      mape: item.MAPE,
+      timestamp: item.Timestamp,
+      target: parseFloat(item.Value),
+      forecast: parseFloat(item['Predicted Value']),
+      category: item.Category,
+      branch: item.Province,
+    }))
     .thru((value) => {
       if (groupBy.timestamp === 'month') {
         return _.groupBy(value, v => v.timestamp);
