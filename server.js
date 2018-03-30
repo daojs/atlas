@@ -5,7 +5,7 @@ const koaBody = require('koa-body');
 const rp = require('request-promise');
 
 const cacheManager = require('./cache-manager.js');
-const mock = require('./mock');
+const masterKong = require('./api/master-kong');
 
 const app = new Koa();
 const router = new Router();
@@ -15,7 +15,7 @@ router.post('/insight', koaBody(), async (ctx, next) => {
   const { body } = ctx.request;
 
   if (body['@target'] === 'master-kong') {
-    ctx.body = await mock(body);
+    ctx.body = await masterKong(body);
   } else if (cacheManager.isInCache(body)) {
     ctx.body = cacheManager.readFromCache(body);
   } else {
