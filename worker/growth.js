@@ -35,7 +35,7 @@ export function growthRate(data, {
 
     memo.push({
       timestamp: item[timestampKey],
-      value: (item[measureKey] - lastItemValue) / lastItemValue,
+      value: lastItemValue ? ((item[measureKey] - lastItemValue) / lastItemValue) : undefined,
       raw: item,
     });
 
