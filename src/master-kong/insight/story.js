@@ -8,6 +8,7 @@ import branch from '../branch.json';
 import category from '../category.json';
 
 const {
+  fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
   fetchMasterKongVolumeBreakDown,
@@ -112,6 +113,26 @@ export default {
       factory: data => ({
         source: data,
       }),
+    },
+    preMasterKongRevenueForecast: {
+      dependencies: ['@category'],
+      factory: fetchMasterKongRevenueForecast(client, simulation),
+    },
+    masterKongRevenueForecast: {
+      dependencies: ['preMasterKongRevenueForecast'],
+      factory: (data) => {
+        const ret = data;
+        return {
+          source: ret,
+          axisDimensions: ['timestamp'],
+          key2name: {
+            forecast: '预测值',
+            target: '成交值',
+            mape: '平均绝对百分比误差',
+            ape: '平均绝对误差',
+          },
+        };
+      },
     },
     salesLastYear: {
       factory: () => {

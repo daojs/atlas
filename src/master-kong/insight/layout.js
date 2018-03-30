@@ -6,7 +6,6 @@ import './index.css';
 import StoryBoard from '../../story-board';
 import storyConfig from './story';
 import components from '../../components';
-import Usage from './usage-metric-trend-chart';
 
 const {
   Bar,
@@ -22,6 +21,7 @@ const {
   LineWithMarkArea,
   SectionCard,
   // StackBar,
+  Line,
 } = components;
 
 function WithComponent(Control) {
@@ -70,8 +70,7 @@ export default function () {
           >
             <Row>
               <Col>
-                {/* TODO: @Teng  */}
-                <Cell renderCell={WithComponent(Usage)} />
+                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
@@ -90,8 +89,7 @@ export default function () {
           >
             <Row>
               <Col>
-                {/* TODO: @Teng  */}
-                <Cell renderCell={WithComponent(Usage)} />
+                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
