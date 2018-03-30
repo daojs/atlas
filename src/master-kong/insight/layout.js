@@ -115,7 +115,12 @@ export default function () {
             <Row>
               <Col>
                 {/* TODO: @Zhibin */}
-                <Cell input="revenueGapPerBranch" title="销售目标风险提示" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+                <Cell input="revenueGapPerCategory" title="各类商品销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
               </Col>
             </Row>
           </SectionCard>
