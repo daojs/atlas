@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from 'antd';
+import { Form, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 
 import './index.css';
@@ -68,19 +68,61 @@ export default function () {
             key="revenue-predicate"
             title="2018年销售额预测"
           >
-            Placeholder
+            <Row>
+              <Col>
+                {/* TODO: @Teng  */}
+                <Cell renderCell={WithComponent(Usage)} />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={16}>
+                {/* TODO: @Ling  */}
+                <Cell input="revenueBreakDownByCategory" title="预测销售额与目标销售额对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+              </Col>
+              <Col span={8}>
+                {/* TODO: @Wei */}
+              </Col>
+            </Row>
           </SectionCard>
           <SectionCard
             key="volume-forecast"
             title="2018年销量预测"
           >
-            Placeholder
+            <Row>
+              <Col>
+                {/* TODO: @Teng  */}
+                <Cell renderCell={WithComponent(Usage)} />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={16}>
+                {/* TODO: @Ling  */}
+                <Cell input="volumeBreakDownByCategory" title="预测销量与目标销量对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+              </Col>
+              <Col span={8}>
+                {/* TODO: @Wei */}
+              </Col>
+            </Row>
           </SectionCard>
           <SectionCard
             key="advise-analysis"
             title="2018年销售建议"
           >
-            Placeholder
+            <Row>
+              <Col span={16}>
+                {/* TODO: @Yu */}
+                <Cell renderCell={WithComponent(Usage)} />
+              </Col>
+              <Col span={8}>
+                {/* TODO: @Wei */}
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                {/* TODO: @Zhibin */}
+                <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+              </Col>
+            </Row>
           </SectionCard>
         </SectionContainer>
       </Form>

@@ -19,7 +19,7 @@ export default class MasterKongLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: 'dashboard',
+      selected: 'insight',
     };
   }
 
@@ -32,7 +32,7 @@ export default class MasterKongLayout extends React.Component {
       <Layout>
         <Layout>
           <Sider>
-            <Menu theme="dark" defaultSelectedKeys={['dashboard']} mode="inline" onSelect={this.onSelectMenu}>
+            <Menu theme="dark" defaultSelectedKeys={['insight']} mode="inline" onSelect={this.onSelectMenu}>
               <Menu.Item key="dashboard">
                 <Icon type="user" />
                 <span className="nav-text">仪表盘</span>
