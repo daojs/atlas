@@ -49,13 +49,14 @@
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
     "uuid": "^3.2.1",
+    "xlsx-to-json": "^0.3.0",
     "yamljs": "^0.3.0"
   },
   "scripts": {
     "start": "node ./server.js",
-    "data": "cd simulator-data && cd master-kong && node generate-forcast-data",
+    "data": "cd simulator-data && cd master-kong && node generate-forecast-data",
     "build": "webpack",
-    "dev": "webpack --watch | node ./server.js",
+    "dev": "webpack-dev-server",
     "watch": "webpack --watch"
   }
 }

@@ -41,7 +41,7 @@ export default function () {
           <SectionCard
             key="revenue-predicate"
             title="总体销售额预测"
-            extra={<span>h1</span>}
+            // extra={<span>h1</span>}
           >
             <Cell renderCell={WithComponent(Usage)} />
           </SectionCard>

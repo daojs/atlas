@@ -22,19 +22,19 @@ _.forEach(branches, (branch) => {
   _.forEach(categories, (category) => {
     _.forEach(months, (month) => {
       const targetRevenue = generateRevenue();
-      const forcastRevenue = generateRevenue();
+      const forecastRevenue = generateRevenue();
       data.push({
         month,
         category,
         branch,
-        targetRevenue,
-        forcastRevenue,
-        revenueGap: targetRevenue - forcastRevenue,
-        targetVolume: generateVolume(),
-        forcastVolume: generateVolume(),
+        目标销售额: targetRevenue,
+        预测销售额: forecastRevenue,
+        销售指标差距: targetRevenue - forecastRevenue,
+        目标销量: generateVolume(),
+        预测销量: generateVolume(),
       });
     });
   });
 });
 
-fs.writeFile('./data/forcast.json', JSON.stringify(data));
+fs.writeFile('./data/forecast.json', JSON.stringify(data));
