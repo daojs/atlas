@@ -11,6 +11,7 @@ const {
   fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
   fetchMasterKongVolumeBreakDown,
+  fetchSalesLastYear,
 } = factories;
 
 const simulation = client.call('masterKongSimulate');
@@ -113,8 +114,11 @@ export default {
         source: data,
       }),
     },
+    fetchSalesLastYear: {
+      factory: fetchSalesLastYear(),
+    },
     salesLastYear: {
-      factory: () => {
+      factory: (response) => {
         const data = _.map(_.range(365), i => ({
           time: i,
           sales: _.random(100, 500),
