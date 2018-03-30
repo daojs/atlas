@@ -5,7 +5,7 @@ rawData.RevenueByBranch = require('../../data/revenue_province.json');
 rawData.RevenueByCategory = require('../../data/revenue_category.json');
 rawData.VolumeByCategory = require('../../data/salescount_category.json');
 rawData.VolumeByBranch = require('../../data/salescount_province.json');
-rawData.ValumeAll = require('../../data/salescount_all.json');
+rawData.VolumeAll = require('../../data/salescount_all.json');
 rawData.RevenueAll = require('../../data/revenue_all.json');
 
 const dictionary = {
