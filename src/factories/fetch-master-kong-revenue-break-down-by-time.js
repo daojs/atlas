@@ -7,7 +7,6 @@ export default function (client, simulation, key) {
     }
 
     return simulation
-
       .then(({ forecast }) => client.call('dag', {
         forecastData: {
           '@proc': 'read',
@@ -21,8 +20,8 @@ export default function (client, simulation, key) {
             '@ref': 'forecastData',
           }, {
             aggregation: {
-              targetRevenue: 'sum',
-              forecastRevenue: 'sum',
+              目标销售额: 'sum',
+              预测销售额: 'sum',
             },
             filter: {
               [key]: keyValue,

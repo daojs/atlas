@@ -21,8 +21,8 @@ export default function (client, simulation, key) {
             '@ref': 'forecastData',
           }, {
             aggregation: {
-              targetVolume: 'sum',
-              forecastVolume: 'sum',
+              目标销量: 'sum',
+              预测销量: 'sum',
             },
             filter: {
               [key]: keyValue,
