@@ -13,11 +13,21 @@ import promotionRecommendation from './content/promotion-recommendation.md';
 
 const {
   fetchMasterKongRevenueForecast,
-  fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
   fetchMasterKongVolumeForecast,
   fetchMasterKongVolumeBreakDown,
+  fetchMasterKongSalesLastYear,
+  fetchMasterKongAnnualGoalCompRisk,
+  mergeMonthAndYearData,
 } = factories;
+
+function findLastYearItem(rawData, item) {
+  return _.find(rawData, previous => previous.month === item.month
+    && previous.year == item.year - 1
+    && previous.category === item.category
+    && previous.branch === item.branch,
+  );
+}
 
 const simulation = client.call('masterKongSimulate');
 
@@ -54,8 +64,7 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.category, item.month, item['销售指标差距']]),
-          metricDimensions: ['销售指标差距'],
+          source: rawData,
         });
       },
     },
@@ -74,50 +83,9 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.branch, item.month, item['销售指标差距']]),
-          metricDimensions: ['销售指标差距'],
+          source: rawData,
         });
       },
-    },
-    fetchRevenueBreakDownByCategory: {
-      dependencies: ['@category'],
-      factory: fetchMasterKongRevenueBreakDownByTime(client, simulation, 'category'),
-    },
-    revenueBreakDownByCategory: {
-      dependencies: ['fetchRevenueBreakDownByCategory'],
-      factory: data => ({
-        source: data,
-      }),
-    },
-    fetchRevenueBreakDownByBranch: {
-      dependencies: ['@branch'],
-      factory: fetchMasterKongRevenueBreakDownByTime(client, simulation, 'branch'),
-    },
-    revenueBreakDownByBranch: {
-      dependencies: ['fetchRevenueBreakDownByBranch'],
-      factory: data => ({
-        source: data,
-      }),
-    },
-    fetchVolumeBreakDownByCategory: {
-      dependencies: ['@category'],
-      factory: fetchMasterKongVolumeBreakDown(client, simulation, 'category'),
-    },
-    volumeBreakDownByCategory: {
-      dependencies: ['fetchVolumeBreakDownByCategory'],
-      factory: data => ({
-        source: data,
-      }),
-    },
-    fetchvolumeBreakDownByBranch: {
-      dependencies: ['@branch'],
-      factory: fetchMasterKongVolumeBreakDown(client, simulation, 'branch'),
-    },
-    volumeBreakDownByBranch: {
-      dependencies: ['fetchvolumeBreakDownByBranch'],
-      factory: data => ({
-        source: data,
-      }),
     },
     preMasterKongRevenueForecast: {
       dependencies: ['@category'],
@@ -159,33 +127,79 @@ export default {
         };
       },
     },
+    fetchMasterKongSalesLastYear: {
+      factory: fetchMasterKongSalesLastYear(),
+    },
     salesLastYear: {
-      factory: () => {
-        const data = _.map(_.range(365), i => ({
-          time: i,
-          sales: _.random(100, 500),
-          predicate: _.random(100, 500),
-        }));
-        return {
+      dependencies: ['fetchMasterKongSalesLastYear'],
+      factory: data =>
+        // const data = _.map(_.range(365), i => ({
+        //   time: i,
+        //   sales: _.random(100, 500),
+        //   predicate: _.random(100, 500),
+        // }));
+        ({
           source: data,
-          axisDimensions: ['time'],
+          axisDimensions: ['month'],
+          metricDimensions: ['target', 'forecast'],
           key2name: {
-            sales: '销售量',
-            predicate: '预测值',
+            target: '实际销量',
+            forecast: '预测销量',
           },
-          markArea: [
-            [
-              {
-                name: '第一次活动',
-                xAxis: 10,
-              },
-              {
-                xAxis: 20,
-              },
-            ],
+          markLine: [
+            {
+              name: '春节促销活动',
+              xAxis: 3,
+            },
+            {
+              name: '暑期促销活动',
+              xAxis: 9,
+            },
           ],
-        };
+        })
+      ,
+    },
+    fetchAnnualRevenueGoalRisk: {
+      factory: fetchMasterKongAnnualGoalCompRisk({
+        metricKey: 'Revenue',
+      }),
+    },
+    fetchAnnualVolumeGoalRisk: {
+      factory: fetchMasterKongAnnualGoalCompRisk({
+        metricKey: 'Volume',
+      }),
+    },
+    fetchAnnualRevenueCumulativeGoal: {
+      dependencies: ['fetchAnnualRevenueGoalRisk'],
+      factory: (data) => {
+        if (_.some([data], _.isNil)) {
+          return undefined;
+        }
+        return client.call('cumulativeKeys', data, {
+          measureKeys: ['target', 'forecast'],
+          timestampKey: 'month',
+        });
       },
+    },
+    fetchAnnualVolumeCumulativeGoal: {
+      dependencies: ['fetchAnnualVolumeGoalRisk'],
+      factory: (data) => {
+        if (_.some([data], _.isNil)) {
+          return undefined;
+        }
+        return client.call('cumulativeKeys', data, {
+          measureKeys: ['target', 'forecast'],
+          timestampKey: 'month',
+        });
+      },
+    },
+    annualRevenueGoalRisk: {
+      dependencies: ['fetchAnnualRevenueGoalRisk', 'fetchAnnualRevenueCumulativeGoal'],
+      factory: mergeMonthAndYearData('Revenue'),
+    },
+    annualVolumeGoalRisk: {
+      dependencies: ['fetchAnnualVolumeGoalRisk', 'fetchAnnualVolumeCumulativeGoal'],
+      factory: mergeMonthAndYearData('Volume'),
     },
     revenueExplanation: {
       factory: _.constant(revenueExplanation),

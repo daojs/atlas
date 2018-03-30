@@ -1,6 +1,7 @@
 import fetchMasterKongRevenueAndVolumnTrend from './fetch-master-kong-revenue-and-volumn-trend';
 import fetchMasterKongRevenueGap from './fetch-master-kong-revenue-gap';
 import fetchCustomerTSADFactory from './fetch-customer-tsad';
+import mergeMonthAndYearData from './merge-gap-cumulative';
 import fetchCustomerExpensePerUserBucketFactory from './fetch-customer-expense-per-user-bucket';
 import fetchCustomerExpensePerUserRankFactory from './fetch-customer-expense-per-user-rank';
 import fetchFavorBestCustomerReduceFactory from './fetch-favor-best-customer-reduce';
@@ -10,14 +11,15 @@ import fetchUsageMealCardBucketFactory from './fetch-usage-meal-card-bucket';
 import fetchTraffic from './fetch-traffic';
 import fetchTrendForGrowth from './fetch-trend-for-growth';
 import fetchMetricTrend from './fetch-metric-trend';
-import fetchMasterKongRevenueBreakDownByTime from './fetch-master-kong-revenue-break-down-by-time';
 import fetchRevenueForecast from './fetch-revenue-forecast';
-import fetchMasterKongVolumeBreakDown from './fetch-master-kong-volume-break-down';
+import fetchMasterKongSalesLastYear from './fetch-master-kong-sales-last-year';
+import fetchMasterKongAnnualGoalCompRisk from './fetch-master-kong-annual-goal-comp-risk';
 import fetchMasterKongRevenueForecast from './fetch-master-kong-revenue-forecast';
 import fetchMasterKongVolumeForecast from './fetch-master-kong-volume-forecast';
 
 export default {
   fetchMasterKongRevenueAndVolumnTrend,
+  mergeMonthAndYearData,
   fetchMasterKongRevenueGap,
   fetchCustomerTSADFactory,
   fetchCustomerExpensePerUserBucketFactory,
@@ -26,12 +28,12 @@ export default {
   fetchFavorBestCustomerTrendFactory,
   fetchUsageMealCardReduceFactory,
   fetchUsageMealCardBucketFactory,
-  fetchMasterKongRevenueBreakDownByTime,
   fetchTraffic,
   fetchTrendForGrowth,
   fetchMetricTrend,
   fetchRevenueForecast,
-  fetchMasterKongVolumeBreakDown,
+  fetchMasterKongSalesLastYear,
+  fetchMasterKongAnnualGoalCompRisk,
   fetchMasterKongRevenueForecast,
   fetchMasterKongVolumeForecast,
 };
