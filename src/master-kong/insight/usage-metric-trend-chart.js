@@ -6,35 +6,38 @@ import _ from 'lodash';
 
 function generatePredicateData(startDate, endDate) {
   const list = {
-    员工餐厅: () => (Math.random() * 1000) + 26000,
-    北京小院: () => (Math.random() * 1000) + 5400,
-    咖喱屋: () => (Math.random() * 1000) + 2000,
-    自助餐厅: () => (Math.random() * 1000) + 3500,
+    华北: () => (Math.random() * 100000) + 2600000,
+    华东: () => (Math.random() * 100000) + 540000,
+    华南: () => (Math.random() * 100000) + 200000,
+    西南: () => (Math.random() * 100000) + 350000,
+    西北: () => (Math.random() * 100000) + 350000,
+    东北: () => (Math.random() * 100000) + 350000,
   };
 
-  const today = moment().startOf('day');
-  const start = moment(startDate).startOf('day');
-  const end = moment(endDate).startOf('day');
+  const thisMonth = moment().startOf('month');
+  const lastMonth = thisMonth.clone().subtract(1, 'month');
+  const start = thisMonth.clone().startOf('year');
+  const end = thisMonth.clone().add(1, 'year');
   let day = start;
 
   const minData = [];
   const realData = [];
   const maxData = [];
 
-  while (day.isBefore(today) || day.isSame(today)) {
+  while (day.isBefore(thisMonth)) {
     const revenue = _.mapValues(list, func => func.call());
     revenue.total = _.reduce(revenue, (prev, curr) => prev + curr);
-    revenue.date = day.format('YYYY-MM-DD');
+    revenue.date = day.format('YYYY-MM');
     realData.push(revenue);
 
-    if (day.isSame(today)) {
+    if (day.isSame(lastMonth)) {
       minData.push(revenue);
       maxData.push(revenue);
     } else {
       minData.push(null);
       maxData.push(null);
     }
-    day = day.add(1, 'day');
+    day = day.add(1, 'month');
   }
 
   while (day.isBefore(end)) {
@@ -47,20 +50,20 @@ function generatePredicateData(startDate, endDate) {
       _.reduce(minRevenue, (prev, curr) => prev + curr);
     maxRevenue.total =
       _.reduce(maxRevenue, (prev, curr) => prev + curr);
-    revenue.date = day.format('YYYY-MM-DD');
-    minRevenue.date = day.format('YYYY-MM-DD');
-    maxRevenue.date = day.format('YYYY-MM-DD');
+    revenue.date = day.format('YYYY-MM');
+    minRevenue.date = day.format('YYYY-MM');
+    maxRevenue.date = day.format('YYYY-MM');
 
     realData.push(revenue);
     minData.push(minRevenue);
     maxData.push(maxRevenue);
-    day = day.add(1, 'day');
+    day = day.add(1, 'month');
   }
 
   return { minData, realData, maxData };
 }
 
-const { minData, realData, maxData } = generatePredicateData('2018-03-21', '2018-04-15');
+const { minData, realData, maxData } = generatePredicateData('2018-01-01', '2019-01-01');
 
 export default class extends PureComponent {
   xData = _.map(realData, i => i.date);
