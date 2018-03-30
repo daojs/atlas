@@ -86,7 +86,7 @@ export default class Compare extends PureComponent {
     });
 
     return (
-      <ReactEcharts option={option} {...this.props} />
+      <ReactEcharts option={option} {...this.props} theme="theme1" />
     );
   }
 }

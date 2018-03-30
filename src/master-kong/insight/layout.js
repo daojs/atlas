@@ -28,17 +28,15 @@ function WithComponent(Control) {
   return props => <Control {...props} />;
 }
 
-const DropdownSelector = props => <SingleSelector selectType="select" {...props} />;
-
 export default function () {
   return (<StoryBoard
     components={components}
     story={storyConfig}
     renderComponent={() => (
       <Form>
-        <h2 className="master-kong-header">康师傅预测报表</h2>
+        <h2 className="master-kong-header">2018年销售额预测</h2>
         <SectionContainer id="20002" >
-          <SectionCard
+          {/* <SectionCard
             key="revenue-predicate"
             title="总体销售额预测"
             // extra={<span>h1</span>}
@@ -64,6 +62,25 @@ export default function () {
             <Cell input="revenueBreakDownByCategory" title="预测销售额与目标销售额对比" subTitle="差距" renderCell={WithComponent(Bar)} />
             <Cell input="volumeBreakDownByCategory" title="预测销量与目标销量对比" subTitle="差距" renderCell={WithComponent(Bar)} />
             <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+          </SectionCard> */}
+
+          <SectionCard
+            key="revenue-forecast"
+            title="2018年销售额预测"
+          >
+            Placeholder
+          </SectionCard>
+          <SectionCard
+            key="volume-forecast"
+            title="2018年销量预测"
+          >
+            Placeholder
+          </SectionCard>
+          <SectionCard
+            key="advise-analysis"
+            title="2018年销售建议"
+          >
+            Placeholder
           </SectionCard>
           <SectionCard
             className="overall-analysis"

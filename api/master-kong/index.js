@@ -49,8 +49,8 @@ module.exports = function getData(body) {
           .map(monthValue => ({
             target: _.chain(monthValue).map('target').compact().sum().value(),
             forecast: _.chain(monthValue).map('forecast').compact().sum().value(),
-            branch: filter.Branch,
-            category: filter.Category,
+            branch: filter.branch,
+            category: filter.category,
           }))
           .value();
       }

@@ -106,6 +106,7 @@ export default class extends PureComponent {
 
     return (
       <ReactEcharts
+        theme="theme1"
         option={this.getOption()}
         notMerge={true} //eslint-disable-line
         {...this.props}
