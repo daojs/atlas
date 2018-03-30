@@ -20,9 +20,16 @@ module.exports = function getData(body) {
 
   const data = _.chain(rawData[`${entity}By${filterKey}`])
     .filter({
-      [dictionary[filterKey]]: filterValue,
+      [dictionary[filterKey] || filterKey]: filterValue,
     })
     .map(item => _.mapKeys(item, (value, key) => _.invert(dictionary)[key] || key))
+    .thru((value) => {
+      if (groupBy.timestamp === 'month') {
+        return _.groupBy(value, v => v.timestamp);
+      }
+
+      return value;
+    })
     .value();
 
   return {
