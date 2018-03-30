@@ -8,6 +8,7 @@ export default function TimeSeries({
 }) {
   return (
     <ReactEcharts
+      theme="theme1"
       option={
         {
           title: {
