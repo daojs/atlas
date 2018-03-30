@@ -5,8 +5,8 @@ rawData.RevenueByBranch = require('../../data/revenue_province.json');
 rawData.RevenueByCategory = require('../../data/revenue_category.json');
 rawData.VolumeByCategory = require('../../data/salescount_category.json');
 rawData.VolumeByBranch = require('../../data/salescount_province.json');
-rawData.ValumeAll = require('../../data/salescount_all.json');
-rawData.RevenueAll = require('../../data/revenue_all.json');
+rawData.VolumeByAll = require('../../data/salescount_all.json');
+rawData.RevenueByAll = require('../../data/revenue_all.json');
 
 const dictionary = {
   Branch: 'Province',
@@ -21,23 +21,19 @@ function capitalizeFirstLetter(string) {
 module.exports = function getData(body) {
   const args = body['@args'];
   const [entity, { aggregation, filter, groupBy }] = args;
-  const isAll = _.isEmpty(filter);
-  const filterKey = isAll ? '' : capitalizeFirstLetter(_.first(_.keys(filter)));
-  const filterValue = isAll ? '' : _.first(_.values(filter));
-  const initData = isAll ? rawData[`${entity}All`] : rawData[`${entity}By${filterKey}`];
+  const fileKey = capitalizeFirstLetter(_.chain(groupBy).keys().intersection(['branch', 'category']).first().value() || 'all');
+  const initData = rawData[`${entity}By${fileKey}`];
 
+  console.log(`${entity}By${fileKey}`);
 
   const data = _.chain(initData)
-    .filter(isAll ? {} : {
-      [dictionary[filterKey] || filterKey]: filterValue,
-    })
     .map((item) => {
       const [, month, year] = item.Timestamp.match(/(\D+)-(\d+)/);
 
       return {
         ape: item.APE,
         mape: item.MAPE,
-        target: parseFloat(item.Value),
+        target: parseFloat(item.Value || item.value),
         forecast: parseFloat(item['Predicted value'] || item['Predicted Value']),
         category: item.Category,
         branch: item.Province,
@@ -46,6 +42,7 @@ module.exports = function getData(body) {
         timestamp: new Date(`20${year}-${month}`).toISOString(),
       };
     })
+    .filter(filter)
     // .thru((value) => {
     //   if (groupBy.timestamp === 'month') {
     //     return _.chain(value)

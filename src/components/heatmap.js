@@ -5,16 +5,12 @@ export default class Heatmap extends BaseChart {
   getSeriesOption() {
     const metrics = this.getMetricDimensions();
 
-    if (metrics.length !== 1) {
-      throw new Error('Heatmap only accepts one metric option');
-    }
-
     return [{
       name: metrics[0],
       type: 'heatmap',
       label: {
         normal: {
-          show: true,
+          show: false,
         },
       },
       itemStyle: {
@@ -33,7 +29,9 @@ export default class Heatmap extends BaseChart {
     const data = _.map(source, row => row[2]);
 
     return {
-      legend: {},
+      legend: {
+        show: false,
+      },
       tooltip: {
         position: 'top',
         formatter: ({ data: itemData }) => `${itemData[0]}: ${itemData[2]}`,
@@ -62,6 +60,7 @@ export default class Heatmap extends BaseChart {
         inRange: {
           color: ['green', 'white', 'red'],
         },
+        show: false,
       },
       ...super.getOption(),
     };
