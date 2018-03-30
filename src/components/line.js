@@ -23,14 +23,18 @@ import BaseChart from './base';
 export default class Line extends BaseChart {
   getSeriesOption() {
     const source = this.getSource();
-
-    return _.chain(this.getMetricDimensions())
+    const ret = _.chain(this.getMetricDimensions())
       .map(dim => ({
         type: 'line',
         name: _.get(this.props.value, `key2name[${dim}]`, dim),
+        lineStyle: {
+          type: _.result(this.props.value.lineStyle, dim, 'solid'),
+        },
         data: _.map(source, row => row[dim]),
       }))
       .value();
+
+    return ret;
   }
 
   getOption() {

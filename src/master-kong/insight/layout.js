@@ -71,7 +71,7 @@ export default function () {
           >
             <Row>
               <Col>
-                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
+                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(LineWithMarkArea)} />
               </Col>
             </Row>
             <Row>

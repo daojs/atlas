@@ -125,9 +125,14 @@ export default {
     masterKongRevenueForecast: {
       dependencies: ['preMasterKongRevenueForecast'],
       factory: (data) => {
-        const ret = data;
+        const markStart = _.findIndex(data, item => !_.isNull(item.forecast));
+        const markEnd = _.findIndex(data, item => _.isNull(item.target)) - 1;
+
         return {
-          source: ret,
+          source: data,
+          lineStyle: {
+            forecast: 'dashed',
+          },
           axisDimensions: ['timestamp'],
           key2name: {
             forecast: '预测值',
@@ -135,6 +140,17 @@ export default {
             mape: '平均绝对百分比误差',
             ape: '平均绝对误差',
           },
+          markArea: [
+            [
+              {
+                name: '预测对照区间',
+                xAxis: markStart,
+              },
+              {
+                xAxis: markEnd,
+              },
+            ],
+          ],
         };
       },
     },
@@ -156,10 +172,10 @@ export default {
             [
               {
                 name: '第一次活动',
-                xAxis: 10,
+                xAxis: 1,
               },
               {
-                xAxis: 20,
+                xAxis: 5,
               },
             ],
           ],
