@@ -5,7 +5,7 @@ rawData.RevenueByBranch = require('../../data/revenue_province.json');
 rawData.RevenueByCategory = require('../../data/revenue_category.json');
 rawData.VolumeByCategory = require('../../data/salescount_category.json');
 rawData.VolumeByBranch = require('../../data/salescount_province.json');
-rawData.ValumeAll = require('../../data/salescount_all.json');
+rawData.VolumeAll = require('../../data/salescount_all.json');
 rawData.RevenueAll = require('../../data/revenue_all.json');
 
 const dictionary = {
@@ -21,11 +21,10 @@ function capitalizeFirstLetter(string) {
 module.exports = function getData(body) {
   const args = body['@args'];
   const [entity, { aggregation, filter, groupBy }] = args;
-  const pureFilter = _.omit(filter, ['year']);
-  const isAll = _.isEmpty(pureFilter);
-  const filterKey = isAll ? '' : capitalizeFirstLetter(_.first(_.keys(pureFilter)));
-  const initData = isAll ? rawData[`${entity}All`] : rawData[`${entity}By${filterKey}`];
+  const fileKey = capitalizeFirstLetter(_.chain(groupBy).keys().intersection(['branch', 'category']).first().value() || 'all');
+  const initData = rawData[`${entity}By${fileKey}`];
 
+  console.log(fileKey);
 
   const data = _.chain(initData)
     .map((item) => {
