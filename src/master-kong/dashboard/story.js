@@ -18,5 +18,5 @@ export default {
       factory: fetchMasterKongRevenueAndVolumnTrend(),
     },
   },
-  id: '10000',
+  id: '20001',
 };
