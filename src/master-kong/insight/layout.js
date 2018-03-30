@@ -78,7 +78,7 @@ export default function () {
             <Row>
               <Col span={16}>
                 {/* TODO: @Ling  */}
-                <Cell input="revenueBreakDownByCategory" title="预测销售额与目标销售额对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+                <Cell input="revenueBreakDownByCategory" title="年度销售目标风险分析" subTitle="差距" renderCell={WithComponent(Bar)} />
               </Col>
               <Col span={8}>
                 <Cell input="revenueExplanation" renderCell={WithComponent(Markdown)} />
@@ -98,7 +98,7 @@ export default function () {
             <Row>
               <Col span={16}>
                 {/* TODO: @Ling  */}
-                <Cell input="volumeBreakDownByCategory" title="预测销量与目标销量对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+                <Cell input="volumeBreakDownByCategory" title="年度销售目标风险分析" subTitle="差距" renderCell={WithComponent(Bar)} />
               </Col>
               <Col span={8}>
                 <Cell input="volumeExplanation" renderCell={WithComponent(Markdown)} />
@@ -112,7 +112,7 @@ export default function () {
             <Row>
               <Col span={16}>
                 {/* TODO: @Yu */}
-                <Cell input="salesLastYear" title="去年的销售趋势" renderCell={WithComponent(LineWithMarkArea)} />
+                <Cell input="salesLastYear" title="历史促销互动分析(2017年度)" renderCell={WithComponent(LineWithMarkArea)} />
               </Col>
               <Col span={8}>
                 <Cell input="promotionRecommendation" renderCell={WithComponent(Markdown)} />
@@ -121,7 +121,7 @@ export default function () {
             <Row>
               <Col>
                 {/* TODO: @Zhibin */}
-                <Cell input="revenueGapPerBranch" title="各地区销售指标完成度预测" subTitle="差距" renderCell={WithComponent(Heatmap)} />
+                <Cell input="revenueGapPerBranch" title="销售目标风险提示" subTitle="差距" renderCell={WithComponent(Heatmap)} />
               </Col>
             </Row>
           </SectionCard>

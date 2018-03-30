@@ -134,7 +134,7 @@ export default {
   20002: [
     {
       w: 12,
-      h: 9,
+      h: 17,
       x: 0,
       y: 0,
       i: 'revenue-forecast',
@@ -143,9 +143,9 @@ export default {
     },
     {
       w: 12,
-      h: 8,
+      h: 17,
       x: 0,
-      y: 9,
+      y: 17,
       i: 'volume-forecast',
       moved: false,
       static: false,
@@ -154,7 +154,7 @@ export default {
       w: 12,
       h: 19,
       x: 0,
-      y: 17,
+      y: 34,
       i: 'advise-analysis',
       moved: false,
       static: false,

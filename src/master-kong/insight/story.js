@@ -17,9 +17,6 @@ const {
   fetchMasterKongVolumeBreakDown,
 } = factories;
 
-console.log(revenueExplanation);
-console.log(volumeExplanation);
-console.log(promotionRecommendation);
 const simulation = client.call('masterKongSimulate');
 
 export default {
