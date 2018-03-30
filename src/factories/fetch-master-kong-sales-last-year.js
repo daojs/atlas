@@ -19,5 +19,8 @@ export default function () {
         },
       },
     ],
+  }).then((response) => {
+    console.log(data);
+    return response.data.data;
   });
 }

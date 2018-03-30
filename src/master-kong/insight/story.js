@@ -14,8 +14,7 @@ import promotionRecommendation from './content/promotion-recommendation.md';
 const {
   fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueGap,
-  fetchMasterKongVolumeBreakDown,
-  fetchSalesLastYear,
+  fetchMasterKongSalesLastYear,
   fetchMasterKongAnnualGoalCompRisk,
 } = factories;
 
@@ -102,10 +101,11 @@ export default {
         };
       },
     },
-    fetchSalesLastYear: {
-      factory: fetchSalesLastYear(),
+    fetchMasterKongSalesLastYear: {
+      factory: fetchMasterKongSalesLastYear(),
     },
     salesLastYear: {
+      dependencies: ['fetchMasterKongSalesLastYear'],
       factory: (response) => {
         const data = _.map(_.range(365), i => ({
           time: i,
