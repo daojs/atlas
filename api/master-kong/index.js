@@ -21,11 +21,10 @@ function capitalizeFirstLetter(string) {
 module.exports = function getData(body) {
   const args = body['@args'];
   const [entity, { aggregation, filter, groupBy }] = args;
-  const pureFilter = _.omit(filter, ['year']);
-  const isAll = _.isEmpty(pureFilter);
-  const filterKey = isAll ? '' : capitalizeFirstLetter(_.first(_.keys(pureFilter)));
-  const initData = isAll ? rawData[`${entity}All`] : rawData[`${entity}By${filterKey}`];
+  const fileKey = capitalizeFirstLetter(_.chain(groupBy).keys().intersection(['branch', 'category']).first().value() || 'all');
+  const initData = rawData[`${entity}By${fileKey}`];
 
+  console.log(fileKey);
 
   const data = _.chain(initData)
     .map((item) => {
