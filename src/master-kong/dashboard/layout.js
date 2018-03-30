@@ -32,7 +32,7 @@ export default function () {
     renderComponent={() => (
       <Form>
         <h2 className="master-kong-header">康师傅分析报表</h2>
-        <SectionContainer id={storyConfig.id}>
+        <SectionContainer id="20001">
           <div key="slicer">
             <Cell output="@time" label="" renderCell={WithComponent(TimeRange)} />
           </div>
