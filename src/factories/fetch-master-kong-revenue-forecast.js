@@ -20,6 +20,7 @@
 // }
 
 import axios from 'axios';
+import _ from 'lodash';
 
 export default function () {
   return () => axios.post('./insight', {
@@ -31,15 +32,27 @@ export default function () {
         aggregation: {
           target: 'sum',
           forecast: 'sum',
+          mape: 'average',
+          ape: 'average',
         },
         groupBy: {
-          timestamp: 'value',
+          timestamp: 'month',
         },
       },
     ],
   }).then((response) => {
-    console.log(response);
-    return response.data.data;
+    const data = _.map(response.data.data, (item) => {
+      const ret = {
+        timestamp: item.timestamp.slice(0, 7),
+        forecast: item.forecast !== null ? item.forecast.toFixed(2) : null,
+        target: item.target !== null ? item.target.toFixed(2) : null,
+        // ape: item.ape !== '' ? (parseFloat(item.ape, 10) * 100).toFixed(2) : null,
+        // mape: item.mape !== '' ? (parseFloat(item.mape, 10) * 100).toFixed(2) : null,
+      };
+      return ret;
+    });
+
+    return data;
   });
 }
 
