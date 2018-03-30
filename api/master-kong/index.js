@@ -18,13 +18,17 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function toFloat(string) {
+  const floatValue = parseFloat(string);
+
+  return Math.round(floatValue * 100) / 100;
+}
+
 module.exports = function getData(body) {
   const args = body['@args'];
   const [entity, { aggregation, filter, groupBy }] = args;
   const fileKey = capitalizeFirstLetter(_.chain(groupBy).keys().intersection(['branch', 'category']).first().value() || 'all');
   const initData = rawData[`${entity}By${fileKey}`];
-
-  console.log(`${entity}By${fileKey}`);
 
   const data = _.chain(initData)
     .map((item) => {
@@ -33,8 +37,8 @@ module.exports = function getData(body) {
       return {
         ape: item.APE,
         mape: item.MAPE,
-        target: parseFloat(item.Value || item.value),
-        forecast: parseFloat(item['Predicted value'] || item['Predicted Value']),
+        target: toFloat(item.Value || item.value),
+        forecast: toFloat(item['Predicted value'] || item['Predicted Value']),
         category: item.Category,
         branch: item.Province,
         month,

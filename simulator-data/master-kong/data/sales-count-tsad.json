@@ -1,0 +1,6578 @@
+[
+  {
+    "Timetamp": "1/1/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 93163.0278202927,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/2/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 96096.210021924,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/3/2015 12:00:00 AM",
+    "Value": 500,
+    "ExpectedValue": 195864.175544588,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/4/2015 12:00:00 AM",
+    "Value": 119104,
+    "ExpectedValue": 275593.689451859,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/5/2015 12:00:00 AM",
+    "Value": 227215,
+    "ExpectedValue": 331291.124842216,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/6/2015 12:00:00 AM",
+    "Value": 354849,
+    "ExpectedValue": 367607.645717291,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/7/2015 12:00:00 AM",
+    "Value": 415159.967,
+    "ExpectedValue": 342974.441389783,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/8/2015 12:00:00 AM",
+    "Value": 491339.105,
+    "ExpectedValue": 478722.037634942,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/9/2015 12:00:00 AM",
+    "Value": 551995.367,
+    "ExpectedValue": 528642.153980623,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/10/2015 12:00:00 AM",
+    "Value": 369161,
+    "ExpectedValue": 542274.217755925,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/11/2015 12:00:00 AM",
+    "Value": 224829,
+    "ExpectedValue": 762542.738278379,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/12/2015 12:00:00 AM",
+    "Value": 444347.818,
+    "ExpectedValue": 690087.745025514,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/13/2015 12:00:00 AM",
+    "Value": 526938.682,
+    "ExpectedValue": 670595.496434286,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/14/2015 12:00:00 AM",
+    "Value": 689132.067,
+    "ExpectedValue": 651160.681545046,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/15/2015 12:00:00 AM",
+    "Value": 674051,
+    "ExpectedValue": 644476.60319599,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/16/2015 12:00:00 AM",
+    "Value": 644278.6,
+    "ExpectedValue": 666616.190922756,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/17/2015 12:00:00 AM",
+    "Value": 432328,
+    "ExpectedValue": 655743.019678177,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/18/2015 12:00:00 AM",
+    "Value": 363475,
+    "ExpectedValue": 728371.823146757,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/19/2015 12:00:00 AM",
+    "Value": 570502.444,
+    "ExpectedValue": 790115.553542706,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/20/2015 12:00:00 AM",
+    "Value": 614288.118,
+    "ExpectedValue": 680659.375784264,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/21/2015 12:00:00 AM",
+    "Value": 813434.27,
+    "ExpectedValue": 749236.490995894,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/22/2015 12:00:00 AM",
+    "Value": 768177.502,
+    "ExpectedValue": 595068.712952495,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/23/2015 12:00:00 AM",
+    "Value": 842074.202,
+    "ExpectedValue": 570244.73599383,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/24/2015 12:00:00 AM",
+    "Value": 354639,
+    "ExpectedValue": 354434.720074185,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/25/2015 12:00:00 AM",
+    "Value": 554767,
+    "ExpectedValue": 697334.990139299,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/26/2015 12:00:00 AM",
+    "Value": 778815.154,
+    "ExpectedValue": 832954.26707707,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/27/2015 12:00:00 AM",
+    "Value": 784975,
+    "ExpectedValue": 903253.415174477,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/28/2015 12:00:00 AM",
+    "Value": 848108.5,
+    "ExpectedValue": 1031795.8957846,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/29/2015 12:00:00 AM",
+    "Value": 1004762.852,
+    "ExpectedValue": 985905.015765586,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/30/2015 12:00:00 AM",
+    "Value": 1432334.665,
+    "ExpectedValue": 1339259.77189815,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/31/2015 12:00:00 AM",
+    "Value": 829245.503,
+    "ExpectedValue": 31410.173164251,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/1/2015 12:00:00 AM",
+    "Value": 135984,
+    "ExpectedValue": 88908.395559882,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/2/2015 12:00:00 AM",
+    "Value": 189229,
+    "ExpectedValue": 218972.982410279,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/3/2015 12:00:00 AM",
+    "Value": 424593,
+    "ExpectedValue": 346539.820327987,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/4/2015 12:00:00 AM",
+    "Value": 458888.689,
+    "ExpectedValue": 389971.45489691,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/5/2015 12:00:00 AM",
+    "Value": 656659.034,
+    "ExpectedValue": 503458.583071423,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/6/2015 12:00:00 AM",
+    "Value": 567715,
+    "ExpectedValue": 508980.474177662,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/7/2015 12:00:00 AM",
+    "Value": 600749.5,
+    "ExpectedValue": 555543.570810165,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/8/2015 12:00:00 AM",
+    "Value": 521978,
+    "ExpectedValue": 551063.220365844,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/9/2015 12:00:00 AM",
+    "Value": 633528.1,
+    "ExpectedValue": 628600.034881972,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/10/2015 12:00:00 AM",
+    "Value": 709037.2,
+    "ExpectedValue": 679310.102796612,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/11/2015 12:00:00 AM",
+    "Value": 766001,
+    "ExpectedValue": 731004.323189698,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/12/2015 12:00:00 AM",
+    "Value": 904923.494,
+    "ExpectedValue": 721860.72339443,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/13/2015 12:00:00 AM",
+    "Value": 792413.008,
+    "ExpectedValue": 861917.740271361,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/14/2015 12:00:00 AM",
+    "Value": 612380,
+    "ExpectedValue": 549346.820609272,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/15/2015 12:00:00 AM",
+    "Value": 493947,
+    "ExpectedValue": 586266.492359997,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/16/2015 12:00:00 AM",
+    "Value": 147358,
+    "ExpectedValue": 340237.888738778,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/17/2015 12:00:00 AM",
+    "Value": 73802,
+    "ExpectedValue": 932710.952301581,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/18/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 953919.11254244,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/19/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 1122257.3311424,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/20/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 937401.086285671,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/21/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 915154.385774605,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/22/2015 12:00:00 AM",
+    "Value": 19600,
+    "ExpectedValue": 975763.870905245,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/23/2015 12:00:00 AM",
+    "Value": 77519,
+    "ExpectedValue": 907403.567422056,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/24/2015 12:00:00 AM",
+    "Value": 194527,
+    "ExpectedValue": 470439.444926175,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/25/2015 12:00:00 AM",
+    "Value": 461254.2,
+    "ExpectedValue": 383285.033806448,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/26/2015 12:00:00 AM",
+    "Value": 679909.559,
+    "ExpectedValue": 517389.182926882,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/27/2015 12:00:00 AM",
+    "Value": 962338.998,
+    "ExpectedValue": 1211547.41085424,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/28/2015 12:00:00 AM",
+    "Value": 2857442.825,
+    "ExpectedValue": 2719432.45673461,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/1/2015 12:00:00 AM",
+    "Value": 3062,
+    "ExpectedValue": 271897.596661503,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/2/2015 12:00:00 AM",
+    "Value": 123430,
+    "ExpectedValue": 1213186.61270049,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "3/3/2015 12:00:00 AM",
+    "Value": 565255,
+    "ExpectedValue": 864706.680142534,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/4/2015 12:00:00 AM",
+    "Value": 660031,
+    "ExpectedValue": 1260143.23026137,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/5/2015 12:00:00 AM",
+    "Value": 745981.025,
+    "ExpectedValue": 1185450.25874644,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/6/2015 12:00:00 AM",
+    "Value": 820454.722,
+    "ExpectedValue": 1118458.84289539,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/7/2015 12:00:00 AM",
+    "Value": 876056.09,
+    "ExpectedValue": 1059489.40496493,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/8/2015 12:00:00 AM",
+    "Value": 724205,
+    "ExpectedValue": 1576689.28303901,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "3/9/2015 12:00:00 AM",
+    "Value": 920724.357,
+    "ExpectedValue": 1484414.49646458,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/10/2015 12:00:00 AM",
+    "Value": 990085.067,
+    "ExpectedValue": 1517128.55326182,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/11/2015 12:00:00 AM",
+    "Value": 1347163.487,
+    "ExpectedValue": 1475226.8841611,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/12/2015 12:00:00 AM",
+    "Value": 1293450.91,
+    "ExpectedValue": 1341988.74979674,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/13/2015 12:00:00 AM",
+    "Value": 1442067,
+    "ExpectedValue": 1524242.69733681,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/14/2015 12:00:00 AM",
+    "Value": 1538472.006,
+    "ExpectedValue": 1567271.07390204,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/15/2015 12:00:00 AM",
+    "Value": 1344467,
+    "ExpectedValue": 1515657.60715385,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/16/2015 12:00:00 AM",
+    "Value": 1305805,
+    "ExpectedValue": 1507327.30495976,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/17/2015 12:00:00 AM",
+    "Value": 1288294.295,
+    "ExpectedValue": 1452256.42423683,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/18/2015 12:00:00 AM",
+    "Value": 1627187,
+    "ExpectedValue": 1466434.48587588,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/19/2015 12:00:00 AM",
+    "Value": 1625617.959,
+    "ExpectedValue": 1363246.32798476,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/20/2015 12:00:00 AM",
+    "Value": 1911402.233,
+    "ExpectedValue": 1656921.27444742,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/21/2015 12:00:00 AM",
+    "Value": 1834265.31,
+    "ExpectedValue": 1563588.53895852,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/22/2015 12:00:00 AM",
+    "Value": 1667965,
+    "ExpectedValue": 1553977.64633136,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/23/2015 12:00:00 AM",
+    "Value": 1798187.481,
+    "ExpectedValue": 1783627.28338201,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/24/2015 12:00:00 AM",
+    "Value": 1808474.288,
+    "ExpectedValue": 1801194.36416933,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/25/2015 12:00:00 AM",
+    "Value": 1959488,
+    "ExpectedValue": 1697557.74460857,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/26/2015 12:00:00 AM",
+    "Value": 1810820.152,
+    "ExpectedValue": 1622880.02714264,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/27/2015 12:00:00 AM",
+    "Value": 1919806.819,
+    "ExpectedValue": 1549840.65796383,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/28/2015 12:00:00 AM",
+    "Value": 2063944.759,
+    "ExpectedValue": 1689275.86242829,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/29/2015 12:00:00 AM",
+    "Value": 1714574,
+    "ExpectedValue": 1819303.41082444,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/30/2015 12:00:00 AM",
+    "Value": 2143013.163,
+    "ExpectedValue": 2258389.63914636,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/31/2015 12:00:00 AM",
+    "Value": 3910996.513,
+    "ExpectedValue": 3909457.11057365,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/1/2015 12:00:00 AM",
+    "Value": 332074,
+    "ExpectedValue": 259112.118750089,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/2/2015 12:00:00 AM",
+    "Value": 790397,
+    "ExpectedValue": 459368.791250122,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/3/2015 12:00:00 AM",
+    "Value": 1178964,
+    "ExpectedValue": 189321.614967668,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/4/2015 12:00:00 AM",
+    "Value": 852604.1,
+    "ExpectedValue": 1160006.80635802,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/5/2015 12:00:00 AM",
+    "Value": 351717,
+    "ExpectedValue": 464314.647684381,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/6/2015 12:00:00 AM",
+    "Value": 1048698,
+    "ExpectedValue": 867314.208455959,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/7/2015 12:00:00 AM",
+    "Value": 1262703.325,
+    "ExpectedValue": 1163467.77554233,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/8/2015 12:00:00 AM",
+    "Value": 1675955.09,
+    "ExpectedValue": 1557618.50801604,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/9/2015 12:00:00 AM",
+    "Value": 1766420,
+    "ExpectedValue": 1609312.71388415,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/10/2015 12:00:00 AM",
+    "Value": 1688117.155,
+    "ExpectedValue": 1757982.56938512,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/11/2015 12:00:00 AM",
+    "Value": 1749476,
+    "ExpectedValue": 1789622.56657854,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/12/2015 12:00:00 AM",
+    "Value": 1351119,
+    "ExpectedValue": 1448262.23867315,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/13/2015 12:00:00 AM",
+    "Value": 1383547,
+    "ExpectedValue": 1521804.40426093,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/14/2015 12:00:00 AM",
+    "Value": 1651235.171,
+    "ExpectedValue": 1582416.71330788,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/15/2015 12:00:00 AM",
+    "Value": 1741828.592,
+    "ExpectedValue": 1556690.45532186,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/16/2015 12:00:00 AM",
+    "Value": 1872755.915,
+    "ExpectedValue": 1531929.28556229,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/17/2015 12:00:00 AM",
+    "Value": 1877118.181,
+    "ExpectedValue": 1558972.65352308,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/18/2015 12:00:00 AM",
+    "Value": 1950017.815,
+    "ExpectedValue": 1594602.69929253,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/19/2015 12:00:00 AM",
+    "Value": 1665098,
+    "ExpectedValue": 1647369.03145436,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/20/2015 12:00:00 AM",
+    "Value": 1899393,
+    "ExpectedValue": 2201930.63175847,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/21/2015 12:00:00 AM",
+    "Value": 1491149.109,
+    "ExpectedValue": 1591608.41791343,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/22/2015 12:00:00 AM",
+    "Value": 1850038.573,
+    "ExpectedValue": 1737107.90878746,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/23/2015 12:00:00 AM",
+    "Value": 1743105.762,
+    "ExpectedValue": 1629896.10128416,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/24/2015 12:00:00 AM",
+    "Value": 2064379.219,
+    "ExpectedValue": 1774767.83997524,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/25/2015 12:00:00 AM",
+    "Value": 1836305.73,
+    "ExpectedValue": 1867146.60730695,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/26/2015 12:00:00 AM",
+    "Value": 1534096,
+    "ExpectedValue": 1651098.7821597,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/27/2015 12:00:00 AM",
+    "Value": 2143246,
+    "ExpectedValue": 2101437.12283097,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/28/2015 12:00:00 AM",
+    "Value": 1961875.86,
+    "ExpectedValue": 2067199.00014024,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/29/2015 12:00:00 AM",
+    "Value": 2413833.829,
+    "ExpectedValue": 2429940.77809419,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/30/2015 12:00:00 AM",
+    "Value": 2751650.241,
+    "ExpectedValue": 2750138.57564206,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/1/2015 12:00:00 AM",
+    "Value": 154546,
+    "ExpectedValue": 93288.1508895484,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/2/2015 12:00:00 AM",
+    "Value": 167991,
+    "ExpectedValue": 103808.514491792,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/3/2015 12:00:00 AM",
+    "Value": 436577.333,
+    "ExpectedValue": 294210.137070835,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/4/2015 12:00:00 AM",
+    "Value": 905503,
+    "ExpectedValue": 948472.731295871,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/5/2015 12:00:00 AM",
+    "Value": 1260609,
+    "ExpectedValue": 1073412.55855278,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/6/2015 12:00:00 AM",
+    "Value": 1247110.393,
+    "ExpectedValue": 947235.835336698,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/7/2015 12:00:00 AM",
+    "Value": 1261359,
+    "ExpectedValue": 856522.37414473,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/8/2015 12:00:00 AM",
+    "Value": 1248331.588,
+    "ExpectedValue": 1137077.34599665,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/9/2015 12:00:00 AM",
+    "Value": 1210462,
+    "ExpectedValue": 1013441.80647091,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/10/2015 12:00:00 AM",
+    "Value": 891453,
+    "ExpectedValue": 927091.574930955,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/11/2015 12:00:00 AM",
+    "Value": 1107890.382,
+    "ExpectedValue": 1094977.72632973,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/12/2015 12:00:00 AM",
+    "Value": 1215898.134,
+    "ExpectedValue": 1149613.34386448,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/13/2015 12:00:00 AM",
+    "Value": 1251845.916,
+    "ExpectedValue": 1007195.77376251,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/14/2015 12:00:00 AM",
+    "Value": 1343640,
+    "ExpectedValue": 1067298.00504779,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/15/2015 12:00:00 AM",
+    "Value": 1337783.333,
+    "ExpectedValue": 1103217.1835615,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/16/2015 12:00:00 AM",
+    "Value": 1231506,
+    "ExpectedValue": 1086219.43798744,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/17/2015 12:00:00 AM",
+    "Value": 1116305,
+    "ExpectedValue": 1135749.08340526,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/18/2015 12:00:00 AM",
+    "Value": 1105751.017,
+    "ExpectedValue": 1108114.71101827,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/19/2015 12:00:00 AM",
+    "Value": 1440239,
+    "ExpectedValue": 1255636.32626673,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/20/2015 12:00:00 AM",
+    "Value": 1470821.438,
+    "ExpectedValue": 1122642.9034992,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/21/2015 12:00:00 AM",
+    "Value": 1518629,
+    "ExpectedValue": 1131620.27185649,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/22/2015 12:00:00 AM",
+    "Value": 1490232.859,
+    "ExpectedValue": 980385.967284142,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/23/2015 12:00:00 AM",
+    "Value": 1314058,
+    "ExpectedValue": 1083537.5225261,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/24/2015 12:00:00 AM",
+    "Value": 1201725,
+    "ExpectedValue": 1189562.23866219,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/25/2015 12:00:00 AM",
+    "Value": 1355448.067,
+    "ExpectedValue": 1239711.02328293,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/26/2015 12:00:00 AM",
+    "Value": 1527458.823,
+    "ExpectedValue": 1301103.98268868,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/27/2015 12:00:00 AM",
+    "Value": 1707632.932,
+    "ExpectedValue": 1243526.68318835,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/28/2015 12:00:00 AM",
+    "Value": 1798271.666,
+    "ExpectedValue": 1518423.34950059,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/29/2015 12:00:00 AM",
+    "Value": 2181608.872,
+    "ExpectedValue": 1198721.85592373,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/30/2015 12:00:00 AM",
+    "Value": 2746107.689,
+    "ExpectedValue": 1273274.85322153,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/31/2015 12:00:00 AM",
+    "Value": 1815960,
+    "ExpectedValue": 3638526.11211242,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "6/1/2015 12:00:00 AM",
+    "Value": 154059,
+    "ExpectedValue": 200559.05832811,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/2/2015 12:00:00 AM",
+    "Value": 494562,
+    "ExpectedValue": 443257.353041995,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/3/2015 12:00:00 AM",
+    "Value": 772534,
+    "ExpectedValue": 784261.818446019,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/4/2015 12:00:00 AM",
+    "Value": 899334.973,
+    "ExpectedValue": 898631.523304271,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/5/2015 12:00:00 AM",
+    "Value": 964170,
+    "ExpectedValue": 785915.018399087,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/6/2015 12:00:00 AM",
+    "Value": 883760.701,
+    "ExpectedValue": 802476.424074697,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/7/2015 12:00:00 AM",
+    "Value": 745763,
+    "ExpectedValue": 812758.695679616,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/8/2015 12:00:00 AM",
+    "Value": 889086.361,
+    "ExpectedValue": 733737.131290454,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/9/2015 12:00:00 AM",
+    "Value": 1104799.128,
+    "ExpectedValue": 1248140.90782493,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/10/2015 12:00:00 AM",
+    "Value": 1155867,
+    "ExpectedValue": 1050157.94286305,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/11/2015 12:00:00 AM",
+    "Value": 1252609.114,
+    "ExpectedValue": 1260015.26568479,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/12/2015 12:00:00 AM",
+    "Value": 1297650.704,
+    "ExpectedValue": 1296099.32338793,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/13/2015 12:00:00 AM",
+    "Value": 1346714,
+    "ExpectedValue": 1328363.99554915,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/14/2015 12:00:00 AM",
+    "Value": 1060971,
+    "ExpectedValue": 1221850.03652603,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/15/2015 12:00:00 AM",
+    "Value": 1128224.363,
+    "ExpectedValue": 1259302.72235468,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/16/2015 12:00:00 AM",
+    "Value": 1357370.896,
+    "ExpectedValue": 1236370.81265757,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/17/2015 12:00:00 AM",
+    "Value": 1505301.137,
+    "ExpectedValue": 1440284.3876612,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/18/2015 12:00:00 AM",
+    "Value": 1540403.034,
+    "ExpectedValue": 1347467.36622877,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/19/2015 12:00:00 AM",
+    "Value": 1416028,
+    "ExpectedValue": 1278265.11699702,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/20/2015 12:00:00 AM",
+    "Value": 834003,
+    "ExpectedValue": 1223787.52416387,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/21/2015 12:00:00 AM",
+    "Value": 1159964,
+    "ExpectedValue": 1179247.32467848,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/22/2015 12:00:00 AM",
+    "Value": 1553211,
+    "ExpectedValue": 1402577.74918837,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/23/2015 12:00:00 AM",
+    "Value": 1739096.634,
+    "ExpectedValue": 1500357.78985116,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/24/2015 12:00:00 AM",
+    "Value": 1923191.1,
+    "ExpectedValue": 1479961.07058903,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/25/2015 12:00:00 AM",
+    "Value": 2002747.5,
+    "ExpectedValue": 1768752.22424824,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/26/2015 12:00:00 AM",
+    "Value": 2138727.419,
+    "ExpectedValue": 1926680.55614769,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/27/2015 12:00:00 AM",
+    "Value": 2101652.397,
+    "ExpectedValue": 1614676.54360391,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/28/2015 12:00:00 AM",
+    "Value": 1965241,
+    "ExpectedValue": 1771500.33542294,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/29/2015 12:00:00 AM",
+    "Value": 2328628.6,
+    "ExpectedValue": 2321910.91554201,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/30/2015 12:00:00 AM",
+    "Value": 5390707.709,
+    "ExpectedValue": 3639081.31420633,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "7/1/2015 12:00:00 AM",
+    "Value": 198549,
+    "ExpectedValue": 427298.951476555,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/2/2015 12:00:00 AM",
+    "Value": 635965,
+    "ExpectedValue": 777190.772221201,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/3/2015 12:00:00 AM",
+    "Value": 903214.667,
+    "ExpectedValue": 858018.252811256,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/4/2015 12:00:00 AM",
+    "Value": 1327057.207,
+    "ExpectedValue": 1163373.02647439,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/5/2015 12:00:00 AM",
+    "Value": 826779,
+    "ExpectedValue": 1059750.45030583,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/6/2015 12:00:00 AM",
+    "Value": 986393,
+    "ExpectedValue": 1147742.42586357,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/7/2015 12:00:00 AM",
+    "Value": 1330259.035,
+    "ExpectedValue": 1385917.33130563,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/8/2015 12:00:00 AM",
+    "Value": 1417643,
+    "ExpectedValue": 1161092.70292037,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/9/2015 12:00:00 AM",
+    "Value": 1364529.5,
+    "ExpectedValue": 1433873.41972785,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/10/2015 12:00:00 AM",
+    "Value": 1326140,
+    "ExpectedValue": 1372809.32528857,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/11/2015 12:00:00 AM",
+    "Value": 1523362.5,
+    "ExpectedValue": 1504330.35808751,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/12/2015 12:00:00 AM",
+    "Value": 978795,
+    "ExpectedValue": 1743936.54007963,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "7/13/2015 12:00:00 AM",
+    "Value": 1268540.466,
+    "ExpectedValue": 1736429.84828727,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/14/2015 12:00:00 AM",
+    "Value": 1685510.109,
+    "ExpectedValue": 1723122.92613321,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/15/2015 12:00:00 AM",
+    "Value": 1692657.778,
+    "ExpectedValue": 1600886.04537199,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/16/2015 12:00:00 AM",
+    "Value": 1772621.729,
+    "ExpectedValue": 1682682.39302254,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/17/2015 12:00:00 AM",
+    "Value": 1748210.089,
+    "ExpectedValue": 1843658.1343375,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/18/2015 12:00:00 AM",
+    "Value": 1710813.966,
+    "ExpectedValue": 1784467.42271,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/19/2015 12:00:00 AM",
+    "Value": 1283424,
+    "ExpectedValue": 1751429.84644249,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/20/2015 12:00:00 AM",
+    "Value": 1838778.869,
+    "ExpectedValue": 1903063.92742487,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/21/2015 12:00:00 AM",
+    "Value": 1556768.827,
+    "ExpectedValue": 1805617.57267769,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/22/2015 12:00:00 AM",
+    "Value": 1800704,
+    "ExpectedValue": 1805069.83526258,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/23/2015 12:00:00 AM",
+    "Value": 1573925.666,
+    "ExpectedValue": 1840848.80412903,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/24/2015 12:00:00 AM",
+    "Value": 1625999.495,
+    "ExpectedValue": 1936675.59112246,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/25/2015 12:00:00 AM",
+    "Value": 1637684.286,
+    "ExpectedValue": 1801268.13225591,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/26/2015 12:00:00 AM",
+    "Value": 1240516,
+    "ExpectedValue": 2188600.95383849,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "7/27/2015 12:00:00 AM",
+    "Value": 1625218.855,
+    "ExpectedValue": 2477995.17068347,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "7/28/2015 12:00:00 AM",
+    "Value": 1975513,
+    "ExpectedValue": 2126000.2657854,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/29/2015 12:00:00 AM",
+    "Value": 2128985.369,
+    "ExpectedValue": 2206898.09081972,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/30/2015 12:00:00 AM",
+    "Value": 2266016.881,
+    "ExpectedValue": 2451545.65883776,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/31/2015 12:00:00 AM",
+    "Value": 4987233.522,
+    "ExpectedValue": 2589114.94421077,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/1/2015 12:00:00 AM",
+    "Value": 399190,
+    "ExpectedValue": 677172.39518726,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/2/2015 12:00:00 AM",
+    "Value": 348061,
+    "ExpectedValue": 1250318.66840543,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/3/2015 12:00:00 AM",
+    "Value": 793828,
+    "ExpectedValue": 1511647.5184807,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/4/2015 12:00:00 AM",
+    "Value": 1315817,
+    "ExpectedValue": 1510120.9901545,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/5/2015 12:00:00 AM",
+    "Value": 1396248,
+    "ExpectedValue": 1454151.06911145,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/6/2015 12:00:00 AM",
+    "Value": 1405440.46,
+    "ExpectedValue": 1581232.53060563,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/7/2015 12:00:00 AM",
+    "Value": 1576355.366,
+    "ExpectedValue": 1663309.37320196,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/8/2015 12:00:00 AM",
+    "Value": 1447216.407,
+    "ExpectedValue": 1562351.91758971,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/9/2015 12:00:00 AM",
+    "Value": 1041729,
+    "ExpectedValue": 1821985.97660424,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/10/2015 12:00:00 AM",
+    "Value": 1310856,
+    "ExpectedValue": 1788985.06444131,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/11/2015 12:00:00 AM",
+    "Value": 1477301.999,
+    "ExpectedValue": 1641586.94067503,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/12/2015 12:00:00 AM",
+    "Value": 1493348,
+    "ExpectedValue": 1564537.94494521,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/13/2015 12:00:00 AM",
+    "Value": 1779417.458,
+    "ExpectedValue": 1768839.96262218,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/14/2015 12:00:00 AM",
+    "Value": 1463319.916,
+    "ExpectedValue": 1657586.10886674,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/15/2015 12:00:00 AM",
+    "Value": 1444626,
+    "ExpectedValue": 1799609.69646128,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/16/2015 12:00:00 AM",
+    "Value": 1175629,
+    "ExpectedValue": 1924160.90257169,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/17/2015 12:00:00 AM",
+    "Value": 1333891.818,
+    "ExpectedValue": 1982274.25156223,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/18/2015 12:00:00 AM",
+    "Value": 1355843.9,
+    "ExpectedValue": 1759980.58753669,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/19/2015 12:00:00 AM",
+    "Value": 1381078.035,
+    "ExpectedValue": 1483174.95269449,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/20/2015 12:00:00 AM",
+    "Value": 1504084,
+    "ExpectedValue": 1683188.79826156,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/21/2015 12:00:00 AM",
+    "Value": 1462971.078,
+    "ExpectedValue": 1647730.58038031,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/22/2015 12:00:00 AM",
+    "Value": 1520708.303,
+    "ExpectedValue": 1751242.6122729,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/23/2015 12:00:00 AM",
+    "Value": 1086608,
+    "ExpectedValue": 2130823.28291864,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/24/2015 12:00:00 AM",
+    "Value": 1270788.582,
+    "ExpectedValue": 2061182.41766361,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/25/2015 12:00:00 AM",
+    "Value": 1806746.74,
+    "ExpectedValue": 1842760.48794718,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/26/2015 12:00:00 AM",
+    "Value": 1543232.458,
+    "ExpectedValue": 1766622.76909237,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/27/2015 12:00:00 AM",
+    "Value": 1701988.487,
+    "ExpectedValue": 1735782.70833595,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/28/2015 12:00:00 AM",
+    "Value": 1722323,
+    "ExpectedValue": 1712417.54317552,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/29/2015 12:00:00 AM",
+    "Value": 1825175.413,
+    "ExpectedValue": 1793468.11470532,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/30/2015 12:00:00 AM",
+    "Value": 1718576,
+    "ExpectedValue": 1848949.38583515,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/31/2015 12:00:00 AM",
+    "Value": 5422741.948,
+    "ExpectedValue": 3504893.83475168,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/1/2015 12:00:00 AM",
+    "Value": 157121.175,
+    "ExpectedValue": 983906.704898827,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/2/2015 12:00:00 AM",
+    "Value": 246985.825,
+    "ExpectedValue": 770468.088283145,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/3/2015 12:00:00 AM",
+    "Value": 86591,
+    "ExpectedValue": 926267.020989006,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/4/2015 12:00:00 AM",
+    "Value": 430985,
+    "ExpectedValue": 884805.379521568,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/5/2015 12:00:00 AM",
+    "Value": 543414,
+    "ExpectedValue": 834220.048562502,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/6/2015 12:00:00 AM",
+    "Value": 798069,
+    "ExpectedValue": 1036081.60607294,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/7/2015 12:00:00 AM",
+    "Value": 896895,
+    "ExpectedValue": 1121517.80056919,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/8/2015 12:00:00 AM",
+    "Value": 1105656.006,
+    "ExpectedValue": 1220985.65834721,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/9/2015 12:00:00 AM",
+    "Value": 1117691.216,
+    "ExpectedValue": 1165051.39211741,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/10/2015 12:00:00 AM",
+    "Value": 1162367.173,
+    "ExpectedValue": 1186807.11976426,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/11/2015 12:00:00 AM",
+    "Value": 1100081.001,
+    "ExpectedValue": 1153084.8332452,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/12/2015 12:00:00 AM",
+    "Value": 1171945.466,
+    "ExpectedValue": 1215895.7548818,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/13/2015 12:00:00 AM",
+    "Value": 766575,
+    "ExpectedValue": 1565119.78614655,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/14/2015 12:00:00 AM",
+    "Value": 1068438,
+    "ExpectedValue": 1200973.85293554,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/15/2015 12:00:00 AM",
+    "Value": 1250186,
+    "ExpectedValue": 1200458.20725737,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/16/2015 12:00:00 AM",
+    "Value": 1219444,
+    "ExpectedValue": 1115933.38077407,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/17/2015 12:00:00 AM",
+    "Value": 1166826.933,
+    "ExpectedValue": 1077705.87784008,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/18/2015 12:00:00 AM",
+    "Value": 1167749.78,
+    "ExpectedValue": 1166729.63783959,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/19/2015 12:00:00 AM",
+    "Value": 1160456.653,
+    "ExpectedValue": 1279850.38496589,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/20/2015 12:00:00 AM",
+    "Value": 890787,
+    "ExpectedValue": 1264720.58615311,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/21/2015 12:00:00 AM",
+    "Value": 913580.96,
+    "ExpectedValue": 1077549.94628622,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/22/2015 12:00:00 AM",
+    "Value": 1126183.958,
+    "ExpectedValue": 1245235.46457447,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/23/2015 12:00:00 AM",
+    "Value": 1245604.042,
+    "ExpectedValue": 1276090.69883782,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/24/2015 12:00:00 AM",
+    "Value": 1205772,
+    "ExpectedValue": 1337262.75274386,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/25/2015 12:00:00 AM",
+    "Value": 1243246.49,
+    "ExpectedValue": 1271457.7765601,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/26/2015 12:00:00 AM",
+    "Value": 1038013.96,
+    "ExpectedValue": 1314201.09358499,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/27/2015 12:00:00 AM",
+    "Value": 326791,
+    "ExpectedValue": 1624973.23755803,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/28/2015 12:00:00 AM",
+    "Value": 1745063,
+    "ExpectedValue": 1974316.88672903,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/29/2015 12:00:00 AM",
+    "Value": 1753766.435,
+    "ExpectedValue": 1679877.21914337,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/30/2015 12:00:00 AM",
+    "Value": 4617668.614,
+    "ExpectedValue": 2277653.59738196,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "10/1/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": -51837.1538263694,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/2/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": -41664.0571419322,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/3/2015 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 35935.6150707906,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/4/2015 12:00:00 AM",
+    "Value": 26443,
+    "ExpectedValue": 158803.7815459,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/5/2015 12:00:00 AM",
+    "Value": 28994,
+    "ExpectedValue": 245646.019037655,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/6/2015 12:00:00 AM",
+    "Value": 274494.665,
+    "ExpectedValue": 505144.641801598,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/7/2015 12:00:00 AM",
+    "Value": 668965,
+    "ExpectedValue": 803565.386997483,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/8/2015 12:00:00 AM",
+    "Value": 831300.905,
+    "ExpectedValue": 1118719.10635335,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/9/2015 12:00:00 AM",
+    "Value": 845991,
+    "ExpectedValue": 936127.795307275,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/10/2015 12:00:00 AM",
+    "Value": 878255,
+    "ExpectedValue": 991880.050749053,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/11/2015 12:00:00 AM",
+    "Value": 528790,
+    "ExpectedValue": 920285.871656834,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/12/2015 12:00:00 AM",
+    "Value": 617551.491,
+    "ExpectedValue": 915642.791411061,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/13/2015 12:00:00 AM",
+    "Value": 844516,
+    "ExpectedValue": 976766.893265449,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/14/2015 12:00:00 AM",
+    "Value": 890262,
+    "ExpectedValue": 862876.02123977,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/15/2015 12:00:00 AM",
+    "Value": 876720,
+    "ExpectedValue": 833559.054724971,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/16/2015 12:00:00 AM",
+    "Value": 863976,
+    "ExpectedValue": 840144.043230254,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/17/2015 12:00:00 AM",
+    "Value": 871113.645,
+    "ExpectedValue": 771416.5814797,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/18/2015 12:00:00 AM",
+    "Value": 628590,
+    "ExpectedValue": 723134.175817634,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/19/2015 12:00:00 AM",
+    "Value": 781545.472,
+    "ExpectedValue": 878627.081233073,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/20/2015 12:00:00 AM",
+    "Value": 1041623,
+    "ExpectedValue": 833502.793893894,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/21/2015 12:00:00 AM",
+    "Value": 935862.128,
+    "ExpectedValue": 762814.183833834,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/22/2015 12:00:00 AM",
+    "Value": 1052266.222,
+    "ExpectedValue": 898948.264363391,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/23/2015 12:00:00 AM",
+    "Value": 1024426.688,
+    "ExpectedValue": 840986.938159312,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/24/2015 12:00:00 AM",
+    "Value": 1229633,
+    "ExpectedValue": 947926.59646752,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/25/2015 12:00:00 AM",
+    "Value": 823423,
+    "ExpectedValue": 881789.781277926,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/26/2015 12:00:00 AM",
+    "Value": 1002172.966,
+    "ExpectedValue": 995642.75391184,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/27/2015 12:00:00 AM",
+    "Value": 1282303.333,
+    "ExpectedValue": 1122614.18637772,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/28/2015 12:00:00 AM",
+    "Value": 1379516.384,
+    "ExpectedValue": 1240321.02457708,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/29/2015 12:00:00 AM",
+    "Value": 1459781.418,
+    "ExpectedValue": 1177614.65592118,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/30/2015 12:00:00 AM",
+    "Value": 1810478,
+    "ExpectedValue": 711252.783150176,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "10/31/2015 12:00:00 AM",
+    "Value": 2903618.271,
+    "ExpectedValue": 1316253.8264742,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "11/1/2015 12:00:00 AM",
+    "Value": 4169,
+    "ExpectedValue": 52811.4739792091,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/2/2015 12:00:00 AM",
+    "Value": 24308,
+    "ExpectedValue": 78819.8574869904,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/3/2015 12:00:00 AM",
+    "Value": 268664,
+    "ExpectedValue": 340295.556554979,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/4/2015 12:00:00 AM",
+    "Value": 447487,
+    "ExpectedValue": 499446.825808904,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/5/2015 12:00:00 AM",
+    "Value": 495056.967,
+    "ExpectedValue": 376806.112462616,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/6/2015 12:00:00 AM",
+    "Value": 496237.372,
+    "ExpectedValue": 498150.51073177,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/7/2015 12:00:00 AM",
+    "Value": 285701,
+    "ExpectedValue": 398097.930866468,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/8/2015 12:00:00 AM",
+    "Value": 283369,
+    "ExpectedValue": 538151.998628829,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/9/2015 12:00:00 AM",
+    "Value": 451794.065,
+    "ExpectedValue": 614042.824123781,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/10/2015 12:00:00 AM",
+    "Value": 735376.372,
+    "ExpectedValue": 566628.082313078,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/11/2015 12:00:00 AM",
+    "Value": 739554,
+    "ExpectedValue": 505312.38372919,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/12/2015 12:00:00 AM",
+    "Value": 701088,
+    "ExpectedValue": 504065.877214526,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/13/2015 12:00:00 AM",
+    "Value": 631870,
+    "ExpectedValue": 534752.317093072,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/14/2015 12:00:00 AM",
+    "Value": 470187,
+    "ExpectedValue": 510285.589767275,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/15/2015 12:00:00 AM",
+    "Value": 528599,
+    "ExpectedValue": 592842.771929456,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/16/2015 12:00:00 AM",
+    "Value": 572204,
+    "ExpectedValue": 534208.234112982,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/17/2015 12:00:00 AM",
+    "Value": 679458,
+    "ExpectedValue": 623666.561797633,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/18/2015 12:00:00 AM",
+    "Value": 852333,
+    "ExpectedValue": 621647.318837557,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/19/2015 12:00:00 AM",
+    "Value": 828901,
+    "ExpectedValue": 710394.829726236,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/20/2015 12:00:00 AM",
+    "Value": 862273,
+    "ExpectedValue": 632622.197467919,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/21/2015 12:00:00 AM",
+    "Value": 535998,
+    "ExpectedValue": 571617.061715546,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/22/2015 12:00:00 AM",
+    "Value": 509100,
+    "ExpectedValue": 579441.517338149,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/23/2015 12:00:00 AM",
+    "Value": 697104.33,
+    "ExpectedValue": 545146.622883882,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/24/2015 12:00:00 AM",
+    "Value": 911322,
+    "ExpectedValue": 616209.881927785,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/25/2015 12:00:00 AM",
+    "Value": 1053076.619,
+    "ExpectedValue": 725757.883641593,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/26/2015 12:00:00 AM",
+    "Value": 997869.957,
+    "ExpectedValue": 610706.81114181,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/27/2015 12:00:00 AM",
+    "Value": 1093055.705,
+    "ExpectedValue": 607016.321788523,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/28/2015 12:00:00 AM",
+    "Value": 864668,
+    "ExpectedValue": 643042.828092434,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/29/2015 12:00:00 AM",
+    "Value": 726971,
+    "ExpectedValue": 677924.27937393,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/30/2015 12:00:00 AM",
+    "Value": 1128843.289,
+    "ExpectedValue": 1053134.84677416,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/1/2015 12:00:00 AM",
+    "Value": 104312,
+    "ExpectedValue": 134532.881032728,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/2/2015 12:00:00 AM",
+    "Value": 133683,
+    "ExpectedValue": 72092.8547889123,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/3/2015 12:00:00 AM",
+    "Value": 273524,
+    "ExpectedValue": 113284.623941942,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/4/2015 12:00:00 AM",
+    "Value": 256358,
+    "ExpectedValue": 166730.464635833,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/5/2015 12:00:00 AM",
+    "Value": 240043,
+    "ExpectedValue": 281769.470056314,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/6/2015 12:00:00 AM",
+    "Value": 148985,
+    "ExpectedValue": 201635.586763954,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/7/2015 12:00:00 AM",
+    "Value": 259000.958,
+    "ExpectedValue": 311290.745687602,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/8/2015 12:00:00 AM",
+    "Value": 420312.1,
+    "ExpectedValue": 330116.885029214,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/9/2015 12:00:00 AM",
+    "Value": 406298.3,
+    "ExpectedValue": 257412.978913295,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/10/2015 12:00:00 AM",
+    "Value": 403517.219,
+    "ExpectedValue": 264767.474698286,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/11/2015 12:00:00 AM",
+    "Value": 371219,
+    "ExpectedValue": 284580.579109858,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/12/2015 12:00:00 AM",
+    "Value": 231029,
+    "ExpectedValue": 313551.672720413,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/13/2015 12:00:00 AM",
+    "Value": 211281,
+    "ExpectedValue": 316447.370527147,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/14/2015 12:00:00 AM",
+    "Value": 355194.323,
+    "ExpectedValue": 411944.601424283,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/15/2015 12:00:00 AM",
+    "Value": 467509,
+    "ExpectedValue": 386857.316953418,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/16/2015 12:00:00 AM",
+    "Value": 449623,
+    "ExpectedValue": 310589.868510487,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/17/2015 12:00:00 AM",
+    "Value": 473603.294,
+    "ExpectedValue": 272366.367108916,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/18/2015 12:00:00 AM",
+    "Value": 510283.9,
+    "ExpectedValue": 364456.129862664,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/19/2015 12:00:00 AM",
+    "Value": 277975,
+    "ExpectedValue": 334975.365395142,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/20/2015 12:00:00 AM",
+    "Value": 212889,
+    "ExpectedValue": 372561.679022228,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/21/2015 12:00:00 AM",
+    "Value": 366617.964,
+    "ExpectedValue": 390606.574826995,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/22/2015 12:00:00 AM",
+    "Value": 438730.34,
+    "ExpectedValue": 369709.594355964,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/23/2015 12:00:00 AM",
+    "Value": 456741.441,
+    "ExpectedValue": 335837.330971256,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/24/2015 12:00:00 AM",
+    "Value": 468619,
+    "ExpectedValue": 326378.86260663,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/25/2015 12:00:00 AM",
+    "Value": 487587,
+    "ExpectedValue": 325061.815491053,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/26/2015 12:00:00 AM",
+    "Value": 199635,
+    "ExpectedValue": 295087.543665205,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/27/2015 12:00:00 AM",
+    "Value": 370267,
+    "ExpectedValue": 436760.759666756,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/28/2015 12:00:00 AM",
+    "Value": 536985.957,
+    "ExpectedValue": 420757.342398002,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/29/2015 12:00:00 AM",
+    "Value": 569437,
+    "ExpectedValue": 344720.039680531,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/30/2015 12:00:00 AM",
+    "Value": 508108.084,
+    "ExpectedValue": 273375.115538084,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/31/2015 12:00:00 AM",
+    "Value": 532831.466,
+    "ExpectedValue": 187231.675613639,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/1/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": -42038.2923372772,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/2/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": -2212.00988922757,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/3/2016 12:00:00 AM",
+    "Value": 1,
+    "ExpectedValue": 962.509250876727,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/4/2016 12:00:00 AM",
+    "Value": 50658,
+    "ExpectedValue": 100971.811712014,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/5/2016 12:00:00 AM",
+    "Value": 108084.933,
+    "ExpectedValue": 180942.662557758,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/6/2016 12:00:00 AM",
+    "Value": 140114,
+    "ExpectedValue": 236881.434886588,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/7/2016 12:00:00 AM",
+    "Value": 191017,
+    "ExpectedValue": 273439.292700136,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/8/2016 12:00:00 AM",
+    "Value": 314986,
+    "ExpectedValue": 249047.425311101,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/9/2016 12:00:00 AM",
+    "Value": 253078,
+    "ExpectedValue": 385036.358494733,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/10/2016 12:00:00 AM",
+    "Value": 196040,
+    "ExpectedValue": 435197.811778887,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/11/2016 12:00:00 AM",
+    "Value": 391582.501,
+    "ExpectedValue": 449071.212492662,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/12/2016 12:00:00 AM",
+    "Value": 620547.459,
+    "ExpectedValue": 669581.069953589,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/13/2016 12:00:00 AM",
+    "Value": 640132.5,
+    "ExpectedValue": 597367.413639197,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/14/2016 12:00:00 AM",
+    "Value": 597169.85,
+    "ExpectedValue": 578116.501986442,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/15/2016 12:00:00 AM",
+    "Value": 547830.534,
+    "ExpectedValue": 558923.024035675,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/16/2016 12:00:00 AM",
+    "Value": 335202,
+    "ExpectedValue": 552480.282625092,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/17/2016 12:00:00 AM",
+    "Value": 367542,
+    "ExpectedValue": 574861.207290331,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/18/2016 12:00:00 AM",
+    "Value": 567509.204,
+    "ExpectedValue": 564229.372984226,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/19/2016 12:00:00 AM",
+    "Value": 644534.129,
+    "ExpectedValue": 637099.513391279,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/20/2016 12:00:00 AM",
+    "Value": 704818.801,
+    "ExpectedValue": 699084.5807257,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/21/2016 12:00:00 AM",
+    "Value": 769622.121,
+    "ExpectedValue": 589869.739905732,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/22/2016 12:00:00 AM",
+    "Value": 706610.467,
+    "ExpectedValue": 658688.192055834,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/23/2016 12:00:00 AM",
+    "Value": 530028,
+    "ExpectedValue": 504761.750950908,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/24/2016 12:00:00 AM",
+    "Value": 460227,
+    "ExpectedValue": 480179.110930717,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/25/2016 12:00:00 AM",
+    "Value": 683231,
+    "ExpectedValue": 264610.431949545,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/26/2016 12:00:00 AM",
+    "Value": 759520.54,
+    "ExpectedValue": 607752.038953131,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/27/2016 12:00:00 AM",
+    "Value": 800166.712,
+    "ExpectedValue": 743612.652829376,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/28/2016 12:00:00 AM",
+    "Value": 934970.215,
+    "ExpectedValue": 814153.137865256,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/29/2016 12:00:00 AM",
+    "Value": 1130006.861,
+    "ExpectedValue": 943276.325138325,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/30/2016 12:00:00 AM",
+    "Value": 881449.501,
+    "ExpectedValue": 897966.151782253,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/31/2016 12:00:00 AM",
+    "Value": 1161251.39,
+    "ExpectedValue": 1251901.61457776,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/1/2016 12:00:00 AM",
+    "Value": 26486,
+    "ExpectedValue": -55367.2774931954,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/2/2016 12:00:00 AM",
+    "Value": 93609,
+    "ExpectedValue": 2711.65156537946,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/3/2016 12:00:00 AM",
+    "Value": 154117,
+    "ExpectedValue": 133356.94507872,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/4/2016 12:00:00 AM",
+    "Value": 180516,
+    "ExpectedValue": 261504.489659372,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/5/2016 12:00:00 AM",
+    "Value": 208007,
+    "ExpectedValue": 305516.830891239,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/6/2016 12:00:00 AM",
+    "Value": 46677,
+    "ExpectedValue": 419584.665728696,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/7/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 425687.263497879,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/8/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 472831.066793325,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/9/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 468931.423011947,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/10/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 547048.944191019,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/11/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 598339.718768603,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/12/2016 12:00:00 AM",
+    "Value": 5000,
+    "ExpectedValue": 650614.645824633,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/13/2016 12:00:00 AM",
+    "Value": 41004,
+    "ExpectedValue": 642051.752692308,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/14/2016 12:00:00 AM",
+    "Value": 163898,
+    "ExpectedValue": 782689.476232184,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/15/2016 12:00:00 AM",
+    "Value": 216633,
+    "ExpectedValue": 470699.263233038,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/16/2016 12:00:00 AM",
+    "Value": 438222,
+    "ExpectedValue": 508199.641646707,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/17/2016 12:00:00 AM",
+    "Value": 458619,
+    "ExpectedValue": 262751.744688431,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/18/2016 12:00:00 AM",
+    "Value": 726839.5,
+    "ExpectedValue": 855805.514914178,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/19/2016 12:00:00 AM",
+    "Value": 774802,
+    "ExpectedValue": 877594.381817981,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/20/2016 12:00:00 AM",
+    "Value": 885403,
+    "ExpectedValue": 1046513.30708088,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/21/2016 12:00:00 AM",
+    "Value": 716935,
+    "ExpectedValue": 862237.768887099,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/22/2016 12:00:00 AM",
+    "Value": 642040.2,
+    "ExpectedValue": 840571.775038978,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/23/2016 12:00:00 AM",
+    "Value": 905075.198,
+    "ExpectedValue": 901761.966832561,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/24/2016 12:00:00 AM",
+    "Value": 954979.5,
+    "ExpectedValue": 833982.370012316,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/25/2016 12:00:00 AM",
+    "Value": 1068311.688,
+    "ExpectedValue": 397598.954179379,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/26/2016 12:00:00 AM",
+    "Value": 1232886.091,
+    "ExpectedValue": 311025.249722596,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/27/2016 12:00:00 AM",
+    "Value": 1356141.319,
+    "ExpectedValue": 445710.105505973,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/28/2016 12:00:00 AM",
+    "Value": 1393982,
+    "ExpectedValue": 1140446.09601065,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/29/2016 12:00:00 AM",
+    "Value": 2513246.916,
+    "ExpectedValue": 2648908.90446835,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/1/2016 12:00:00 AM",
+    "Value": 476088.761,
+    "ExpectedValue": 201951.806972571,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/2/2016 12:00:00 AM",
+    "Value": 1001673,
+    "ExpectedValue": 1143818.58558888,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/3/2016 12:00:00 AM",
+    "Value": 1096212,
+    "ExpectedValue": 795916.415608254,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/4/2016 12:00:00 AM",
+    "Value": 1128138.333,
+    "ExpectedValue": 1191930.72830441,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/5/2016 12:00:00 AM",
+    "Value": 1162066,
+    "ExpectedValue": 1117815.51936681,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/6/2016 12:00:00 AM",
+    "Value": 1116595,
+    "ExpectedValue": 1051401.86609309,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/7/2016 12:00:00 AM",
+    "Value": 1087703,
+    "ExpectedValue": 993010.190739951,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/8/2016 12:00:00 AM",
+    "Value": 1340117.722,
+    "ExpectedValue": 1510787.83139136,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/9/2016 12:00:00 AM",
+    "Value": 1348069,
+    "ExpectedValue": 1419090.80739426,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/10/2016 12:00:00 AM",
+    "Value": 1464390.1,
+    "ExpectedValue": 1452382.62676882,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/11/2016 12:00:00 AM",
+    "Value": 1594161,
+    "ExpectedValue": 1411058.72024543,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/12/2016 12:00:00 AM",
+    "Value": 1497629,
+    "ExpectedValue": 1278398.34845839,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/13/2016 12:00:00 AM",
+    "Value": 1441712,
+    "ExpectedValue": 1461230.05857579,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/14/2016 12:00:00 AM",
+    "Value": 1372226,
+    "ExpectedValue": 1504836.19771834,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/15/2016 12:00:00 AM",
+    "Value": 1467002.847,
+    "ExpectedValue": 1453800.49354747,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/16/2016 12:00:00 AM",
+    "Value": 1574495.51,
+    "ExpectedValue": 1446047.95393071,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/17/2016 12:00:00 AM",
+    "Value": 1474825.216,
+    "ExpectedValue": 1391554.83578511,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/18/2016 12:00:00 AM",
+    "Value": 1456735.909,
+    "ExpectedValue": 1406310.66000148,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/19/2016 12:00:00 AM",
+    "Value": 1269869,
+    "ExpectedValue": 1303700.26468769,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/20/2016 12:00:00 AM",
+    "Value": 1326929,
+    "ExpectedValue": 1597952.97372768,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/21/2016 12:00:00 AM",
+    "Value": 1158373,
+    "ExpectedValue": 1505198.0008161,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/22/2016 12:00:00 AM",
+    "Value": 1273217.1,
+    "ExpectedValue": 1496164.87076627,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/23/2016 12:00:00 AM",
+    "Value": 1354991.876,
+    "ExpectedValue": 1726392.27039424,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/24/2016 12:00:00 AM",
+    "Value": 1495640,
+    "ExpectedValue": 1744537.11375889,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/25/2016 12:00:00 AM",
+    "Value": 1580186,
+    "ExpectedValue": 1641501.93918593,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/26/2016 12:00:00 AM",
+    "Value": 1620227,
+    "ExpectedValue": 1567425.66670779,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/27/2016 12:00:00 AM",
+    "Value": 1495571,
+    "ExpectedValue": 1494987.74251677,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/28/2016 12:00:00 AM",
+    "Value": 1637962.867,
+    "ExpectedValue": 1635024.39196902,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/29/2016 12:00:00 AM",
+    "Value": 1874675.539,
+    "ExpectedValue": 1765653.38535297,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/30/2016 12:00:00 AM",
+    "Value": 2322668,
+    "ExpectedValue": 2205341.05866268,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/31/2016 12:00:00 AM",
+    "Value": 5957822,
+    "ExpectedValue": 3857009.97507776,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/1/2016 12:00:00 AM",
+    "Value": 136169,
+    "ExpectedValue": 207266.428242,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/2/2016 12:00:00 AM",
+    "Value": 202220.124,
+    "ExpectedValue": 408124.545729827,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/3/2016 12:00:00 AM",
+    "Value": 138341,
+    "ExpectedValue": 138678.814435167,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/4/2016 12:00:00 AM",
+    "Value": 79565,
+    "ExpectedValue": 1109965.45081332,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/5/2016 12:00:00 AM",
+    "Value": 529437.066,
+    "ExpectedValue": 414874.737127469,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/6/2016 12:00:00 AM",
+    "Value": 639449,
+    "ExpectedValue": 818475.742886841,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/7/2016 12:00:00 AM",
+    "Value": 835139,
+    "ExpectedValue": 1115230.75496101,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/8/2016 12:00:00 AM",
+    "Value": 797928,
+    "ExpectedValue": 1509982.93242251,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/9/2016 12:00:00 AM",
+    "Value": 979926,
+    "ExpectedValue": 1562278.58327842,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/10/2016 12:00:00 AM",
+    "Value": 858300,
+    "ExpectedValue": 1711549.88376718,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/11/2016 12:00:00 AM",
+    "Value": 969263,
+    "ExpectedValue": 1743791.32594839,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/12/2016 12:00:00 AM",
+    "Value": 1339920.167,
+    "ExpectedValue": 1403032.4430308,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/13/2016 12:00:00 AM",
+    "Value": 1380937,
+    "ExpectedValue": 1477176.05360637,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/14/2016 12:00:00 AM",
+    "Value": 1471495,
+    "ExpectedValue": 1538389.80764112,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/15/2016 12:00:00 AM",
+    "Value": 1499079,
+    "ExpectedValue": 1513264.99464289,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/16/2016 12:00:00 AM",
+    "Value": 1355378,
+    "ExpectedValue": 1489105.26987112,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/17/2016 12:00:00 AM",
+    "Value": 1478414,
+    "ExpectedValue": 1516750.0828197,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/18/2016 12:00:00 AM",
+    "Value": 1296272.425,
+    "ExpectedValue": 1552981.57357694,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/19/2016 12:00:00 AM",
+    "Value": 1599308.48,
+    "ExpectedValue": 1606349.35072656,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/20/2016 12:00:00 AM",
+    "Value": 2478273.223,
+    "ExpectedValue": 2161512.39601847,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/21/2016 12:00:00 AM",
+    "Value": 1663705.417,
+    "ExpectedValue": 1551791.62716122,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/22/2016 12:00:00 AM",
+    "Value": 1614833,
+    "ExpectedValue": 1697892.56302305,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/23/2016 12:00:00 AM",
+    "Value": 1706225,
+    "ExpectedValue": 1591282.20050754,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/24/2016 12:00:00 AM",
+    "Value": 1452059,
+    "ExpectedValue": 1736730.7219733,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/25/2016 12:00:00 AM",
+    "Value": 1862480.818,
+    "ExpectedValue": 1829686.27207969,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/26/2016 12:00:00 AM",
+    "Value": 1733261,
+    "ExpectedValue": 1614215.22970712,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/27/2016 12:00:00 AM",
+    "Value": 2025278.967,
+    "ExpectedValue": 2065130.35315307,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/28/2016 12:00:00 AM",
+    "Value": 2138808.9,
+    "ExpectedValue": 2031469.01323702,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/29/2016 12:00:00 AM",
+    "Value": 2412849.871,
+    "ExpectedValue": 2394787.57396565,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/30/2016 12:00:00 AM",
+    "Value": 5940294,
+    "ExpectedValue": 2715562.1542882,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/1/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 59288.5123103691,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/2/2016 12:00:00 AM",
+    "Value": 8176,
+    "ExpectedValue": 70385.6586872924,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/3/2016 12:00:00 AM",
+    "Value": 56449.042,
+    "ExpectedValue": 261364.064041015,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/4/2016 12:00:00 AM",
+    "Value": 243147,
+    "ExpectedValue": 916203.441040731,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/5/2016 12:00:00 AM",
+    "Value": 443089,
+    "ExpectedValue": 1041720.05107231,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/6/2016 12:00:00 AM",
+    "Value": 606094.649,
+    "ExpectedValue": 916120.110630918,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/7/2016 12:00:00 AM",
+    "Value": 550229,
+    "ExpectedValue": 825983.432213629,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/8/2016 12:00:00 AM",
+    "Value": 425119,
+    "ExpectedValue": 1107115.18684023,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/9/2016 12:00:00 AM",
+    "Value": 597972.635,
+    "ExpectedValue": 984056.430089165,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/10/2016 12:00:00 AM",
+    "Value": 752572.281,
+    "ExpectedValue": 898282.981323894,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/11/2016 12:00:00 AM",
+    "Value": 917701.6,
+    "ExpectedValue": 1066745.91549735,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/12/2016 12:00:00 AM",
+    "Value": 1045962,
+    "ExpectedValue": 1121958.31580678,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/13/2016 12:00:00 AM",
+    "Value": 916553,
+    "ExpectedValue": 980117.528479491,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/14/2016 12:00:00 AM",
+    "Value": 958956,
+    "ExpectedValue": 1040796.54253945,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/15/2016 12:00:00 AM",
+    "Value": 705002,
+    "ExpectedValue": 1077292.50382784,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/16/2016 12:00:00 AM",
+    "Value": 941410,
+    "ExpectedValue": 1060871.54102846,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/17/2016 12:00:00 AM",
+    "Value": 1044654.933,
+    "ExpectedValue": 1110977.96922096,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/18/2016 12:00:00 AM",
+    "Value": 1005216.876,
+    "ExpectedValue": 1083920.37960864,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/19/2016 12:00:00 AM",
+    "Value": 1102262.8,
+    "ExpectedValue": 1232018.77763179,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/20/2016 12:00:00 AM",
+    "Value": 1035216,
+    "ExpectedValue": 1099640.4269559,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/21/2016 12:00:00 AM",
+    "Value": 974208.36,
+    "ExpectedValue": 1109232.86740485,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/22/2016 12:00:00 AM",
+    "Value": 621057,
+    "ExpectedValue": 958613.634924141,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/23/2016 12:00:00 AM",
+    "Value": 839034.162,
+    "ExpectedValue": 1062380.26225775,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/24/2016 12:00:00 AM",
+    "Value": 1040971.047,
+    "ExpectedValue": 1169020.05048548,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/25/2016 12:00:00 AM",
+    "Value": 1192213.122,
+    "ExpectedValue": 1219783.90719787,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/26/2016 12:00:00 AM",
+    "Value": 1290703,
+    "ExpectedValue": 1281791.93869527,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/27/2016 12:00:00 AM",
+    "Value": 1255930.63,
+    "ExpectedValue": 1224829.71128658,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/28/2016 12:00:00 AM",
+    "Value": 1225665.98,
+    "ExpectedValue": 1500341.44969047,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/29/2016 12:00:00 AM",
+    "Value": 1181855,
+    "ExpectedValue": 1181255.02820526,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/30/2016 12:00:00 AM",
+    "Value": 1546259,
+    "ExpectedValue": 1256423.0975947,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/31/2016 12:00:00 AM",
+    "Value": 3978165.478,
+    "ExpectedValue": 3622289.42857725,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/1/2016 12:00:00 AM",
+    "Value": 233444.384,
+    "ExpectedValue": 184937.446884581,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/2/2016 12:00:00 AM",
+    "Value": 378953.45,
+    "ExpectedValue": 428250.813690112,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/3/2016 12:00:00 AM",
+    "Value": 502283.378,
+    "ExpectedValue": 769870.351185784,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/4/2016 12:00:00 AM",
+    "Value": 538545.084,
+    "ExpectedValue": 884855.128135682,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/5/2016 12:00:00 AM",
+    "Value": 518786,
+    "ExpectedValue": 772753.695322145,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/6/2016 12:00:00 AM",
+    "Value": 633936,
+    "ExpectedValue": 789930.173089403,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/7/2016 12:00:00 AM",
+    "Value": 849469.737,
+    "ExpectedValue": 800827.516785969,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/8/2016 12:00:00 AM",
+    "Value": 540444,
+    "ExpectedValue": 722421.024488454,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/9/2016 12:00:00 AM",
+    "Value": 29256,
+    "ExpectedValue": 1237439.87311457,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "6/10/2016 12:00:00 AM",
+    "Value": 831905,
+    "ExpectedValue": 1040071.98024434,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/11/2016 12:00:00 AM",
+    "Value": 1021109.001,
+    "ExpectedValue": 1250544.37515773,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/12/2016 12:00:00 AM",
+    "Value": 1021512.425,
+    "ExpectedValue": 1287243.50495252,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/13/2016 12:00:00 AM",
+    "Value": 1135330.077,
+    "ExpectedValue": 1320123.24920538,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/14/2016 12:00:00 AM",
+    "Value": 1206050,
+    "ExpectedValue": 1214224.36227391,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/15/2016 12:00:00 AM",
+    "Value": 1382715,
+    "ExpectedValue": 1252292.12019421,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/16/2016 12:00:00 AM",
+    "Value": 1193065.667,
+    "ExpectedValue": 1229975.28258875,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/17/2016 12:00:00 AM",
+    "Value": 1429969.867,
+    "ExpectedValue": 1434503.92968403,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/18/2016 12:00:00 AM",
+    "Value": 1377969,
+    "ExpectedValue": 1342301.98034324,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/19/2016 12:00:00 AM",
+    "Value": 1157900,
+    "ExpectedValue": 1273696.50159351,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/20/2016 12:00:00 AM",
+    "Value": 1412878.114,
+    "ExpectedValue": 1219815.67924238,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/21/2016 12:00:00 AM",
+    "Value": 1241111.292,
+    "ExpectedValue": 1175872.25023901,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/22/2016 12:00:00 AM",
+    "Value": 1392649.327,
+    "ExpectedValue": 1399799.44523093,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/23/2016 12:00:00 AM",
+    "Value": 1428056.856,
+    "ExpectedValue": 1498176.25637574,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/24/2016 12:00:00 AM",
+    "Value": 1495386,
+    "ExpectedValue": 1478376.30759562,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/25/2016 12:00:00 AM",
+    "Value": 1692805,
+    "ExpectedValue": 1767764.23173686,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/26/2016 12:00:00 AM",
+    "Value": 1300014,
+    "ExpectedValue": 1926289.33411833,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/27/2016 12:00:00 AM",
+    "Value": 1553324.933,
+    "ExpectedValue": 1614882.09205656,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/28/2016 12:00:00 AM",
+    "Value": 1548851.175,
+    "ExpectedValue": 1772302.65435761,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/29/2016 12:00:00 AM",
+    "Value": 2280273,
+    "ExpectedValue": 2323310.0049587,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/30/2016 12:00:00 AM",
+    "Value": 5414860.012,
+    "ExpectedValue": 3641077.17410504,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "7/1/2016 12:00:00 AM",
+    "Value": 494013,
+    "ExpectedValue": 429891.581857287,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/2/2016 12:00:00 AM",
+    "Value": 687391.5,
+    "ExpectedValue": 780380.173083954,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/3/2016 12:00:00 AM",
+    "Value": 493003,
+    "ExpectedValue": 861804.424156028,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/4/2016 12:00:00 AM",
+    "Value": 726340,
+    "ExpectedValue": 1167755.96830118,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/5/2016 12:00:00 AM",
+    "Value": 1039733,
+    "ExpectedValue": 1064730.16261465,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/6/2016 12:00:00 AM",
+    "Value": 1094720.708,
+    "ExpectedValue": 1153318.9086544,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/7/2016 12:00:00 AM",
+    "Value": 1320725.97,
+    "ExpectedValue": 1392090.58457849,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/8/2016 12:00:00 AM",
+    "Value": 1143087.653,
+    "ExpectedValue": 1167862.72667524,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/9/2016 12:00:00 AM",
+    "Value": 1515959.259,
+    "ExpectedValue": 1441240.21396474,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/10/2016 12:00:00 AM",
+    "Value": 1188989,
+    "ExpectedValue": 1380772.89000749,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/11/2016 12:00:00 AM",
+    "Value": 1329618.546,
+    "ExpectedValue": 1512890.69328844,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/12/2016 12:00:00 AM",
+    "Value": 1600701,
+    "ExpectedValue": 1753093.64576258,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/13/2016 12:00:00 AM",
+    "Value": 1920961,
+    "ExpectedValue": 1746183.72445225,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/14/2016 12:00:00 AM",
+    "Value": 1701693.639,
+    "ExpectedValue": 1733473.5727802,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/15/2016 12:00:00 AM",
+    "Value": 1732081.115,
+    "ExpectedValue": 1612039.04602536,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/16/2016 12:00:00 AM",
+    "Value": 1079544.6,
+    "ExpectedValue": 1694637.74768228,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/17/2016 12:00:00 AM",
+    "Value": 1972555,
+    "ExpectedValue": 1856415.84300361,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/18/2016 12:00:00 AM",
+    "Value": 1632281.667,
+    "ExpectedValue": 1798027.48538248,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/19/2016 12:00:00 AM",
+    "Value": 1756304.804,
+    "ExpectedValue": 1765792.26312134,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/20/2016 12:00:00 AM",
+    "Value": 1943832.686,
+    "ExpectedValue": 1918228.6981101,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/21/2016 12:00:00 AM",
+    "Value": 1894411.597,
+    "ExpectedValue": 1821584.69736929,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/22/2016 12:00:00 AM",
+    "Value": 2214533.55,
+    "ExpectedValue": 1821839.31396055,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/23/2016 12:00:00 AM",
+    "Value": 2168946.432,
+    "ExpectedValue": 1858420.63683337,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/24/2016 12:00:00 AM",
+    "Value": 1979945,
+    "ExpectedValue": 1955049.77783317,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/25/2016 12:00:00 AM",
+    "Value": 1890549.091,
+    "ExpectedValue": 1820444.672973,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/26/2016 12:00:00 AM",
+    "Value": 2092889.333,
+    "ExpectedValue": 2208579.84856195,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/27/2016 12:00:00 AM",
+    "Value": 2573808.344,
+    "ExpectedValue": 2498776.4194133,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/28/2016 12:00:00 AM",
+    "Value": 2410917,
+    "ExpectedValue": 2147583.8685216,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/29/2016 12:00:00 AM",
+    "Value": 2531578.99,
+    "ExpectedValue": 2229284.04756229,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/30/2016 12:00:00 AM",
+    "Value": 2662541.95,
+    "ExpectedValue": 2474733.9695867,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/31/2016 12:00:00 AM",
+    "Value": 2613967,
+    "ExpectedValue": 2613105.60896609,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/1/2016 12:00:00 AM",
+    "Value": 729943,
+    "ExpectedValue": 701965.413948949,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/2/2016 12:00:00 AM",
+    "Value": 1107000,
+    "ExpectedValue": 1275914.04117349,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/3/2016 12:00:00 AM",
+    "Value": 1439989,
+    "ExpectedValue": 1538045.24525513,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/4/2016 12:00:00 AM",
+    "Value": 1519735,
+    "ExpectedValue": 1537321.07093531,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/5/2016 12:00:00 AM",
+    "Value": 1669040.183,
+    "ExpectedValue": 1482153.50389862,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/6/2016 12:00:00 AM",
+    "Value": 1663627,
+    "ExpectedValue": 1610037.31939917,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/7/2016 12:00:00 AM",
+    "Value": 1570751,
+    "ExpectedValue": 1692916.51600188,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/8/2016 12:00:00 AM",
+    "Value": 1514047.308,
+    "ExpectedValue": 1592761.414396,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/9/2016 12:00:00 AM",
+    "Value": 1742592.067,
+    "ExpectedValue": 1853197.8274169,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/10/2016 12:00:00 AM",
+    "Value": 2082231.045,
+    "ExpectedValue": 1820999.26926034,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/11/2016 12:00:00 AM",
+    "Value": 1783406.245,
+    "ExpectedValue": 1674403.49950043,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/12/2016 12:00:00 AM",
+    "Value": 1905771,
+    "ExpectedValue": 1598156.85777699,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/13/2016 12:00:00 AM",
+    "Value": 1959681.085,
+    "ExpectedValue": 1803261.22946033,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/14/2016 12:00:00 AM",
+    "Value": 1763248,
+    "ExpectedValue": 1692897.36987072,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/15/2016 12:00:00 AM",
+    "Value": 1997832.933,
+    "ExpectedValue": 1835810.95163109,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/16/2016 12:00:00 AM",
+    "Value": 1942685,
+    "ExpectedValue": 1961252.15190733,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/17/2016 12:00:00 AM",
+    "Value": 2098407.92,
+    "ExpectedValue": 2020255.4950637,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/18/2016 12:00:00 AM",
+    "Value": 2002115.422,
+    "ExpectedValue": 1798851.82520399,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/19/2016 12:00:00 AM",
+    "Value": 2450367.367,
+    "ExpectedValue": 1522936.18452762,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/20/2016 12:00:00 AM",
+    "Value": 1926080.334,
+    "ExpectedValue": 1723840.02426052,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/21/2016 12:00:00 AM",
+    "Value": 1781824,
+    "ExpectedValue": 1689271.8005451,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/22/2016 12:00:00 AM",
+    "Value": 2008816.063,
+    "ExpectedValue": 1793673.82660353,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/23/2016 12:00:00 AM",
+    "Value": 2204816.143,
+    "ExpectedValue": 2174144.49141509,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/24/2016 12:00:00 AM",
+    "Value": 1912268.077,
+    "ExpectedValue": 2105393.62032589,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/25/2016 12:00:00 AM",
+    "Value": 1883560.498,
+    "ExpectedValue": 1887861.68477529,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/26/2016 12:00:00 AM",
+    "Value": 2006301.934,
+    "ExpectedValue": 1812613.96008631,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/27/2016 12:00:00 AM",
+    "Value": 1861092.368,
+    "ExpectedValue": 1782663.89349572,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/28/2016 12:00:00 AM",
+    "Value": 1569444,
+    "ExpectedValue": 1760188.72250112,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/29/2016 12:00:00 AM",
+    "Value": 1790756.373,
+    "ExpectedValue": 1842129.28819675,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/30/2016 12:00:00 AM",
+    "Value": 2031030.077,
+    "ExpectedValue": 1898500.55349242,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/31/2016 12:00:00 AM",
+    "Value": 3556265.701,
+    "ExpectedValue": 3555334.99657477,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/1/2016 12:00:00 AM",
+    "Value": 1297630,
+    "ExpectedValue": 1035237.86088775,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/2/2016 12:00:00 AM",
+    "Value": 1194667,
+    "ExpectedValue": 822689.2384379,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/3/2016 12:00:00 AM",
+    "Value": 1088428.811,
+    "ExpectedValue": 979378.165309591,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/4/2016 12:00:00 AM",
+    "Value": 1115775,
+    "ExpectedValue": 938806.518007983,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/5/2016 12:00:00 AM",
+    "Value": 1040128.417,
+    "ExpectedValue": 889111.181214748,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/6/2016 12:00:00 AM",
+    "Value": 1373703.889,
+    "ExpectedValue": 1091862.73289102,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/7/2016 12:00:00 AM",
+    "Value": 1467818,
+    "ExpectedValue": 1178188.92155309,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/8/2016 12:00:00 AM",
+    "Value": 1567024.579,
+    "ExpectedValue": 1278546.77349695,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/9/2016 12:00:00 AM",
+    "Value": 1559337.971,
+    "ExpectedValue": 1223517.68200249,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/10/2016 12:00:00 AM",
+    "Value": 1587107,
+    "ExpectedValue": 1246178.5843847,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/11/2016 12:00:00 AM",
+    "Value": 1306936,
+    "ExpectedValue": 1213361.47260099,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/12/2016 12:00:00 AM",
+    "Value": 1424341.894,
+    "ExpectedValue": 1277077.56897293,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/13/2016 12:00:00 AM",
+    "Value": 1751457.27,
+    "ExpectedValue": 1627206.77497303,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/14/2016 12:00:00 AM",
+    "Value": 4009005,
+    "ExpectedValue": 1263966.01649737,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/15/2016 12:00:00 AM",
+    "Value": 105677,
+    "ExpectedValue": 1264355.54555456,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/16/2016 12:00:00 AM",
+    "Value": 442304,
+    "ExpectedValue": 1180735.8938066,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/17/2016 12:00:00 AM",
+    "Value": 626414.542,
+    "ExpectedValue": 1143413.56560796,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/18/2016 12:00:00 AM",
+    "Value": 1066586,
+    "ExpectedValue": 1233342.50034282,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/19/2016 12:00:00 AM",
+    "Value": 1237121.823,
+    "ExpectedValue": 1347368.42220447,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/20/2016 12:00:00 AM",
+    "Value": 1491285.223,
+    "ExpectedValue": 1333143.79812704,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/21/2016 12:00:00 AM",
+    "Value": 1080159.451,
+    "ExpectedValue": 1146878.3329955,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/22/2016 12:00:00 AM",
+    "Value": 1368844,
+    "ExpectedValue": 1315469.0260191,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/23/2016 12:00:00 AM",
+    "Value": 1488952.985,
+    "ExpectedValue": 1347229.43501779,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/24/2016 12:00:00 AM",
+    "Value": 1514776.021,
+    "ExpectedValue": 1409306.66365918,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/25/2016 12:00:00 AM",
+    "Value": 1215872,
+    "ExpectedValue": 1344406.86221077,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/26/2016 12:00:00 AM",
+    "Value": 1385001.33,
+    "ExpectedValue": 1388055.35397102,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/27/2016 12:00:00 AM",
+    "Value": 1527008.241,
+    "ExpectedValue": 1699732.67267941,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/28/2016 12:00:00 AM",
+    "Value": 2148356.376,
+    "ExpectedValue": 2049981.49658575,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/29/2016 12:00:00 AM",
+    "Value": 1684782.526,
+    "ExpectedValue": 1756447.00373544,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/30/2016 12:00:00 AM",
+    "Value": 2356045.36,
+    "ExpectedValue": 2355128.55670938,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/1/2016 12:00:00 AM",
+    "Value": -7953,
+    "ExpectedValue": 26542.980236402,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/2/2016 12:00:00 AM",
+    "Value": 23350,
+    "ExpectedValue": 37621.2516561889,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/3/2016 12:00:00 AM",
+    "Value": 120839,
+    "ExpectedValue": 116126.098604261,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/4/2016 12:00:00 AM",
+    "Value": 282865,
+    "ExpectedValue": 239899.43981472,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/5/2016 12:00:00 AM",
+    "Value": 519350,
+    "ExpectedValue": 327646.852041824,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/6/2016 12:00:00 AM",
+    "Value": 884013,
+    "ExpectedValue": 588050.649541117,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/7/2016 12:00:00 AM",
+    "Value": 1032991.207,
+    "ExpectedValue": 887376.569472351,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/8/2016 12:00:00 AM",
+    "Value": 2070611.067,
+    "ExpectedValue": 1203435.46356357,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "10/9/2016 12:00:00 AM",
+    "Value": 1026033.435,
+    "ExpectedValue": 1021782.24841909,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/10/2016 12:00:00 AM",
+    "Value": 1127453.563,
+    "ExpectedValue": 1078472.59976247,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/11/2016 12:00:00 AM",
+    "Value": 1095866.208,
+    "ExpectedValue": 1007816.51657184,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/12/2016 12:00:00 AM",
+    "Value": 1127784.017,
+    "ExpectedValue": 1004111.53222767,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/13/2016 12:00:00 AM",
+    "Value": 1256121.5,
+    "ExpectedValue": 1066173.72998365,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/14/2016 12:00:00 AM",
+    "Value": 1082853.069,
+    "ExpectedValue": 953220.953859573,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/15/2016 12:00:00 AM",
+    "Value": 993955.625,
+    "ExpectedValue": 924842.083246372,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/16/2016 12:00:00 AM",
+    "Value": 804744,
+    "ExpectedValue": 932365.167653252,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/17/2016 12:00:00 AM",
+    "Value": 682521.745,
+    "ExpectedValue": 864575.801804296,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/18/2016 12:00:00 AM",
+    "Value": 808199.875,
+    "ExpectedValue": 817231.492043828,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/19/2016 12:00:00 AM",
+    "Value": 885164.666,
+    "ExpectedValue": 973662.493360864,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/20/2016 12:00:00 AM",
+    "Value": 882258,
+    "ExpectedValue": 929476.301923283,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/21/2016 12:00:00 AM",
+    "Value": 900229.933,
+    "ExpectedValue": 859725.787764821,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/22/2016 12:00:00 AM",
+    "Value": 1060716.619,
+    "ExpectedValue": 996797.964195976,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/23/2016 12:00:00 AM",
+    "Value": 790980,
+    "ExpectedValue": 939774.733893494,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/24/2016 12:00:00 AM",
+    "Value": 780938.286,
+    "ExpectedValue": 1047652.4881033,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/25/2016 12:00:00 AM",
+    "Value": 979816.875,
+    "ExpectedValue": 982453.768815304,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/26/2016 12:00:00 AM",
+    "Value": 1140428.862,
+    "ExpectedValue": 1097244.83735082,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/27/2016 12:00:00 AM",
+    "Value": 1304936.559,
+    "ExpectedValue": 1225154.3657183,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/28/2016 12:00:00 AM",
+    "Value": 1215755.965,
+    "ExpectedValue": 1343799.29981925,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/29/2016 12:00:00 AM",
+    "Value": 1291751.525,
+    "ExpectedValue": 1282031.02706494,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/30/2016 12:00:00 AM",
+    "Value": 895323,
+    "ExpectedValue": 816607.250195542,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/31/2016 12:00:00 AM",
+    "Value": 1423414,
+    "ExpectedValue": 1422546.38942116,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/1/2016 12:00:00 AM",
+    "Value": 342331.582,
+    "ExpectedValue": 160042.13282777,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/2/2016 12:00:00 AM",
+    "Value": 413317.255,
+    "ExpectedValue": 186988.612237149,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/3/2016 12:00:00 AM",
+    "Value": 485595,
+    "ExpectedValue": 449402.407206735,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/4/2016 12:00:00 AM",
+    "Value": 462143,
+    "ExpectedValue": 609262.744680114,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/5/2016 12:00:00 AM",
+    "Value": 370339,
+    "ExpectedValue": 487331.099553279,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/6/2016 12:00:00 AM",
+    "Value": 242605,
+    "ExpectedValue": 609384.566041886,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/7/2016 12:00:00 AM",
+    "Value": 392309.592,
+    "ExpectedValue": 510041.054396038,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/8/2016 12:00:00 AM",
+    "Value": 652742.051,
+    "ExpectedValue": 650804.190377852,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/9/2016 12:00:00 AM",
+    "Value": 649955.886,
+    "ExpectedValue": 727404.084092257,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/10/2016 12:00:00 AM",
+    "Value": 729322.759,
+    "ExpectedValue": 680698.410501008,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/11/2016 12:00:00 AM",
+    "Value": 648117.008,
+    "ExpectedValue": 620091.780136573,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/12/2016 12:00:00 AM",
+    "Value": 494805,
+    "ExpectedValue": 619554.341841363,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/13/2016 12:00:00 AM",
+    "Value": 306504,
+    "ExpectedValue": 650949.849939362,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/14/2016 12:00:00 AM",
+    "Value": 563151.71,
+    "ExpectedValue": 627192.190833018,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/15/2016 12:00:00 AM",
+    "Value": 809298.467,
+    "ExpectedValue": 710458.441214653,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/16/2016 12:00:00 AM",
+    "Value": 736142,
+    "ExpectedValue": 652532.971617632,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/17/2016 12:00:00 AM",
+    "Value": 736783,
+    "ExpectedValue": 742700.367521736,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/18/2016 12:00:00 AM",
+    "Value": 773287.4,
+    "ExpectedValue": 741390.192781113,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/19/2016 12:00:00 AM",
+    "Value": 916224,
+    "ExpectedValue": 830846.771889246,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/20/2016 12:00:00 AM",
+    "Value": 382775,
+    "ExpectedValue": 753783.207850383,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/21/2016 12:00:00 AM",
+    "Value": 674197.615,
+    "ExpectedValue": 693487.140317462,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/22/2016 12:00:00 AM",
+    "Value": 738726.584,
+    "ExpectedValue": 702020.664159519,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/23/2016 12:00:00 AM",
+    "Value": 698442,
+    "ExpectedValue": 668434.837924706,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/24/2016 12:00:00 AM",
+    "Value": 741365.888,
+    "ExpectedValue": 740207.165188062,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/25/2016 12:00:00 AM",
+    "Value": 781709.871,
+    "ExpectedValue": 850464.235121323,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/26/2016 12:00:00 AM",
+    "Value": 704899,
+    "ExpectedValue": 736122.230840993,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/27/2016 12:00:00 AM",
+    "Value": 644860,
+    "ExpectedValue": 733140.80970716,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/28/2016 12:00:00 AM",
+    "Value": 728790.624,
+    "ExpectedValue": 769876.384230524,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/29/2016 12:00:00 AM",
+    "Value": 994605.689,
+    "ExpectedValue": 805466.903731473,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/30/2016 12:00:00 AM",
+    "Value": 1131556.926,
+    "ExpectedValue": 1181386.53935115,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/1/2016 12:00:00 AM",
+    "Value": 250807.425,
+    "ExpectedValue": 263493.641829178,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/2/2016 12:00:00 AM",
+    "Value": 199984.1,
+    "ExpectedValue": 201762.683804816,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/3/2016 12:00:00 AM",
+    "Value": 106730,
+    "ExpectedValue": 243663.521177299,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/4/2016 12:00:00 AM",
+    "Value": 83534,
+    "ExpectedValue": 297502.439734823,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/5/2016 12:00:00 AM",
+    "Value": 272013.021,
+    "ExpectedValue": 412934.523018937,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/6/2016 12:00:00 AM",
+    "Value": 374200.976,
+    "ExpectedValue": 333193.717590211,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/7/2016 12:00:00 AM",
+    "Value": 337836.537,
+    "ExpectedValue": 443241.954377492,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/8/2016 12:00:00 AM",
+    "Value": 382390.317,
+    "ExpectedValue": 462461.171582737,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/9/2016 12:00:00 AM",
+    "Value": 375655.79,
+    "ExpectedValue": 390150.343330452,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/10/2016 12:00:00 AM",
+    "Value": 301837,
+    "ExpectedValue": 397897.916979076,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/11/2016 12:00:00 AM",
+    "Value": 121933,
+    "ExpectedValue": 418104.099254281,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/12/2016 12:00:00 AM",
+    "Value": 362811.182,
+    "ExpectedValue": 447468.27072847,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/13/2016 12:00:00 AM",
+    "Value": 491153,
+    "ExpectedValue": 450757.046398837,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/14/2016 12:00:00 AM",
+    "Value": 602208.736,
+    "ExpectedValue": 546647.355159606,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/15/2016 12:00:00 AM",
+    "Value": 618356.165,
+    "ExpectedValue": 521953.148552375,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/16/2016 12:00:00 AM",
+    "Value": 520959,
+    "ExpectedValue": 446078.777973077,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/17/2016 12:00:00 AM",
+    "Value": 295278,
+    "ExpectedValue": 408248.354435139,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/18/2016 12:00:00 AM",
+    "Value": 197864,
+    "ExpectedValue": 500731.19505252,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/19/2016 12:00:00 AM",
+    "Value": 449441.599,
+    "ExpectedValue": 471643.508448632,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/20/2016 12:00:00 AM",
+    "Value": 598794.686,
+    "ExpectedValue": 509622.899939351,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/21/2016 12:00:00 AM",
+    "Value": 499368,
+    "ExpectedValue": 528060.873607752,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/22/2016 12:00:00 AM",
+    "Value": 516532,
+    "ExpectedValue": 507556.971000353,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/23/2016 12:00:00 AM",
+    "Value": 558070.815,
+    "ExpectedValue": 474077.785479279,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/24/2016 12:00:00 AM",
+    "Value": 300168,
+    "ExpectedValue": 465012.394978286,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/25/2016 12:00:00 AM",
+    "Value": 219909,
+    "ExpectedValue": 464088.425726343,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/26/2016 12:00:00 AM",
+    "Value": 512080.774,
+    "ExpectedValue": 434507.231764128,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/27/2016 12:00:00 AM",
+    "Value": 680587.635,
+    "ExpectedValue": 576573.525629313,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/28/2016 12:00:00 AM",
+    "Value": 592816,
+    "ExpectedValue": 560963.186224192,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/29/2016 12:00:00 AM",
+    "Value": 515324.408,
+    "ExpectedValue": 485318.961370354,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/30/2016 12:00:00 AM",
+    "Value": 441154,
+    "ExpectedValue": 414124.37697917,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/31/2016 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 328131.276805988,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/1/2017 12:00:00 AM",
+    "Value": 57446,
+    "ExpectedValue": 99011.6486063341,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/2/2017 12:00:00 AM",
+    "Value": 234936,
+    "ExpectedValue": 138988.270805646,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/3/2017 12:00:00 AM",
+    "Value": 751837.941,
+    "ExpectedValue": 142313.129697013,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/4/2017 12:00:00 AM",
+    "Value": 599262.834,
+    "ExpectedValue": 242472.771909413,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/5/2017 12:00:00 AM",
+    "Value": 623621.05,
+    "ExpectedValue": 322593.96250642,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/6/2017 12:00:00 AM",
+    "Value": 619864.811,
+    "ExpectedValue": 378683.074586512,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/7/2017 12:00:00 AM",
+    "Value": 516415,
+    "ExpectedValue": 415391.272151323,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/8/2017 12:00:00 AM",
+    "Value": 250527,
+    "ExpectedValue": 391149.744513551,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/9/2017 12:00:00 AM",
+    "Value": 649139.88,
+    "ExpectedValue": 527289.017448445,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/10/2017 12:00:00 AM",
+    "Value": 780668.333,
+    "ExpectedValue": 577600.810483862,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/11/2017 12:00:00 AM",
+    "Value": 882702,
+    "ExpectedValue": 591624.5509489,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/12/2017 12:00:00 AM",
+    "Value": 1063908.167,
+    "ExpectedValue": 812284.74816109,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/13/2017 12:00:00 AM",
+    "Value": 919651.82,
+    "ExpectedValue": 740221.431597961,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/14/2017 12:00:00 AM",
+    "Value": 846394,
+    "ExpectedValue": 721120.859696468,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/15/2017 12:00:00 AM",
+    "Value": 679250,
+    "ExpectedValue": 702077.721496964,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/16/2017 12:00:00 AM",
+    "Value": 872203.015,
+    "ExpectedValue": 695785.319837644,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/17/2017 12:00:00 AM",
+    "Value": 974297.483,
+    "ExpectedValue": 718316.584254145,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/18/2017 12:00:00 AM",
+    "Value": 931109.572,
+    "ExpectedValue": 707835.089699303,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/19/2017 12:00:00 AM",
+    "Value": 1084624.422,
+    "ExpectedValue": 780855.569857618,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/20/2017 12:00:00 AM",
+    "Value": 1058037.913,
+    "ExpectedValue": 842990.976943302,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/21/2017 12:00:00 AM",
+    "Value": 638230,
+    "ExpectedValue": 733926.475874597,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/22/2017 12:00:00 AM",
+    "Value": 690811.701,
+    "ExpectedValue": 802895.267775962,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/23/2017 12:00:00 AM",
+    "Value": 442755,
+    "ExpectedValue": 649119.166422299,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/24/2017 12:00:00 AM",
+    "Value": 150796,
+    "ExpectedValue": 624686.86615337,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/25/2017 12:00:00 AM",
+    "Value": 1253,
+    "ExpectedValue": 409268.526923461,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/26/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 752560.47367831,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "1/27/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 888571.427305817,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "1/28/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 959262.25209296,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "1/29/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 1088196.40939282,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "1/30/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 1042697.20606354,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "1/31/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 1396443.63888584,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/1/2017 12:00:00 AM",
+    "Value": 8604,
+    "ExpectedValue": 88985.7168416765,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/2/2017 12:00:00 AM",
+    "Value": 5331,
+    "ExpectedValue": 146875.615927043,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/3/2017 12:00:00 AM",
+    "Value": 288873.12,
+    "ExpectedValue": 277331.879467176,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/4/2017 12:00:00 AM",
+    "Value": 410569.034,
+    "ExpectedValue": 405290.394074619,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/5/2017 12:00:00 AM",
+    "Value": 478356,
+    "ExpectedValue": 449113.705333279,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/6/2017 12:00:00 AM",
+    "Value": 649156.039,
+    "ExpectedValue": 562992.510197527,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/7/2017 12:00:00 AM",
+    "Value": 740432.334,
+    "ExpectedValue": 568906.077993502,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/8/2017 12:00:00 AM",
+    "Value": 777215.257,
+    "ExpectedValue": 615860.85131574,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/9/2017 12:00:00 AM",
+    "Value": 926219.87,
+    "ExpectedValue": 611772.177561155,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/10/2017 12:00:00 AM",
+    "Value": 840545,
+    "ExpectedValue": 689700.668767019,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/11/2017 12:00:00 AM",
+    "Value": 818313.285,
+    "ExpectedValue": 740802.413371395,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/12/2017 12:00:00 AM",
+    "Value": 826835,
+    "ExpectedValue": 792888.310454217,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/13/2017 12:00:00 AM",
+    "Value": 722488,
+    "ExpectedValue": 784136.387348684,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/14/2017 12:00:00 AM",
+    "Value": 1097472,
+    "ExpectedValue": 924585.080915352,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/15/2017 12:00:00 AM",
+    "Value": 1162498.532,
+    "ExpectedValue": 612405.837942997,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/16/2017 12:00:00 AM",
+    "Value": 1174357.23,
+    "ExpectedValue": 649717.186383458,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/17/2017 12:00:00 AM",
+    "Value": 1448144.809,
+    "ExpectedValue": 404080.259451975,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "2/18/2017 12:00:00 AM",
+    "Value": 1126675,
+    "ExpectedValue": 996944.999704514,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/19/2017 12:00:00 AM",
+    "Value": 1121898,
+    "ExpectedValue": 1018544.83663511,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/20/2017 12:00:00 AM",
+    "Value": 1349263.004,
+    "ExpectedValue": 1187274.7319248,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/21/2017 12:00:00 AM",
+    "Value": 1148823,
+    "ExpectedValue": 1002810.16375781,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/22/2017 12:00:00 AM",
+    "Value": 1180573.521,
+    "ExpectedValue": 980955.139936481,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/23/2017 12:00:00 AM",
+    "Value": 1038698,
+    "ExpectedValue": 1041956.30175686,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/24/2017 12:00:00 AM",
+    "Value": 853175.888,
+    "ExpectedValue": 973766.94636002,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/25/2017 12:00:00 AM",
+    "Value": 720503.05,
+    "ExpectedValue": 536973.771950493,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/26/2017 12:00:00 AM",
+    "Value": 373023,
+    "ExpectedValue": 449990.308917118,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/27/2017 12:00:00 AM",
+    "Value": 423079,
+    "ExpectedValue": 584265.406123905,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "2/28/2017 12:00:00 AM",
+    "Value": 83957,
+    "ExpectedValue": 1278591.63805199,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "3/1/2017 12:00:00 AM",
+    "Value": 4961393.34,
+    "ExpectedValue": 2786644.6879331,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "3/2/2017 12:00:00 AM",
+    "Value": 2333457,
+    "ExpectedValue": 339277.83186073,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "3/3/2017 12:00:00 AM",
+    "Value": 1841873.514,
+    "ExpectedValue": 1280734.85190045,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/4/2017 12:00:00 AM",
+    "Value": 1887715,
+    "ExpectedValue": 932422.92334323,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "3/5/2017 12:00:00 AM",
+    "Value": 1516423,
+    "ExpectedValue": 1328027.4774628,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/6/2017 12:00:00 AM",
+    "Value": 1438225.142,
+    "ExpectedValue": 1253502.5099486,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/7/2017 12:00:00 AM",
+    "Value": 1718950.605,
+    "ExpectedValue": 1186679.09809829,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/8/2017 12:00:00 AM",
+    "Value": 1764675,
+    "ExpectedValue": 1127877.66416856,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/9/2017 12:00:00 AM",
+    "Value": 1816355.175,
+    "ExpectedValue": 1645245.54624338,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/10/2017 12:00:00 AM",
+    "Value": 1805476.688,
+    "ExpectedValue": 1553138.76366969,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/11/2017 12:00:00 AM",
+    "Value": 1747508,
+    "ExpectedValue": 1586020.82446766,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/12/2017 12:00:00 AM",
+    "Value": 1502831,
+    "ExpectedValue": 1544287.15936768,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/13/2017 12:00:00 AM",
+    "Value": 1264236,
+    "ExpectedValue": 1411217.02900405,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/14/2017 12:00:00 AM",
+    "Value": 1698437.6,
+    "ExpectedValue": 1593638.98054486,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/15/2017 12:00:00 AM",
+    "Value": 1808019.108,
+    "ExpectedValue": 1636835.36111081,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/16/2017 12:00:00 AM",
+    "Value": 1740691,
+    "ExpectedValue": 1585389.89836336,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/17/2017 12:00:00 AM",
+    "Value": 1633145.208,
+    "ExpectedValue": 1577227.60017001,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/18/2017 12:00:00 AM",
+    "Value": 1593138,
+    "ExpectedValue": 1522324.72344781,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/19/2017 12:00:00 AM",
+    "Value": 1299229,
+    "ExpectedValue": 1536670.78908759,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/20/2017 12:00:00 AM",
+    "Value": 1237911,
+    "ExpectedValue": 1433650.63519721,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/21/2017 12:00:00 AM",
+    "Value": 1735309,
+    "ExpectedValue": 1727493.58566061,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/22/2017 12:00:00 AM",
+    "Value": 1650353,
+    "ExpectedValue": 1634328.85417244,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/23/2017 12:00:00 AM",
+    "Value": 1707209,
+    "ExpectedValue": 1624885.96554601,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/24/2017 12:00:00 AM",
+    "Value": 2125075.267,
+    "ExpectedValue": 1854703.6065974,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/25/2017 12:00:00 AM",
+    "Value": 2108945.834,
+    "ExpectedValue": 1872438.69138545,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/26/2017 12:00:00 AM",
+    "Value": 1227851,
+    "ExpectedValue": 1768970.07582543,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/27/2017 12:00:00 AM",
+    "Value": 1398440,
+    "ExpectedValue": 1694460.36236023,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/28/2017 12:00:00 AM",
+    "Value": 1301001,
+    "ExpectedValue": 1621588.99718216,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/29/2017 12:00:00 AM",
+    "Value": 1417418,
+    "ExpectedValue": 1761192.20564735,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/30/2017 12:00:00 AM",
+    "Value": 1123034.3,
+    "ExpectedValue": 1891387.75804424,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "3/31/2017 12:00:00 AM",
+    "Value": 1005870,
+    "ExpectedValue": 2330641.99036689,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/1/2017 12:00:00 AM",
+    "Value": 2387631.69,
+    "ExpectedValue": 3981877.46579491,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/2/2017 12:00:00 AM",
+    "Value": 1224731,
+    "ExpectedValue": 331700.477972091,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/3/2017 12:00:00 AM",
+    "Value": 487806,
+    "ExpectedValue": 532125.154472858,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/4/2017 12:00:00 AM",
+    "Value": 261806,
+    "ExpectedValue": 262245.982191139,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/5/2017 12:00:00 AM",
+    "Value": 1576576,
+    "ExpectedValue": 1233099.17758223,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/6/2017 12:00:00 AM",
+    "Value": 1682377,
+    "ExpectedValue": 537575.022909321,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/7/2017 12:00:00 AM",
+    "Value": 1774289,
+    "ExpectedValue": 940742.587681634,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/8/2017 12:00:00 AM",
+    "Value": 1823129,
+    "ExpectedValue": 1237064.15876874,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/9/2017 12:00:00 AM",
+    "Value": 1539053,
+    "ExpectedValue": 1631382.89524318,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/10/2017 12:00:00 AM",
+    "Value": 1655635.021,
+    "ExpectedValue": 1683245.10511203,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/11/2017 12:00:00 AM",
+    "Value": 1902401.063,
+    "ExpectedValue": 1832082.96461374,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/12/2017 12:00:00 AM",
+    "Value": 1905573.709,
+    "ExpectedValue": 1863890.96580789,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/13/2017 12:00:00 AM",
+    "Value": 2050613,
+    "ExpectedValue": 1522698.64190323,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/14/2017 12:00:00 AM",
+    "Value": 1957006,
+    "ExpectedValue": 1596408.81149175,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/15/2017 12:00:00 AM",
+    "Value": 4061354,
+    "ExpectedValue": 1657189.12453943,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/16/2017 12:00:00 AM",
+    "Value": 1467567,
+    "ExpectedValue": 1631630.87055415,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/17/2017 12:00:00 AM",
+    "Value": 1506232,
+    "ExpectedValue": 1607037.70479531,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/18/2017 12:00:00 AM",
+    "Value": 1420983.8,
+    "ExpectedValue": 1634249.07675684,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/19/2017 12:00:00 AM",
+    "Value": 1651674,
+    "ExpectedValue": 1670047.12652702,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/20/2017 12:00:00 AM",
+    "Value": 1712966,
+    "ExpectedValue": 1722981.46268958,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/21/2017 12:00:00 AM",
+    "Value": 982868.107,
+    "ExpectedValue": 2277520.68510576,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/22/2017 12:00:00 AM",
+    "Value": 923087,
+    "ExpectedValue": 1667176.09337279,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/23/2017 12:00:00 AM",
+    "Value": 1105770,
+    "ExpectedValue": 1812653.20635889,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/24/2017 12:00:00 AM",
+    "Value": 1298117.173,
+    "ExpectedValue": 1705419.02096765,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "4/25/2017 12:00:00 AM",
+    "Value": 3025029,
+    "ExpectedValue": 1850243.71955769,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/26/2017 12:00:00 AM",
+    "Value": 743404,
+    "ExpectedValue": 1942575.44678835,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/27/2017 12:00:00 AM",
+    "Value": 847595.459,
+    "ExpectedValue": 1726480.58154005,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/28/2017 12:00:00 AM",
+    "Value": 820048,
+    "ExpectedValue": 2176771.88211028,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/29/2017 12:00:00 AM",
+    "Value": 639124,
+    "ExpectedValue": 2142486.7193185,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "4/30/2017 12:00:00 AM",
+    "Value": 249410,
+    "ExpectedValue": 2505181.4571714,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/1/2017 12:00:00 AM",
+    "Value": 1264924,
+    "ExpectedValue": 2825332.21461823,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/2/2017 12:00:00 AM",
+    "Value": 1383039.263,
+    "ExpectedValue": 168434.749764673,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/3/2017 12:00:00 AM",
+    "Value": 1244886.4,
+    "ExpectedValue": 178908.07326587,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/4/2017 12:00:00 AM",
+    "Value": 1043604.375,
+    "ExpectedValue": 369262.655743867,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/5/2017 12:00:00 AM",
+    "Value": 1116243.937,
+    "ExpectedValue": 1023478.20986786,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/6/2017 12:00:00 AM",
+    "Value": 1084846.2,
+    "ExpectedValue": 1148370.99702371,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/7/2017 12:00:00 AM",
+    "Value": 1025493,
+    "ExpectedValue": 1022147.23370659,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/8/2017 12:00:00 AM",
+    "Value": 927698,
+    "ExpectedValue": 931386.732413575,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/9/2017 12:00:00 AM",
+    "Value": 1145352.681,
+    "ExpectedValue": 1211894.66416445,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/10/2017 12:00:00 AM",
+    "Value": 1138350.611,
+    "ExpectedValue": 1088212.08453766,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/11/2017 12:00:00 AM",
+    "Value": 1198083,
+    "ExpectedValue": 1001814.81289666,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/12/2017 12:00:00 AM",
+    "Value": 1304131,
+    "ExpectedValue": 1169653.92419439,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/13/2017 12:00:00 AM",
+    "Value": 1234315.967,
+    "ExpectedValue": 1224242.50162809,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/14/2017 12:00:00 AM",
+    "Value": 935953,
+    "ExpectedValue": 1081777.89142508,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/15/2017 12:00:00 AM",
+    "Value": 1001780,
+    "ExpectedValue": 1141833.08260931,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/16/2017 12:00:00 AM",
+    "Value": 1207775,
+    "ExpectedValue": 1177705.22102198,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/17/2017 12:00:00 AM",
+    "Value": 1139869,
+    "ExpectedValue": 1160660.43534687,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/18/2017 12:00:00 AM",
+    "Value": 1298139,
+    "ExpectedValue": 1210143.04066364,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/19/2017 12:00:00 AM",
+    "Value": 1264758.625,
+    "ExpectedValue": 1182461.6281756,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/20/2017 12:00:00 AM",
+    "Value": 1288415,
+    "ExpectedValue": 1329936.20332302,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/21/2017 12:00:00 AM",
+    "Value": 1019231,
+    "ExpectedValue": 1196895.74045444,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/22/2017 12:00:00 AM",
+    "Value": 1109694.853,
+    "ExpectedValue": 1205826.06871069,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/23/2017 12:00:00 AM",
+    "Value": 1116598.482,
+    "ExpectedValue": 1054544.72403729,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/24/2017 12:00:00 AM",
+    "Value": 1154676.25,
+    "ExpectedValue": 1157649.2391782,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/25/2017 12:00:00 AM",
+    "Value": 1378822,
+    "ExpectedValue": 1263626.91521325,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/26/2017 12:00:00 AM",
+    "Value": 1229468,
+    "ExpectedValue": 1313728.65973294,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/27/2017 12:00:00 AM",
+    "Value": 1133618.676,
+    "ExpectedValue": 1375074.57903764,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/28/2017 12:00:00 AM",
+    "Value": 958955.816,
+    "ExpectedValue": 1317450.23943626,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "5/29/2017 12:00:00 AM",
+    "Value": 352778,
+    "ExpectedValue": 1592299.86564746,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/30/2017 12:00:00 AM",
+    "Value": 280526,
+    "ExpectedValue": 1272551.33196955,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "5/31/2017 12:00:00 AM",
+    "Value": 1056210,
+    "ExpectedValue": 1347057.2891663,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/1/2017 12:00:00 AM",
+    "Value": 3418839.209,
+    "ExpectedValue": 3712261.50795615,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/2/2017 12:00:00 AM",
+    "Value": 1424019,
+    "ExpectedValue": 274247.414070793,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "6/3/2017 12:00:00 AM",
+    "Value": 1524981,
+    "ExpectedValue": 516898.66868363,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "6/4/2017 12:00:00 AM",
+    "Value": 1245795,
+    "ExpectedValue": 857856.093986609,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/5/2017 12:00:00 AM",
+    "Value": 1340600,
+    "ExpectedValue": 972178.758743814,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/6/2017 12:00:00 AM",
+    "Value": 1549812.787,
+    "ExpectedValue": 859415.213737583,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "6/7/2017 12:00:00 AM",
+    "Value": 1523345.077,
+    "ExpectedValue": 875929.579312147,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/8/2017 12:00:00 AM",
+    "Value": 1604577.334,
+    "ExpectedValue": 886164.81081602,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "6/9/2017 12:00:00 AM",
+    "Value": 1521332,
+    "ExpectedValue": 807096.206325811,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "6/10/2017 12:00:00 AM",
+    "Value": 1465407,
+    "ExpectedValue": 1321452.94275924,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/11/2017 12:00:00 AM",
+    "Value": 1204277,
+    "ExpectedValue": 1123422.93769631,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/12/2017 12:00:00 AM",
+    "Value": 1580079.07,
+    "ExpectedValue": 1333233.22041701,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/13/2017 12:00:00 AM",
+    "Value": 1633580.193,
+    "ExpectedValue": 1369270.2380191,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/14/2017 12:00:00 AM",
+    "Value": 1562561.14,
+    "ExpectedValue": 1401487.87007927,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/15/2017 12:00:00 AM",
+    "Value": 1468498,
+    "ExpectedValue": 1294926.8709551,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/16/2017 12:00:00 AM",
+    "Value": 1333825,
+    "ExpectedValue": 1332316.40085089,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/17/2017 12:00:00 AM",
+    "Value": 1230181,
+    "ExpectedValue": 1309321.3352209,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/18/2017 12:00:00 AM",
+    "Value": 855984,
+    "ExpectedValue": 1513171.75429166,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/19/2017 12:00:00 AM",
+    "Value": 1164289.675,
+    "ExpectedValue": 1420291.57692635,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/20/2017 12:00:00 AM",
+    "Value": 1333328.753,
+    "ExpectedValue": 1351007.8701521,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/21/2017 12:00:00 AM",
+    "Value": 1349023.625,
+    "ExpectedValue": 1296448.81977645,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/22/2017 12:00:00 AM",
+    "Value": 1207597.506,
+    "ExpectedValue": 1251827.16274856,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/23/2017 12:00:00 AM",
+    "Value": 1334819.796,
+    "ExpectedValue": 1475076.12971595,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/24/2017 12:00:00 AM",
+    "Value": 1438244,
+    "ExpectedValue": 1572774.71283624,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/25/2017 12:00:00 AM",
+    "Value": 1248825.417,
+    "ExpectedValue": 1552296.5360316,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/26/2017 12:00:00 AM",
+    "Value": 1266110,
+    "ExpectedValue": 1841006.23214831,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/27/2017 12:00:00 AM",
+    "Value": 1894564.785,
+    "ExpectedValue": 1998853.10650526,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/28/2017 12:00:00 AM",
+    "Value": 1559247,
+    "ExpectedValue": 1686767.63641897,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/29/2017 12:00:00 AM",
+    "Value": 1862322.801,
+    "ExpectedValue": 1843509.9706955,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "6/30/2017 12:00:00 AM",
+    "Value": 2431252.172,
+    "ExpectedValue": 2393839.09327207,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/1/2017 12:00:00 AM",
+    "Value": 1959723,
+    "ExpectedValue": 3710928.03439389,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "7/2/2017 12:00:00 AM",
+    "Value": 636959,
+    "ExpectedValue": 499064.214121619,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/3/2017 12:00:00 AM",
+    "Value": 1179572,
+    "ExpectedValue": 848874.577323764,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/4/2017 12:00:00 AM",
+    "Value": 1137246.134,
+    "ExpectedValue": 929620.600371317,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/5/2017 12:00:00 AM",
+    "Value": 1292292,
+    "ExpectedValue": 1234893.91649195,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/6/2017 12:00:00 AM",
+    "Value": 1527436.75,
+    "ExpectedValue": 1131189.88278089,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/7/2017 12:00:00 AM",
+    "Value": 1481738,
+    "ExpectedValue": 1219100.40079613,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/8/2017 12:00:00 AM",
+    "Value": 1591488,
+    "ExpectedValue": 1457193.84869569,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/9/2017 12:00:00 AM",
+    "Value": 1025920,
+    "ExpectedValue": 1232287.76276792,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/10/2017 12:00:00 AM",
+    "Value": 1501009.04,
+    "ExpectedValue": 1504987.0220329,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/11/2017 12:00:00 AM",
+    "Value": 1853483.758,
+    "ExpectedValue": 1443841.47005113,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/12/2017 12:00:00 AM",
+    "Value": 1734081.2,
+    "ExpectedValue": 1575281.04530756,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/13/2017 12:00:00 AM",
+    "Value": 1970278,
+    "ExpectedValue": 1814805.76975718,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/14/2017 12:00:00 AM",
+    "Value": 1844981,
+    "ExpectedValue": 1807217.62042232,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/15/2017 12:00:00 AM",
+    "Value": 1865365,
+    "ExpectedValue": 1793829.24072576,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/16/2017 12:00:00 AM",
+    "Value": 1420704,
+    "ExpectedValue": 1671510.90242204,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/17/2017 12:00:00 AM",
+    "Value": 1756534,
+    "ExpectedValue": 1753225.79253009,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/18/2017 12:00:00 AM",
+    "Value": 1896681.372,
+    "ExpectedValue": 1914120.07630254,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/19/2017 12:00:00 AM",
+    "Value": 2201887.5,
+    "ExpectedValue": 1854847.90713254,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/20/2017 12:00:00 AM",
+    "Value": 2078017.5,
+    "ExpectedValue": 1821728.87332253,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/21/2017 12:00:00 AM",
+    "Value": 2012550.851,
+    "ExpectedValue": 1973281.49676241,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/22/2017 12:00:00 AM",
+    "Value": 2015461.6,
+    "ExpectedValue": 1875753.68447273,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/23/2017 12:00:00 AM",
+    "Value": 1472140,
+    "ExpectedValue": 1875124.48951512,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/24/2017 12:00:00 AM",
+    "Value": 1899502.201,
+    "ExpectedValue": 1910822.00083906,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/25/2017 12:00:00 AM",
+    "Value": 2246888.5,
+    "ExpectedValue": 2006567.33029,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/26/2017 12:00:00 AM",
+    "Value": 1954809,
+    "ExpectedValue": 1871078.41388094,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/27/2017 12:00:00 AM",
+    "Value": 2374053,
+    "ExpectedValue": 2258329.77792102,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/28/2017 12:00:00 AM",
+    "Value": 2472572.65,
+    "ExpectedValue": 2547642.5372235,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/29/2017 12:00:00 AM",
+    "Value": 2127354,
+    "ExpectedValue": 2195566.17478293,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/30/2017 12:00:00 AM",
+    "Value": 1733767,
+    "ExpectedValue": 2276382.54227475,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "7/31/2017 12:00:00 AM",
+    "Value": 4835551,
+    "ExpectedValue": 2520948.65275028,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/1/2017 12:00:00 AM",
+    "Value": 965327,
+    "ExpectedValue": 2658436.4805808,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/2/2017 12:00:00 AM",
+    "Value": 1229298,
+    "ExpectedValue": 746412.474014784,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/3/2017 12:00:00 AM",
+    "Value": 1488483.671,
+    "ExpectedValue": 1319477.28969046,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/4/2017 12:00:00 AM",
+    "Value": 1701309,
+    "ExpectedValue": 1580724.68222322,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/5/2017 12:00:00 AM",
+    "Value": 1804917,
+    "ExpectedValue": 1579116.69635452,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/6/2017 12:00:00 AM",
+    "Value": 1410390,
+    "ExpectedValue": 1523065.31776896,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/7/2017 12:00:00 AM",
+    "Value": 1761155,
+    "ExpectedValue": 1650065.32172064,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/8/2017 12:00:00 AM",
+    "Value": 1982986,
+    "ExpectedValue": 1732060.70677448,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/9/2017 12:00:00 AM",
+    "Value": 1854180.292,
+    "ExpectedValue": 1631021.79361972,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/10/2017 12:00:00 AM",
+    "Value": 2001578.25,
+    "ExpectedValue": 1890574.39509175,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/11/2017 12:00:00 AM",
+    "Value": 1840840,
+    "ExpectedValue": 1857473.77859089,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/12/2017 12:00:00 AM",
+    "Value": 1756722.401,
+    "ExpectedValue": 1709975.95048667,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/13/2017 12:00:00 AM",
+    "Value": 1469004,
+    "ExpectedValue": 1632827.25041892,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/14/2017 12:00:00 AM",
+    "Value": 1668212.3,
+    "ExpectedValue": 1837029.56375796,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/15/2017 12:00:00 AM",
+    "Value": 1832836.566,
+    "ExpectedValue": 1725763.64582404,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/16/2017 12:00:00 AM",
+    "Value": 1946571.25,
+    "ExpectedValue": 1867775.16924012,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/17/2017 12:00:00 AM",
+    "Value": 2017903.961,
+    "ExpectedValue": 1992314.31117205,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/18/2017 12:00:00 AM",
+    "Value": 2039834,
+    "ExpectedValue": 2050415.59598412,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/19/2017 12:00:00 AM",
+    "Value": 1870660,
+    "ExpectedValue": 1828109.8677801,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/20/2017 12:00:00 AM",
+    "Value": 1653796,
+    "ExpectedValue": 1551292.16875943,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/21/2017 12:00:00 AM",
+    "Value": 1736680.766,
+    "ExpectedValue": 1751293.95014802,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/22/2017 12:00:00 AM",
+    "Value": 1793283.5,
+    "ExpectedValue": 1715823.6680883,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/23/2017 12:00:00 AM",
+    "Value": 1828529.75,
+    "ExpectedValue": 1819323.63580242,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/24/2017 12:00:00 AM",
+    "Value": 2168185.055,
+    "ExpectedValue": 2198892.24226968,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/25/2017 12:00:00 AM",
+    "Value": 2322381,
+    "ExpectedValue": 2129239.31283617,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/26/2017 12:00:00 AM",
+    "Value": 1952496.7,
+    "ExpectedValue": 1910805.31894127,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/27/2017 12:00:00 AM",
+    "Value": 1853336,
+    "ExpectedValue": 1834655.53590798,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/28/2017 12:00:00 AM",
+    "Value": 1761594.171,
+    "ExpectedValue": 1803803.41097309,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/29/2017 12:00:00 AM",
+    "Value": 1958391.155,
+    "ExpectedValue": 1780426.18163419,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "8/30/2017 12:00:00 AM",
+    "Value": 2576988.7,
+    "ExpectedValue": 1861464.68898551,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "8/31/2017 12:00:00 AM",
+    "Value": 4095350.545,
+    "ExpectedValue": 1916933.89593687,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/1/2017 12:00:00 AM",
+    "Value": 1440912,
+    "ExpectedValue": 3572866.28067492,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "9/2/2017 12:00:00 AM",
+    "Value": 795407,
+    "ExpectedValue": 1051867.0866436,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/3/2017 12:00:00 AM",
+    "Value": 785572,
+    "ExpectedValue": 838416.40584944,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/4/2017 12:00:00 AM",
+    "Value": 885190,
+    "ExpectedValue": 994203.274376828,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/5/2017 12:00:00 AM",
+    "Value": 995394,
+    "ExpectedValue": 952729.568730915,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/6/2017 12:00:00 AM",
+    "Value": 981148,
+    "ExpectedValue": 902132.173593375,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/7/2017 12:00:00 AM",
+    "Value": 1086916,
+    "ExpectedValue": 1103981.66692534,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/8/2017 12:00:00 AM",
+    "Value": 1163050.666,
+    "ExpectedValue": 1189405.79724311,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/9/2017 12:00:00 AM",
+    "Value": 1179670,
+    "ExpectedValue": 1288861.59084266,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/10/2017 12:00:00 AM",
+    "Value": 1029964,
+    "ExpectedValue": 1232915.26043438,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/11/2017 12:00:00 AM",
+    "Value": 1009546,
+    "ExpectedValue": 1254658.92390277,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/12/2017 12:00:00 AM",
+    "Value": 1183554.765,
+    "ExpectedValue": 1220924.57320523,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/13/2017 12:00:00 AM",
+    "Value": 1188656.135,
+    "ExpectedValue": 1283723.43066335,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/14/2017 12:00:00 AM",
+    "Value": 1508717,
+    "ExpectedValue": 1632935.39774963,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/15/2017 12:00:00 AM",
+    "Value": 1401744,
+    "ExpectedValue": 1268777.40036015,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/16/2017 12:00:00 AM",
+    "Value": 1218929,
+    "ExpectedValue": 1268249.6905035,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/17/2017 12:00:00 AM",
+    "Value": 1091662,
+    "ExpectedValue": 1183712.79984172,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/18/2017 12:00:00 AM",
+    "Value": 1225047,
+    "ExpectedValue": 1145473.23272926,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/19/2017 12:00:00 AM",
+    "Value": 1401472,
+    "ExpectedValue": 1234484.9285503,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/20/2017 12:00:00 AM",
+    "Value": 1657419,
+    "ExpectedValue": 1347593.61149812,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/21/2017 12:00:00 AM",
+    "Value": 1412932,
+    "ExpectedValue": 1332451.74850687,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/22/2017 12:00:00 AM",
+    "Value": 1555457.586,
+    "ExpectedValue": 1145269.0444615,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/23/2017 12:00:00 AM",
+    "Value": 1375695.25,
+    "ExpectedValue": 1312942.49857128,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/24/2017 12:00:00 AM",
+    "Value": 1238983,
+    "ExpectedValue": 1343785.66865615,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/25/2017 12:00:00 AM",
+    "Value": 1428563.98,
+    "ExpectedValue": 1404945.65838372,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/26/2017 12:00:00 AM",
+    "Value": 1504600,
+    "ExpectedValue": 1339128.61802149,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/27/2017 12:00:00 AM",
+    "Value": 1793657,
+    "ExpectedValue": 1381859.87086791,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/28/2017 12:00:00 AM",
+    "Value": 1865269.4,
+    "ExpectedValue": 1692619.95066247,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/29/2017 12:00:00 AM",
+    "Value": 2142777,
+    "ExpectedValue": 2041951.53565499,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "9/30/2017 12:00:00 AM",
+    "Value": 3745388.999,
+    "ExpectedValue": 1747499.80389086,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "10/1/2017 12:00:00 AM",
+    "Value": 56690,
+    "ExpectedValue": 2345264.11795097,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "10/2/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 15761.3025641702,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/3/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 25922.3350701332,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/4/2017 12:00:00 AM",
+    "Value": 136007,
+    "ExpectedValue": 103509.943104382,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/5/2017 12:00:00 AM",
+    "Value": 311781,
+    "ExpectedValue": 226366.045401017,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/6/2017 12:00:00 AM",
+    "Value": 329243,
+    "ExpectedValue": 313168.619751756,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/7/2017 12:00:00 AM",
+    "Value": 547685,
+    "ExpectedValue": 572627.579374682,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/8/2017 12:00:00 AM",
+    "Value": 862941,
+    "ExpectedValue": 871008.66142955,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/9/2017 12:00:00 AM",
+    "Value": 1470992,
+    "ExpectedValue": 1186122.7176444,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/10/2017 12:00:00 AM",
+    "Value": 1090420,
+    "ExpectedValue": 1003524.66462356,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/11/2017 12:00:00 AM",
+    "Value": 1121525,
+    "ExpectedValue": 1059270.17809057,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/12/2017 12:00:00 AM",
+    "Value": 1133478.636,
+    "ExpectedValue": 987669.257023579,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/13/2017 12:00:00 AM",
+    "Value": 1088383,
+    "ExpectedValue": 983019.434803037,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/14/2017 12:00:00 AM",
+    "Value": 1000995,
+    "ExpectedValue": 1044136.79468266,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/15/2017 12:00:00 AM",
+    "Value": 767825,
+    "ExpectedValue": 930239.18068221,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/16/2017 12:00:00 AM",
+    "Value": 786353,
+    "ExpectedValue": 900915.472192643,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/17/2017 12:00:00 AM",
+    "Value": 1009109.659,
+    "ExpectedValue": 907493.718723157,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/18/2017 12:00:00 AM",
+    "Value": 907140.4,
+    "ExpectedValue": 838759.514997835,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/19/2017 12:00:00 AM",
+    "Value": 896176.267,
+    "ExpectedValue": 790470.367361001,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/20/2017 12:00:00 AM",
+    "Value": 1156368,
+    "ExpectedValue": 945956.530801671,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/21/2017 12:00:00 AM",
+    "Value": 759463,
+    "ExpectedValue": 900825.501487724,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/22/2017 12:00:00 AM",
+    "Value": 592846,
+    "ExpectedValue": 830130.149452896,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/23/2017 12:00:00 AM",
+    "Value": 711654.001,
+    "ExpectedValue": 966257.488007685,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/24/2017 12:00:00 AM",
+    "Value": 883078.832,
+    "ExpectedValue": 908289.419828837,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/25/2017 12:00:00 AM",
+    "Value": 1010462.905,
+    "ExpectedValue": 1015222.33616228,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/26/2017 12:00:00 AM",
+    "Value": 1011149,
+    "ExpectedValue": 949078.778997915,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/27/2017 12:00:00 AM",
+    "Value": 1014018,
+    "ExpectedValue": 1062925.00965706,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/28/2017 12:00:00 AM",
+    "Value": 826615.567,
+    "ExpectedValue": 1189889.70014817,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/29/2017 12:00:00 AM",
+    "Value": 564027,
+    "ExpectedValue": 1307589.79637277,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/30/2017 12:00:00 AM",
+    "Value": 871540.301,
+    "ExpectedValue": 1244876.68574209,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "10/31/2017 12:00:00 AM",
+    "Value": 699845.01,
+    "ExpectedValue": 778508.070996323,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/1/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 1383502.37234557,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "11/2/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 120053.277875819,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/3/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 146054.919408832,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/4/2017 12:00:00 AM",
+    "Value": 1098734,
+    "ExpectedValue": 407523.876502052,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/5/2017 12:00:00 AM",
+    "Value": 790358,
+    "ExpectedValue": 566668.403781209,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/6/2017 12:00:00 AM",
+    "Value": 1233744.351,
+    "ExpectedValue": 444020.948460153,
+    "IsAnomaly": "True"
+  },
+  {
+    "Timetamp": "11/7/2017 12:00:00 AM",
+    "Value": 917992.999,
+    "ExpectedValue": 565358.604754538,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/8/2017 12:00:00 AM",
+    "Value": 772890,
+    "ExpectedValue": 465299.282914468,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/9/2017 12:00:00 AM",
+    "Value": 1055347.462,
+    "ExpectedValue": 605346.60870206,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/10/2017 12:00:00 AM",
+    "Value": 1035679,
+    "ExpectedValue": 681230.692222244,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/11/2017 12:00:00 AM",
+    "Value": 384977,
+    "ExpectedValue": 633809.208436773,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/12/2017 12:00:00 AM",
+    "Value": 254684,
+    "ExpectedValue": 572486.767878116,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/13/2017 12:00:00 AM",
+    "Value": 516148,
+    "ExpectedValue": 571233.519388685,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/14/2017 12:00:00 AM",
+    "Value": 740588.468,
+    "ExpectedValue": 601913.217292462,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/15/2017 12:00:00 AM",
+    "Value": 684507,
+    "ExpectedValue": 577439.747991897,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/16/2017 12:00:00 AM",
+    "Value": 627439.95,
+    "ExpectedValue": 659990.18817931,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/17/2017 12:00:00 AM",
+    "Value": 475399.03,
+    "ExpectedValue": 601348.908388067,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/18/2017 12:00:00 AM",
+    "Value": 640946,
+    "ExpectedValue": 690800.49409795,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/19/2017 12:00:00 AM",
+    "Value": 337145,
+    "ExpectedValue": 688774.509163105,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/20/2017 12:00:00 AM",
+    "Value": 538920,
+    "ExpectedValue": 777515.278077016,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/21/2017 12:00:00 AM",
+    "Value": 731222.358,
+    "ExpectedValue": 699735.903843931,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/22/2017 12:00:00 AM",
+    "Value": 693614.625,
+    "ExpectedValue": 638724.026116789,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/23/2017 12:00:00 AM",
+    "Value": 678872.048,
+    "ExpectedValue": 646541.739764624,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/24/2017 12:00:00 AM",
+    "Value": 418248.857,
+    "ExpectedValue": 612240.103335589,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/25/2017 12:00:00 AM",
+    "Value": 382450,
+    "ExpectedValue": 683296.620404724,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/26/2017 12:00:00 AM",
+    "Value": 261812,
+    "ExpectedValue": 792837.880143763,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/27/2017 12:00:00 AM",
+    "Value": 451830,
+    "ExpectedValue": 677780.065669212,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/28/2017 12:00:00 AM",
+    "Value": 573597.385,
+    "ExpectedValue": 674082.834341157,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/29/2017 12:00:00 AM",
+    "Value": 549359.22,
+    "ExpectedValue": 710102.598670298,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "11/30/2017 12:00:00 AM",
+    "Value": 451230.743,
+    "ExpectedValue": 744977.307977027,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/1/2017 12:00:00 AM",
+    "Value": 413219,
+    "ExpectedValue": 1120154.91163638,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/2/2017 12:00:00 AM",
+    "Value": 243572,
+    "ExpectedValue": 201519.982154078,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/3/2017 12:00:00 AM",
+    "Value": 78222,
+    "ExpectedValue": 139046.992169389,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/4/2017 12:00:00 AM",
+    "Value": 160749,
+    "ExpectedValue": 180205.797581545,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/5/2017 12:00:00 AM",
+    "Value": 331601,
+    "ExpectedValue": 233302.684178743,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/6/2017 12:00:00 AM",
+    "Value": 543934,
+    "ExpectedValue": 347992.73550253,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/7/2017 12:00:00 AM",
+    "Value": 277598,
+    "ExpectedValue": 267509.898113477,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/8/2017 12:00:00 AM",
+    "Value": 543698,
+    "ExpectedValue": 376816.102940431,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/9/2017 12:00:00 AM",
+    "Value": 384475,
+    "ExpectedValue": 395293.28818535,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/10/2017 12:00:00 AM",
+    "Value": 189520,
+    "ExpectedValue": 322240.427972737,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/11/2017 12:00:00 AM",
+    "Value": 290583,
+    "ExpectedValue": 329245.969661035,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/12/2017 12:00:00 AM",
+    "Value": 490127.63,
+    "ExpectedValue": 348710.119975913,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/13/2017 12:00:00 AM",
+    "Value": 557591.133,
+    "ExpectedValue": 377332.259489775,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/14/2017 12:00:00 AM",
+    "Value": 440158.7,
+    "ExpectedValue": 379879.003199815,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/15/2017 12:00:00 AM",
+    "Value": 474352.5,
+    "ExpectedValue": 475027.280000258,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/16/2017 12:00:00 AM",
+    "Value": 250911,
+    "ExpectedValue": 449591.0414327,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/17/2017 12:00:00 AM",
+    "Value": 114500,
+    "ExpectedValue": 372974.638893075,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/18/2017 12:00:00 AM",
+    "Value": 264295,
+    "ExpectedValue": 334402.18339481,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/19/2017 12:00:00 AM",
+    "Value": 510590.57,
+    "ExpectedValue": 426142.992051865,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/20/2017 12:00:00 AM",
+    "Value": 474245,
+    "ExpectedValue": 396313.27348765,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/21/2017 12:00:00 AM",
+    "Value": 492226,
+    "ExpectedValue": 433550.633018042,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/22/2017 12:00:00 AM",
+    "Value": 501896,
+    "ExpectedValue": 451246.574726116,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/23/2017 12:00:00 AM",
+    "Value": 349023,
+    "ExpectedValue": 430000.640158391,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/24/2017 12:00:00 AM",
+    "Value": 151514,
+    "ExpectedValue": 395779.42267699,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/25/2017 12:00:00 AM",
+    "Value": 401629.58,
+    "ExpectedValue": 385972.00021567,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/26/2017 12:00:00 AM",
+    "Value": 433590.816,
+    "ExpectedValue": 384305.9990034,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/27/2017 12:00:00 AM",
+    "Value": 368096,
+    "ExpectedValue": 353982.773080858,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/28/2017 12:00:00 AM",
+    "Value": 457716,
+    "ExpectedValue": 495307.034985716,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/29/2017 12:00:00 AM",
+    "Value": 321006.913,
+    "ExpectedValue": 478954.663620269,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/30/2017 12:00:00 AM",
+    "Value": 89548,
+    "ExpectedValue": 402568.406806104,
+    "IsAnomaly": "False"
+  },
+  {
+    "Timetamp": "12/31/2017 12:00:00 AM",
+    "Value": 0,
+    "ExpectedValue": 330874.528566964,
+    "IsAnomaly": "False"
+  }
+]

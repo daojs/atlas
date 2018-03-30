@@ -152,7 +152,7 @@ export default {
     },
     {
       w: 12,
-      h: 19,
+      h: 25,
       x: 0,
       y: 34,
       i: 'advise-analysis',
