@@ -25,6 +25,29 @@ export function cumulative(data, {
   }]);
 }
 
+export function cumulativeKeys(data, {
+  measureKeys,
+  timestampKey,
+}) {
+  const [first, ...rest] = sortByTimestamp(data, timestampKey);
+  return _.reduce(rest, (memo, item, index) => {
+    memo.push(_.reduce(measureKeys, (result, key) => {
+      result[key] = item[key] + memo[index][key]; //eslint-disable-line
+
+      return result;
+    }, {
+      [timestampKey]: item[timestampKey],
+      raw: item,
+    }));
+
+    return memo;
+  }, [{
+    [timestampKey]: first[timestampKey],
+    raw: first,
+    ...first,
+  }]);
+}
+
 export function growthRate(data, {
   measureKey,
   timestampKey,

@@ -9,19 +9,12 @@ import components from '../../components';
 import Usage from './usage-metric-trend-chart';
 
 const {
-  Bar,
-  // Compare,
   Cell,
   Heatmap,
-  TimeRange,
-  SingleSelector,
-  // PlainData,
+  LineBarChart,
   SectionContainer,
-  // Donut,
-  // LineWithDataZoom,
   Line,
   SectionCard,
-  // StackBar,
 } = components;
 
 function WithComponent(Control) {
@@ -77,7 +70,7 @@ export default function () {
             <Row>
               <Col span={16}>
                 {/* TODO: @Ling  */}
-                <Cell input="revenueBreakDownByCategory" title="预测销售额与目标销售额对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+                <Cell input="annualRevenueGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
                 {/* TODO: @Wei */}
@@ -97,7 +90,7 @@ export default function () {
             <Row>
               <Col span={16}>
                 {/* TODO: @Ling  */}
-                <Cell input="volumeBreakDownByCategory" title="预测销量与目标销量对比" subTitle="差距" renderCell={WithComponent(Bar)} />
+                <Cell input="annualVolumeGoalRisk" title="年度目标完成风险分析" subTitle="差距" renderCell={WithComponent(LineBarChart)} />
               </Col>
               <Col span={8}>
                 {/* TODO: @Wei */}
