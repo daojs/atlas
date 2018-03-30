@@ -17,6 +17,7 @@ const {
   SingleSelector,
   // PlainData,
   SectionContainer,
+  Markdown,
   // Donut,
   // LineWithDataZoom,
   Line,
@@ -80,7 +81,7 @@ export default function () {
                 <Cell input="revenueBreakDownByCategory" title="预测销售额与目标销售额对比" subTitle="差距" renderCell={WithComponent(Bar)} />
               </Col>
               <Col span={8}>
-                {/* TODO: @Wei */}
+                <Cell input="revenueExplanation" renderCell={WithComponent(Markdown)} />
               </Col>
             </Row>
           </SectionCard>
@@ -100,7 +101,7 @@ export default function () {
                 <Cell input="volumeBreakDownByCategory" title="预测销量与目标销量对比" subTitle="差距" renderCell={WithComponent(Bar)} />
               </Col>
               <Col span={8}>
-                {/* TODO: @Wei */}
+                <Cell input="volumeExplanation" renderCell={WithComponent(Markdown)} />
               </Col>
             </Row>
           </SectionCard>
@@ -114,7 +115,7 @@ export default function () {
                 <Cell renderCell={WithComponent(Usage)} />
               </Col>
               <Col span={8}>
-                {/* TODO: @Wei */}
+                <Cell input="promotionRecommendation" renderCell={WithComponent(Markdown)} />
               </Col>
             </Row>
             <Row>

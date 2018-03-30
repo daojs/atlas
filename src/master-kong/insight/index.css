@@ -5,3 +5,11 @@
   display: inline-block;
   margin-left: 15px;
 }
+
+code {
+  color: #fefee0;
+  padding-left: 2px;
+  padding-right: 2px;
+  background: #0077ff;
+  border-radius: 5px;
+}

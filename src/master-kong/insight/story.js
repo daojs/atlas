@@ -7,12 +7,19 @@ import factories from '../../factories';
 import branch from '../branch.json';
 import category from '../category.json';
 
+import revenueExplanation from './content/revenue-explanation.md';
+import volumeExplanation from './content/volume-explanation.md';
+import promotionRecommendation from './content/promotion-recommendation.md';
+
 const {
   fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
   fetchMasterKongVolumeBreakDown,
 } = factories;
 
+console.log(revenueExplanation);
+console.log(volumeExplanation);
+console.log(promotionRecommendation);
 const simulation = client.call('masterKongSimulate');
 
 export default {
@@ -129,6 +136,15 @@ export default {
           },
         };
       },
+    },
+    revenueExplanation: {
+      factory: _.constant(revenueExplanation),
+    },
+    volumeExplanation: {
+      factory: _.constant(volumeExplanation),
+    },
+    promotionRecommendation: {
+      factory: _.constant(promotionRecommendation),
     },
   },
   id: '20002',
