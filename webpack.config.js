@@ -36,6 +36,13 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+      {
+        test: /\.yaml$/,
+        use: [
+          { loader: 'json-loader' },
+          { loader: 'yaml-loader' },
+        ],
+      }
     ],
   },
 };
