@@ -12,11 +12,15 @@ const dictionary = {
   forecast: 'Predicted value',
 };
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 module.exports = function getData(body) {
   const args = body['@args'];
   const [entity, { aggregation, filter, groupBy }] = args;
-  const filterKey = _.first(_.keys(filter));
-  const filterValue = filter[filterKey];
+  const filterKey = capitalizeFirstLetter(_.first(_.keys(filter)));
+  const filterValue = _.first(_.values(filter));
 
   const data = _.chain(rawData[`${entity}By${filterKey}`])
     .filter({
