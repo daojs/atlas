@@ -113,6 +113,23 @@ export default {
         source: data,
       }),
     },
+    salesLastYear: {
+      factory: () => {
+        const data = _.map(_.range(365), i => ({
+          time: i,
+          sales: _.random(100, 500),
+          predicate: _.random(100, 500),
+        }));
+        return {
+          source: data,
+          axisDimensions: ['time'],
+          key2name: {
+            sales: '销售量',
+            predicate: '预测值',
+          },
+        };
+      },
+    },
   },
   id: '20002',
 };
