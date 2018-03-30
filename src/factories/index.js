@@ -12,6 +12,7 @@ import fetchTraffic from './fetch-traffic';
 import fetchTrendForGrowth from './fetch-trend-for-growth';
 import fetchMetricTrend from './fetch-metric-trend';
 import fetchRevenueForecast from './fetch-revenue-forecast';
+import fetchMasterKongSalesLastYear from './fetch-master-kong-sales-last-year';
 import fetchMasterKongAnnualGoalCompRisk from './fetch-master-kong-annual-goal-comp-risk';
 import fetchMasterKongRevenueForecast from './fetch-master-kong-revenue-forecast';
 
@@ -30,6 +31,7 @@ export default {
   fetchTrendForGrowth,
   fetchMetricTrend,
   fetchRevenueForecast,
+  fetchMasterKongSalesLastYear,
   fetchMasterKongAnnualGoalCompRisk,
   fetchMasterKongRevenueForecast,
 };

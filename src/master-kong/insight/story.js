@@ -14,6 +14,7 @@ import promotionRecommendation from './content/promotion-recommendation.md';
 const {
   fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueGap,
+  fetchMasterKongSalesLastYear,
   fetchMasterKongAnnualGoalCompRisk,
   mergeMonthAndYearData,
 } = factories;
@@ -104,33 +105,47 @@ export default {
         };
       },
     },
+    fetchMasterKongSalesLastYear: {
+      factory: fetchMasterKongSalesLastYear(),
+    },
     salesLastYear: {
-      factory: () => {
-        const data = _.map(_.range(365), i => ({
-          time: i,
-          sales: _.random(100, 500),
-          predicate: _.random(100, 500),
-        }));
-        return {
+      dependencies: ['fetchMasterKongSalesLastYear'],
+      factory: data =>
+        // const data = _.map(_.range(365), i => ({
+        //   time: i,
+        //   sales: _.random(100, 500),
+        //   predicate: _.random(100, 500),
+        // }));
+        ({
           source: data,
-          axisDimensions: ['time'],
+          axisDimensions: ['month'],
+          metricDimensions: ['target', 'forecast'],
           key2name: {
-            sales: '销售量',
-            predicate: '预测值',
+            target: '实际销量',
+            forecast: '预测销量',
           },
           markArea: [
             [
               {
-                name: '第一次活动',
-                xAxis: 10,
+                name: '春节促销活动',
+                xAxis: 2,
               },
               {
-                xAxis: 20,
+                xAxis: 3,
+              },
+            ],
+            [
+              {
+                name: '暑期促销活动',
+                xAxis: 6,
+              },
+              {
+                xAxis: 7,
               },
             ],
           ],
-        };
-      },
+        })
+      ,
     },
     fetchAnnualRevenueGoalRisk: {
       factory: fetchMasterKongAnnualGoalCompRisk({
