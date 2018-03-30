@@ -8,21 +8,21 @@ export default function (client, simulation, key) {
 
     return simulation
 
-      .then(({ forcast }) => client.call('dag', {
-        forcastData: {
+      .then(({ forecast }) => client.call('dag', {
+        forecastData: {
           '@proc': 'read',
           '@args': [
-            forcast,
+            forecast,
           ],
         },
         result: {
           '@proc': 'query2',
           '@args': [{
-            '@ref': 'forcastData',
+            '@ref': 'forecastData',
           }, {
             aggregation: {
               targetRevenue: 'sum',
-              forcastRevenue: 'sum',
+              forecastRevenue: 'sum',
             },
             filter: {
               [key]: keyValue,

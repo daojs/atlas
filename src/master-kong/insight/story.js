@@ -88,13 +88,11 @@ export default {
       factory: fetchMasterKongRevenueBreakDownByTime(client, simulation, 'branch'),
     },
     revenueBreakDownByBranch: {
-      dependencies: ['fetchRevenueBreakDownByCategory'],
+      dependencies: ['fetchRevenueBreakDownByBranch'],
       factory: data => ({
         source: data,
       }),
     },
-
-
     fetchVolumeBreakDownByCategory: {
       dependencies: ['@category'],
       factory: fetchMasterKongVolumeBreakDown(client, simulation, 'category'),
