@@ -159,7 +159,7 @@ export default {
     },
     fetchAnnualRevenueCumulativeGoal: {
       dependencies: ['fetchAnnualRevenueGoalRisk'],
-      factory: ({ data }) => {
+      factory: (data) => {
         if (_.some([data], _.isNil)) {
           return undefined;
         }
@@ -171,7 +171,7 @@ export default {
     },
     fetchAnnualVolumeCumulativeGoal: {
       dependencies: ['fetchAnnualVolumeGoalRisk'],
-      factory: ({ data }) => {
+      factory: (data) => {
         if (_.some([data], _.isNil)) {
           return undefined;
         }
@@ -183,11 +183,11 @@ export default {
     },
     annualRevenueGoalRisk: {
       dependencies: ['fetchAnnualRevenueGoalRisk', 'fetchAnnualRevenueCumulativeGoal'],
-      factory: mergeMonthAndYearData(),
+      factory: mergeMonthAndYearData('Revenue'),
     },
     annualVolumeGoalRisk: {
       dependencies: ['fetchAnnualVolumeGoalRisk', 'fetchAnnualVolumeCumulativeGoal'],
-      factory: mergeMonthAndYearData(),
+      factory: mergeMonthAndYearData('Volume'),
     },
     revenueExplanation: {
       factory: _.constant(revenueExplanation),

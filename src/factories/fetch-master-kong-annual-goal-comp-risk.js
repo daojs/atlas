@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _ from 'lodash';
 
 export default function ({ metricKey }) {
   return () => axios.post('./insight', {
@@ -17,5 +18,6 @@ export default function ({ metricKey }) {
           timestamp: 'month',
         },
       }],
-  }).then(result => result.data);
+  }).then(({ data }) => data.data)
+    .then(data => _.filter(data, row => !_.includes(['Jan', 'Feb', 'Mar'], row.month)));
 }
