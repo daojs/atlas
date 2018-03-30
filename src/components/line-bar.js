@@ -66,6 +66,9 @@ export default class LineBarChart extends PureComponent { //eslint-disable-line
     const metric2TypeMap = getMetric2TypeMap(yAxisMetrics);
 
     const options = {
+      title: {
+        text: this.props.title || '',
+      },
       tooltip: {
         trigger: 'axis',
         axisPointer: {
