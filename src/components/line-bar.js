@@ -89,12 +89,16 @@ export default class LineBarChart extends PureComponent { //eslint-disable-line
       yAxis: _.map(yAxisMetrics, metric => ({
         type: 'value',
         name: metric.name,
+        splitLine: {
+          show: false,
+        },
       })),
       series: _.map(this.getMetricDimensions(), series => ({
         name: this.props.value.key2Name[series],
         type: metric2TypeMap[series].type,
         data: _.map(source, row => _.result(row, series)),
         yAxisIndex: metric2TypeMap[series].index,
+        barWidth: '30%',
       })),
     };
     return (
