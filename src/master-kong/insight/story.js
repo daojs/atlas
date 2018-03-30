@@ -129,18 +129,20 @@ export default {
       },
     },
     fetchAnnualRevenueGoalRisk: {
-      factory: fetchMasterKongAnnualGoalCompRisk(client, simulation, {
+      factory: fetchMasterKongAnnualGoalCompRisk({
+        metricKey: 'Revenue',
         aggregation: {
-          目标销售额: 'sum',
-          预测销售额: 'sum',
+          target: 'sum',
+          forecast: 'sum',
         },
       }),
     },
     fetchAnnualVolumeGoalRisk: {
-      factory: fetchMasterKongAnnualGoalCompRisk(client, simulation, {
+      factory: fetchMasterKongAnnualGoalCompRisk({
+        metricKey: 'Volume',
         aggregation: {
-          目标销量: 'sum',
-          预测销量: 'sum',
+          target: 'sum',
+          forecast: 'sum',
         },
       }),
     },
