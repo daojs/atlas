@@ -15,6 +15,7 @@ const {
   fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueBreakDownByTime,
   fetchMasterKongRevenueGap,
+  fetchMasterKongVolumeForecast,
   fetchMasterKongVolumeBreakDown,
 } = factories;
 
@@ -124,6 +125,26 @@ export default {
     },
     masterKongRevenueForecast: {
       dependencies: ['preMasterKongRevenueForecast'],
+      factory: (data) => {
+        const ret = data;
+        return {
+          source: ret,
+          axisDimensions: ['timestamp'],
+          key2name: {
+            forecast: '预测值',
+            target: '成交值',
+            mape: '平均绝对百分比误差',
+            ape: '平均绝对误差',
+          },
+        };
+      },
+    },
+    preMasterKongVolumeForecast: {
+      dependencies: ['@category'],
+      factory: fetchMasterKongVolumeForecast(),
+    },
+    masterKongVolumeForecast: {
+      dependencies: ['preMasterKongVolumeForecast'],
       factory: (data) => {
         const ret = data;
         return {

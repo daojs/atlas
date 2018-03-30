@@ -14,6 +14,7 @@ import fetchMasterKongRevenueBreakDownByTime from './fetch-master-kong-revenue-b
 import fetchRevenueForecast from './fetch-revenue-forecast';
 import fetchMasterKongVolumeBreakDown from './fetch-master-kong-volume-break-down';
 import fetchMasterKongRevenueForecast from './fetch-master-kong-revenue-forecast';
+import fetchMasterKongVolumeForecast from './fetch-master-kong-volume-forecast';
 
 export default {
   fetchMasterKongRevenueAndVolumnTrend,
@@ -32,4 +33,5 @@ export default {
   fetchRevenueForecast,
   fetchMasterKongVolumeBreakDown,
   fetchMasterKongRevenueForecast,
+  fetchMasterKongVolumeForecast,
 };

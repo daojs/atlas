@@ -90,7 +90,7 @@ export default function () {
           >
             <Row>
               <Col>
-                <Cell input="masterKongRevenueForecast" renderCell={WithComponent(Line)} />
+                <Cell input="masterKongVolumeForecast" renderCell={WithComponent(Line)} />
               </Col>
             </Row>
             <Row>
