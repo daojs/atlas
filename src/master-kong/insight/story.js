@@ -56,8 +56,11 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.category, item.month, item['销售指标差距']]),
-          metricDimensions: ['销售指标差距'],
+          source: _.map(rawData, item => [
+            item.category,
+            `${item.month} ${item.year}`,
+            Number(item.forecast) - Number(item.target),
+          ]),
         });
       },
     },
@@ -76,8 +79,11 @@ export default {
         }
 
         return Promise.resolve({
-          source: _.map(rawData, item => [item.branch, item.month, item['销售指标差距']]),
-          metricDimensions: ['销售指标差距'],
+          source: _.map(rawData, item => [
+            item.branch,
+            `${item.month} ${item.year}`,
+            Number(item.forecast) - Number(item.target),
+          ]),
         });
       },
     },
@@ -190,9 +196,11 @@ export default {
           yAxisMetrics: [{
             metrics: ['目标销售额', '预测销售额'],
             type: 'bar',
+            name: '月销售额',
           }, {
             metrics: ['目标销售额累积', '预测销售额累积'],
             type: 'line',
+            name: '年销售额',
           }],
           source: _.values(mergedData),
         };
@@ -215,9 +223,11 @@ export default {
           yAxisMetrics: [{
             metrics: ['目标销量', '预测销量'],
             type: 'bar',
+            name: '月销量',
           }, {
             metrics: ['目标销量累积', '预测销量累积'],
             type: 'line',
+            name: '年销量',
           }],
           source: _.values(mergedData),
         };
