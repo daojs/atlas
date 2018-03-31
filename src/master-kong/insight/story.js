@@ -15,18 +15,18 @@ const {
   fetchMasterKongRevenueForecast,
   fetchMasterKongRevenueGap,
   fetchMasterKongVolumeForecast,
-  fetchMasterKongVolumeBreakDown,
+  // fetchMasterKongVolumeBreakDown,
   fetchMasterKongSalesLastYear,
   fetchMasterKongAnnualGoalCompRisk,
   mergeMonthAndYearData,
 } = factories;
 
-function findLastYearItem(rawData, item) {
-  return _.find(rawData, previous => previous.month === item.month
-    && previous.year == item.year - 1
-    && previous.category === item.category
-    && previous.branch === item.branch);
-}
+// function findLastYearItem(rawData, item) {
+//   return _.find(rawData, previous => previous.month === item.month
+//     && previous.year == item.year - 1
+//     && previous.category === item.category
+//     && previous.branch === item.branch);
+// }
 
 const simulation = client.call('masterKongSimulate');
 
@@ -102,7 +102,7 @@ export default {
           },
           axisDimensions: ['timestamp'],
           key2name: {
-            forecast: '测值销售额',
+            forecast: '预测销售额',
             target: '实际销售额',
             mape: '平均绝对百分比误差',
             ape: '平均绝对误差',
@@ -163,41 +163,65 @@ export default {
     salesLastYear: {
       dependencies: ['fetchMasterKongSalesLastYear'],
       factory: (data) => {
-        console.log(data);
         if (_.some([data], _.isNil)) {
           return undefined;
         }
         return ({
           source: data,
           axisDimensions: ['Timetamp'],
-          metricDimensions: ['Value', 'ExpectedValue'],
+          metricDimensions: ['Value', 'ExpectedValue', 'Delta'],
           key2name: {
             Value: '实际销量',
             ExpectedValue: '预测销量',
+            Delta: '溢出销量',
+          },
+          areaStyle: {
+            Delta: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  { offset: 0, color: 'green' },
+                  { offset: 0.7, color: 'white' },
+                  { offset: 1, color: 'red' },
+                ],
+              },
+            },
           },
           markArea: [
             [
               {
-                name: '暑期广告活动',
-                xAxis: 31,
+                name: '新春促销',
+                xAxis: 5,
               }, {
-                xAxis: 34,
+                xAxis: 9,
+              },
+            ],
+            [
+              {
+                name: '开学季促销',
+                xAxis: 35,
+              }, {
+                xAxis: 39,
               },
             ],
             [
               {
                 name: '春季广告',
-                xAxis: 15,
+                xAxis: 12,
               }, {
-                xAxis: 17,
+                xAxis: 15,
               },
             ],
             [
               {
                 name: '儿童节促销',
-                xAxis: 21,
+                xAxis: 20,
               }, {
-                xAxis: 22,
+                xAxis: 23,
               },
             ],
           ],

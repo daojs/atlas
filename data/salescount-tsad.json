@@ -4514,73 +4514,73 @@
   {
     "Timetamp": "1/22/2017 12:00:00 AM",
     "Value": 690811.701,
-    "ExpectedValue": 602895.267775962,
+    "ExpectedValue": 802895.267775962,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "1/23/2017 12:00:00 AM",
     "Value": 442755,
-    "ExpectedValue": 349119.166422299,
+    "ExpectedValue": 649119.166422299,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "1/24/2017 12:00:00 AM",
     "Value": 150796,
-    "ExpectedValue": 124686.86615337,
+    "ExpectedValue": 624686.86615337,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "1/25/2017 12:00:00 AM",
     "Value": 1253,
-    "ExpectedValue": 0,
+    "ExpectedValue": 409268.526923461,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "1/26/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 0,
+    "ExpectedValue": 752560.47367831,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "1/27/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 0,
+    "ExpectedValue": 888571.427305817,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "1/28/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 0,
+    "ExpectedValue": 959262.25209296,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "1/29/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 0,
+    "ExpectedValue": 1088196.40939282,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "1/30/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 0,
+    "ExpectedValue": 1042697.20606354,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "1/31/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 0,
+    "ExpectedValue": 1396443.63888584,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "2/1/2017 12:00:00 AM",
     "Value": 8604,
-    "ExpectedValue": 0,
+    "ExpectedValue": 88985.7168416765,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "2/2/2017 12:00:00 AM",
     "Value": 5331,
-    "ExpectedValue": 0,
+    "ExpectedValue": 146875.615927043,
     "IsAnomaly": "False"
   },
   {
@@ -4892,49 +4892,49 @@
   {
     "Timetamp": "3/26/2017 12:00:00 AM",
     "Value": 1227851,
-    "ExpectedValue": 1068970.07582543,
+    "ExpectedValue": 1768970.07582543,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "3/27/2017 12:00:00 AM",
     "Value": 1398440,
-    "ExpectedValue": 1094460.36236023,
+    "ExpectedValue": 1694460.36236023,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "3/28/2017 12:00:00 AM",
     "Value": 1301001,
-    "ExpectedValue": 1321588.99718216,
+    "ExpectedValue": 1621588.99718216,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "3/29/2017 12:00:00 AM",
     "Value": 1417418,
-    "ExpectedValue": 1561192.20564735,
+    "ExpectedValue": 1761192.20564735,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "3/30/2017 12:00:00 AM",
     "Value": 1123034.3,
-    "ExpectedValue": 1391387.75804424,
+    "ExpectedValue": 1891387.75804424,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "3/31/2017 12:00:00 AM",
     "Value": 1005870,
-    "ExpectedValue": 1330641.99036689,
+    "ExpectedValue": 2330641.99036689,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "4/1/2017 12:00:00 AM",
     "Value": 2387631.69,
-    "ExpectedValue": 1981877.46579491,
+    "ExpectedValue": 3981877.46579491,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "4/2/2017 12:00:00 AM",
     "Value": 1224731,
-    "ExpectedValue": 1331700.477972091,
+    "ExpectedValue": 331700.477972091,
     "IsAnomaly": "True"
   },
   {
@@ -5072,7 +5072,7 @@
   {
     "Timetamp": "4/25/2017 12:00:00 AM",
     "Value": 3025029,
-    "ExpectedValue": 2850243.71955769,
+    "ExpectedValue": 1850243.71955769,
     "IsAnomaly": "True"
   },
   {
@@ -5096,7 +5096,7 @@
   {
     "Timetamp": "4/29/2017 12:00:00 AM",
     "Value": 639124,
-    "ExpectedValue": 542486.7193185,
+    "ExpectedValue": 742486.7193185,
     "IsAnomaly": "True"
   },
   {
@@ -5108,19 +5108,19 @@
   {
     "Timetamp": "5/1/2017 12:00:00 AM",
     "Value": 1264924,
-    "ExpectedValue": 825332.21461823,
+    "ExpectedValue": 1825332.21461823,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "5/2/2017 12:00:00 AM",
     "Value": 1383039.263,
-    "ExpectedValue": 868434.749764673,
+    "ExpectedValue": 1168434.749764673,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "5/3/2017 12:00:00 AM",
     "Value": 1244886.4,
-    "ExpectedValue": 878908.07326587,
+    "ExpectedValue": 178908.07326587,
     "IsAnomaly": "True"
   },
   {
@@ -5270,19 +5270,19 @@
   {
     "Timetamp": "5/28/2017 12:00:00 AM",
     "Value": 958955.816,
-    "ExpectedValue": 1017450.23943626,
+    "ExpectedValue": 1317450.23943626,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "5/29/2017 12:00:00 AM",
     "Value": 352778,
-    "ExpectedValue": 592299.86564746,
+    "ExpectedValue": 1592299.86564746,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "5/30/2017 12:00:00 AM",
     "Value": 280526,
-    "ExpectedValue": 272551.33196955,
+    "ExpectedValue": 1272551.33196955,
     "IsAnomaly": "True"
   },
   {
@@ -5396,7 +5396,7 @@
   {
     "Timetamp": "6/18/2017 12:00:00 AM",
     "Value": 855984,
-    "ExpectedValue": 1513171.75429166,
+    "ExpectedValue": 513171.75429166,
     "IsAnomaly": "False"
   },
   {
@@ -5426,25 +5426,25 @@
   {
     "Timetamp": "6/23/2017 12:00:00 AM",
     "Value": 1334819.796,
-    "ExpectedValue": 1475076.12971595,
+    "ExpectedValue": 1375076.12971595,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "6/24/2017 12:00:00 AM",
     "Value": 1438244,
-    "ExpectedValue": 1572774.71283624,
+    "ExpectedValue": 1172774.71283624,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "6/25/2017 12:00:00 AM",
     "Value": 1248825.417,
-    "ExpectedValue": 1552296.5360316,
+    "ExpectedValue": 1152296.5360316,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "6/26/2017 12:00:00 AM",
     "Value": 1266110,
-    "ExpectedValue": 1841006.23214831,
+    "ExpectedValue": 841006.23214831,
     "IsAnomaly": "False"
   },
   {
@@ -5474,7 +5474,7 @@
   {
     "Timetamp": "7/1/2017 12:00:00 AM",
     "Value": 1959723,
-    "ExpectedValue": 3710928.03439389,
+    "ExpectedValue": 1710928.03439389,
     "IsAnomaly": "True"
   },
   {
@@ -6026,19 +6026,19 @@
   {
     "Timetamp": "10/1/2017 12:00:00 AM",
     "Value": 56690,
-    "ExpectedValue": 0,
+    "ExpectedValue": 2345264.11795097,
     "IsAnomaly": "True"
   },
   {
     "Timetamp": "10/2/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 0,
+    "ExpectedValue": 15761.3025641702,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "10/3/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 0,
+    "ExpectedValue": 25922.3350701332,
     "IsAnomaly": "False"
   },
   {
@@ -6194,13 +6194,13 @@
   {
     "Timetamp": "10/29/2017 12:00:00 AM",
     "Value": 564027,
-    "ExpectedValue": 807589.79637277,
+    "ExpectedValue": 1307589.79637277,
     "IsAnomaly": "False"
   },
   {
     "Timetamp": "10/30/2017 12:00:00 AM",
     "Value": 871540.301,
-    "ExpectedValue": 644876.68574209,
+    "ExpectedValue": 1244876.68574209,
     "IsAnomaly": "False"
   },
   {
@@ -6212,7 +6212,7 @@
   {
     "Timetamp": "11/1/2017 12:00:00 AM",
     "Value": 0,
-    "ExpectedValue": 383502.37234557,
+    "ExpectedValue": 1383502.37234557,
     "IsAnomaly": "True"
   },
   {

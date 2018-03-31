@@ -28,8 +28,9 @@ export default class Line extends BaseChart {
         type: 'line',
         name: _.get(this.props.value, `key2name[${dim}]`, dim),
         lineStyle: {
-          type: _.result(this.props.value.lineStyle, dim, 'solid'),
+          type: _.get(this.props.value.lineStyle, dim, 'solid'),
         },
+        areaStyle: _.get(this.props.value.areaStyle, dim),
         data: _.map(source, row => row[dim]),
       }))
       .value();

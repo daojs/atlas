@@ -1,28 +1,35 @@
-import axios from 'axios';
+import _ from 'lodash';
+// import axios from 'axios';
 
 // export default function () {
 //   return () => axios.post('./insight', {
 //     '@target': 'master-kong',
 //     '@proc': 'query',
 //     '@args': [
-//       'Volume',
+//       'VolumeTSAD',
 //       {
 //         aggregation: {
-//           target: 'sum',
-//           forecast: 'sum',
+//           Value: 'sum',
+//           ExpectedValue: 'sum',
 //         },
 //         filter: {
-//           year: '17',
+//           Timetamp: {
+//             type: 'time-range',
+//             from: '2017-01-01T00:00:00Z',
+//             to: '2017-12-31T23:59:59Z',
+//           },
 //         },
 //         groupBy: {
-//           timestamp: 'month',
+//           Timestamp: 'week',
 //         },
 //       },
 //     ],
-//   }).then((response) => {
-//     console.log(response);
-//     return response.data.data;
-//   });
+//   })
+//     .tap(console.log)
+//     .then(({ data }) => data.data)
+//     .then(values => _.map(values, value => _.extend(value, {
+//       Delta: value.Value - value.ExpectedValue,
+//     })));
 // }
 
 export default function (client, simulation) {
@@ -56,9 +63,10 @@ export default function (client, simulation) {
             },
           }],
         },
-      }, 'result');
+      }, 'result').then(values => _.map(values, value => _.extend(value, {
+        Delta: value.Value - value.ExpectedValue,
+      })));
 
-      console.log(ret);
       return ret;
     });
 }
