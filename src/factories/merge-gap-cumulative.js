@@ -7,6 +7,10 @@ const metric2String = {
   Revenue: '销售额',
   Volume: '销量',
 };
+const unit2String = {
+  Revenue: '亿元',
+  Volume: '亿件',
+};
 
 export default function (metric) {
   return (gapData, cumulativeData) => {
@@ -23,17 +27,18 @@ export default function (metric) {
     ));
     const mergedData = _.mergeWith(_.groupBy(gapData, 'month'), _.groupBy(transformCumulative, 'month'), customizer);
     const metricString = metric2String[metric];
+    const unitString = unit2String[metric];
 
     return {
       xAxisMetric: 'month',
       yAxisMetrics: [{
         metrics: ['target', 'forecast'],
         type: 'bar',
-        name: '月销售额',
+        name: `${metricString}(${unitString})`,
       }, {
         metrics: ['targetGap', 'forecastGap'],
         type: 'line',
-        name: '年销售额',
+        name: `累计${metricString}(${unitString})`,
       }],
       source: _.values(mergedData),
       metricDimensions: ['target', 'forecast', 'targetGap', 'forecastGap'],

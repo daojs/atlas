@@ -19,5 +19,9 @@ export default function ({ metricKey }) {
         },
       }],
   }).then(({ data }) => data.data)
-    .then(data => _.filter(data, row => !_.includes(['Jan', 'Feb', 'Mar'], row.month)));
+    .then(data => _.map(data, value => _.extend(value, {
+      target: Math.round(value.target / 1000000) / 100,
+      forecast: Math.round(value.forecast / 1000000) / 100,
+    })))
+    .then(data => _.filter(data, row => !_.includes(['Jan', 'Feb', 'Mar'], row.month)))
 }
