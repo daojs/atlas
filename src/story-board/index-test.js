@@ -27,12 +27,11 @@ export default class StoryBoardTest extends React.Component {
   componentDidMount() {
     const { layout } = this.props;
     const inputs = extractInputs(_.isArray(layout) ? layout : [layout]);
+    this.setState({ //eslint-disable-line
+      updating: Map(_.zipObject(inputs, _.fill(Array(inputs.length), true))),
+    });
 
     this.fetchData(inputs);
-
-    this.setState({ //eslint-disable-line
-      updating: Map(_.zipObject(inputs, _.fill(Array(inputs.length), false))),
-    });
   }
 
   fetchData = (inputs) => {
