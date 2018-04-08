@@ -6,6 +6,7 @@ import * as analysis from './analysis';
 import storage from './storage';
 import * as dagQL from './dag-ql';
 import * as growth from './growth';
+import * as dagQLTest from './dag-ql-test';
 
 register(procedures);
 register(simulator);
@@ -19,3 +20,5 @@ register({
 
 register(dagQL);
 register(growth);
+
+register(dagQLTest);

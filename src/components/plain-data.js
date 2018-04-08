@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class PlainData extends PureComponent {
   render() {
     return (
-      <div style={{ display: 'none' }}>
+      <div>
         {JSON.stringify(this.props.value)}
       </div>);
   }
@@ -12,7 +12,11 @@ export default class PlainData extends PureComponent {
 
 
 PlainData.propTypes = {
-  value: PropTypes.objectOf(PropTypes.any),
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.objectOf(PropTypes.any),
+  ]),
 };
 
 PlainData.defaultProps = {

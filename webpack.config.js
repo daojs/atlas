@@ -4,10 +4,12 @@ module.exports = {
   mode: 'development',
   entry: {
     index: [
+      'babel-polyfill',
       './src/index.js',
       'react-hot-loader/patch',
     ],
     worker: [
+      'babel-polyfill',
       './worker/index.js',
       'react-hot-loader/patch',
     ],
@@ -39,6 +41,13 @@ module.exports = {
       {
         test: /\.md$/,
         use: 'text-loader',
+      },
+      {
+        test: /\.yaml$/,
+        use: [
+          { loader: 'json-loader' },
+          { loader: 'yaml-loader' },
+        ],
       },
     ],
   },

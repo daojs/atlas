@@ -23,9 +23,11 @@ export default class SectionContainer extends Component {
   }
 
   componentDidMount() {
+    const children = _.isArray(this.props.children) ? this.props.children : [this.props.children];
+
     getLayout({
       storyId: this.props.id,
-      sectionIds: _.map(this.props.children, child => child.key),
+      sectionIds: _.map(children, 'key'),
     }).then((layout) => {
       this.setState({ layout });
     });
@@ -64,7 +66,10 @@ export default class SectionContainer extends Component {
 
 SectionContainer.propTypes = {
   id: PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(any),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]),
 };
 
 SectionContainer.defaultProps = {

@@ -19,7 +19,7 @@ import Line from './line';
 import SectionCard from './section-card';
 import LineBarChart from './line-bar';
 import Markdown from './markdown';
-
+import CellTest from './cell-test';
 
 export default {
   Bar,
@@ -43,4 +43,5 @@ export default {
   StackBar,
   LineBarChart,
   Markdown,
+  CellTest,
 };

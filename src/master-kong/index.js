@@ -3,6 +3,7 @@ import { Layout, Menu, Icon } from 'antd';
 
 import MasterKongDashBoard from './dashboard/layout';
 import MasterKongInsight from './insight/layout';
+import MasterKongTest from './new-story/layout-test';
 
 const { Content, Sider } = Layout;
 const contentStyle = {
@@ -13,13 +14,14 @@ const contentStyle = {
 const MasterKongContent = {
   dashboard: MasterKongDashBoard,
   insight: MasterKongInsight,
+  test: MasterKongTest,
 };
 
 export default class MasterKongLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: 'insight',
+      selected: 'test',
     };
   }
 
@@ -32,7 +34,7 @@ export default class MasterKongLayout extends React.Component {
       <Layout>
         <Layout>
           <Sider>
-            <Menu theme="dark" defaultSelectedKeys={['insight']} mode="inline" onSelect={this.onSelectMenu}>
+            <Menu theme="dark" defaultSelectedKeys={['test']} mode="inline" onSelect={this.onSelectMenu}>
               <Menu.Item key="dashboard">
                 <Icon type="user" />
                 <span className="nav-text">仪表盘</span>
@@ -40,6 +42,10 @@ export default class MasterKongLayout extends React.Component {
               <Menu.Item key="insight">
                 <Icon type="video-camera" />
                 <span className="nav-text">销售额预测</span>
+              </Menu.Item>
+              <Menu.Item key="test">
+                <Icon type="video-camera" />
+                <span className="nav-text">Test story</span>
               </Menu.Item>
             </Menu>
           </Sider>

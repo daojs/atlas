@@ -1,0 +1,16 @@
+---
+bar: 2
+test: 3
+selectedSelector: 午餐,
+foo:
+  '@proc': sum
+  '@args':
+    - '@ref': bar
+    - 1
+selector:
+  defaultValue: 午餐
+  enums:
+    - 午餐
+    - 早餐
+test1:
+  '@ref': selectedSelector

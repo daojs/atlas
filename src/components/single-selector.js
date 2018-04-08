@@ -13,27 +13,6 @@ export default class SingleSelector extends Component {
     };
   }
 
-  componentDidUpdate() {
-    const {
-      value: {
-        defaultValue,
-        enums,
-      },
-      currentValue,
-    } = this.props;
-    if (enums.length > 0) {
-      if (_.isNil(currentValue)) {
-        this.onChange(defaultValue);
-      } else {
-        const isValueAvailable = _.includes(enums, currentValue)
-          || _.find(enums, { value: currentValue });
-        if (!isValueAvailable) {
-          this.onChange(defaultValue);
-        }
-      }
-    }
-  }
-
   onChange(value) {
     this.props.update(value);
   }
