@@ -48,11 +48,23 @@ export default class StoryBoardTest extends React.Component {
     });
   }
 
-  update = (key, value) => {
-    client.call('set', key, value)
-      .then((invalidateKeys) => {
-        this.fetchData(invalidateKeys);
+  update = async (key, value) => {
+    const invalidateKeys = await client.call('set', key, value);
+    this.setState(({
+      data,
+      updating,
+    }) => {
+      _.forEach(invalidateKeys, (invalidateKey) => {
+        updating = updating.set(invalidateKey, true); //eslint-disable-line
       });
+
+      return {
+        data,
+        updating,
+      };
+    });
+
+    this.fetchData(invalidateKeys);
   }
 
   renderItem(config) {
