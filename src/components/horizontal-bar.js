@@ -1,12 +1,12 @@
 import _ from 'lodash';
+import React from 'react';
 import Bar from './bar';
 
-export default class HorizontalBar extends Bar {
-  getOption() {
-    const rawOption = super.getOption();
-    return _.defaults({
-      xAxis: rawOption.yAxis,
-      yAxis: rawOption.xAxis,
-    }, rawOption);
-  }
+export default function HorizontalBar(props) {
+  return (
+    <Bar
+      value={props.value}
+      isHorizontal
+    />
+  );
 }
