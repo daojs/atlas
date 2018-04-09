@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import _ from 'lodash/fp';
-import PropTypes from 'prop-types';
+import _ from 'lodash';
+import PropTypes, { any } from 'prop-types';
 import { Spin } from 'antd';
 
 export default class Cell extends PureComponent {
@@ -12,10 +12,17 @@ export default class Cell extends PureComponent {
     const {
       input,
       output,
-      Control,
+      type,
+      componentRegistry,
       data,
       ...otherProps
     } = this.props;
+
+    const Control = _.isObject(componentRegistry) ? componentRegistry[type] : null;
+
+    if (!Control) {
+      return null;
+    }
 
     if (!input && !output) {
       return <Control {...otherProps} />;
@@ -36,7 +43,8 @@ export default class Cell extends PureComponent {
 Cell.propTypes = {
   input: PropTypes.string,
   output: PropTypes.string,
-  Control: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+  componentRegistry: PropTypes.oneOfType([PropTypes.func, PropTypes.objectOf(any)]).isRequired,
   id: PropTypes.string.isRequired,
   isUpdating: PropTypes.bool,
   data: PropTypes.oneOfType([

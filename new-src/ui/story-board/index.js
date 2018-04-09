@@ -4,10 +4,7 @@ import { Map } from 'immutable';
 import PropTypes from 'prop-types';
 import client from '../../rpc-client/index';
 import components from '../components';
-
-const {
-  Cell,
-} = components;
+import Layout from '../layout';
 
 function extractInputs(nodes) {
   return _.reduce(nodes, (memo, { input, items }) => {
@@ -67,36 +64,14 @@ export default class StoryBoard extends React.Component {
     this.fetchData(invalidateNodes);
   }
 
-  renderItem(config) {
-    const {
-      key,
-      input,
-      output,
-      type,
-      props = {},
-      items = [],
-    } = config;
-
-    return (
-      <div key={key}>
-        <Cell
-          id={key}
-          input={input}
-          output={output}
-          Control={components[type]}
-          data={this.state.data.get(input)}
-          isUpdating={this.state.updating.get(input)}
-          update={this.update}
-          {...props}
-        >
-          {_.map(items, item => this.renderItem(item))}
-        </Cell>
-      </div>
-    );
-  }
-
   render() {
-    return this.renderItem(this.props.layout);
+    return (<Layout
+      componentRegistry={components}
+      layout={this.props.layout}
+      data={this.state.data}
+      isUpdating={this.state.updating}
+      update={this.update}
+    />);
   }
 }
 
