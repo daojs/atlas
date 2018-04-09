@@ -1,17 +1,9 @@
 import { Loader } from 'calculation-network';
-import * as query from './analysis';
-import * as math from './math';
-import storage from './storage';
-import * as growth from './growth';
+import * as procedures from './procedures';
 import story from './story.yaml';
 
 const contextNetwork = new Loader({
-  ...query,
-  read: id => storage.read(id),
-  write: data => storage.write(data),
-  remove: id => storage.remove(id),
-  ...growth,
-  ...math,
+  ...procedures,
 }).load(story);
 
 export async function set(key, value) {
