@@ -19,19 +19,23 @@ function extractInputs(nodes) {
 }
 
 export default class StoryBoardTest extends React.Component {
-  state = {
-    data: Map(),
-    updating: Map(),
+  constructor(props) {
+    super(props);
+
+    const inputs = this.inputNodes;
+    this.state = {
+      data: Map(),
+      updating: Map(_.zipObject(inputs, _.fill(Array(inputs.length), true))),
+    };
   }
 
   componentDidMount() {
-    const { layout } = this.props;
-    const inputs = extractInputs(_.isArray(layout) ? layout : [layout]);
-    this.setState({ //eslint-disable-line
-      updating: Map(_.zipObject(inputs, _.fill(Array(inputs.length), true))),
-    });
+    this.fetchData(this.inputNodes);
+  }
 
-    this.fetchData(inputs);
+  get inputNodes() {
+    const { layout } = this.props;
+    return extractInputs(_.isArray(layout) ? layout : [layout]);
   }
 
   fetchData = (inputs) => {
@@ -50,21 +54,17 @@ export default class StoryBoardTest extends React.Component {
 
   update = async (key, value) => {
     const invalidateKeys = await client.call('set', key, value);
+    const invalidateNodes = _.intersection(invalidateKeys, this.inputNodes);
+
     this.setState(({
       data,
       updating,
-    }) => {
-      _.forEach(invalidateKeys, (invalidateKey) => {
-        updating = updating.set(invalidateKey, true); //eslint-disable-line
-      });
+    }) => ({
+      data,
+      updating: updating.merge(_.zipObject(invalidateNodes, _.fill(Array(invalidateNodes.length), true))), //eslint-disable-line
+    }));
 
-      return {
-        data,
-        updating,
-      };
-    });
-
-    this.fetchData(invalidateKeys);
+    this.fetchData(invalidateNodes);
   }
 
   renderItem(config) {
