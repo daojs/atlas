@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import moment from 'moment';
-import storage from '../storage';
+import storage from './storage';
 
 function processAggregation(aggregation) {
   const aggrs = {

@@ -1,5 +1,5 @@
 import { Loader } from 'calculation-network';
-import * as query from './analysis/index';
+import * as query from './analysis';
 import * as math from './math';
 import storage from './storage';
 import * as growth from './growth';
