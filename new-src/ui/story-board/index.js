@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { Map } from 'immutable';
 import PropTypes from 'prop-types';
-import client from '../rpc-client/index';
+import client from '../../rpc-client/index';
 import components from '../components';
 
 const {
