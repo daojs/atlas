@@ -5,12 +5,12 @@ module.exports = {
   entry: {
     index: [
       'babel-polyfill',
-      './src/index.js',
+      './new-src/index.js',
       'react-hot-loader/patch',
     ],
     worker: [
       'babel-polyfill',
-      './worker/index.js',
+      './new-src/worker/index.js',
       'react-hot-loader/patch',
     ],
   },

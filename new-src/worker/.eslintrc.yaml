@@ -1,0 +1,12 @@
+---
+  # Refer to docs/javascript/README.md for detail
+  extends: airbnb
+
+  env:
+    worker: true
+    node: false
+
+  rules:
+    no-restricted-globals: off
+    linebreak-style: off
+    import/prefer-default-export: off

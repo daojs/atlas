@@ -1,0 +1,10 @@
+---
+  # Refer to docs/javascript/README.md for detail
+  extends: airbnb
+
+  env:
+    browser: true
+    node: false
+  rules:
+    react/jsx-filename-extension: off
+    linebreak-style: off
