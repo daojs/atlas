@@ -14,7 +14,7 @@ export default class SingleSelector extends Component {
   }
 
   onChange(value) {
-    this.props.update(value);
+    setTimeout(() => this.props.update(value), 0);
   }
 
   onSelectChange(value) {
